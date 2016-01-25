@@ -1,0 +1,30 @@
+@keyframes bg-color {
+  0% { background-color: #64c99b; }
+  33% { background-color: #6eb7db; }
+  66% { background-color: #eda184; }
+  100% { background-color: #64c99b; }
+}
+@-webkit-keyframes bg-color {
+  0% { background-color: #64c99b; }
+  33% { background-color: #6eb7db; }
+  66% { background-color: #eda184; }
+  100% { background-color: #64c99b; }
+}
+
+body {
+  background-color: #64c99b;
+  animation: bg-color 10s infinite;
+  -webkit-animation: bg-color 10s infinite;
+}
+.wrapper {
+  position: relative;
+  height: 400px;
+}
+.inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
