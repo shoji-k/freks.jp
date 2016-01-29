@@ -56,6 +56,8 @@ body {
 .gallery-item h3 {
   letter-spacing: 10px;
   opacity: 1;
+  height: 100%;
+  width: 100%;
 }
 
 .gallery-item h3 a {
@@ -66,6 +68,8 @@ body {
   text-transform: uppercase;
   transition: letter-spacing 0.25s ease-out,
               opacity 1.50s ease-out;
+  text-align: center;
+  padding: 100px 0;
 }
 
 .gallery-item:hover h3 {
