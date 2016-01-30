@@ -29,6 +29,9 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.top {
+  text-align: center;
+}
 
 .gallery {
   display: flex;
