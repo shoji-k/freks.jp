@@ -91,3 +91,7 @@ body {
 
   transition: transform 0.25s ease-out;
 }
+
+.error {
+  font-size: 4.0em;
+}
