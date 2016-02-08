@@ -95,3 +95,10 @@ body {
 .error {
   font-size: 4.0em;
 }
+
+.clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+}
+
