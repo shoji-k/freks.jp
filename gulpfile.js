@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
+// TODO: change _variable.scss -> $enable-flex: true !default;
+
 gulp.task("compile", function () {
     gulp.src('./node_modules/bootstrap/scss/bootstrap.scss')
         .pipe(sass())
