@@ -2,18 +2,15 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 
-// TODO: change _variable.scss -> $enable-flex: true !default;
-
 gulp.task("compile", function () {
     gulp.src('./scss/style.scss')
-    //gulp.src('./node_modules/bootstrap/scss/bootstrap.scss')
         .pipe(sass())
         .pipe(autoprefixer())
         .pipe(gulp.dest('css/'));
 });
 
 gulp.task("watch", function() {
-  gulp.watch('./node_modules/bootstrap/scss/*.scss', ['compile']);
+  gulp.watch('./scss/*.scss', ['compile']);
 });
 
 gulp.task("default", ['compile']);
