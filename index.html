@@ -5,8 +5,9 @@
 <meta name="description" content="freks page">
 <meta name="author" content="freks">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet" href="css/main.css" type="text/css">
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -16,35 +17,28 @@
 </head>
 <body>
 
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+<nav class="navbar navbar-dark navbar-custom bg-custom">
   <div class="container">
-    <div class="navbar-header page-scroll">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-      </button>
-      <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+    <div class="clearfix">
+      <button class="navbar-toggler float-xs-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+      <a class="navbar-brand hidden-lg-up" href="#">freks</a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="hidden">
-        <a href="#page-top"></a>
+    <div class="collapse navbar-toggleable-md" id="navbarContent">
+      <a class="navbar-brand logo hidden-md-down" href="#">freks</a>
+      <ul class="nav navbar-nav float-xs-right">
+        <li class="nav-item">
+          <a class="nav-link menu" href="#">Works</a>
         </li>
-        <li class="page-scroll">
-        <a href="#portfolio">Portfolio</a>
+        <li class="nav-item">
+          <a class="nav-link menu" href="#">About</a>
         </li>
-        <li class="page-scroll">
-        <a href="#about">About</a>
-        </li>
-        <li class="page-scroll">
-        <a href="#contact">Contact</a>
+        <li class="nav-item">
+          <a class="nav-link menu" href="#">Contact</a>
         </li>
       </ul>
     </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
+  </div> <!-- .container -->
 </nav>
 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
