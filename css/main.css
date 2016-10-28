@@ -10,6 +10,16 @@ body {
   border-radius: 0;
   padding: 25px 0;
   font-weight: 700;
+
+  -webkit-transition: padding 0.3s;
+  -moz-transition: padding 0.3s;
+  transition: padding 0.3s;
+}
+.navbar-nav .nav-item .menu {
+  color: #fff;
+}
+.navbar-nav .nav-item .menu:hover {
+  color: #18BC9C;
 }
 @media (min-width: 992px) {
   .logo {
@@ -49,6 +59,11 @@ body {
   }
 }
 
+.knowledge {
+  -webkit-transition: padding 0.3s;
+  -moz-transition: padding 0.3s;
+  transition: padding 0.3s;
+}
 .knowledge .container {
   padding-top: 80px;
   padding-bottom: 100px;
