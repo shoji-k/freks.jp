@@ -1,5 +1,7 @@
 $subcolor:#18BC9C;
 $navcolor:#2C3E50;
+$mswidth:767px;
+$lgwidth:992px;
 
 body {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -20,7 +22,7 @@ body {
     color: $subcolor;
   }
 }
-@media (min-width: 992px) {
+@media (min-width: $lgwidth) {
   .logo {
     font-size: 2em;
     padding-top: .1em;
@@ -49,7 +51,7 @@ body {
   font-size: 1.25em;
   font-weight: 300;
 }
-@media (min-width: 992px) {
+@media (min-width: $lgwidth) {
   .header .intro-text .name {
     font-size: 4.75em;
   }
@@ -64,7 +66,7 @@ body {
   font-size: 2em;
   padding: .8em 0;
 }
-@media (min-width: 992px) {
+@media (min-width: $lgwidth) {
   .knowledge h2 {
     font-size: 3em;
   }
@@ -79,7 +81,7 @@ body {
   font-size: 2em;
   padding: .8em 0;
 }
-@media (min-width: 992px) {
+@media (min-width: $lgwidth) {
   .about h2 {
     font-size: 3em;
   }
@@ -94,7 +96,7 @@ body {
   margin: 0;
   padding-bottom: 1em;
 }
-@media (min-width: 992px) {
+@media (min-width: $lgwidth) {
   #contact h2 {
     font-size: 3em;
   }
@@ -104,7 +106,7 @@ body {
   background: $subcolor;
   color: white;
 }
-@media (max-width: 767px) {
+@media (max-width: $mswidth) {
   #contact {
     padding: 75px 0;
   }
