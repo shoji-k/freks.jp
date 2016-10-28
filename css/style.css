@@ -13,21 +13,19 @@ body {
 
 .navbar-nav .nav-item .menu {
   color: #fff; }
-
-.navbar-nav .nav-item .menu:hover {
-  color: #18BC9C; }
+  .navbar-nav .nav-item .menu:hover {
+    color: #18BC9C; }
 
 @media (min-width: 992px) {
   .logo {
     font-size: 2em;
     padding-top: .1em;
-    padding-bottom: 0; } }
-
-@media (min-width: 992px) {
+    padding-bottom: 0; }
   .navbar-nav .nav-item .menu {
     padding: 15px; } }
 
-.header, .about {
+.header,
+.about {
   background: #18BC9C;
   color: white; }
 
@@ -37,22 +35,16 @@ body {
 
 .header .intro-text .name {
   display: block;
-  /* font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-weight: 700;
   font-size: 3em; }
 
 .header .intro-text .knowledge {
-  /* font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 1.25em;
   font-weight: 300; }
 
 @media (min-width: 992px) {
   .header .intro-text .name {
     font-size: 4.75em; } }
-
-.knowledge {
-  -webkit-transition: padding 0.3s;
-  transition: padding 0.3s; }
 
 .knowledge .container {
   padding-top: 80px;

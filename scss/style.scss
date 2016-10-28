@@ -1,14 +1,13 @@
-
-
+$subcolor:#18BC9C;
+$navcolor:#2C3E50;
 
 body {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .bg-nav {
-  background-color: #2C3E50;
+  background-color: $navcolor;
 }
-
 .navbar-custom {
   border-radius: 0;
   padding: 25px 0;
@@ -20,9 +19,9 @@ body {
 }
 .navbar-nav .nav-item .menu {
   color: #fff;
-}
-.navbar-nav .nav-item .menu:hover {
-  color: #18BC9C;
+  &:hover {
+    color: $subcolor;
+  }
 }
 @media (min-width: 992px) {
   .logo {
@@ -30,15 +29,14 @@ body {
     padding-top: .1em;
     padding-bottom: 0;
   }
-}
-@media (min-width: 992px) {
   .navbar-nav .nav-item .menu {
     padding: 15px;
   }
 }
 
-.header, .about {
-  background: #18BC9C;
+.header,
+.about {
+  background: $subcolor;
   color: white;
 }
 .header .container {
@@ -47,12 +45,10 @@ body {
 }
 .header .intro-text .name {
   display: block;
-  /* font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-weight: 700;
   font-size: 3em;
 }
 .header .intro-text .knowledge {
-  /* font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 1.25em;
   font-weight: 300;
 }
@@ -62,11 +58,6 @@ body {
   }
 }
 
-.knowledge {
-  -webkit-transition: padding 0.3s;
-  -moz-transition: padding 0.3s;
-  transition: padding 0.3s;
-}
 .knowledge .container {
   padding-top: 80px;
   padding-bottom: 100px;
@@ -113,7 +104,7 @@ body {
 }
 
 #contact.success {
-  background: #18BC9C;
+  background: $subcolor;
   color: white;
 }
 @media (max-width: 767px) {
@@ -168,7 +159,7 @@ body {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #18BC9C;
+  color: $subcolor;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
@@ -182,7 +173,7 @@ footer h3 {
 }
 footer .footer-above {
   padding-top: 50px;
-  background-color: #2C3E50;
+  background-color: $navcolor;
 }
 footer .footer-col {
   margin-bottom: 50px;
@@ -195,8 +186,8 @@ footer .footer-below {
 
 .btn-success {
   color: white;
-  background-color: #18BC9C;
-  border-color: #18BC9C;
+  background-color: $subcolor;
+  border-color: $subcolor;
   font-weight: 700;
 }
 .btn-success:hover,
@@ -228,11 +219,11 @@ fieldset[disabled] .btn-success:active,
 .btn-success.disabled.active,
 .btn-success[disabled].active,
 fieldset[disabled] .btn-success.active {
-  background-color: #18BC9C;
-  border-color: #18BC9C;
+  background-color: $subcolor;
+  border-color: $subcolor;
 }
 .btn-success .badge {
-  color: #18BC9C;
+  color: $subcolor;
   background-color: white;
 }
 
