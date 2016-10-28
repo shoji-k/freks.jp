@@ -12,9 +12,6 @@ body {
   border-radius: 0;
   padding: 25px 0;
   font-weight: 700;
-
-  -webkit-transition: padding 0.3s;
-  -moz-transition: padding 0.3s;
   transition: padding 0.3s;
 }
 .navbar-nav .nav-item .menu {
@@ -145,9 +142,6 @@ body {
   vertical-align: middle;
   vertical-align: baseline;
   opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
-  -moz-transition: top 0.3s ease,opacity 0.3s ease;
-  -ms-transition: top 0.3s ease,opacity 0.3s ease;
   transition: top 0.3s ease,opacity 0.3s ease;
 }
 .floating-label-form-group:not(:first-child) {
