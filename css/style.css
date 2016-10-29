@@ -10,7 +10,8 @@ body {
   font-weight: 700; }
 
 .navbar-nav .nav-item .menu {
-  color: #fff; }
+  color: #fff;
+  padding: .425rem; }
   .navbar-nav .nav-item .menu:hover {
     color: #18BC9C; }
   .navbar-nav .nav-item .menu.active {
@@ -22,7 +23,7 @@ body {
     padding-top: .1em;
     padding-bottom: 0; }
   .navbar-nav .nav-item .menu {
-    padding: 15px; } }
+    padding: 1rem; } }
 
 .header,
 .about {

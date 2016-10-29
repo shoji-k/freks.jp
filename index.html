@@ -15,17 +15,17 @@
 
 <title>freks</title>
 </head>
-<body data-spy="scroll" data-target="#navbarContent">
+<body id="top" data-target="#navbarContent">
 
-<nav id="mainNav" class="navbar navbar-dark navbar-fixed-top navbar-custom bg-nav">
+<nav id="nav" class="navbar navbar-dark navbar-fixed-top navbar-custom bg-nav">
   <div class="container">
     <div class="clearfix">
       <button class="navbar-toggler float-xs-right hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"></button>
-      <a class="navbar-brand hidden-lg-up" href="#">freks</a>
+      <a class="logo navbar-brand hidden-lg-up" href="#top">freks</a>
     </div>
 
     <div class="collapse navbar-toggleable-md" id="navbarContent">
-      <a class="navbar-brand logo hidden-md-down" href="#">freks</a>
+      <a id="fulllogo" class="logo navbar-brand hidden-md-down" href="#top">freks</a>
       <ul class="nav navbar-nav float-xs-right">
         <li class="nav-item">
           <a class="nav-link menu" href="#knowledge">Knowledge</a>
@@ -174,7 +174,7 @@
   </div>
 </footer>
 
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.js"></script>
 <script src="node_modules/tether/dist/js/tether.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script src="js/main.js"></script>

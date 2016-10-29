@@ -17,6 +17,7 @@ body {
 }
 .navbar-nav .nav-item .menu {
   color: #fff;
+  padding: .425rem;
   &:hover {
     color: $subcolor;
   }
@@ -31,7 +32,7 @@ body {
     padding-bottom: 0;
   }
   .navbar-nav .nav-item .menu {
-    padding: 15px;
+    padding: 1rem;
   }
 }
 
