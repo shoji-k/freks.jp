@@ -20,6 +20,9 @@ body {
   &:hover {
     color: $subcolor;
   }
+  &.active {
+    background: #18BC9C;
+  }
 }
 @media (min-width: $lgwidth) {
   .logo {
