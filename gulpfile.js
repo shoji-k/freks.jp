@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
+var uglify = require('gulp-uglify');
 
 gulp.task("compile", function () {
     gulp.src('./scss/*.scss')
@@ -20,6 +21,13 @@ gulp.task('minify-css', ['compile'], function() {
     .pipe(cleanCSS({ compatibility: '*' }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('css'));
+});
+
+gulp.task('minify-js', function() {
+  return gulp.src('js/*.js')
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('js'));
 });
 
 gulp.task("default", ['compile']);

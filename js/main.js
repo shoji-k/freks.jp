@@ -1,4 +1,4 @@
-(function($) {
+$(function() {
   "use strict";
   var scroll_offset = 50;
 
@@ -28,5 +28,4 @@
       $(this).removeClass("floating-label-form-group-with-focus");
     });
   });
-
-})(jQuery);
+});
