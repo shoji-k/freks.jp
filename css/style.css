@@ -244,3 +244,30 @@ fieldset[disabled] .btn-success.active {
 
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee; }
+
+.loader {
+  display: inline-block;
+  border: .2em solid #f3f3f3;
+  border-top: .2em solid #ccc;
+  border-radius: 50%;
+  width: 1em;
+  height: 1em;
+  -webkit-animation: spin 2s linear infinite;
+          animation: spin 2s linear infinite;
+  margin-right: .8em; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
