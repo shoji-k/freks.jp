@@ -22,7 +22,7 @@ body {
     color: $subcolor;
   }
   &.active {
-    background: #18BC9C;
+    background: $subcolor;
   }
 }
 @media (min-width: $lgwidth) {
@@ -267,7 +267,7 @@ fieldset[disabled] .btn-success.active {
   opacity: 1;
 }
 .floating-label-form-group-with-focus label {
-  color: #18BC9C;
+  color: $subcolor;
 }
 form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
