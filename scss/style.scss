@@ -5,6 +5,22 @@ $navcolor:#2C3E50;
 $mswidth:767px;
 $lgwidth:992px;
 
+$color1:#64c99b;
+$color2:#6eb7db;
+$color3:#eda184;
+
+@keyframes bg-color {
+  0% { background-color: $color1; }
+  33% { background-color: $color2; }
+  66% { background-color: $color3; }
+  100% { background-color: $color1; }
+}
+
+.color-animation {
+  background-color: $color1;
+  animation: bg-color 10s infinite;
+}
+
 body {
   position: relative; /* for scrollSpy */
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;

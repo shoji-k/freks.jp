@@ -1,4 +1,28 @@
 @import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+@-webkit-keyframes bg-color {
+  0% {
+    background-color: #64c99b; }
+  33% {
+    background-color: #6eb7db; }
+  66% {
+    background-color: #eda184; }
+  100% {
+    background-color: #64c99b; } }
+@keyframes bg-color {
+  0% {
+    background-color: #64c99b; }
+  33% {
+    background-color: #6eb7db; }
+  66% {
+    background-color: #eda184; }
+  100% {
+    background-color: #64c99b; } }
+
+.color-animation {
+  background-color: #64c99b;
+  -webkit-animation: bg-color 10s infinite;
+          animation: bg-color 10s infinite; }
+
 body {
   position: relative;
   /* for scrollSpy */
