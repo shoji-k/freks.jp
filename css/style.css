@@ -23,10 +23,19 @@
   -webkit-animation: bg-color 10s infinite;
           animation: bg-color 10s infinite; }
 
-body {
+html {
   position: relative;
   /* for scrollSpy */
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  min-height: 100%; }
+
+body {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  min-height: 100%; }
+
+.stickey-footer {
+  position: absolute;
+  bottom: 0px;
+  width: 100%; }
 
 .bg-nav {
   background-color: #2C3E50; }
