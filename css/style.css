@@ -305,3 +305,22 @@ form .row:first-child .floating-label-form-group {
   100% {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg); } }
+
+.app-list {
+  margin-top: 100px;
+  font-size: 4em; }
+
+.app {
+  background-color: blueviolet; }
+
+.app a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-transform: uppercase; }
+
+.app a:hover {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1); }
