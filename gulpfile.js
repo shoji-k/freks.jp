@@ -5,6 +5,7 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var gzip = require('gulp-gzip');
 
 gulp.task("sass", function () {
   return gulp.src('./scss/*.scss')
@@ -47,7 +48,18 @@ gulp.task('copy', function() {
   .pipe(gulp.dest('vendor/'));
 });
 
+gulp.task('compress-js', function() {
+  return gulp.src('js/script.min.js')
+    .pipe(gzip())
+    .pipe(gulp.dest('js'));
+});
+gulp.task('compress-css', function() {
+  return gulp.src(['css/base.min.css', 'css/style.min.css'])
+    .pipe(gzip())
+    .pipe(gulp.dest('css'));
+});
+
 gulp.task("initial", ['copy', 'compile']);
 gulp.task("compile", ['sass', 'concat-js']);
-gulp.task("release", ['minify-css', 'minify-js']);
+gulp.task("release", ['minify-css', 'minify-js', 'compress-css', 'compress-js']);
 gulp.task("default", ['compile']);
