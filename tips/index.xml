@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>http://freks.jp/tips/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <lastBuildDate>Mon, 21 Nov 2016 10:49:54 +0900</lastBuildDate>
+    <atom:link href="http://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>start_hugo</title>
+      <link>http://freks.jp/tips/start_hugo/</link>
+      <pubDate>Mon, 21 Nov 2016 10:49:54 +0900</pubDate>
+      
+      <guid>http://freks.jp/tips/start_hugo/</guid>
+      <description>&lt;p&gt;最新リリースをダウンロード&lt;br /&gt;
+&lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Releases · spf13/hugo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;$ wget &lt;a href=&#34;https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb&#34;&gt;https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;インストール&lt;br /&gt;
+$ dpkg -i hugo_0.17-64bit.deb&lt;/p&gt;
+
+&lt;p&gt;コマンド確認&lt;br /&gt;
+$ hugo version&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Hugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29+09:00
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;bookshelfディレクトリを作ってに初期化&lt;br /&gt;
+$ hugo new site bookshelf&lt;/p&gt;
+
+&lt;p&gt;サーバーを起動、ドラフトも表示させる&lt;br /&gt;
+$ hugo server &amp;ndash;buildDrafts&lt;/p&gt;
+
+&lt;p&gt;テーマがないと表示されない&lt;/p&gt;
+
+&lt;p&gt;テーマをインストール
+$ cd themes&lt;/p&gt;
+
+&lt;p&gt;.gitignoreにthemesを設定する場合&lt;br /&gt;
+$ git clone git@github.com:dim0627/hugo_theme_robust.git robust&lt;/p&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;p&gt;$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust&lt;/p&gt;
+
+&lt;p&gt;投稿を追加&lt;br /&gt;
+$ hugo new post/good-to-great.md&lt;/p&gt;
+
+&lt;p&gt;サーバーを起動、テーマ指定、ドラフトも表示させる&lt;br /&gt;
+$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDrafts&lt;/p&gt;
+
+&lt;p&gt;テーマは簡単に切り替えられる&lt;br /&gt;
+サーバーはライブリロードも効く&lt;/p&gt;
+
+&lt;p&gt;設定を変える&lt;br /&gt;
+$ vim config.toml&lt;/p&gt;
+
+&lt;p&gt;undraftする&lt;br /&gt;
+$ hugo undraft content/post/good-to-great.md&lt;/p&gt;
+
+&lt;p&gt;publicディレクトリにアウトプット&lt;br /&gt;
+$ hugo &amp;ndash;theme=robust&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
