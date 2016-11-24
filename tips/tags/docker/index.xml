@@ -9,6 +9,191 @@
     <atom:link href="https://freks.jp/tips/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>docker compose</title>
+      <link>https://freks.jp/tips/docker-compose/</link>
+      <pubDate>Thu, 24 Nov 2016 18:30:59 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/docker-compose/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;reffer to:&lt;br /&gt;
+&lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;Install Compose&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;docker-compose-yml&#34;&gt;docker-compose.yml&lt;/h1&gt;
+
+&lt;p&gt;assign image&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;image: httpd:lastst  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;assign image built by Dockerfile&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;build: .  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;set command (use bash)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;command: /bin/bash  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;write container to hosts file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;links:
+- dbserver  
+- dbserver:mysql  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;hosts file is written&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;192.168.100.10 dbserver
+192.168.100.10 mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;write container not in same docker-compose.yml to hosts file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;external_links:
+- dbserver  
+- dbserver:mysql  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;set open port&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ports:
+- &amp;quot;3000&amp;quot;  
+- &amp;quot;8080:80&amp;quot;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;set open port only for containers (not for host)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;expose:
+- &amp;quot;3000&amp;quot;  
+- &amp;quot;8080&amp;quot;  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;mount volume&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;volumes:
+- /var/log/mysql
+- /home/user/mysqllog:/var/log/mysql
+- ~/configs:/etc/configs/:ro
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;mount all volumes to another container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;volumes_from:
+- log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;set environment&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;environment:
+- bar=foo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;set container name&lt;br /&gt;
+container_name: web_app&lt;/p&gt;
+
+&lt;h2 id=&#34;commands&#34;&gt;commands&lt;/h2&gt;
+
+&lt;p&gt;create and boot containers&lt;br /&gt;
+docker-compose up&lt;/p&gt;
+
+&lt;p&gt;create and boot containers in background&lt;br /&gt;
+docker-compose up -d&lt;/p&gt;
+
+&lt;p&gt;stop one container&lt;br /&gt;
+docker-compose stop (container name)&lt;/p&gt;
+
+&lt;p&gt;show containers&lt;br /&gt;
+docker-compose ps&lt;/p&gt;
+
+&lt;p&gt;show logs&lt;br /&gt;
+docker-compose logs&lt;/p&gt;
+
+&lt;p&gt;implement command&lt;br /&gt;
+docker-compose run (container name) /bin/bash&lt;/p&gt;
+
+&lt;p&gt;start containers&lt;br /&gt;
+docker-compose start&lt;/p&gt;
+
+&lt;p&gt;stop containers&lt;br /&gt;
+docker-compose stop&lt;/p&gt;
+
+&lt;p&gt;force stop containers&lt;br /&gt;
+docker-compose kill&lt;/p&gt;
+
+&lt;p&gt;remove containers&lt;br /&gt;
+docker-compose rm&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-wordpress-environment&#34;&gt;prepare wordpress environment&lt;/h2&gt;
+
+&lt;p&gt;prepare datastore container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM busybox
+MAINTAINER 0.1 sample@sample.com
+VOLUME /var/lib/mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;VOLUME means saving directory&lt;/p&gt;
+
+&lt;p&gt;create dataonly image&lt;br /&gt;
+$ docker build -t dataonly .&lt;/p&gt;
+
+&lt;p&gt;create dataonly container and start&lt;br /&gt;
+$ docker run &amp;ndash;name dataonly dataonly&lt;/p&gt;
+
+&lt;p&gt;preapre docker-compose.yml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;webserver:
+  image: wordpress
+  ports:
+    - 8080:80
+  links:
+    - &amp;quot;dbserver:mysql&amp;quot;
+
+dbserver:
+  image: mysql
+  volumes_from:
+    - dataonly
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;boot&lt;br /&gt;
+$ docker-compose up -d&lt;/p&gt;
+
+&lt;p&gt;connect mysql&lt;br /&gt;
+use another container to connect&lt;br /&gt;
+$ docker run -it &amp;ndash;link (mysql container):mysql &amp;ndash;rm mysql sh -c &amp;lsquo;exec mysql -h&amp;rdquo;$MYSQL_PORT_3306_TCP_ADDR&amp;rdquo; -P&amp;rdquo;$MYSQL_PORT_3306_TCP_PORT&amp;rdquo; -uroot -p&amp;rdquo;$MYSQL_ENV_MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;or&lt;br /&gt;
+$ docker exec -it wordpress_dbserver_1 sh -c &amp;lsquo;mysql -uroot -p$MYSQL_ROOT_PASSWORD&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;dump all databases&lt;br /&gt;
+$ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump &amp;ndash;all-databases -uroot -p&amp;rdquo;$MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo; &amp;gt; /some/path/on/your/host/all-databases.sql&lt;/p&gt;
+
+&lt;p&gt;dump one database (wordpress)&lt;br /&gt;
+$ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump wordpress -uroot -p&amp;rdquo;$MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo; &amp;gt; dump.dbbackup&lt;/p&gt;
+
+&lt;h1 id=&#34;mysql-image&#34;&gt;mysql image&lt;/h1&gt;
+
+&lt;p&gt;docker run command&lt;br /&gt;
+$ docker run &amp;ndash;name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql&lt;/p&gt;
+
+&lt;h1 id=&#34;implement-rails-commands&#34;&gt;implement rails commands&lt;/h1&gt;
+
+&lt;p&gt;$ docker-compose run (app name) rails generate scaffold Article title:string&lt;br /&gt;
+$ docker-compose run (app name) rake db:migrate&lt;/p&gt;
+
+&lt;h2 id=&#34;refferences&#34;&gt;refferences&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/_/mysql/&#34;&gt;library/mysql - Docker Hub&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>docker</title>
       <link>https://freks.jp/tips/docker/</link>
       <pubDate>Thu, 24 Nov 2016 16:39:26 +0900</pubDate>
