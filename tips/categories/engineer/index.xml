@@ -2,12 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>freks tips</title>
-    <link>https://freks.jp/tips/index.xml</link>
+    <link>https://freks.jp/tips/categories/engineer/index.xml</link>
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Fri, 25 Nov 2016 16:54:03 +0900</lastBuildDate>
-    <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>cakephp</title>
@@ -491,27 +490,6 @@ $ docker login &amp;ndash;username=shojik &amp;ndash;email=sample@sample.com&lt;
 &lt;li&gt;&lt;a href=&#34;http://qiita.com/kohey18/items/dffe9b11d330576ab852&#34;&gt;実例で学ぶDockerハンズオン - Qiita&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://amzn.to/2dNjPdn&#34;&gt;プログラマのためのDocker教科書 インフラの基礎知識＆コードによる環境構築の自動化&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>sub earnings</title>
-      <link>https://freks.jp/tips/sub-earnings/</link>
-      <pubDate>Mon, 21 Nov 2016 18:08:25 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/sub-earnings/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://steers.jp/&#34;&gt;オリジナルTシャツ作成・販売 STEERS（ステアーズ）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;0円でTシャツを作れる&lt;br /&gt;
-最低販売枚数を超えると売上発生&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://snapmart.jp/&#34;&gt;スマホの写真が売買できるサイト | Snapmart [スナップマート]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;スマホの写真が売れる&lt;/p&gt;
 </description>
     </item>
     

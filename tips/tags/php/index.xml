@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/php/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>cakephp</title>
+      <link>https://freks.jp/tips/cakephp/</link>
+      <pubDate>Fri, 25 Nov 2016 16:54:03 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/cakephp/</guid>
+      <description>&lt;p&gt;モデルのデータベースアクセスをSQLで確認する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all);
+$sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false);
+debug($sqlLog);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
