@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/start-hugo/">
+<link rel="canonical" href="https://freks.jp/tips/subversion/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>start hugo - freks tips</title>
+    <title>subversion - freks tips</title>
     
-<meta name="description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.toml">
+<meta name="description" content="svn checkout http://(リポジトリ）チェックアウトしてファイルをダウンロードsvn update .リポジトリから最新をダウンロードsvn add (file)(file)をsubversionの管理下へいれますsvn delete (file)(file)を削除しますsvn commit -m &amp;lsquo;コメント&amp;rsquo;コメントをつけてコミットします（リポジトリに送り込む）svn infoリポジトリの情報を表示svn log -l 5ログを最新５件表示svn diffコミットしてないものの差分を表示svn diff -r r30:headリビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）">
 
-<meta property="og:title" content="start hugo - freks tips">
+<meta property="og:title" content="subversion - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/start-hugo/">
+<meta property="og:url" content="https://freks.jp/tips/subversion/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.toml">
+<meta property="og:description" content="svn checkout http://(リポジトリ）チェックアウトしてファイルをダウンロードsvn update .リポジトリから最新をダウンロードsvn add (file)(file)をsubversionの管理下へいれますsvn delete (file)(file)を削除しますsvn commit -m &amp;lsquo;コメント&amp;rsquo;コメントをつけてコミットします（リポジトリに送り込む）svn infoリポジトリの情報を表示svn log -l 5ログを最新５件表示svn diffコミットしてないものの差分を表示svn diff -r r30:headリビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/start-hugo/">
-<meta name="twitter:title" content="start hugo - freks tips">
-<meta name="twitter:description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.toml">
+<meta name="twitter:url" content="https://freks.jp/tips/subversion/">
+<meta name="twitter:title" content="subversion - freks tips">
+<meta name="twitter:description" content="svn checkout http://(リポジトリ）チェックアウトしてファイルをダウンロードsvn update .リポジトリから最新をダウンロードsvn add (file)(file)をsubversionの管理下へいれますsvn delete (file)(file)を削除しますsvn commit -m &amp;lsquo;コメント&amp;rsquo;コメントをつけてコミットします（リポジトリに送り込む）svn infoリポジトリの情報を表示svn log -l 5ログを最新５件表示svn diffコミットしてないものの差分を表示svn diff -r r30:headリビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "start hugo - freks tips",
+    "headline": "subversion - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2016-11-21T10:49:54JST",
-    "dateModified": "2016-11-21T10:49:54JST",
+    "datePublished": "2016-11-26T12:40:49JST",
+    "dateModified": "2016-11-26T12:40:49JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "最新リリースをダウンロード\nReleases · spf13\/hugo\n$ wget https:\/\/github.com\/spf13\/hugo\/releases\/download\/v0.17\/hugo_0.17-64bit.deb\nインストール\n$ dpkg -i hugo_0.17-64bit.deb\nコマンド確認\n$ hugo version\nHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29\x2b09:00  bookshelfディレクトリを作ってに初期化\n$ hugo new site bookshelf\nサーバーを起動、ドラフトも表示させる\n$ hugo server \x26ndash;buildDrafts\nテーマがないと表示されない\nテーマをインストール $ cd themes\n.gitignoreにthemesを設定する場合\n$ git clone git@github.com:dim0627\/hugo_theme_robust.git robust\nor\n$ git submodule add git@github.com:dim0627\/hugo_theme_robust.git robust\n投稿を追加\n$ hugo new post\/good-to-great.md\nサーバーを起動、テーマ指定、ドラフトも表示させる\n$ hugo server \x26ndash;theme=robust \x26ndash;buildDrafts\nテーマは簡単に切り替えられる\nサーバーはライブリロードも効く\n設定を変える\n$ vim config.toml"
+    "description": "svn checkout http:\/\/(リポジトリ）\nチェックアウトしてファイルをダウンロード\nsvn update .\nリポジトリから最新をダウンロード\nsvn add (file)\n(file)をsubversionの管理下へいれます\nsvn delete (file)\n(file)を削除します\nsvn commit -m \x26lsquo;コメント\x26rsquo;\nコメントをつけてコミットします（リポジトリに送り込む）\nsvn info\nリポジトリの情報を表示\nsvn log -l 5\nログを最新５件表示\nsvn diff\nコミットしてないものの差分を表示\nsvn diff -r r30:head\nリビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）"
   }
 </script>
 
@@ -107,69 +107,46 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">start hugo</li>
+        <li class="active">subversion</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">start hugo</h1>
+    <h1 class="title">subversion</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-21T10:49:54JST">Nov 21, 2016</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-26T12:40:49JST">Nov 26, 2016</time></li>
       
       
     </ul>
 
-    <div class="article-body"><p>最新リリースをダウンロード<br />
-<a href="https://github.com/spf13/hugo/releases">Releases · spf13/hugo</a></p>
+    <div class="article-body"><p>svn checkout http://(リポジトリ）<br />
+チェックアウトしてファイルをダウンロード</p>
 
-<p>$ wget <a href="https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb">https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb</a></p>
+<p>svn update .<br />
+リポジトリから最新をダウンロード</p>
 
-<p>インストール<br />
-$ dpkg -i hugo_0.17-64bit.deb</p>
+<p>svn add (file)<br />
+(file)をsubversionの管理下へいれます</p>
 
-<p>コマンド確認<br />
-$ hugo version</p>
+<p>svn delete (file)<br />
+(file)を削除します</p>
 
-<pre><code>Hugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29+09:00
-</code></pre>
+<p>svn commit -m &lsquo;コメント&rsquo;<br />
+コメントをつけてコミットします（リポジトリに送り込む）</p>
 
-<p>bookshelfディレクトリを作ってに初期化<br />
-$ hugo new site bookshelf</p>
+<p>svn info<br />
+リポジトリの情報を表示</p>
 
-<p>サーバーを起動、ドラフトも表示させる<br />
-$ hugo server &ndash;buildDrafts</p>
+<p>svn log -l 5<br />
+ログを最新５件表示</p>
 
-<p>テーマがないと表示されない</p>
+<p>svn diff<br />
+コミットしてないものの差分を表示</p>
 
-<p>テーマをインストール
-$ cd themes</p>
-
-<p>.gitignoreにthemesを設定する場合<br />
-$ git clone git@github.com:dim0627/hugo_theme_robust.git robust</p>
-
-<p>or</p>
-
-<p>$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust</p>
-
-<p>投稿を追加<br />
-$ hugo new post/good-to-great.md</p>
-
-<p>サーバーを起動、テーマ指定、ドラフトも表示させる<br />
-$ hugo server &ndash;theme=robust &ndash;buildDrafts</p>
-
-<p>テーマは簡単に切り替えられる<br />
-サーバーはライブリロードも効く</p>
-
-<p>設定を変える<br />
-$ vim config.toml</p>
-
-<p>undraftする<br />
-$ hugo undraft content/post/good-to-great.md</p>
-
-<p>publicディレクトリにアウトプット<br />
-$ hugo &ndash;theme=robust</p>
+<p>svn diff -r r30:head<br />
+リビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）</p>
 </div>
   </div>
 
@@ -178,11 +155,11 @@ $ hugo &ndash;theme=robust</p>
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&title=start%20hugo" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&t=start%20hugo" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&text=start%20hugo&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?start%20hugo https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fsubversion%2f&title=subversion" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fsubversion%2f&t=subversion" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fsubversion%2f&text=subversion&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fsubversion%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?subversion https%3a%2f%2ffreks.jp%2ftips%2fsubversion%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -191,7 +168,7 @@ $ hugo &ndash;theme=robust</p>
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">start hugo</li>
+          <li class="active">subversion</li>
         </ol>
       </nav>
 
@@ -220,7 +197,7 @@ $ hugo &ndash;theme=robust</p>
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/hugo/">hugo</a></li>
+            <li><a href="https://freks.jp/tips/tags/subversion/">subversion</a></li>
             
           </ul>
         </div>

@@ -9,6 +9,41 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>subversion</title>
+      <link>https://freks.jp/tips/subversion/</link>
+      <pubDate>Sat, 26 Nov 2016 12:40:49 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/subversion/</guid>
+      <description>&lt;p&gt;svn checkout http://(リポジトリ）&lt;br /&gt;
+チェックアウトしてファイルをダウンロード&lt;/p&gt;
+
+&lt;p&gt;svn update .&lt;br /&gt;
+リポジトリから最新をダウンロード&lt;/p&gt;
+
+&lt;p&gt;svn add (file)&lt;br /&gt;
+(file)をsubversionの管理下へいれます&lt;/p&gt;
+
+&lt;p&gt;svn delete (file)&lt;br /&gt;
+(file)を削除します&lt;/p&gt;
+
+&lt;p&gt;svn commit -m &amp;lsquo;コメント&amp;rsquo;&lt;br /&gt;
+コメントをつけてコミットします（リポジトリに送り込む）&lt;/p&gt;
+
+&lt;p&gt;svn info&lt;br /&gt;
+リポジトリの情報を表示&lt;/p&gt;
+
+&lt;p&gt;svn log -l 5&lt;br /&gt;
+ログを最新５件表示&lt;/p&gt;
+
+&lt;p&gt;svn diff&lt;br /&gt;
+コミットしてないものの差分を表示&lt;/p&gt;
+
+&lt;p&gt;svn diff -r r30:head&lt;br /&gt;
+リビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>cakephp</title>
       <link>https://freks.jp/tips/cakephp/</link>
       <pubDate>Fri, 25 Nov 2016 16:54:03 +0900</pubDate>
