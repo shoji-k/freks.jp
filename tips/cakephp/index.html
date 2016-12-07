@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>cakephp - freks tips</title>
     
-<meta name="description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  ">
+<meta name="description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
 
 <meta property="og:title" content="cakephp - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/cakephp/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  ">
+<meta property="og:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/cakephp/">
 <meta name="twitter:title" content="cakephp - freks tips">
-<meta name="twitter:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  ">
+<meta name="twitter:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "モデルのデータベースアクセスをSQLで確認する\n$data = $this-\x26gt;SampleModel-\x26gt;find(\x27all); $sqlLog = $this-\x26gt;SampleModel-\x26gt;getDataSource()-\x26gt;getLog(false, false); debug($sqlLog);  "
+    "description": "モデルのデータベースアクセスをSQLで確認する\n$data = $this-\x26gt;SampleModel-\x26gt;find(\x27all); $sqlLog = $this-\x26gt;SampleModel-\x26gt;getDataSource()-\x26gt;getLog(false, false); debug($sqlLog);  json返す型\npublic function getJson() { $this-\x26gt;autoRender = false; if(!$this-\x26gt;request-\x26gt;is(\x27ajax\x27)) { throw new BadRequestException(); } $result = \x27NG\x27; $data = $this-\x26gt;request-\x26gt;data; if (strlen(strlen($data[\x27id\x27]) !== 0) { \/\/ do something $result = \x27OK\x27; } echo json_encode(compact(\x27result\x27)); }  csvダウンロード型\nこれだと中身が多いとメモリを消費する\n中身が多い場合は小分けにファイル保存して、ファイルダウンロードする\npublic function download($uid) { $this-\x26gt;autoRender = false; $this-\x26gt;response-\x26gt;type(\x27csv\x27); $fileName = \x271.csv\x27; $this-\x26gt;response-\x26gt;download($fileName); $str = \x26quot;sample, sample2\x26quot;; $str .= \x26quot;1, 2\x26quot;; $str = mb_convert_encoding($str, \x27SJIS-win\x27, \x27utf8\x27); $this-\x26gt;response-\x26gt;body($str); }  "
   }
 </script>
 
@@ -126,6 +126,45 @@
 <pre><code>$data = $this-&gt;SampleModel-&gt;find('all);
 $sqlLog = $this-&gt;SampleModel-&gt;getDataSource()-&gt;getLog(false, false);
 debug($sqlLog);
+</code></pre>
+
+<p>json返す型</p>
+
+<pre><code>public function getJson()
+{
+    $this-&gt;autoRender = false;
+    if(!$this-&gt;request-&gt;is('ajax')) {
+      throw new BadRequestException();
+    }
+
+    $result = 'NG';
+    $data = $this-&gt;request-&gt;data;
+    if (strlen(strlen($data['id']) !== 0) {
+        // do something
+        $result = 'OK';
+    }
+    echo json_encode(compact('result'));
+}
+</code></pre>
+
+<p>csvダウンロード型<br />
+これだと中身が多いとメモリを消費する<br />
+中身が多い場合は小分けにファイル保存して、ファイルダウンロードする</p>
+
+<pre><code>public function download($uid)
+{
+    $this-&gt;autoRender = false;
+    $this-&gt;response-&gt;type('csv');
+
+    $fileName = '1.csv';
+    $this-&gt;response-&gt;download($fileName);
+
+    $str = &quot;sample, sample2&quot;;
+    $str .= &quot;1, 2&quot;;
+
+    $str = mb_convert_encoding($str, 'SJIS-win', 'utf8');
+    $this-&gt;response-&gt;body($str);
+}
 </code></pre>
 </div>
   </div>
