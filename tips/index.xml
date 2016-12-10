@@ -6,8 +6,88 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 07 Dec 2016 14:05:06 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 10 Dec 2016 16:17:30 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>elixir</title>
+      <link>https://freks.jp/tips/elixir/</link>
+      <pubDate>Sat, 10 Dec 2016 16:17:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/elixir/</guid>
+      <description>&lt;p&gt;hello world&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;IO.puts &amp;quot;hello world&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;FizzBuzz&lt;br /&gt;
+pattern 1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Enum.each(1..15, fn(i) -&amp;gt;
+  cond do
+    rem(i, 3) == 0 &amp;amp;&amp;amp; rem(i, 5) == 0 -&amp;gt;
+      IO.puts(&amp;quot;FizzBuzz&amp;quot;)
+    rem(i, 3) == 0 -&amp;gt;
+      IO.puts(&amp;quot;Fizz&amp;quot;)
+    rem(i, 5) == 0 -&amp;gt;
+      IO.puts(&amp;quot;Buzz&amp;quot;)
+    true -&amp;gt;
+      IO.puts(i)
+  end
+end)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;pattern 2&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;defmodule FizzBuzz do
+  def judge(n) do
+    f = fizz(n)
+    b = buzz(n)
+    if f == &amp;quot;&amp;quot; and b == &amp;quot;&amp;quot; do
+      n
+    else
+      &amp;quot;#{f}#{b}&amp;quot;
+    end
+  end
+
+  def fizz(n) do
+    if rem(n,3) == 0 do
+      &amp;quot;Fizz&amp;quot;
+    else
+      &amp;quot;&amp;quot;
+    end
+  end
+  def buzz(n) do
+    if rem(n,5) == 0 do
+      &amp;quot;Buzz&amp;quot;
+    else
+      &amp;quot;&amp;quot;
+    end
+  end
+  def puts(n) do
+    IO.puts(judge(n));
+  end
+end
+
+Enum.map(1..15, &amp;amp;FizzBuzz.puts/1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hanoi Tower&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;defmodule Hanoi do
+  def hanoi(n, a, b, c) do
+    if n &amp;gt; 0 do
+      hanoi n - 1, a, c, b
+      IO.puts &amp;quot;#{n}番目の円盤を#{a}から#{b}へ移動&amp;quot;
+      hanoi n - 1, c, b, a
+    end
+  end
+end
+
+Hanoi.hanoi 5, &amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>jquery</title>

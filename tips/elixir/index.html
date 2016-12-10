@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/docker-compose/">
+<link rel="canonical" href="https://freks.jp/tips/elixir/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>docker compose - freks tips</title>
+    <title>elixir - freks tips</title>
     
-<meta name="description" content="install reffer to:Install Composedocker-compose.yml assign imageimage: httpd:lastst  assign image built by Dockerfilebuild: .  set command (use bash)command: /bin/bash  write container to hosts filelinks: - dbserver - dbserver:mysql  hosts file is written192.168.100.10 dbserver 192.168.100.10 mysql  write container not in same docker-compose.yml to hosts fileexternal_links: - dbserver - dbserver:mysql  set open portports: - &amp;quot;3000&amp;quot; - &amp;quot;8080:80&amp;quot;  set open port only for containers (not for host)">
+<meta name="description" content="hello worldIO.puts &amp;quot;hello world&amp;quot;  FizzBuzzpattern 1Enum.each(1..15, fn(i) -&amp;gt; cond do rem(i, 3) == 0 &amp;amp;&amp;amp; rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;FizzBuzz&amp;quot;) rem(i, 3) == 0 -&amp;gt; IO.puts(&amp;quot;Fizz&amp;quot;) rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;Buzz&amp;quot;) true -&amp;gt; IO.puts(i) end end)  pattern 2defmodule FizzBuzz do def judge(n) do f = fizz(n) b = buzz(n) if f == &amp;quot;&amp;quot; and b == &amp;quot;&amp;quot; do n else &amp;quot;#{f}#{b}&amp;quot; end end def fizz(n) do if rem(n,3) == 0 do &amp;quot;Fizz&amp;quot; else &amp;quot;&amp;quot; end end def buzz(n) do if rem(n,5) == 0 do &amp;quot;Buzz&amp;quot; else &amp;quot;&amp;quot; end end def puts(n) do IO.">
 
-<meta property="og:title" content="docker compose - freks tips">
+<meta property="og:title" content="elixir - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/docker-compose/">
+<meta property="og:url" content="https://freks.jp/tips/elixir/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="install reffer to:Install Composedocker-compose.yml assign imageimage: httpd:lastst  assign image built by Dockerfilebuild: .  set command (use bash)command: /bin/bash  write container to hosts filelinks: - dbserver - dbserver:mysql  hosts file is written192.168.100.10 dbserver 192.168.100.10 mysql  write container not in same docker-compose.yml to hosts fileexternal_links: - dbserver - dbserver:mysql  set open portports: - &amp;quot;3000&amp;quot; - &amp;quot;8080:80&amp;quot;  set open port only for containers (not for host)">
+<meta property="og:description" content="hello worldIO.puts &amp;quot;hello world&amp;quot;  FizzBuzzpattern 1Enum.each(1..15, fn(i) -&amp;gt; cond do rem(i, 3) == 0 &amp;amp;&amp;amp; rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;FizzBuzz&amp;quot;) rem(i, 3) == 0 -&amp;gt; IO.puts(&amp;quot;Fizz&amp;quot;) rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;Buzz&amp;quot;) true -&amp;gt; IO.puts(i) end end)  pattern 2defmodule FizzBuzz do def judge(n) do f = fizz(n) b = buzz(n) if f == &amp;quot;&amp;quot; and b == &amp;quot;&amp;quot; do n else &amp;quot;#{f}#{b}&amp;quot; end end def fizz(n) do if rem(n,3) == 0 do &amp;quot;Fizz&amp;quot; else &amp;quot;&amp;quot; end end def buzz(n) do if rem(n,5) == 0 do &amp;quot;Buzz&amp;quot; else &amp;quot;&amp;quot; end end def puts(n) do IO.">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/docker-compose/">
-<meta name="twitter:title" content="docker compose - freks tips">
-<meta name="twitter:description" content="install reffer to:Install Composedocker-compose.yml assign imageimage: httpd:lastst  assign image built by Dockerfilebuild: .  set command (use bash)command: /bin/bash  write container to hosts filelinks: - dbserver - dbserver:mysql  hosts file is written192.168.100.10 dbserver 192.168.100.10 mysql  write container not in same docker-compose.yml to hosts fileexternal_links: - dbserver - dbserver:mysql  set open portports: - &amp;quot;3000&amp;quot; - &amp;quot;8080:80&amp;quot;  set open port only for containers (not for host)">
+<meta name="twitter:url" content="https://freks.jp/tips/elixir/">
+<meta name="twitter:title" content="elixir - freks tips">
+<meta name="twitter:description" content="hello worldIO.puts &amp;quot;hello world&amp;quot;  FizzBuzzpattern 1Enum.each(1..15, fn(i) -&amp;gt; cond do rem(i, 3) == 0 &amp;amp;&amp;amp; rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;FizzBuzz&amp;quot;) rem(i, 3) == 0 -&amp;gt; IO.puts(&amp;quot;Fizz&amp;quot;) rem(i, 5) == 0 -&amp;gt; IO.puts(&amp;quot;Buzz&amp;quot;) true -&amp;gt; IO.puts(i) end end)  pattern 2defmodule FizzBuzz do def judge(n) do f = fizz(n) b = buzz(n) if f == &amp;quot;&amp;quot; and b == &amp;quot;&amp;quot; do n else &amp;quot;#{f}#{b}&amp;quot; end end def fizz(n) do if rem(n,3) == 0 do &amp;quot;Fizz&amp;quot; else &amp;quot;&amp;quot; end end def buzz(n) do if rem(n,5) == 0 do &amp;quot;Buzz&amp;quot; else &amp;quot;&amp;quot; end end def puts(n) do IO.">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "docker compose - freks tips",
+    "headline": "elixir - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2016-11-24T18:30:59JST",
-    "dateModified": "2016-11-24T18:30:59JST",
+    "datePublished": "2016-12-10T16:17:30JST",
+    "dateModified": "2016-12-10T16:17:30JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "install reffer to:\nInstall Compose\ndocker-compose.yml assign image\nimage: httpd:lastst  assign image built by Dockerfile\nbuild: .  set command (use bash)\ncommand: \/bin\/bash  write container to hosts file\nlinks: - dbserver - dbserver:mysql  hosts file is written\n192.168.100.10 dbserver 192.168.100.10 mysql  write container not in same docker-compose.yml to hosts file\nexternal_links: - dbserver - dbserver:mysql  set open port\nports: - \x26quot;3000\x26quot; - \x26quot;8080:80\x26quot;  set open port only for containers (not for host)"
+    "description": "hello world\nIO.puts \x26quot;hello world\x26quot;  FizzBuzz\npattern 1\nEnum.each(1..15, fn(i) -\x26gt; cond do rem(i, 3) == 0 \x26amp;\x26amp; rem(i, 5) == 0 -\x26gt; IO.puts(\x26quot;FizzBuzz\x26quot;) rem(i, 3) == 0 -\x26gt; IO.puts(\x26quot;Fizz\x26quot;) rem(i, 5) == 0 -\x26gt; IO.puts(\x26quot;Buzz\x26quot;) true -\x26gt; IO.puts(i) end end)  pattern 2\ndefmodule FizzBuzz do def judge(n) do f = fizz(n) b = buzz(n) if f == \x26quot;\x26quot; and b == \x26quot;\x26quot; do n else \x26quot;#{f}#{b}\x26quot; end end def fizz(n) do if rem(n,3) == 0 do \x26quot;Fizz\x26quot; else \x26quot;\x26quot; end end def buzz(n) do if rem(n,5) == 0 do \x26quot;Buzz\x26quot; else \x26quot;\x26quot; end end def puts(n) do IO."
   }
 </script>
 
@@ -107,196 +107,91 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">docker compose</li>
+        <li class="active">elixir</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">docker compose</h1>
+    <h1 class="title">elixir</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-24T18:30:59JST">Nov 24, 2016</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-12-10T16:17:30JST">Dec 10, 2016</time></li>
       
       
     </ul>
 
-    <div class="article-body">
+    <div class="article-body"><p>hello world</p>
 
-<h1 id="install">install</h1>
-
-<p>reffer to:<br />
-<a href="https://docs.docker.com/compose/install/">Install Compose</a></p>
-
-<h1 id="docker-compose-yml">docker-compose.yml</h1>
-
-<p>assign image</p>
-
-<pre><code>image: httpd:lastst  
+<pre><code>IO.puts &quot;hello world&quot;
 </code></pre>
 
-<p>assign image built by Dockerfile</p>
+<p>FizzBuzz<br />
+pattern 1</p>
 
-<pre><code>build: .  
+<pre><code>Enum.each(1..15, fn(i) -&gt;
+  cond do
+    rem(i, 3) == 0 &amp;&amp; rem(i, 5) == 0 -&gt;
+      IO.puts(&quot;FizzBuzz&quot;)
+    rem(i, 3) == 0 -&gt;
+      IO.puts(&quot;Fizz&quot;)
+    rem(i, 5) == 0 -&gt;
+      IO.puts(&quot;Buzz&quot;)
+    true -&gt;
+      IO.puts(i)
+  end
+end)
 </code></pre>
 
-<p>set command (use bash)</p>
+<p>pattern 2</p>
 
-<pre><code>command: /bin/bash  
+<pre><code>defmodule FizzBuzz do
+  def judge(n) do
+    f = fizz(n)
+    b = buzz(n)
+    if f == &quot;&quot; and b == &quot;&quot; do
+      n
+    else
+      &quot;#{f}#{b}&quot;
+    end
+  end
+
+  def fizz(n) do
+    if rem(n,3) == 0 do
+      &quot;Fizz&quot;
+    else
+      &quot;&quot;
+    end
+  end
+  def buzz(n) do
+    if rem(n,5) == 0 do
+      &quot;Buzz&quot;
+    else
+      &quot;&quot;
+    end
+  end
+  def puts(n) do
+    IO.puts(judge(n));
+  end
+end
+
+Enum.map(1..15, &amp;FizzBuzz.puts/1)
 </code></pre>
 
-<p>write container to hosts file</p>
+<p>Hanoi Tower</p>
 
-<pre><code>links:
-- dbserver  
-- dbserver:mysql  
+<pre><code>defmodule Hanoi do
+  def hanoi(n, a, b, c) do
+    if n &gt; 0 do
+      hanoi n - 1, a, c, b
+      IO.puts &quot;#{n}番目の円盤を#{a}から#{b}へ移動&quot;
+      hanoi n - 1, c, b, a
+    end
+  end
+end
+
+Hanoi.hanoi 5, &quot;A&quot;, &quot;B&quot;, &quot;C&quot;
 </code></pre>
-
-<p>hosts file is written</p>
-
-<pre><code>192.168.100.10 dbserver
-192.168.100.10 mysql
-</code></pre>
-
-<p>write container not in same docker-compose.yml to hosts file</p>
-
-<pre><code>external_links:
-- dbserver  
-- dbserver:mysql  
-</code></pre>
-
-<p>set open port</p>
-
-<pre><code>ports:
-- &quot;3000&quot;  
-- &quot;8080:80&quot;  
-</code></pre>
-
-<p>set open port only for containers (not for host)</p>
-
-<pre><code>expose:
-- &quot;3000&quot;  
-- &quot;8080&quot;  
-</code></pre>
-
-<p>mount volume</p>
-
-<pre><code>volumes:
-- /var/log/mysql
-- /home/user/mysqllog:/var/log/mysql
-- ~/configs:/etc/configs/:ro
-</code></pre>
-
-<p>mount all volumes to another container</p>
-
-<pre><code>volumes_from:
-- log
-</code></pre>
-
-<p>set environment</p>
-
-<pre><code>environment:
-- bar=foo
-</code></pre>
-
-<p>set container name<br />
-container_name: web_app</p>
-
-<h2 id="commands">commands</h2>
-
-<p>create and boot containers<br />
-docker-compose up</p>
-
-<p>create and boot containers in background<br />
-docker-compose up -d</p>
-
-<p>stop one container<br />
-docker-compose stop (container name)</p>
-
-<p>show containers<br />
-docker-compose ps</p>
-
-<p>show logs<br />
-docker-compose logs</p>
-
-<p>implement command<br />
-docker-compose run (container name) /bin/bash</p>
-
-<p>start containers<br />
-docker-compose start</p>
-
-<p>stop containers<br />
-docker-compose stop</p>
-
-<p>force stop containers<br />
-docker-compose kill</p>
-
-<p>remove containers<br />
-docker-compose rm</p>
-
-<h2 id="prepare-wordpress-environment">prepare wordpress environment</h2>
-
-<p>prepare datastore container</p>
-
-<pre><code>FROM busybox
-MAINTAINER 0.1 sample@sample.com
-VOLUME /var/lib/mysql
-</code></pre>
-
-<p>VOLUME means saving directory</p>
-
-<p>create dataonly image<br />
-$ docker build -t dataonly .</p>
-
-<p>create dataonly container and start<br />
-$ docker run &ndash;name dataonly dataonly</p>
-
-<p>preapre docker-compose.yml</p>
-
-<pre><code>webserver:
-  image: wordpress
-  ports:
-    - 8080:80
-  links:
-    - &quot;dbserver:mysql&quot;
-
-dbserver:
-  image: mysql
-  volumes_from:
-    - dataonly
-  environment:
-    MYSQL_ROOT_PASSWORD: password
-</code></pre>
-
-<p>boot<br />
-$ docker-compose up -d</p>
-
-<p>connect mysql<br />
-use another container to connect<br />
-$ docker run -it &ndash;link (mysql container):mysql &ndash;rm mysql sh -c &lsquo;exec mysql -h&rdquo;$MYSQL_PORT_3306_TCP_ADDR&rdquo; -P&rdquo;$MYSQL_PORT_3306_TCP_PORT&rdquo; -uroot -p&rdquo;$MYSQL_ENV_MYSQL_ROOT_PASSWORD&rdquo;&rsquo;</p>
-
-<p>or<br />
-$ docker exec -it wordpress_dbserver_1 sh -c &lsquo;mysql -uroot -p$MYSQL_ROOT_PASSWORD&rsquo;</p>
-
-<p>dump all databases<br />
-$ docker exec some-mysql sh -c &lsquo;exec mysqldump &ndash;all-databases -uroot -p&rdquo;$MYSQL_ROOT_PASSWORD&rdquo;&rsquo; &gt; /some/path/on/your/host/all-databases.sql</p>
-
-<p>dump one database (wordpress)<br />
-$ docker exec some-mysql sh -c &lsquo;exec mysqldump wordpress -uroot -p&rdquo;$MYSQL_ROOT_PASSWORD&rdquo;&rsquo; &gt; dump.dbbackup</p>
-
-<h1 id="mysql-image">mysql image</h1>
-
-<p>docker run command<br />
-$ docker run &ndash;name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql</p>
-
-<h1 id="implement-rails-commands">implement rails commands</h1>
-
-<p>$ docker-compose run (app name) rails generate scaffold Article title:string<br />
-$ docker-compose run (app name) rake db:migrate</p>
-
-<h2 id="refferences">refferences</h2>
-
-<p><a href="https://hub.docker.com/_/mysql/">library/mysql - Docker Hub</a></p>
 </div>
   </div>
 
@@ -305,11 +200,11 @@ $ docker-compose run (app name) rake db:migrate</p>
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fdocker-compose%2f&title=docker%20compose" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fdocker-compose%2f&t=docker%20compose" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fdocker-compose%2f&text=docker%20compose&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fdocker-compose%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?docker%20compose https%3a%2f%2ffreks.jp%2ftips%2fdocker-compose%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2felixir%2f&title=elixir" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2felixir%2f&t=elixir" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2felixir%2f&text=elixir&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2felixir%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?elixir https%3a%2f%2ffreks.jp%2ftips%2felixir%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -318,7 +213,7 @@ $ docker-compose run (app name) rake db:migrate</p>
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">docker compose</li>
+          <li class="active">elixir</li>
         </ol>
       </nav>
 
@@ -347,7 +242,7 @@ $ docker-compose run (app name) rake db:migrate</p>
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/docker/">docker</a></li>
+            <li><a href="https://freks.jp/tips/tags/elixir/">elixir</a></li>
             
           </ul>
         </div>
