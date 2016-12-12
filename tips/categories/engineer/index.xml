@@ -9,6 +9,24 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>composer</title>
+      <link>https://freks.jp/tips/composer/</link>
+      <pubDate>Mon, 12 Dec 2016 15:36:12 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/composer/</guid>
+      <description>
+
+&lt;h4 id=&#34;バージョンを指定してパッケージをインストールする&#34;&gt;バージョンを指定してパッケージをインストールする&lt;/h4&gt;
+
+&lt;p&gt;Symfony2をインストール&lt;/p&gt;
+
+&lt;p&gt;$ composer require &amp;ldquo;symfony/symfony: 2.*&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://tech.quartetcom.co.jp/2015/01/19/composer-practices/&#34;&gt;[初心者向け] composerのバージョン指定方法 | QUARTETCOM TECH BLOG&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>elixir</title>
       <link>https://freks.jp/tips/elixir/</link>
       <pubDate>Sat, 10 Dec 2016 16:17:30 +0900</pubDate>
@@ -686,7 +704,9 @@ $ docker login &amp;ndash;username=shojik &amp;ndash;email=sample@sample.com&lt;
       <pubDate>Mon, 21 Nov 2016 10:49:54 +0900</pubDate>
       
       <guid>https://freks.jp/tips/start-hugo/</guid>
-      <description>&lt;p&gt;最新リリースをダウンロード&lt;br /&gt;
+      <description>
+
+&lt;p&gt;最新リリースをダウンロード&lt;br /&gt;
 &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Releases · spf13/hugo&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;$ wget &lt;a href=&#34;https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb&#34;&gt;https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb&lt;/a&gt;&lt;/p&gt;
@@ -735,6 +755,23 @@ $ hugo undraft content/post/good-to-great.md&lt;/p&gt;
 
 &lt;p&gt;publicディレクトリにアウトプット&lt;br /&gt;
 $ hugo &amp;ndash;theme=robust&lt;/p&gt;
+
+&lt;h4 id=&#34;tableタグにclassを追加する&#34;&gt;tableタグにclassを追加する&lt;/h4&gt;
+
+&lt;p&gt;hugo-robust-themeの場合&lt;br /&gt;
+$ vim layouts/_default/summary.html&lt;/p&gt;
+
+&lt;p&gt;before&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;article-body&amp;quot;&amp;gt;{{ .Content }}&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;after&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;article-body&amp;quot;&amp;gt;{{ replace .Content &amp;quot;&amp;lt;table&amp;gt;&amp;quot; &amp;quot;&amp;lt;table class=&#39;table&#39;&amp;gt;&amp;quot; | markdownify }}&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;see &lt;a href=&#34;https://github.com/spf13/hugo/issues/1585&#34;&gt;Support for Kramdown/Maruku attribute lists in markdown files · Issue #1585 · spf13/hugo&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
