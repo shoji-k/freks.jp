@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>freks tips</title>
-    <link>https://freks.jp/tips/tags/php/index.xml</link>
+    <link>https://freks.jp/tips/tags/symfony/index.xml</link>
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <atom:link href="https://freks.jp/tips/tags/php/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://freks.jp/tips/tags/symfony/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>symfony</title>
@@ -84,78 +84,6 @@ class LuckyController extends Controller
 &lt;p&gt;$ vim app/Resources/views/lucky/number.html.twig&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Your lucky number is {{ number }}&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>composer</title>
-      <link>https://freks.jp/tips/composer/</link>
-      <pubDate>Mon, 12 Dec 2016 15:36:12 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/composer/</guid>
-      <description>
-
-&lt;h4 id=&#34;バージョンを指定してパッケージをインストールする&#34;&gt;バージョンを指定してパッケージをインストールする&lt;/h4&gt;
-
-&lt;p&gt;Symfony2をインストール&lt;/p&gt;
-
-&lt;p&gt;$ composer require &amp;ldquo;symfony/symfony: 2.*&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://tech.quartetcom.co.jp/2015/01/19/composer-practices/&#34;&gt;[初心者向け] composerのバージョン指定方法 | QUARTETCOM TECH BLOG&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>cakephp</title>
-      <link>https://freks.jp/tips/cakephp/</link>
-      <pubDate>Fri, 25 Nov 2016 16:54:03 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/cakephp/</guid>
-      <description>&lt;p&gt;モデルのデータベースアクセスをSQLで確認する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all);
-$sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false);
-debug($sqlLog);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;json返す型&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function getJson()
-{
-    $this-&amp;gt;autoRender = false;
-    if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) {
-      throw new BadRequestException();
-    }
-
-    $result = &#39;NG&#39;;
-    $data = $this-&amp;gt;request-&amp;gt;data;
-    if (strlen(strlen($data[&#39;id&#39;]) !== 0) {
-        // do something
-        $result = &#39;OK&#39;;
-    }
-    echo json_encode(compact(&#39;result&#39;));
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;csvダウンロード型&lt;br /&gt;
-これだと中身が多いとメモリを消費する&lt;br /&gt;
-中身が多い場合は小分けにファイル保存して、ファイルダウンロードする&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function download($uid)
-{
-    $this-&amp;gt;autoRender = false;
-    $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;);
-
-    $fileName = &#39;1.csv&#39;;
-    $this-&amp;gt;response-&amp;gt;download($fileName);
-
-    $str = &amp;quot;sample, sample2&amp;quot;;
-    $str .= &amp;quot;1, 2&amp;quot;;
-
-    $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;);
-    $this-&amp;gt;response-&amp;gt;body($str);
-}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

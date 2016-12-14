@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/start-hugo/">
+<link rel="canonical" href="https://freks.jp/tips/symfony/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>start hugo - freks tips</title>
+    <title>symfony - freks tips</title>
     
-<meta name="description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.">
+<meta name="description" content="starter see Installing &amp;amp; Setting up the Symfony Framework (2.8)Symfonyのデモ付き一式ディストリビューションインストール$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;環境チェック$ php app/check.php oraccess http://localhost:8000/config.php使えるservicesを確認php app/console debug:container起動$ php app/console server:runコントローラーをつくってhtmlを返すルーティングはアノテーションで設定できるphpのファイルはsrc以下に保存$ vim src/AppBundle/Controller/LuckyController.phpnamespace AppBundle\Controller; use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; use Symfony\Component\HttpFoundation\Response; class LuckyController { /** * @Route(&amp;quot;/hey/yo&amp;quot;) */ public function hoo() { return new Response( &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39; ); } }  Twigテンプレートを返すphpでない設定ファイルやテンプレートはapp以下に保存$ vim src/AppBundle/Controller/LuckyController.php">
 
-<meta property="og:title" content="start hugo - freks tips">
+<meta property="og:title" content="symfony - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/start-hugo/">
+<meta property="og:url" content="https://freks.jp/tips/symfony/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.">
+<meta property="og:description" content="starter see Installing &amp;amp; Setting up the Symfony Framework (2.8)Symfonyのデモ付き一式ディストリビューションインストール$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;環境チェック$ php app/check.php oraccess http://localhost:8000/config.php使えるservicesを確認php app/console debug:container起動$ php app/console server:runコントローラーをつくってhtmlを返すルーティングはアノテーションで設定できるphpのファイルはsrc以下に保存$ vim src/AppBundle/Controller/LuckyController.phpnamespace AppBundle\Controller; use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; use Symfony\Component\HttpFoundation\Response; class LuckyController { /** * @Route(&amp;quot;/hey/yo&amp;quot;) */ public function hoo() { return new Response( &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39; ); } }  Twigテンプレートを返すphpでない設定ファイルやテンプレートはapp以下に保存$ vim src/AppBundle/Controller/LuckyController.php">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/start-hugo/">
-<meta name="twitter:title" content="start hugo - freks tips">
-<meta name="twitter:description" content="最新リリースをダウンロードReleases · spf13/hugo$ wget https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.debインストール$ dpkg -i hugo_0.17-64bit.debコマンド確認$ hugo versionHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29&#43;09:00  bookshelfディレクトリを作ってに初期化$ hugo new site bookshelfサーバーを起動、ドラフトも表示させる$ hugo server &amp;ndash;buildDraftsテーマがないと表示されないテーマをインストール $ cd themes.gitignoreにthemesを設定する場合$ git clone git@github.com:dim0627/hugo_theme_robust.git robustor$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust投稿を追加$ hugo new post/good-to-great.mdサーバーを起動、テーマ指定、ドラフトも表示させる$ hugo server &amp;ndash;theme=robust &amp;ndash;buildDraftsテーマは簡単に切り替えられるサーバーはライブリロードも効く設定を変える$ vim config.">
+<meta name="twitter:url" content="https://freks.jp/tips/symfony/">
+<meta name="twitter:title" content="symfony - freks tips">
+<meta name="twitter:description" content="starter see Installing &amp;amp; Setting up the Symfony Framework (2.8)Symfonyのデモ付き一式ディストリビューションインストール$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;環境チェック$ php app/check.php oraccess http://localhost:8000/config.php使えるservicesを確認php app/console debug:container起動$ php app/console server:runコントローラーをつくってhtmlを返すルーティングはアノテーションで設定できるphpのファイルはsrc以下に保存$ vim src/AppBundle/Controller/LuckyController.phpnamespace AppBundle\Controller; use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route; use Symfony\Component\HttpFoundation\Response; class LuckyController { /** * @Route(&amp;quot;/hey/yo&amp;quot;) */ public function hoo() { return new Response( &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39; ); } }  Twigテンプレートを返すphpでない設定ファイルやテンプレートはapp以下に保存$ vim src/AppBundle/Controller/LuckyController.php">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "start hugo - freks tips",
+    "headline": "symfony - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2016-11-21T10:49:54JST",
-    "dateModified": "2016-11-21T10:49:54JST",
+    "datePublished": "2016-12-14T11:25:54JST",
+    "dateModified": "2016-12-14T11:25:54JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "最新リリースをダウンロード\nReleases · spf13\/hugo\n$ wget https:\/\/github.com\/spf13\/hugo\/releases\/download\/v0.17\/hugo_0.17-64bit.deb\nインストール\n$ dpkg -i hugo_0.17-64bit.deb\nコマンド確認\n$ hugo version\nHugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29\x2b09:00  bookshelfディレクトリを作ってに初期化\n$ hugo new site bookshelf\nサーバーを起動、ドラフトも表示させる\n$ hugo server \x26ndash;buildDrafts\nテーマがないと表示されない\nテーマをインストール $ cd themes\n.gitignoreにthemesを設定する場合\n$ git clone git@github.com:dim0627\/hugo_theme_robust.git robust\nor\n$ git submodule add git@github.com:dim0627\/hugo_theme_robust.git robust\n投稿を追加\n$ hugo new post\/good-to-great.md\nサーバーを起動、テーマ指定、ドラフトも表示させる\n$ hugo server \x26ndash;theme=robust \x26ndash;buildDrafts\nテーマは簡単に切り替えられる\nサーバーはライブリロードも効く\n設定を変える\n$ vim config."
+    "description": "starter see Installing \x26amp; Setting up the Symfony Framework (2.8)\nSymfonyのデモ付き一式ディストリビューションインストール\n$ composer create-project symfony\/framework-standard-edition my_project_name \x26ldquo;2.8.*\x26rdquo;\n環境チェック\n$ php app\/check.php or\naccess http:\/\/localhost:8000\/config.php\n使えるservicesを確認\nphp app\/console debug:container\n起動\n$ php app\/console server:run\nコントローラーをつくってhtmlを返す\nルーティングはアノテーションで設定できる\nphpのファイルはsrc以下に保存\n$ vim src\/AppBundle\/Controller\/LuckyController.php\nnamespace AppBundle\\Controller; use Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Route; use Symfony\\Component\\HttpFoundation\\Response; class LuckyController { \/** * @Route(\x26quot;\/hey\/yo\x26quot;) *\/ public function hoo() { return new Response( \x27\x26lt;html\x26gt;\x26lt;body\x26gt;hey\x26lt;\/body\x26gt;\x26lt;\/html\x26gt;\x27 ); } }  Twigテンプレートを返す\nphpでない設定ファイルやテンプレートはapp以下に保存\n$ vim src\/AppBundle\/Controller\/LuckyController.php"
   }
 </script>
 
@@ -107,86 +107,90 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">start hugo</li>
+        <li class="active">symfony</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">start hugo</h1>
+    <h1 class="title">symfony</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-21T10:49:54JST">Nov 21, 2016</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-12-14T11:25:54JST">Dec 14, 2016</time></li>
       
       
     </ul>
 
-    <div class="article-body">最新リリースをダウンロード<br />
-<a href="https://github.com/spf13/hugo/releases">Releases · spf13/hugo</a></p>
+    <div class="article-body"><h3 id="starter">starter</h3>
 
-<p>$ wget <a href="https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb">https://github.com/spf13/hugo/releases/download/v0.17/hugo_0.17-64bit.deb</a></p>
+<p>see <a href="http://symfony.com/doc/2.8/setup.html">Installing &amp; Setting up the Symfony Framework (2.8)</a></p>
 
-<p>インストール<br />
-$ dpkg -i hugo_0.17-64bit.deb</p>
+<p>Symfonyのデモ付き一式ディストリビューションインストール<br />
+$ composer create-project symfony/framework-standard-edition my_project_name &ldquo;2.8.*&rdquo;</p>
 
-<p>コマンド確認<br />
-$ hugo version</p>
+<p>環境チェック<br />
+$ php app/check.php
+or<br />
+access <a href="http://localhost:8000/config.php">http://localhost:8000/config.php</a></p>
 
-<pre><code>Hugo Static Site Generator v0.17 BuildDate: 2016-10-07T23:46:29+09:00
+<p>使えるservicesを確認<br />
+php app/console debug:container</p>
+
+<p>起動<br />
+$ php app/console server:run</p>
+
+<p>コントローラーをつくってhtmlを返す<br />
+ルーティングはアノテーションで設定できる<br />
+phpのファイルはsrc以下に保存<br />
+$ vim src/AppBundle/Controller/LuckyController.php</p>
+
+<pre><code>namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+
+class LuckyController
+{
+    /**
+     * @Route(&quot;/hey/yo&quot;)
+     */
+    public function hoo()
+    {
+        return new Response(
+            '&lt;html&gt;&lt;body&gt;hey&lt;/body&gt;&lt;/html&gt;'
+        );
+    }
+}
 </code></pre>
 
-<p>bookshelfディレクトリを作ってに初期化<br />
-$ hugo new site bookshelf</p>
+<p>Twigテンプレートを返す<br />
+phpでない設定ファイルやテンプレートはapp以下に保存<br />
+$ vim src/AppBundle/Controller/LuckyController.php</p>
 
-<p>サーバーを起動、ドラフトも表示させる<br />
-$ hugo server &ndash;buildDrafts</p>
+<pre><code>namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-<p>テーマがないと表示されない</p>
+class LuckyController extends Controller
+{
+    /**
+     * @Route(&quot;/lucky/number&quot;)
+     */
+    public function numberAction()
+    {
+        $number = mt_rand(0, 100);
 
-<p>テーマをインストール
-$ cd themes</p>
-
-<p>.gitignoreにthemesを設定する場合<br />
-$ git clone git@github.com:dim0627/hugo_theme_robust.git robust</p>
-
-<p>or</p>
-
-<p>$ git submodule add git@github.com:dim0627/hugo_theme_robust.git robust</p>
-
-<p>投稿を追加<br />
-$ hugo new post/good-to-great.md</p>
-
-<p>サーバーを起動、テーマ指定、ドラフトも表示させる<br />
-$ hugo server &ndash;theme=robust &ndash;buildDrafts</p>
-
-<p>テーマは簡単に切り替えられる<br />
-サーバーはライブリロードも効く</p>
-
-<p>設定を変える<br />
-$ vim config.toml</p>
-
-<p>undraftする<br />
-$ hugo undraft content/post/good-to-great.md</p>
-
-<p>publicディレクトリにアウトプット<br />
-$ hugo &ndash;theme=robust</p>
-
-<h4 id="tableタグにclassを追加する">tableタグにclassを追加する</h4>
-
-<p>hugo-robust-themeの場合<br />
-$ vim layouts/_default/summary.html</p>
-
-<p>before</p>
-
-<pre><code>&lt;div class=&quot;article-body&quot;&gt;{{ .Content }}&lt;/div&gt;
+        return $this-&gt;render('lucky/number.html.twig', array(
+            'number' =&gt; $number,
+        ));
+    }
+}
 </code></pre>
 
-<p>after</p>
+<p>$ vim app/Resources/views/lucky/number.html.twig</p>
 
-<pre><code>&lt;div class=&quot;article-body&quot;&gt;{{ replace .Content &quot;&lt;table&gt;&quot; &quot;&lt;table class='table'&gt;&quot; | markdownify }}&lt;/div&gt;
+<pre><code>&lt;h1&gt;Your lucky number is {{ number }}&lt;/h1&gt;
 </code></pre>
-
-<p>see <a href="https://github.com/spf13/hugo/issues/1585">Support for Kramdown/Maruku attribute lists in markdown files · Issue #1585 · spf13/hugo</a></div>
+</div>
   </div>
 
   <footer class="article-footer">
@@ -194,11 +198,11 @@ $ vim layouts/_default/summary.html</p>
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&title=start%20hugo" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&t=start%20hugo" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f&text=start%20hugo&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?start%20hugo https%3a%2f%2ffreks.jp%2ftips%2fstart-hugo%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fsymfony%2f&title=symfony" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fsymfony%2f&t=symfony" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fsymfony%2f&text=symfony&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fsymfony%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?symfony https%3a%2f%2ffreks.jp%2ftips%2fsymfony%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -207,7 +211,7 @@ $ vim layouts/_default/summary.html</p>
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">start hugo</li>
+          <li class="active">symfony</li>
         </ol>
       </nav>
 
@@ -236,7 +240,9 @@ $ vim layouts/_default/summary.html</p>
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/hugo/">hugo</a></li>
+            <li><a href="https://freks.jp/tips/tags/php/">php</a></li>
+            
+            <li><a href="https://freks.jp/tips/tags/symfony/">symfony</a></li>
             
           </ul>
         </div>

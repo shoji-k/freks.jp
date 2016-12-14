@@ -9,6 +9,86 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>symfony</title>
+      <link>https://freks.jp/tips/symfony/</link>
+      <pubDate>Wed, 14 Dec 2016 11:25:54 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/symfony/</guid>
+      <description>
+
+&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://symfony.com/doc/2.8/setup.html&#34;&gt;Installing &amp;amp; Setting up the Symfony Framework (2.8)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Symfonyのデモ付き一式ディストリビューションインストール&lt;br /&gt;
+$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;環境チェック&lt;br /&gt;
+$ php app/check.php
+or&lt;br /&gt;
+access &lt;a href=&#34;http://localhost:8000/config.php&#34;&gt;http://localhost:8000/config.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;使えるservicesを確認&lt;br /&gt;
+php app/console debug:container&lt;/p&gt;
+
+&lt;p&gt;起動&lt;br /&gt;
+$ php app/console server:run&lt;/p&gt;
+
+&lt;p&gt;コントローラーをつくってhtmlを返す&lt;br /&gt;
+ルーティングはアノテーションで設定できる&lt;br /&gt;
+phpのファイルはsrc以下に保存&lt;br /&gt;
+$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Response;
+
+class LuckyController
+{
+    /**
+     * @Route(&amp;quot;/hey/yo&amp;quot;)
+     */
+    public function hoo()
+    {
+        return new Response(
+            &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;
+        );
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Twigテンプレートを返す&lt;br /&gt;
+phpでない設定ファイルやテンプレートはapp以下に保存&lt;br /&gt;
+$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+class LuckyController extends Controller
+{
+    /**
+     * @Route(&amp;quot;/lucky/number&amp;quot;)
+     */
+    public function numberAction()
+    {
+        $number = mt_rand(0, 100);
+
+        return $this-&amp;gt;render(&#39;lucky/number.html.twig&#39;, array(
+            &#39;number&#39; =&amp;gt; $number,
+        ));
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ vim app/Resources/views/lucky/number.html.twig&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Your lucky number is {{ number }}&amp;lt;/h1&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>composer</title>
       <link>https://freks.jp/tips/composer/</link>
       <pubDate>Mon, 12 Dec 2016 15:36:12 +0900</pubDate>
