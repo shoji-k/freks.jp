@@ -186,7 +186,20 @@ $ vim layouts/_default/summary.html</p>
 <pre><code>&lt;div class=&quot;article-body&quot;&gt;{{ replace .Content &quot;&lt;table&gt;&quot; &quot;&lt;table class='table'&gt;&quot; | markdownify }}&lt;/div&gt;
 </code></pre>
 
-<p>see <a href="https://github.com/spf13/hugo/issues/1585">Support for Kramdown/Maruku attribute lists in markdown files · Issue #1585 · spf13/hugo</a></div>
+<p>see <a href="https://github.com/spf13/hugo/issues/1585">Support for Kramdown/Maruku attribute lists in markdown files · Issue #1585 · spf13/hugo</a></p>
+
+<h4 id="baseurlにサブディレクトリを使う">baseUrlにサブディレクトリを使う</h4>
+
+<p>サブディレクトリがあると、ページャーのリンクがうまく動かない<br />
+e.g. 次へをクリックするとlocalhost/sub/pages/2へ遷移せず、localhost/pages/2へ遷移する</p>
+
+<p>$ vim config.toml</p>
+
+<pre><code>relativeURLS = true
+canonifyurls = true
+</code></pre>
+
+<p>を追加で解決</div>
   </div>
 
   <footer class="article-footer">

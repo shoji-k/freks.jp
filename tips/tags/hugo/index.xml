@@ -82,6 +82,19 @@ $ vim layouts/_default/summary.html&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;see &lt;a href=&#34;https://github.com/spf13/hugo/issues/1585&#34;&gt;Support for Kramdown/Maruku attribute lists in markdown files · Issue #1585 · spf13/hugo&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;baseurlにサブディレクトリを使う&#34;&gt;baseUrlにサブディレクトリを使う&lt;/h4&gt;
+
+&lt;p&gt;サブディレクトリがあると、ページャーのリンクがうまく動かない&lt;br /&gt;
+e.g. 次へをクリックするとlocalhost/sub/pages/2へ遷移せず、localhost/pages/2へ遷移する&lt;/p&gt;
+
+&lt;p&gt;$ vim config.toml&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;relativeURLS = true
+canonifyurls = true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追加で解決&lt;/p&gt;
 </description>
     </item>
     
