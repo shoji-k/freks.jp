@@ -9,6 +9,40 @@
     <atom:link href="https://freks.jp/tips/categories/memo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>podcast</title>
+      <link>https://freks.jp/tips/podcast/</link>
+      <pubDate>Sun, 18 Dec 2016 14:21:19 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/podcast/</guid>
+      <description>
+
+&lt;p&gt;いつか購読するリスト&lt;/p&gt;
+
+&lt;h1 id=&#34;tec&#34;&gt;Tec&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://atp.fm/&#34;&gt;Accidental Tech Podcast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://slack.com/podcast&#34;&gt;Work In Progress&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://changelog.com/podcast&#34;&gt;The Changelog with Adam Stacoviak and Jerod Santo | Changelog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;english&#34;&gt;English&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.bbc.co.uk/programmes/p02pc9tn&#34;&gt;BBC Radio - 6 Minute English&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.allearsenglish.com/&#34;&gt;All Ears English Podcast | Learn Advanced English&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://pod.flare.hiroshima-u.ac.jp/cms/&#34;&gt;Hiroshima University&amp;rsquo;s English Podcast - 毎週火曜日配信。世界の英語が聞ける。広島大学外国語教育研究センターがお届けする英語学習番組&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;food&#34;&gt;Food&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yelpjapan.libsyn.com/&#34;&gt;Yelp@city 〜街の新発見を届けるPodcast〜&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>lottery</title>
       <link>https://freks.jp/tips/lottery/</link>
       <pubDate>Mon, 12 Dec 2016 15:38:46 +0900</pubDate>

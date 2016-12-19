@@ -9,6 +9,45 @@
     <atom:link href="https://freks.jp/tips/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>silex</title>
+      <link>https://freks.jp/tips/silex/</link>
+      <pubDate>Wed, 14 Dec 2016 13:54:42 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/silex/</guid>
+      <description>
+
+&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://silex.sensiolabs.org/doc/master/usage.html&#34;&gt;Usage - Documentation - Silex - The PHP micro-framework based on the Symfony Components&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;$ composer require silex/silex:~2.0&lt;/p&gt;
+
+&lt;p&gt;サンプルコードを用意&lt;br /&gt;
+$ mkdir src&lt;br /&gt;
+$ cd src&lt;br /&gt;
+$ vim index.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+require_once __DIR__.&#39;/../vendor/autoload.php&#39;;
+
+$app = new Silex\Application();
+
+$app-&amp;gt;get(&#39;/hello/{name}&#39;, function ($name) use ($app) {
+    return &#39;Hello &#39;.$app-&amp;gt;escape($name);
+});
+
+$app-&amp;gt;run();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;起動して確認する&lt;br /&gt;
+$ cd ..&lt;br /&gt;
+$ php -S localhost:8080 -t src&lt;br /&gt;
+access &lt;a href=&#34;http://localhost:8080/hello/taro&#34;&gt;http://localhost:8080/hello/taro&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>symfony</title>
       <link>https://freks.jp/tips/symfony/</link>
       <pubDate>Wed, 14 Dec 2016 11:25:54 +0900</pubDate>
