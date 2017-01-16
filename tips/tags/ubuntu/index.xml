@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/ubuntu/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://freks.jp/tips/ubuntu/</link>
+      <pubDate>Mon, 16 Jan 2017 16:34:24 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;windowを移動する&#34;&gt;Windowを移動する&lt;/h4&gt;
+
+&lt;p&gt;ウィンドウが見えない場所へ移動してしまった時&lt;br /&gt;
+Alt + F7&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

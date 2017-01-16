@@ -6,8 +6,109 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 16 Jan 2017 16:19:13 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Jan 2017 16:34:42 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>useful services</title>
+      <link>https://freks.jp/tips/useful-services/</link>
+      <pubDate>Mon, 16 Jan 2017 16:34:42 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/useful-services/</guid>
+      <description>&lt;p&gt;design prototype and collaboration tool&lt;br /&gt;
+&lt;a href=&#34;https://www.figma.com/&#34;&gt;Figma: the collaborative interface design tool.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;WEBサイトを簡単に用意する&lt;br /&gt;
+&lt;a href=&#34;https://peraichi.com/&#34;&gt;驚くほどカンタン！無料ホームページ作成 | ペライチ&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>eccube3</title>
+      <link>https://freks.jp/tips/eccube3/</link>
+      <pubDate>Mon, 16 Jan 2017 16:34:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/eccube3/</guid>
+      <description>
+
+&lt;h4 id=&#34;debug-mode&#34;&gt;debug mode&lt;/h4&gt;
+
+&lt;p&gt;デバッグモード用のURLが用意されている&lt;br /&gt;
+index_dev.phpを入れるとデバッグモード&lt;br /&gt;
+&lt;a href=&#34;http://localhost/index_dev.php/sample/aaa&#34;&gt;http://localhost/index_dev.php/sample/aaa&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;plugin&#34;&gt;plugin&lt;/h4&gt;
+
+&lt;p&gt;Customizeプラグインを作る場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Customize/
+├── config.yml
+├── Controller
+│   ├── ConfigController.php
+│   └── CustomizeController.php
+├── event.yml
+├── Form
+│   └── Type
+│       └── CustomizeConfigType.php
+├── CustomizeEvent.php
+├── LICENSE
+├── PluginManager.php
+├── Resource
+│   └── template
+│       ├── admin
+│       │   └── config.twig
+│       └── index.twig
+└── ServiceProvider
+    └── CustomizeServiceProvider.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config.yml&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;プラグインの定義、ServiceProviderやEventの登録&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ServiceProviderディレクトリ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メインロジック、ルーティングの設定やFormのセットなど&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;event.yml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;フックポイントとEvent methodをつなげる&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CustomizeEvent.php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;config.ymlにevent.ymlとつながるクラス名をセット&lt;br /&gt;
+event.ymlとつなぐmethodを用意&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Controllerディレクトリ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コントローラーを設置&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://freks.jp/tips/ubuntu/</link>
+      <pubDate>Mon, 16 Jan 2017 16:34:24 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;windowを移動する&#34;&gt;Windowを移動する&lt;/h4&gt;
+
+&lt;p&gt;ウィンドウが見えない場所へ移動してしまった時&lt;br /&gt;
+Alt + F7&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>mysql</title>
@@ -658,497 +759,6 @@ debug($sqlLog);
     $this-&amp;gt;response-&amp;gt;body($str);
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>docker compose</title>
-      <link>https://freks.jp/tips/docker-compose/</link>
-      <pubDate>Thu, 24 Nov 2016 18:30:59 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/docker-compose/</guid>
-      <description>
-
-&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
-
-&lt;p&gt;reffer to:&lt;br /&gt;
-&lt;a href=&#34;https://docs.docker.com/compose/install/&#34;&gt;Install Compose&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;docker-compose-yml&#34;&gt;docker-compose.yml&lt;/h1&gt;
-
-&lt;p&gt;assign image&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;image: httpd:lastst  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;assign image built by Dockerfile&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;build: .  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;set command (use bash)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;command: /bin/bash  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;write container to hosts file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;links:
-- dbserver  
-- dbserver:mysql  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;hosts file is written&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;192.168.100.10 dbserver
-192.168.100.10 mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;write container not in same docker-compose.yml to hosts file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;external_links:
-- dbserver  
-- dbserver:mysql  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;set open port&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ports:
-- &amp;quot;3000&amp;quot;  
-- &amp;quot;8080:80&amp;quot;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;set open port only for containers (not for host)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;expose:
-- &amp;quot;3000&amp;quot;  
-- &amp;quot;8080&amp;quot;  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;mount volume&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;volumes:
-- /var/log/mysql
-- /home/user/mysqllog:/var/log/mysql
-- ~/configs:/etc/configs/:ro
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;mount all volumes to another container&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;volumes_from:
-- log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;set environment&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;environment:
-- bar=foo
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;set container name&lt;br /&gt;
-container_name: web_app&lt;/p&gt;
-
-&lt;h2 id=&#34;commands&#34;&gt;commands&lt;/h2&gt;
-
-&lt;p&gt;create and boot containers&lt;br /&gt;
-docker-compose up&lt;/p&gt;
-
-&lt;p&gt;create and boot containers in background&lt;br /&gt;
-docker-compose up -d&lt;/p&gt;
-
-&lt;p&gt;stop one container&lt;br /&gt;
-docker-compose stop (container name)&lt;/p&gt;
-
-&lt;p&gt;show containers&lt;br /&gt;
-docker-compose ps&lt;/p&gt;
-
-&lt;p&gt;show logs&lt;br /&gt;
-docker-compose logs&lt;/p&gt;
-
-&lt;p&gt;implement command&lt;br /&gt;
-docker-compose run (container name) /bin/bash&lt;/p&gt;
-
-&lt;p&gt;start containers&lt;br /&gt;
-docker-compose start&lt;/p&gt;
-
-&lt;p&gt;stop containers&lt;br /&gt;
-docker-compose stop&lt;/p&gt;
-
-&lt;p&gt;force stop containers&lt;br /&gt;
-docker-compose kill&lt;/p&gt;
-
-&lt;p&gt;remove containers&lt;br /&gt;
-docker-compose rm&lt;/p&gt;
-
-&lt;h2 id=&#34;prepare-wordpress-environment&#34;&gt;prepare wordpress environment&lt;/h2&gt;
-
-&lt;p&gt;prepare datastore container&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;FROM busybox
-MAINTAINER 0.1 sample@sample.com
-VOLUME /var/lib/mysql
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;VOLUME means saving directory&lt;/p&gt;
-
-&lt;p&gt;create dataonly image&lt;br /&gt;
-$ docker build -t dataonly .&lt;/p&gt;
-
-&lt;p&gt;create dataonly container and start&lt;br /&gt;
-$ docker run &amp;ndash;name dataonly dataonly&lt;/p&gt;
-
-&lt;p&gt;preapre docker-compose.yml&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;webserver:
-  image: wordpress
-  ports:
-    - 8080:80
-  links:
-    - &amp;quot;dbserver:mysql&amp;quot;
-
-dbserver:
-  image: mysql
-  volumes_from:
-    - dataonly
-  environment:
-    MYSQL_ROOT_PASSWORD: password
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;boot&lt;br /&gt;
-$ docker-compose up -d&lt;/p&gt;
-
-&lt;p&gt;connect mysql&lt;br /&gt;
-use another container to connect&lt;br /&gt;
-$ docker run -it &amp;ndash;link (mysql container):mysql &amp;ndash;rm mysql sh -c &amp;lsquo;exec mysql -h&amp;rdquo;$MYSQL_PORT_3306_TCP_ADDR&amp;rdquo; -P&amp;rdquo;$MYSQL_PORT_3306_TCP_PORT&amp;rdquo; -uroot -p&amp;rdquo;$MYSQL_ENV_MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo;&lt;/p&gt;
-
-&lt;p&gt;or&lt;br /&gt;
-$ docker exec -it wordpress_dbserver_1 sh -c &amp;lsquo;mysql -uroot -p$MYSQL_ROOT_PASSWORD&amp;rsquo;&lt;/p&gt;
-
-&lt;p&gt;dump all databases&lt;br /&gt;
-$ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump &amp;ndash;all-databases -uroot -p&amp;rdquo;$MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo; &amp;gt; /some/path/on/your/host/all-databases.sql&lt;/p&gt;
-
-&lt;p&gt;dump one database (wordpress)&lt;br /&gt;
-$ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump wordpress -uroot -p&amp;rdquo;$MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo; &amp;gt; dump.dbbackup&lt;/p&gt;
-
-&lt;h1 id=&#34;mysql-image&#34;&gt;mysql image&lt;/h1&gt;
-
-&lt;p&gt;docker run command&lt;br /&gt;
-$ docker run &amp;ndash;name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql&lt;/p&gt;
-
-&lt;h1 id=&#34;implement-rails-commands&#34;&gt;implement rails commands&lt;/h1&gt;
-
-&lt;p&gt;$ docker-compose run (app name) rails generate scaffold Article title:string&lt;br /&gt;
-$ docker-compose run (app name) rake db:migrate&lt;/p&gt;
-
-&lt;h2 id=&#34;refferences&#34;&gt;refferences&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://hub.docker.com/_/mysql/&#34;&gt;library/mysql - Docker Hub&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://freks.jp/tips/docker/</link>
-      <pubDate>Thu, 24 Nov 2016 16:39:26 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/docker/</guid>
-      <description>
-
-&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
-
-&lt;p&gt;reffer to:&lt;br /&gt;
-&lt;a href=&#34;https://docs.docker.com/engine/getstarted/step_one/&#34;&gt;Install Docker and run hello-world - Docker&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;$ curl -fsSL &lt;a href=&#34;https://get.docker.com/&#34;&gt;https://get.docker.com/&lt;/a&gt; | sh&lt;br /&gt;
-$ sudo usermod -aG docker user&lt;br /&gt;
-$ sudo service docker restart&lt;/p&gt;
-
-&lt;p&gt;logout once and login again not to need to use sudo&lt;/p&gt;
-
-&lt;p&gt;$ curl -fsSL &lt;a href=&#34;https://get.docker.com/gpg&#34;&gt;https://get.docker.com/gpg&lt;/a&gt; | sudo apt-key add -&lt;/p&gt;
-
-&lt;p&gt;$ docker -v&lt;/p&gt;
-
-&lt;p&gt;{% highlight text %}
-Docker version 1.11.0, build 4dc5990
-{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;check docker&lt;br /&gt;
-$ docker run hello-world&lt;/p&gt;
-
-&lt;p&gt;go into inside on bash&lt;br /&gt;
-$ docker run -it ubuntu bash&lt;/p&gt;
-
-&lt;h1 id=&#34;commands&#34;&gt;commands&lt;/h1&gt;
-
-&lt;p&gt;show downloaded docker images&lt;br /&gt;
-$ docker images&lt;/p&gt;
-
-&lt;p&gt;run ubuntu container and run a command.&lt;br /&gt;
-if ubuntu isn&amp;rsquo;t downloaded, it starts downloading it.&lt;br /&gt;
-docker container is booted once and stops.&lt;br /&gt;
-$ docker run &amp;ndash;name sample ubuntu cat /etc/lsb-release&lt;/p&gt;
-
-&lt;p&gt;show all containers (includes stopped one)&lt;br /&gt;
-$ docker ps -a&lt;/p&gt;
-
-&lt;p&gt;show container details&lt;br /&gt;
-$ docker inspect (id)&lt;/p&gt;
-
-&lt;p&gt;search docker images in dockerhub
-$ docker search nginx&lt;/p&gt;
-
-&lt;p&gt;remove stopped container&lt;br /&gt;
-$ docker rm (id)&lt;/p&gt;
-
-&lt;p&gt;delete all docker containers&lt;br /&gt;
-$ docker rm $(docker ps -aq)&lt;/p&gt;
-
-&lt;p&gt;remove an docker image&lt;br /&gt;
-$ docker rmi (image)&lt;/p&gt;
-
-&lt;p&gt;delete all docker images&lt;br /&gt;
-$ docker rmi $(docker images -q)&lt;/p&gt;
-
-&lt;p&gt;stop docker&lt;br /&gt;
-$ docker stop (id)&lt;/p&gt;
-
-&lt;p&gt;start a stopped container&lt;br /&gt;
-$ docker start (id)&lt;/p&gt;
-
-&lt;p&gt;run one command in a working container&lt;br /&gt;
-$ docker exec (id) md5sum /etc/nginx/nginx.conf&lt;/p&gt;
-
-&lt;p&gt;implement bash&lt;br /&gt;
-$ docker exec -i -t (id) /bin/bash&lt;/p&gt;
-
-&lt;p&gt;show docker logs&lt;br /&gt;
--t show time&lt;br /&gt;
-$ docker logs -t (id)&lt;/p&gt;
-
-&lt;p&gt;show image detail
-$ docker inspect (image)&lt;/p&gt;
-
-&lt;p&gt;attache deamon container&lt;br /&gt;
-$ docker attach (id)&lt;/p&gt;
-
-&lt;p&gt;show docker status&lt;br /&gt;
-$ docker stats (id) (id) ..&lt;/p&gt;
-
-&lt;p&gt;show container process&lt;br /&gt;
-$ docker top (container id)&lt;/p&gt;
-
-&lt;p&gt;show port transffer of container&lt;br /&gt;
-$ docker port (container id)&lt;/p&gt;
-
-&lt;p&gt;change container name&lt;br /&gt;
-$ docker rename (old) (new)&lt;/p&gt;
-
-&lt;p&gt;copy file between host and docker container&lt;br /&gt;
-$ docker cp file (container id):file&lt;br /&gt;
-$ docker cp (container id):file file&lt;/p&gt;
-
-&lt;p&gt;show differences between image and container&lt;br /&gt;
-$ docker diff (container id)&lt;/p&gt;
-
-&lt;p&gt;show docker information&lt;br /&gt;
-$ docker info&lt;/p&gt;
-
-&lt;p&gt;create images from container&lt;br /&gt;
-$ docker commit (container id) (image name:tag name)&lt;/p&gt;
-
-&lt;p&gt;export container&lt;br /&gt;
-export and import is pair&lt;br /&gt;
-this tar file includes directory hierarchy&lt;br /&gt;
-$ docker export container &amp;gt; (file.tar)&lt;/p&gt;
-
-&lt;p&gt;import image from exported container tar file&lt;br /&gt;
-$ docker import (file) (image name:tag name)&lt;/p&gt;
-
-&lt;p&gt;save docker image to tar&lt;br /&gt;
-save and load is pair&lt;br /&gt;
-save as layer&lt;br /&gt;
-$ docker save -o (file) (image name)&lt;/p&gt;
-
-&lt;p&gt;load saved docker image file&lt;br /&gt;
-$ docker load -i (file)&lt;/p&gt;
-
-&lt;h1 id=&#34;docker-run-parameters&#34;&gt;docker run parameters&lt;/h1&gt;
-
-&lt;p&gt;-d -&amp;gt; deamon&lt;br /&gt;
--P -&amp;gt; connect port between the host and the container&lt;br /&gt;
-&amp;ndash;name -&amp;gt; container name&lt;br /&gt;
--e -&amp;gt; set env&lt;br /&gt;
--v -&amp;gt; bind directory&lt;br /&gt;
-$ docker run -d -P &amp;ndash;name=server -e myenv=foo -v ~/:/usr/share/local/nginx/html nginx&lt;/p&gt;
-
-&lt;p&gt;bind ports&lt;br /&gt;
--p 60000-60030:60000-60030 -p 8080:80&lt;/p&gt;
-
-&lt;p&gt;&amp;ndash;link (id):(alias)&lt;br /&gt;
-you can set alias by yourself&lt;br /&gt;
-$ docker run &amp;ndash;link (id):(alias) ubuntu&lt;/p&gt;
-
-&lt;p&gt;$ docker run &amp;ndash;link server:ngx ubuntu env | grep -i _port&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;NGX_PORT=tcp://172.17.0.2:80
-NGX_PORT_80_TCP=tcp://172.17.0.2:80
-NGX_PORT_80_TCP_ADDR=172.17.0.2
-NGX_PORT_80_TCP_PORT=80
-NGX_PORT_80_TCP_PROTO=tcp
-NGX_PORT_443_TCP=tcp://172.17.0.2:443
-NGX_PORT_443_TCP_ADDR=172.17.0.2
-NGX_PORT_443_TCP_PORT=443
-NGX_PORT_443_TCP_PROTO=tcp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&amp;ndash;rm automatically remove the container if it exists&lt;br /&gt;
-$ docker run &amp;ndash;rm &amp;ndash;link server:ngx ubuntu cat /etc/hosts&lt;/p&gt;
-
-&lt;h1 id=&#34;prepare-dockerfile-and-run&#34;&gt;prepare Dockerfile and run&lt;/h1&gt;
-
-&lt;p&gt;$ vim Dockerfile&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;FROM centos:7
-MAINTAINER sample taro &amp;lt;taro@sample.co.jp&amp;gt;
-RUN yum -y install epel-release
-RUN yum -y install httpd
-EXPOSE 80 443
-CMD [&amp;quot;/usr/sbin/httpd&amp;quot;, &amp;quot;-DFOREGROUND&amp;quot;]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ docker build -t (image name:tag name) .&lt;/p&gt;
-
-&lt;h1 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h1&gt;
-
-&lt;p&gt;RUN&lt;br /&gt;
-this is used to create docker image&lt;/p&gt;
-
-&lt;p&gt;shell type&lt;br /&gt;
-implement on /bin/sh&lt;br /&gt;
-RUN echo こんにちは&lt;/p&gt;
-
-&lt;p&gt;exec type&lt;br /&gt;
-this doesn&amp;rsquo;t use /bin/sh&lt;br /&gt;
-RUN [&amp;ldquo;echo, &amp;ldquo;こんにちは&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;exec type&lt;br /&gt;
-RUN [&amp;ldquo;/bin/bash&amp;rdquo;, &amp;ldquo;-c&amp;rdquo;, &amp;ldquo;echo &amp;lsquo;こんにちは&amp;rsquo;&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;CMD&lt;br /&gt;
-implement command&lt;br /&gt;
-this can be overwritted docker run parameters&lt;/p&gt;
-
-&lt;p&gt;start deamon using shell type&lt;br /&gt;
-CMD /usr/sbin/httpd -D FOREGROUND&lt;/p&gt;
-
-&lt;p&gt;start deamon using exec type&lt;br /&gt;
-CMD [&amp;ldquo;/usr/sbin/httpd&amp;rdquo;,&amp;ldquo;-D&amp;rdquo;,&amp;ldquo;FOREGROUND&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;ENTRY POINT&lt;br /&gt;
-implement command&lt;br /&gt;
-this can&amp;rsquo;t be overwritted docker run parameters&lt;br /&gt;
-e.g. $ docker run -d -p 81:80 sample /usr/sbin/nginx -g &amp;ldquo;daemon off;&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;start deamon using ENTRYPOINT shell type&lt;br /&gt;
-ENTRYPOINT /usr/sbin/httpd -D FOREGROUND&lt;/p&gt;
-
-&lt;p&gt;start deamon using ENTRYPOINT exec type&lt;br /&gt;
-ENTRYPOINT [&amp;ldquo;/usr/sbin/httpd&amp;rdquo;,&amp;ldquo;-D&amp;rdquo;,&amp;ldquo;FOREGROUND&amp;rdquo;]&lt;/p&gt;
-
-&lt;p&gt;place web files when building&lt;br /&gt;
-this create new images&lt;br /&gt;
-ONBUILD website.tar /var/www/html/&lt;/p&gt;
-
-&lt;p&gt;set environment parameter&lt;br /&gt;
-ENV myName &amp;ldquo;taro&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;set working directory&lt;br /&gt;
-equals to cd sample&lt;br /&gt;
-WORKDIR sample&lt;/p&gt;
-
-&lt;p&gt;assign implement user&lt;br /&gt;
-USER sample&lt;/p&gt;
-
-&lt;p&gt;set label&lt;br /&gt;
-SET samplelabel&lt;/p&gt;
-
-&lt;p&gt;expose port&lt;br /&gt;
-EXPOSE 8080&lt;/p&gt;
-
-&lt;p&gt;add file or directory&lt;br /&gt;
-this can add tar file, then automatically untar&lt;br /&gt;
-ADD index.html /var/www/html/&lt;br /&gt;
-ADD sample.tar /var/www/html/&lt;br /&gt;
-ADD &lt;a href=&#34;http://sample.com/index.html&#34;&gt;http://sample.com/index.html&lt;/a&gt; /var/www/html/&lt;/p&gt;
-
-&lt;p&gt;copy file or directory&lt;br /&gt;
-COPY index.html /var/www/html/&lt;/p&gt;
-
-&lt;p&gt;docker-build sends all files in same directory,&lt;br /&gt;
-so prepare .dockerignore file&lt;/p&gt;
-
-&lt;p&gt;mount volume&lt;br /&gt;
-MOUNT /var/log/httpd&lt;/p&gt;
-
-&lt;h1 id=&#34;prepare-private-repository-and-push&#34;&gt;prepare private repository and push&lt;/h1&gt;
-
-&lt;p&gt;use registory image&lt;br /&gt;
-tag 2.0 is created by go-lang&lt;br /&gt;
-docker pull registory:2.0&lt;/p&gt;
-
-&lt;p&gt;run repository&lt;br /&gt;
-if this container is stopped, registered image is gone&lt;br /&gt;
-this needs to mount or something&lt;br /&gt;
-docker run -d -p 5000:5000 registry:2.0&lt;/p&gt;
-
-&lt;p&gt;name ruled image name&lt;br /&gt;
-docker tag (local image) localhost:5000/(image name)&lt;/p&gt;
-
-&lt;p&gt;push image&lt;br /&gt;
-docker push localhost:5000/(image name)&lt;/p&gt;
-
-&lt;p&gt;pull image&lt;br /&gt;
-docker pull localhost:5000/(image name)&lt;/p&gt;
-
-&lt;h1 id=&#34;push-to-hub-docker&#34;&gt;push to hub.docker&lt;/h1&gt;
-
-&lt;p&gt;create account on &lt;a href=&#34;https://hub.docker.com/&#34;&gt;https://hub.docker.com/&lt;/a&gt;&lt;br /&gt;
-$ docker tag docker-whale shojik/docker-whale:latest&lt;br /&gt;
-$ docker login &amp;ndash;username=shojik &amp;ndash;email=sample@sample.com&lt;/p&gt;
-
-&lt;p&gt;save token to ~/.docker/config.json&lt;/p&gt;
-
-&lt;p&gt;$ docker push shojik/docker-whale&lt;/p&gt;
-
-&lt;h2 id=&#34;refferences&#34;&gt;refferences&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/zembutsu/items/d146295cfcf69c205c1e&#34;&gt;Dockerのライフサイクルを理解するハンズオン資料 - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://qiita.com/kohey18/items/dffe9b11d330576ab852&#34;&gt;実例で学ぶDockerハンズオン - Qiita&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://amzn.to/2dNjPdn&#34;&gt;プログラマのためのDocker教科書 インフラの基礎知識＆コードによる環境構築の自動化&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>sub earnings</title>
-      <link>https://freks.jp/tips/sub-earnings/</link>
-      <pubDate>Mon, 21 Nov 2016 18:08:25 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/sub-earnings/</guid>
-      <description>&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://steers.jp/&#34;&gt;オリジナルTシャツ作成・販売 STEERS（ステアーズ）&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;0円でTシャツを作れる&lt;br /&gt;
-最低販売枚数を超えると売上発生&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://snapmart.jp/&#34;&gt;スマホの写真が売買できるサイト | Snapmart [スナップマート]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;スマホの写真が売れる&lt;/p&gt;
 </description>
     </item>
     

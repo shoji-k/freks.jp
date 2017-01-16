@@ -9,6 +9,78 @@
     <atom:link href="https://freks.jp/tips/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>eccube3</title>
+      <link>https://freks.jp/tips/eccube3/</link>
+      <pubDate>Mon, 16 Jan 2017 16:34:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/eccube3/</guid>
+      <description>
+
+&lt;h4 id=&#34;debug-mode&#34;&gt;debug mode&lt;/h4&gt;
+
+&lt;p&gt;デバッグモード用のURLが用意されている&lt;br /&gt;
+index_dev.phpを入れるとデバッグモード&lt;br /&gt;
+&lt;a href=&#34;http://localhost/index_dev.php/sample/aaa&#34;&gt;http://localhost/index_dev.php/sample/aaa&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;plugin&#34;&gt;plugin&lt;/h4&gt;
+
+&lt;p&gt;Customizeプラグインを作る場合&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Customize/
+├── config.yml
+├── Controller
+│   ├── ConfigController.php
+│   └── CustomizeController.php
+├── event.yml
+├── Form
+│   └── Type
+│       └── CustomizeConfigType.php
+├── CustomizeEvent.php
+├── LICENSE
+├── PluginManager.php
+├── Resource
+│   └── template
+│       ├── admin
+│       │   └── config.twig
+│       └── index.twig
+└── ServiceProvider
+    └── CustomizeServiceProvider.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;config.yml&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;プラグインの定義、ServiceProviderやEventの登録&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ServiceProviderディレクトリ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;メインロジック、ルーティングの設定やFormのセットなど&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;event.yml&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;フックポイントとEvent methodをつなげる&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CustomizeEvent.php&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;config.ymlにevent.ymlとつながるクラス名をセット&lt;br /&gt;
+event.ymlとつなぐmethodを用意&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Controllerディレクトリ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;コントローラーを設置&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>php</title>
       <link>https://freks.jp/tips/php/</link>
       <pubDate>Mon, 19 Dec 2016 15:16:16 +0900</pubDate>
