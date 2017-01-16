@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/cakephp/">
+<link rel="canonical" href="https://freks.jp/tips/mysql/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>cakephp - freks tips</title>
+    <title>mysql - freks tips</title>
     
-<meta name="description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta name="description" content="install sudo apt-get install mysql-serversudo apt-get install php5-mysql$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。[client] default-character-set=utf8 [mysqld] skip-character-set-client-handshake character-set-server = utf8 collation-server = utf8_general_ci init-connect = SET NAMES utf8  $ sudo /etc/init.d/mysql restart$ sudo mysql -u root -p$ mysql&amp;gt; status文字コードがuft8になっているか確認login mysql -u root -pbackup mysqldump -u root -p (database name) &amp;gt; dumprestore mysql -u root (database name) &amp;lt; dumpcreate user GRANT ALL PRIVILEGES ON .">
 
-<meta property="og:title" content="cakephp - freks tips">
+<meta property="og:title" content="mysql - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/cakephp/">
+<meta property="og:url" content="https://freks.jp/tips/mysql/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta property="og:description" content="install sudo apt-get install mysql-serversudo apt-get install php5-mysql$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。[client] default-character-set=utf8 [mysqld] skip-character-set-client-handshake character-set-server = utf8 collation-server = utf8_general_ci init-connect = SET NAMES utf8  $ sudo /etc/init.d/mysql restart$ sudo mysql -u root -p$ mysql&amp;gt; status文字コードがuft8になっているか確認login mysql -u root -pbackup mysqldump -u root -p (database name) &amp;gt; dumprestore mysql -u root (database name) &amp;lt; dumpcreate user GRANT ALL PRIVILEGES ON .">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/cakephp/">
-<meta name="twitter:title" content="cakephp - freks tips">
-<meta name="twitter:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta name="twitter:url" content="https://freks.jp/tips/mysql/">
+<meta name="twitter:title" content="mysql - freks tips">
+<meta name="twitter:description" content="install sudo apt-get install mysql-serversudo apt-get install php5-mysql$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。[client] default-character-set=utf8 [mysqld] skip-character-set-client-handshake character-set-server = utf8 collation-server = utf8_general_ci init-connect = SET NAMES utf8  $ sudo /etc/init.d/mysql restart$ sudo mysql -u root -p$ mysql&amp;gt; status文字コードがuft8になっているか確認login mysql -u root -pbackup mysqldump -u root -p (database name) &amp;gt; dumprestore mysql -u root (database name) &amp;lt; dumpcreate user GRANT ALL PRIVILEGES ON .">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "cakephp - freks tips",
+    "headline": "mysql - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2016-11-25T16:54:03JST",
-    "dateModified": "2016-11-25T16:54:03JST",
+    "datePublished": "2017-01-16T16:19:13JST",
+    "dateModified": "2017-01-16T16:19:13JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "モデルのデータベースアクセスをSQLで確認する\n$data = $this-\x26gt;SampleModel-\x26gt;find(\x27all); $sqlLog = $this-\x26gt;SampleModel-\x26gt;getDataSource()-\x26gt;getLog(false, false); debug($sqlLog);  json返す型\npublic function getJson() { $this-\x26gt;autoRender = false; if(!$this-\x26gt;request-\x26gt;is(\x27ajax\x27)) { throw new BadRequestException(); } $result = \x27NG\x27; $data = $this-\x26gt;request-\x26gt;data; if (strlen(strlen($data[\x27id\x27]) !== 0) { \/\/ do something $result = \x27OK\x27; } echo json_encode(compact(\x27result\x27)); }  csvダウンロード型\nこれだと中身が多いとメモリを消費する\n中身が多い場合は小分けにファイル保存して、ファイルダウンロードする\npublic function download($uid) { $this-\x26gt;autoRender = false; $this-\x26gt;response-\x26gt;type(\x27csv\x27); $fileName = \x271.csv\x27; $this-\x26gt;response-\x26gt;download($fileName); $str = \x26quot;sample, sample2\x26quot;; $str .= \x26quot;1, 2\x26quot;; $str = mb_convert_encoding($str, \x27SJIS-win\x27, \x27utf8\x27); $this-\x26gt;response-\x26gt;body($str); }  "
+    "description": "install sudo apt-get install mysql-server\nsudo apt-get install php5-mysql\n$ sudo vi\/etc\/mysql\/my.cnfにあるので、viか何かで開いて、下記設定を追加。\n[client] default-character-set=utf8 [mysqld] skip-character-set-client-handshake character-set-server = utf8 collation-server = utf8_general_ci init-connect = SET NAMES utf8  $ sudo \/etc\/init.d\/mysql restart\n$ sudo mysql -u root -p\n$ mysql\x26gt; status\n文字コードがuft8になっているか確認\nlogin mysql -u root -p\nbackup mysqldump -u root -p (database name) \x26gt; dump\nrestore mysql -u root (database name) \x26lt; dump\ncreate user GRANT ALL PRIVILEGES ON ."
   }
 </script>
 
@@ -107,66 +107,83 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">cakephp</li>
+        <li class="active">mysql</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">cakephp</h1>
+    <h1 class="title">mysql</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-25T16:54:03JST">Nov 25, 2016</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-16T16:19:13JST">Jan 16, 2017</time></li>
       
       
     </ul>
 
-    <div class="article-body">モデルのデータベースアクセスをSQLで確認する</p>
+    <div class="article-body"><h1 id="install">install</h1>
 
-<pre><code>$data = $this-&gt;SampleModel-&gt;find('all);
-$sqlLog = $this-&gt;SampleModel-&gt;getDataSource()-&gt;getLog(false, false);
-debug($sqlLog);
+<p>sudo apt-get install mysql-server<br />
+sudo apt-get install php5-mysql</p>
+
+<p>$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。</p>
+
+<pre><code>[client]
+default-character-set=utf8
+[mysqld]
+skip-character-set-client-handshake
+character-set-server = utf8
+collation-server = utf8_general_ci
+init-connect = SET NAMES utf8
 </code></pre>
 
-<p>json返す型</p>
+<p>$ sudo /etc/init.d/mysql restart<br />
+$ sudo mysql -u root -p<br />
+$ mysql&gt; status<br />
+文字コードがuft8になっているか確認</p>
 
-<pre><code>public function getJson()
-{
-    $this-&gt;autoRender = false;
-    if(!$this-&gt;request-&gt;is('ajax')) {
-      throw new BadRequestException();
-    }
+<h1 id="login">login</h1>
 
-    $result = 'NG';
-    $data = $this-&gt;request-&gt;data;
-    if (strlen(strlen($data['id']) !== 0) {
-        // do something
-        $result = 'OK';
-    }
-    echo json_encode(compact('result'));
-}
-</code></pre>
+<p>mysql -u root -p</p>
 
-<p>csvダウンロード型<br />
-これだと中身が多いとメモリを消費する<br />
-中身が多い場合は小分けにファイル保存して、ファイルダウンロードする</p>
+<h1 id="backup">backup</h1>
 
-<pre><code>public function download($uid)
-{
-    $this-&gt;autoRender = false;
-    $this-&gt;response-&gt;type('csv');
+<p>mysqldump -u root -p (database name) &gt; dump</p>
 
-    $fileName = '1.csv';
-    $this-&gt;response-&gt;download($fileName);
+<h1 id="restore">restore</h1>
 
-    $str = &quot;sample, sample2&quot;;
-    $str .= &quot;1, 2&quot;;
+<p>mysql -u root (database name) &lt; dump</p>
 
-    $str = mb_convert_encoding($str, 'SJIS-win', 'utf8');
-    $this-&gt;response-&gt;body($str);
-}
-</code></pre>
-</div>
+<h1 id="create-user">create user</h1>
+
+<p>GRANT ALL PRIVILEGES ON <em>.</em> TO (user name)@localhost IDENTIFIED BY &lsquo;password&rsquo;;<br />
+FLUSH PRIVILEGES;</p>
+
+<h1 id="delete-user">delete user</h1>
+
+<p>DELETE FROM mysql.user WHERE user=&lsquo;ユーザ名&rsquo; AND host=&lsquo;localhost&rsquo;;<br />
+or<br />
+drop user sample@localhost;</p>
+
+<h1 id="show-users">show users</h1>
+
+<p>select user, host, password from mysql.user;</p>
+
+<h1 id="create-database">create database</h1>
+
+<p>CREATE DATABASE (database name) CHARACTER SET utf8;</p>
+
+<h1 id="delete-database">delete database</h1>
+
+<p>drop database sample;</p>
+
+<h1 id="show-databases">show databases</h1>
+
+<p>show databases;</p>
+
+<h1 id="connect">connect</h1>
+
+<p>mysql -u user -h hostname -P portnum -p (database name)</div>
   </div>
 
   <footer class="article-footer">
@@ -174,11 +191,11 @@ debug($sqlLog);
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&title=cakephp" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&t=cakephp" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&text=cakephp&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?cakephp https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fmysql%2f&title=mysql" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fmysql%2f&t=mysql" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fmysql%2f&text=mysql&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fmysql%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?mysql https%3a%2f%2ffreks.jp%2ftips%2fmysql%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -187,7 +204,7 @@ debug($sqlLog);
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">cakephp</li>
+          <li class="active">mysql</li>
         </ol>
       </nav>
 
@@ -216,9 +233,7 @@ debug($sqlLog);
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/php/">php</a></li>
-            
-            <li><a href="https://freks.jp/tips/tags/cakephp/">cakephp</a></li>
+            <li><a href="https://freks.jp/tips/tags/mysql/">mysql</a></li>
             
           </ul>
         </div>

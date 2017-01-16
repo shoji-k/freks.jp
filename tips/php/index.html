@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/cakephp/">
+<link rel="canonical" href="https://freks.jp/tips/php/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>cakephp - freks tips</title>
+    <title>php - freks tips</title>
     
-<meta name="description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta name="description" content="ワンライナーでphp.iniの場所を調べる $ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini">
 
-<meta property="og:title" content="cakephp - freks tips">
+<meta property="og:title" content="php - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/cakephp/">
+<meta property="og:url" content="https://freks.jp/tips/php/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta property="og:description" content="ワンライナーでphp.iniの場所を調べる $ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/cakephp/">
-<meta name="twitter:title" content="cakephp - freks tips">
-<meta name="twitter:description" content="モデルのデータベースアクセスをSQLで確認する$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all); $sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false); debug($sqlLog);  json返す型public function getJson() { $this-&amp;gt;autoRender = false; if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) { throw new BadRequestException(); } $result = &#39;NG&#39;; $data = $this-&amp;gt;request-&amp;gt;data; if (strlen(strlen($data[&#39;id&#39;]) !== 0) { // do something $result = &#39;OK&#39;; } echo json_encode(compact(&#39;result&#39;)); }  csvダウンロード型これだと中身が多いとメモリを消費する中身が多い場合は小分けにファイル保存して、ファイルダウンロードするpublic function download($uid) { $this-&amp;gt;autoRender = false; $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;); $fileName = &#39;1.csv&#39;; $this-&amp;gt;response-&amp;gt;download($fileName); $str = &amp;quot;sample, sample2&amp;quot;; $str .= &amp;quot;1, 2&amp;quot;; $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;); $this-&amp;gt;response-&amp;gt;body($str); }  ">
+<meta name="twitter:url" content="https://freks.jp/tips/php/">
+<meta name="twitter:title" content="php - freks tips">
+<meta name="twitter:description" content="ワンライナーでphp.iniの場所を調べる $ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "cakephp - freks tips",
+    "headline": "php - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2016-11-25T16:54:03JST",
-    "dateModified": "2016-11-25T16:54:03JST",
+    "datePublished": "2016-12-19T15:16:16JST",
+    "dateModified": "2016-12-19T15:16:16JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "モデルのデータベースアクセスをSQLで確認する\n$data = $this-\x26gt;SampleModel-\x26gt;find(\x27all); $sqlLog = $this-\x26gt;SampleModel-\x26gt;getDataSource()-\x26gt;getLog(false, false); debug($sqlLog);  json返す型\npublic function getJson() { $this-\x26gt;autoRender = false; if(!$this-\x26gt;request-\x26gt;is(\x27ajax\x27)) { throw new BadRequestException(); } $result = \x27NG\x27; $data = $this-\x26gt;request-\x26gt;data; if (strlen(strlen($data[\x27id\x27]) !== 0) { \/\/ do something $result = \x27OK\x27; } echo json_encode(compact(\x27result\x27)); }  csvダウンロード型\nこれだと中身が多いとメモリを消費する\n中身が多い場合は小分けにファイル保存して、ファイルダウンロードする\npublic function download($uid) { $this-\x26gt;autoRender = false; $this-\x26gt;response-\x26gt;type(\x27csv\x27); $fileName = \x271.csv\x27; $this-\x26gt;response-\x26gt;download($fileName); $str = \x26quot;sample, sample2\x26quot;; $str .= \x26quot;1, 2\x26quot;; $str = mb_convert_encoding($str, \x27SJIS-win\x27, \x27utf8\x27); $this-\x26gt;response-\x26gt;body($str); }  "
+    "description": "ワンライナーでphp.iniの場所を調べる $ php -r \x26ldquo;phpinfo();\x26rdquo; | grep php.ini"
   }
 </script>
 
@@ -107,66 +107,23 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">cakephp</li>
+        <li class="active">php</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">cakephp</h1>
+    <h1 class="title">php</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-11-25T16:54:03JST">Nov 25, 2016</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2016-12-19T15:16:16JST">Dec 19, 2016</time></li>
       
       
     </ul>
 
-    <div class="article-body">モデルのデータベースアクセスをSQLで確認する</p>
+    <div class="article-body"><h4 id="ワンライナーでphp-iniの場所を調べる">ワンライナーでphp.iniの場所を調べる</h4>
 
-<pre><code>$data = $this-&gt;SampleModel-&gt;find('all);
-$sqlLog = $this-&gt;SampleModel-&gt;getDataSource()-&gt;getLog(false, false);
-debug($sqlLog);
-</code></pre>
-
-<p>json返す型</p>
-
-<pre><code>public function getJson()
-{
-    $this-&gt;autoRender = false;
-    if(!$this-&gt;request-&gt;is('ajax')) {
-      throw new BadRequestException();
-    }
-
-    $result = 'NG';
-    $data = $this-&gt;request-&gt;data;
-    if (strlen(strlen($data['id']) !== 0) {
-        // do something
-        $result = 'OK';
-    }
-    echo json_encode(compact('result'));
-}
-</code></pre>
-
-<p>csvダウンロード型<br />
-これだと中身が多いとメモリを消費する<br />
-中身が多い場合は小分けにファイル保存して、ファイルダウンロードする</p>
-
-<pre><code>public function download($uid)
-{
-    $this-&gt;autoRender = false;
-    $this-&gt;response-&gt;type('csv');
-
-    $fileName = '1.csv';
-    $this-&gt;response-&gt;download($fileName);
-
-    $str = &quot;sample, sample2&quot;;
-    $str .= &quot;1, 2&quot;;
-
-    $str = mb_convert_encoding($str, 'SJIS-win', 'utf8');
-    $this-&gt;response-&gt;body($str);
-}
-</code></pre>
-</div>
+<p>$ php -r &ldquo;phpinfo();&rdquo; | grep php.ini</div>
   </div>
 
   <footer class="article-footer">
@@ -174,11 +131,11 @@ debug($sqlLog);
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&title=cakephp" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&t=cakephp" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f&text=cakephp&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?cakephp https%3a%2f%2ffreks.jp%2ftips%2fcakephp%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fphp%2f&title=php" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fphp%2f&t=php" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fphp%2f&text=php&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fphp%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?php https%3a%2f%2ffreks.jp%2ftips%2fphp%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -187,7 +144,7 @@ debug($sqlLog);
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">cakephp</li>
+          <li class="active">php</li>
         </ol>
       </nav>
 
@@ -217,8 +174,6 @@ debug($sqlLog);
           <ul class="p-terms inline">
             
             <li><a href="https://freks.jp/tips/tags/php/">php</a></li>
-            
-            <li><a href="https://freks.jp/tips/tags/cakephp/">cakephp</a></li>
             
           </ul>
         </div>

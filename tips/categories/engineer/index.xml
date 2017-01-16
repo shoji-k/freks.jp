@@ -9,6 +9,115 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>mysql</title>
+      <link>https://freks.jp/tips/mysql/</link>
+      <pubDate>Mon, 16 Jan 2017 16:19:13 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/mysql/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;sudo apt-get install mysql-server&lt;br /&gt;
+sudo apt-get install php5-mysql&lt;/p&gt;
+
+&lt;p&gt;$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[client]
+default-character-set=utf8
+[mysqld]
+skip-character-set-client-handshake
+character-set-server = utf8
+collation-server = utf8_general_ci
+init-connect = SET NAMES utf8
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo /etc/init.d/mysql restart&lt;br /&gt;
+$ sudo mysql -u root -p&lt;br /&gt;
+$ mysql&amp;gt; status&lt;br /&gt;
+文字コードがuft8になっているか確認&lt;/p&gt;
+
+&lt;h1 id=&#34;login&#34;&gt;login&lt;/h1&gt;
+
+&lt;p&gt;mysql -u root -p&lt;/p&gt;
+
+&lt;h1 id=&#34;backup&#34;&gt;backup&lt;/h1&gt;
+
+&lt;p&gt;mysqldump -u root -p (database name) &amp;gt; dump&lt;/p&gt;
+
+&lt;h1 id=&#34;restore&#34;&gt;restore&lt;/h1&gt;
+
+&lt;p&gt;mysql -u root (database name) &amp;lt; dump&lt;/p&gt;
+
+&lt;h1 id=&#34;create-user&#34;&gt;create user&lt;/h1&gt;
+
+&lt;p&gt;GRANT ALL PRIVILEGES ON &lt;em&gt;.&lt;/em&gt; TO (user name)@localhost IDENTIFIED BY &amp;lsquo;password&amp;rsquo;;&lt;br /&gt;
+FLUSH PRIVILEGES;&lt;/p&gt;
+
+&lt;h1 id=&#34;delete-user&#34;&gt;delete user&lt;/h1&gt;
+
+&lt;p&gt;DELETE FROM mysql.user WHERE user=&amp;lsquo;ユーザ名&amp;rsquo; AND host=&amp;lsquo;localhost&amp;rsquo;;&lt;br /&gt;
+or&lt;br /&gt;
+drop user sample@localhost;&lt;/p&gt;
+
+&lt;h1 id=&#34;show-users&#34;&gt;show users&lt;/h1&gt;
+
+&lt;p&gt;select user, host, password from mysql.user;&lt;/p&gt;
+
+&lt;h1 id=&#34;create-database&#34;&gt;create database&lt;/h1&gt;
+
+&lt;p&gt;CREATE DATABASE (database name) CHARACTER SET utf8;&lt;/p&gt;
+
+&lt;h1 id=&#34;delete-database&#34;&gt;delete database&lt;/h1&gt;
+
+&lt;p&gt;drop database sample;&lt;/p&gt;
+
+&lt;h1 id=&#34;show-databases&#34;&gt;show databases&lt;/h1&gt;
+
+&lt;p&gt;show databases;&lt;/p&gt;
+
+&lt;h1 id=&#34;connect&#34;&gt;connect&lt;/h1&gt;
+
+&lt;p&gt;mysql -u user -h hostname -P portnum -p (database name)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>apache</title>
+      <link>https://freks.jp/tips/apache/</link>
+      <pubDate>Mon, 26 Dec 2016 19:23:04 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/apache/</guid>
+      <description>
+
+&lt;h4 id=&#34;confの文法チェック&#34;&gt;confの文法チェック&lt;/h4&gt;
+
+&lt;p&gt;$ apachectl configtest&lt;/p&gt;
+
+&lt;h4 id=&#34;サブディレクトリへのアクセスログを分ける&#34;&gt;サブディレクトリへのアクセスログを分ける&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;SetEnvIf Request_URI &amp;quot;/sample/&amp;quot; sample
+CustomLog &amp;quot;logs/access_log&amp;quot; combined env=!sample
+CustomLog &amp;quot;logs/sample-access_log&amp;quot; combined env=print
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>php</title>
+      <link>https://freks.jp/tips/php/</link>
+      <pubDate>Mon, 19 Dec 2016 15:16:16 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/php/</guid>
+      <description>
+
+&lt;h4 id=&#34;ワンライナーでphp-iniの場所を調べる&#34;&gt;ワンライナーでphp.iniの場所を調べる&lt;/h4&gt;
+
+&lt;p&gt;$ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>silex</title>
       <link>https://freks.jp/tips/silex/</link>
       <pubDate>Wed, 14 Dec 2016 13:54:42 +0900</pubDate>
