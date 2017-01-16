@@ -1,0 +1,11 @@
+{
+    "name": "freks/linebot",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "kobayashi shoji",
+            "email": "shoji.kobayashi.0125@gmail.com"
+        }
+    ],
+    "require": { "linecorp/line-bot-sdk": "*" }
+}
