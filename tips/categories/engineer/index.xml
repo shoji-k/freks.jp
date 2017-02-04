@@ -122,6 +122,11 @@ $ firewall-cmd --reload
 
 &lt;pre&gt;&lt;code&gt;journalctl -u sshd.service
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum update
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
