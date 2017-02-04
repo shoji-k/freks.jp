@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/ansible/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ansible</title>
+      <link>https://freks.jp/tips/ansible/</link>
+      <pubDate>Sat, 04 Feb 2017 16:32:47 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ansible/</guid>
+      <description>
+
+&lt;p&gt;sshでサーバーにつながるように準備しておく&lt;/p&gt;
+
+&lt;h4 id=&#34;start&#34;&gt;start&lt;/h4&gt;
+
+&lt;p&gt;create inventory file&lt;/p&gt;
+
+&lt;p&gt;$ vim /etc/ansible/hosts (globalにansibleが認識)&lt;br /&gt;
+or&lt;br /&gt;
+$ vim hosts (local)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[servers]
+sample
+server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2 servers are written&lt;br /&gt;
+[xxxx] is a group name&lt;br /&gt;
+server name is used in ssh/config&lt;/p&gt;
+
+&lt;p&gt;$ ansible all -m ping&lt;br /&gt;
+or&lt;br /&gt;
+$ ansible servers -m ping&lt;br /&gt;
+$ ansible sample -m ping&lt;/p&gt;
+
+&lt;p&gt;sample is one server name&lt;br /&gt;
+servers is a group name&lt;br /&gt;
+ping is one module of ansible&lt;/p&gt;
+
+&lt;p&gt;localの場合 -i で inventory file を指定&lt;br /&gt;
+$ ansible all -i hosts -m ping&lt;/p&gt;
+
+&lt;h4 id=&#34;to-vagrant&#34;&gt;to vagrant&lt;/h4&gt;
+
+&lt;p&gt;set vagrant ssh to .ssh/config&lt;br /&gt;
+$ vagrant ssh-config ansible &amp;gt;&amp;gt; ~/.ssh/config&lt;/p&gt;
+
+&lt;p&gt;try ssh to vagrant&lt;br /&gt;
+$ ssh ansible&lt;/p&gt;
+
+&lt;h4 id=&#34;playbook&#34;&gt;playbook&lt;/h4&gt;
+
+&lt;p&gt;check syntax&lt;br /&gt;
+$ ansible-playbook sample.yml &amp;ndash;syntax-check&lt;/p&gt;
+
+&lt;p&gt;implement&lt;br /&gt;
+$ ansible-playbook -i hosts -t wp -K sample.yml&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-i set hosts&lt;/li&gt;
+&lt;li&gt;-t set tag&lt;/li&gt;
+&lt;li&gt;-K ask sudo password&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

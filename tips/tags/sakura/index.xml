@@ -110,6 +110,17 @@ $ firewall-cmd --reload
 
 &lt;pre&gt;&lt;code&gt;$ sudo yum update
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public
+$ sudo firewall-cmd --add-service=https --zone=public
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;git&#34;&gt;git&lt;/h4&gt;
+
+&lt;p&gt;git was already installed&lt;br /&gt;
+so do config&lt;/p&gt;
 </description>
     </item>
     

@@ -213,7 +213,10 @@ $ docker-compose run (app name) rake db:migrate&lt;/p&gt;
 &lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
 
 &lt;p&gt;reffer to:&lt;br /&gt;
-&lt;a href=&#34;https://docs.docker.com/engine/getstarted/step_one/&#34;&gt;Install Docker and run hello-world - Docker&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&#34;https://docs.docker.com/engine/getstarted/step_one/&#34;&gt;Install Docker and run hello-world - Docker&lt;/a&gt;&lt;br /&gt;
+Centos 7: &lt;a href=&#34;https://docs.docker.com/engine/installation/linux/centos/&#34;&gt;Get Docker for CentOS - Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;non-root user: &lt;a href=&#34;https://docs.docker.com/engine/installation/linux/linux-postinstall/&#34;&gt;Post-installation steps for Linux - Docker&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;$ curl -fsSL &lt;a href=&#34;https://get.docker.com/&#34;&gt;https://get.docker.com/&lt;/a&gt; | sh&lt;br /&gt;
 $ sudo usermod -aG docker user&lt;br /&gt;
@@ -225,9 +228,8 @@ $ sudo service docker restart&lt;/p&gt;
 
 &lt;p&gt;$ docker -v&lt;/p&gt;
 
-&lt;p&gt;{% highlight text %}
-Docker version 1.11.0, build 4dc5990
-{% endhighlight %}&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Docker version 1.11.0, build 4dc5990
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;check docker&lt;br /&gt;
 $ docker run hello-world&lt;/p&gt;
@@ -476,6 +478,15 @@ $ docker login &amp;ndash;username=shojik &amp;ndash;email=sample@sample.com&lt;
 &lt;p&gt;save token to ~/.docker/config.json&lt;/p&gt;
 
 &lt;p&gt;$ docker push shojik/docker-whale&lt;/p&gt;
+
+&lt;h2 id=&#34;implement-composer-install&#34;&gt;implement composer install&lt;/h2&gt;
+
+&lt;p&gt;use&lt;br /&gt;
+&lt;a href=&#34;https://hub.docker.com/r/composer/composer/&#34;&gt;composer/composer - Docker Hub&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;docker pull composer/composer&lt;br /&gt;
+move the directory include composer.json&lt;br /&gt;
+$ docker run &amp;ndash;rm -v $(pwd):/app composer/composer install&lt;/p&gt;
 
 &lt;h2 id=&#34;refferences&#34;&gt;refferences&lt;/h2&gt;
 

@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/ssh/">
+<link rel="canonical" href="https://freks.jp/tips/ansible/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>ssh - freks tips</title>
+    <title>ansible - freks tips</title>
     
-<meta name="description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta name="description" content="sshでサーバーにつながるように準備しておくstart create inventory file$ vim /etc/ansible/hosts (globalにansibleが認識)or$ vim hosts (local)[servers] sample server  2 servers are written[xxxx] is a group nameserver name is used in ssh/config$ ansible all -m pingor$ ansible servers -m ping$ ansible sample -m pingsample is one server nameservers is a group nameping is one module of ansiblelocalの場合 -i で inventory file を指定">
 
-<meta property="og:title" content="ssh - freks tips">
+<meta property="og:title" content="ansible - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/ssh/">
+<meta property="og:url" content="https://freks.jp/tips/ansible/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta property="og:description" content="sshでサーバーにつながるように準備しておくstart create inventory file$ vim /etc/ansible/hosts (globalにansibleが認識)or$ vim hosts (local)[servers] sample server  2 servers are written[xxxx] is a group nameserver name is used in ssh/config$ ansible all -m pingor$ ansible servers -m ping$ ansible sample -m pingsample is one server nameservers is a group nameping is one module of ansiblelocalの場合 -i で inventory file を指定">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/ssh/">
-<meta name="twitter:title" content="ssh - freks tips">
-<meta name="twitter:description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta name="twitter:url" content="https://freks.jp/tips/ansible/">
+<meta name="twitter:title" content="ansible - freks tips">
+<meta name="twitter:description" content="sshでサーバーにつながるように準備しておくstart create inventory file$ vim /etc/ansible/hosts (globalにansibleが認識)or$ vim hosts (local)[servers] sample server  2 servers are written[xxxx] is a group nameserver name is used in ssh/config$ ansible all -m pingor$ ansible servers -m ping$ ansible sample -m pingsample is one server nameservers is a group nameping is one module of ansiblelocalの場合 -i で inventory file を指定">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "ssh - freks tips",
+    "headline": "ansible - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2017-02-04T15:00:30JST",
-    "dateModified": "2017-02-04T15:00:30JST",
+    "datePublished": "2017-02-04T16:32:47JST",
+    "dateModified": "2017-02-04T16:32:47JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "```\nssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C \x26ldquo;your_email@example.com\x26rdquo;\n(ファイル名を指定)"
+    "description": "sshでサーバーにつながるように準備しておく\nstart create inventory file\n$ vim \/etc\/ansible\/hosts (globalにansibleが認識)\nor\n$ vim hosts (local)\n[servers] sample server  2 servers are written\n[xxxx] is a group name\nserver name is used in ssh\/config\n$ ansible all -m ping\nor\n$ ansible servers -m ping\n$ ansible sample -m ping\nsample is one server name\nservers is a group name\nping is one module of ansible\nlocalの場合 -i で inventory file を指定"
   }
 </script>
 
@@ -107,26 +107,73 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">ssh</li>
+        <li class="active">ansible</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">ssh</h1>
+    <h1 class="title">ansible</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-04T15:00:30JST">Feb 4, 2017</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-04T16:32:47JST">Feb 4, 2017</time></li>
       
       
     </ul>
 
-    <div class="article-body">```</p>
+    <div class="article-body">sshでサーバーにつながるように準備しておく</p>
 
-<h4 id="ssh鍵生成">ssh鍵生成</h4>
+<h4 id="start">start</h4>
 
-<p>$ ssh-keygen -t rsa -b 4096 -C &ldquo;your_email@example.com&rdquo;<br />
-(ファイル名を指定)</div>
+<p>create inventory file</p>
+
+<p>$ vim /etc/ansible/hosts (globalにansibleが認識)<br />
+or<br />
+$ vim hosts (local)</p>
+
+<pre><code>[servers]
+sample
+server
+</code></pre>
+
+<p>2 servers are written<br />
+[xxxx] is a group name<br />
+server name is used in ssh/config</p>
+
+<p>$ ansible all -m ping<br />
+or<br />
+$ ansible servers -m ping<br />
+$ ansible sample -m ping</p>
+
+<p>sample is one server name<br />
+servers is a group name<br />
+ping is one module of ansible</p>
+
+<p>localの場合 -i で inventory file を指定<br />
+$ ansible all -i hosts -m ping</p>
+
+<h4 id="to-vagrant">to vagrant</h4>
+
+<p>set vagrant ssh to .ssh/config<br />
+$ vagrant ssh-config ansible &gt;&gt; ~/.ssh/config</p>
+
+<p>try ssh to vagrant<br />
+$ ssh ansible</p>
+
+<h4 id="playbook">playbook</h4>
+
+<p>check syntax<br />
+$ ansible-playbook sample.yml &ndash;syntax-check</p>
+
+<p>implement<br />
+$ ansible-playbook -i hosts -t wp -K sample.yml</p>
+
+<ul>
+<li>-i set hosts</li>
+<li>-t set tag</li>
+<li>-K ask sudo password</li>
+</ul>
+</div>
   </div>
 
   <footer class="article-footer">
@@ -134,11 +181,11 @@
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&title=ssh" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&t=ssh" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&text=ssh&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?ssh https%3a%2f%2ffreks.jp%2ftips%2fssh%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fansible%2f&title=ansible" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fansible%2f&t=ansible" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fansible%2f&text=ansible&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fansible%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?ansible https%3a%2f%2ffreks.jp%2ftips%2fansible%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -147,7 +194,7 @@
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">ssh</li>
+          <li class="active">ansible</li>
         </ol>
       </nav>
 
@@ -176,7 +223,7 @@
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/ssh/">ssh</a></li>
+            <li><a href="https://freks.jp/tips/tags/ansible/">ansible</a></li>
             
           </ul>
         </div>

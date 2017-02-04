@@ -9,6 +9,121 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>git</title>
+      <link>https://freks.jp/tips/git/</link>
+      <pubDate>Sat, 04 Feb 2017 18:40:36 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/git/</guid>
+      <description>
+
+&lt;h4 id=&#34;start-to-use-git&#34;&gt;start to use git&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global user.name (name)
+git config --global user.email (email address)
+git config --global color.ui auto
+git config --global alias.ch checkout
+git config --global alias.co commit
+git config --global alias.st status
+git config --global alias.br=branch
+git config --global core.quotepath off
+git config --global core.editor vim
+git config --global push.default=simple
+git config --global commit.verbose=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h4&gt;
+
+&lt;p&gt;prepare ssh key (ex. deploykey_rsa)&lt;br /&gt;
+register ssh public key to bitbucket account or repository&lt;/p&gt;
+
+&lt;p&gt;on server&lt;/p&gt;
+
+&lt;p&gt;$ vi .ssh/config&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Host bitbucket
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/deploykey_rsa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;confirm&lt;/p&gt;
+
+&lt;p&gt;$ ssh bitbucket&lt;/p&gt;
+
+&lt;p&gt;link .ssh/config to git&lt;/p&gt;
+
+&lt;p&gt;$ vim .gitconfig&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[url &amp;quot;bitbucket:&amp;quot;]
+    InsteadOf = git@bitbucket.org:
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>https://freks.jp/tips/ansible/</link>
+      <pubDate>Sat, 04 Feb 2017 16:32:47 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ansible/</guid>
+      <description>
+
+&lt;p&gt;sshでサーバーにつながるように準備しておく&lt;/p&gt;
+
+&lt;h4 id=&#34;start&#34;&gt;start&lt;/h4&gt;
+
+&lt;p&gt;create inventory file&lt;/p&gt;
+
+&lt;p&gt;$ vim /etc/ansible/hosts (globalにansibleが認識)&lt;br /&gt;
+or&lt;br /&gt;
+$ vim hosts (local)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[servers]
+sample
+server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2 servers are written&lt;br /&gt;
+[xxxx] is a group name&lt;br /&gt;
+server name is used in ssh/config&lt;/p&gt;
+
+&lt;p&gt;$ ansible all -m ping&lt;br /&gt;
+or&lt;br /&gt;
+$ ansible servers -m ping&lt;br /&gt;
+$ ansible sample -m ping&lt;/p&gt;
+
+&lt;p&gt;sample is one server name&lt;br /&gt;
+servers is a group name&lt;br /&gt;
+ping is one module of ansible&lt;/p&gt;
+
+&lt;p&gt;localの場合 -i で inventory file を指定&lt;br /&gt;
+$ ansible all -i hosts -m ping&lt;/p&gt;
+
+&lt;h4 id=&#34;to-vagrant&#34;&gt;to vagrant&lt;/h4&gt;
+
+&lt;p&gt;set vagrant ssh to .ssh/config&lt;br /&gt;
+$ vagrant ssh-config ansible &amp;gt;&amp;gt; ~/.ssh/config&lt;/p&gt;
+
+&lt;p&gt;try ssh to vagrant&lt;br /&gt;
+$ ssh ansible&lt;/p&gt;
+
+&lt;h4 id=&#34;playbook&#34;&gt;playbook&lt;/h4&gt;
+
+&lt;p&gt;check syntax&lt;br /&gt;
+$ ansible-playbook sample.yml &amp;ndash;syntax-check&lt;/p&gt;
+
+&lt;p&gt;implement&lt;br /&gt;
+$ ansible-playbook -i hosts -t wp -K sample.yml&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-i set hosts&lt;/li&gt;
+&lt;li&gt;-t set tag&lt;/li&gt;
+&lt;li&gt;-K ask sudo password&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
       <title>ssh</title>
       <link>https://freks.jp/tips/ssh/</link>
       <pubDate>Sat, 04 Feb 2017 15:00:30 +0900</pubDate>
@@ -127,6 +242,17 @@ $ firewall-cmd --reload
 
 &lt;pre&gt;&lt;code&gt;$ sudo yum update
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public
+$ sudo firewall-cmd --add-service=https --zone=public
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;git&#34;&gt;git&lt;/h4&gt;
+
+&lt;p&gt;git was already installed&lt;br /&gt;
+so do config&lt;/p&gt;
 </description>
     </item>
     
@@ -599,95 +725,6 @@ $.ajax({
     alert(&#39;エラーが発生しました&#39;);
   }
 });
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>subversion</title>
-      <link>https://freks.jp/tips/subversion/</link>
-      <pubDate>Sat, 26 Nov 2016 12:40:49 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/subversion/</guid>
-      <description>&lt;p&gt;svn checkout http://(リポジトリ）&lt;br /&gt;
-チェックアウトしてファイルをダウンロード&lt;/p&gt;
-
-&lt;p&gt;svn update .&lt;br /&gt;
-リポジトリから最新をダウンロード&lt;/p&gt;
-
-&lt;p&gt;svn add (file)&lt;br /&gt;
-(file)をsubversionの管理下へいれます&lt;/p&gt;
-
-&lt;p&gt;svn delete (file)&lt;br /&gt;
-(file)を削除します&lt;/p&gt;
-
-&lt;p&gt;svn commit -m &amp;lsquo;コメント&amp;rsquo;&lt;br /&gt;
-コメントをつけてコミットします（リポジトリに送り込む）&lt;/p&gt;
-
-&lt;p&gt;svn info&lt;br /&gt;
-リポジトリの情報を表示&lt;/p&gt;
-
-&lt;p&gt;svn log -l 5&lt;br /&gt;
-ログを最新５件表示&lt;/p&gt;
-
-&lt;p&gt;svn diff&lt;br /&gt;
-コミットしてないものの差分を表示&lt;/p&gt;
-
-&lt;p&gt;svn diff -r r30:head&lt;br /&gt;
-リビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>cakephp</title>
-      <link>https://freks.jp/tips/cakephp/</link>
-      <pubDate>Fri, 25 Nov 2016 16:54:03 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/cakephp/</guid>
-      <description>&lt;p&gt;モデルのデータベースアクセスをSQLで確認する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all);
-$sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false);
-debug($sqlLog);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;json返す型&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function getJson()
-{
-    $this-&amp;gt;autoRender = false;
-    if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) {
-      throw new BadRequestException();
-    }
-
-    $result = &#39;NG&#39;;
-    $data = $this-&amp;gt;request-&amp;gt;data;
-    if (strlen(strlen($data[&#39;id&#39;]) !== 0) {
-        // do something
-        $result = &#39;OK&#39;;
-    }
-    echo json_encode(compact(&#39;result&#39;));
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;csvダウンロード型&lt;br /&gt;
-これだと中身が多いとメモリを消費する&lt;br /&gt;
-中身が多い場合は小分けにファイル保存して、ファイルダウンロードする&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function download($uid)
-{
-    $this-&amp;gt;autoRender = false;
-    $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;);
-
-    $fileName = &#39;1.csv&#39;;
-    $this-&amp;gt;response-&amp;gt;download($fileName);
-
-    $str = &amp;quot;sample, sample2&amp;quot;;
-    $str .= &amp;quot;1, 2&amp;quot;;
-
-    $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;);
-    $this-&amp;gt;response-&amp;gt;body($str);
-}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

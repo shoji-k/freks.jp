@@ -6,8 +6,123 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 04 Feb 2017 15:00:30 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 04 Feb 2017 18:40:36 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>git</title>
+      <link>https://freks.jp/tips/git/</link>
+      <pubDate>Sat, 04 Feb 2017 18:40:36 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/git/</guid>
+      <description>
+
+&lt;h4 id=&#34;start-to-use-git&#34;&gt;start to use git&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global user.name (name)
+git config --global user.email (email address)
+git config --global color.ui auto
+git config --global alias.ch checkout
+git config --global alias.co commit
+git config --global alias.st status
+git config --global alias.br=branch
+git config --global core.quotepath off
+git config --global core.editor vim
+git config --global push.default=simple
+git config --global commit.verbose=true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h4&gt;
+
+&lt;p&gt;prepare ssh key (ex. deploykey_rsa)&lt;br /&gt;
+register ssh public key to bitbucket account or repository&lt;/p&gt;
+
+&lt;p&gt;on server&lt;/p&gt;
+
+&lt;p&gt;$ vi .ssh/config&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Host bitbucket
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/deploykey_rsa
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;confirm&lt;/p&gt;
+
+&lt;p&gt;$ ssh bitbucket&lt;/p&gt;
+
+&lt;p&gt;link .ssh/config to git&lt;/p&gt;
+
+&lt;p&gt;$ vim .gitconfig&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[url &amp;quot;bitbucket:&amp;quot;]
+    InsteadOf = git@bitbucket.org:
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ansible</title>
+      <link>https://freks.jp/tips/ansible/</link>
+      <pubDate>Sat, 04 Feb 2017 16:32:47 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ansible/</guid>
+      <description>
+
+&lt;p&gt;sshでサーバーにつながるように準備しておく&lt;/p&gt;
+
+&lt;h4 id=&#34;start&#34;&gt;start&lt;/h4&gt;
+
+&lt;p&gt;create inventory file&lt;/p&gt;
+
+&lt;p&gt;$ vim /etc/ansible/hosts (globalにansibleが認識)&lt;br /&gt;
+or&lt;br /&gt;
+$ vim hosts (local)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[servers]
+sample
+server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;2 servers are written&lt;br /&gt;
+[xxxx] is a group name&lt;br /&gt;
+server name is used in ssh/config&lt;/p&gt;
+
+&lt;p&gt;$ ansible all -m ping&lt;br /&gt;
+or&lt;br /&gt;
+$ ansible servers -m ping&lt;br /&gt;
+$ ansible sample -m ping&lt;/p&gt;
+
+&lt;p&gt;sample is one server name&lt;br /&gt;
+servers is a group name&lt;br /&gt;
+ping is one module of ansible&lt;/p&gt;
+
+&lt;p&gt;localの場合 -i で inventory file を指定&lt;br /&gt;
+$ ansible all -i hosts -m ping&lt;/p&gt;
+
+&lt;h4 id=&#34;to-vagrant&#34;&gt;to vagrant&lt;/h4&gt;
+
+&lt;p&gt;set vagrant ssh to .ssh/config&lt;br /&gt;
+$ vagrant ssh-config ansible &amp;gt;&amp;gt; ~/.ssh/config&lt;/p&gt;
+
+&lt;p&gt;try ssh to vagrant&lt;br /&gt;
+$ ssh ansible&lt;/p&gt;
+
+&lt;h4 id=&#34;playbook&#34;&gt;playbook&lt;/h4&gt;
+
+&lt;p&gt;check syntax&lt;br /&gt;
+$ ansible-playbook sample.yml &amp;ndash;syntax-check&lt;/p&gt;
+
+&lt;p&gt;implement&lt;br /&gt;
+$ ansible-playbook -i hosts -t wp -K sample.yml&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;-i set hosts&lt;/li&gt;
+&lt;li&gt;-t set tag&lt;/li&gt;
+&lt;li&gt;-K ask sudo password&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>ssh</title>
@@ -128,6 +243,17 @@ $ firewall-cmd --reload
 
 &lt;pre&gt;&lt;code&gt;$ sudo yum update
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public
+$ sudo firewall-cmd --add-service=https --zone=public
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;git&#34;&gt;git&lt;/h4&gt;
+
+&lt;p&gt;git was already installed&lt;br /&gt;
+so do config&lt;/p&gt;
 </description>
     </item>
     
@@ -688,104 +814,6 @@ class LuckyController extends Controller
 &lt;/table&gt;
 
 &lt;p&gt;link &lt;a href=&#34;http://www.takarakuji-official.jp/nj2016/&#34;&gt;年末ジャンボ宝くじ（第704〜706回 全国自治宝くじ） | 宝くじ公式サイト&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>composer</title>
-      <link>https://freks.jp/tips/composer/</link>
-      <pubDate>Mon, 12 Dec 2016 15:36:12 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/composer/</guid>
-      <description>
-
-&lt;h4 id=&#34;バージョンを指定してパッケージをインストールする&#34;&gt;バージョンを指定してパッケージをインストールする&lt;/h4&gt;
-
-&lt;p&gt;Symfony2をインストール&lt;/p&gt;
-
-&lt;p&gt;$ composer require &amp;ldquo;symfony/symfony: 2.*&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://tech.quartetcom.co.jp/2015/01/19/composer-practices/&#34;&gt;[初心者向け] composerのバージョン指定方法 | QUARTETCOM TECH BLOG&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>elixir</title>
-      <link>https://freks.jp/tips/elixir/</link>
-      <pubDate>Sat, 10 Dec 2016 16:17:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/elixir/</guid>
-      <description>&lt;p&gt;hello world&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;IO.puts &amp;quot;hello world&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;FizzBuzz&lt;br /&gt;
-pattern 1&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Enum.each(1..15, fn(i) -&amp;gt;
-  cond do
-    rem(i, 3) == 0 &amp;amp;&amp;amp; rem(i, 5) == 0 -&amp;gt;
-      IO.puts(&amp;quot;FizzBuzz&amp;quot;)
-    rem(i, 3) == 0 -&amp;gt;
-      IO.puts(&amp;quot;Fizz&amp;quot;)
-    rem(i, 5) == 0 -&amp;gt;
-      IO.puts(&amp;quot;Buzz&amp;quot;)
-    true -&amp;gt;
-      IO.puts(i)
-  end
-end)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;pattern 2&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;defmodule FizzBuzz do
-  def judge(n) do
-    f = fizz(n)
-    b = buzz(n)
-    if f == &amp;quot;&amp;quot; and b == &amp;quot;&amp;quot; do
-      n
-    else
-      &amp;quot;#{f}#{b}&amp;quot;
-    end
-  end
-
-  def fizz(n) do
-    if rem(n,3) == 0 do
-      &amp;quot;Fizz&amp;quot;
-    else
-      &amp;quot;&amp;quot;
-    end
-  end
-  def buzz(n) do
-    if rem(n,5) == 0 do
-      &amp;quot;Buzz&amp;quot;
-    else
-      &amp;quot;&amp;quot;
-    end
-  end
-  def puts(n) do
-    IO.puts(judge(n));
-  end
-end
-
-Enum.map(1..15, &amp;amp;FizzBuzz.puts/1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Hanoi Tower&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;defmodule Hanoi do
-  def hanoi(n, a, b, c) do
-    if n &amp;gt; 0 do
-      hanoi n - 1, a, c, b
-      IO.puts &amp;quot;#{n}番目の円盤を#{a}から#{b}へ移動&amp;quot;
-      hanoi n - 1, c, b, a
-    end
-  end
-end
-
-Hanoi.hanoi 5, &amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/ssh/">
+<link rel="canonical" href="https://freks.jp/tips/git/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>ssh - freks tips</title>
+    <title>git - freks tips</title>
     
-<meta name="description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta name="description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
 
-<meta property="og:title" content="ssh - freks tips">
+<meta property="og:title" content="git - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/ssh/">
+<meta property="og:url" content="https://freks.jp/tips/git/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta property="og:description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/ssh/">
-<meta name="twitter:title" content="ssh - freks tips">
-<meta name="twitter:description" content="```ssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;(ファイル名を指定)">
+<meta name="twitter:url" content="https://freks.jp/tips/git/">
+<meta name="twitter:title" content="git - freks tips">
+<meta name="twitter:description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "ssh - freks tips",
+    "headline": "git - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2017-02-04T15:00:30JST",
-    "dateModified": "2017-02-04T15:00:30JST",
+    "datePublished": "2017-02-04T18:40:36JST",
+    "dateModified": "2017-02-04T18:40:36JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "```\nssh鍵生成 $ ssh-keygen -t rsa -b 4096 -C \x26ldquo;your_email@example.com\x26rdquo;\n(ファイル名を指定)"
+    "description": "start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex."
   }
 </script>
 
@@ -107,26 +107,62 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">ssh</li>
+        <li class="active">git</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">ssh</h1>
+    <h1 class="title">git</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-04T15:00:30JST">Feb 4, 2017</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-04T18:40:36JST">Feb 4, 2017</time></li>
       
       
     </ul>
 
-    <div class="article-body">```</p>
+    <div class="article-body"><h4 id="start-to-use-git">start to use git</h4>
 
-<h4 id="ssh鍵生成">ssh鍵生成</h4>
+<pre><code>git config --global user.name (name)
+git config --global user.email (email address)
+git config --global color.ui auto
+git config --global alias.ch checkout
+git config --global alias.co commit
+git config --global alias.st status
+git config --global alias.br=branch
+git config --global core.quotepath off
+git config --global core.editor vim
+git config --global push.default=simple
+git config --global commit.verbose=true
+</code></pre>
 
-<p>$ ssh-keygen -t rsa -b 4096 -C &ldquo;your_email@example.com&rdquo;<br />
-(ファイル名を指定)</div>
+<h4 id="connect-bitbucket-using-name-changed-ssh-key-not-id-rsa">connect bitbucket using name changed ssh key (not id_rsa)</h4>
+
+<p>prepare ssh key (ex. deploykey_rsa)<br />
+register ssh public key to bitbucket account or repository</p>
+
+<p>on server</p>
+
+<p>$ vi .ssh/config</p>
+
+<pre><code>Host bitbucket
+  HostName bitbucket.org
+  User git
+  IdentityFile ~/.ssh/deploykey_rsa
+</code></pre>
+
+<p>confirm</p>
+
+<p>$ ssh bitbucket</p>
+
+<p>link .ssh/config to git</p>
+
+<p>$ vim .gitconfig</p>
+
+<pre><code>[url &quot;bitbucket:&quot;]
+    InsteadOf = git@bitbucket.org:
+</code></pre>
+</div>
   </div>
 
   <footer class="article-footer">
@@ -134,11 +170,11 @@
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&title=ssh" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&t=ssh" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f&text=ssh&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fssh%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?ssh https%3a%2f%2ffreks.jp%2ftips%2fssh%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fgit%2f&title=git" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fgit%2f&t=git" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fgit%2f&text=git&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fgit%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?git https%3a%2f%2ffreks.jp%2ftips%2fgit%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -147,7 +183,7 @@
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">ssh</li>
+          <li class="active">git</li>
         </ol>
       </nav>
 
@@ -176,7 +212,7 @@
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/ssh/">ssh</a></li>
+            <li><a href="https://freks.jp/tips/tags/git/">git</a></li>
             
           </ul>
         </div>
