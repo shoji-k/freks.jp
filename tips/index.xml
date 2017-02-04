@@ -6,8 +6,143 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 16 Jan 2017 16:34:42 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 04 Feb 2017 15:00:30 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ssh</title>
+      <link>https://freks.jp/tips/ssh/</link>
+      <pubDate>Sat, 04 Feb 2017 15:00:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/ssh/</guid>
+      <description>
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;h4 id=&#34;ssh鍵生成&#34;&gt;ssh鍵生成&lt;/h4&gt;
+
+&lt;p&gt;$ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;&lt;br /&gt;
+(ファイル名を指定)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>sakura vps</title>
+      <link>https://freks.jp/tips/sakuravps/</link>
+      <pubDate>Sat, 04 Feb 2017 14:58:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/sakuravps/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://vps.sakura.ad.jp/&#34;&gt;VPS（仮想専用サーバー）｜さくらインターネット &lt;/a&gt;
+を契約する&lt;/p&gt;
+
+&lt;p&gt;管理画面へログイン、OSをインストールする&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Centos 7 64bit&lt;/li&gt;
+&lt;li&gt;root パスワードを入力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;初期設定リファレンス &lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206208181&#34;&gt;【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ユーザー追加&#34;&gt;ユーザー追加&lt;/h4&gt;
+
+&lt;p&gt;管理画面のコンソールでの作業&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ useradd user
+$ passwd user
+(enter password twice)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユーザーにsudo追加&#34;&gt;ユーザーにsudo追加&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ usermod -G wheel user
+$ visudo
+%wheel ALL=(ALL) ALL を有効に
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;sshログイン&#34;&gt;sshログイン&lt;/h4&gt;
+
+&lt;p&gt;ssh用の秘密鍵を生成しておく&lt;br /&gt;
+公開鍵をサーバーへコピー&lt;/p&gt;
+
+&lt;p&gt;rootユーサーでsshログイン&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir .ssh
+$ chmod 700 .ssh
+$ cat id_rsa.pub &amp;gt; .ssh/authorized_keys
+$ chmod 600 .ssh/authorized_keys
+$ rm -f id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshサーバーの設定変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Port 22&lt;/li&gt;
+&lt;li&gt;PermitRootLogin no&lt;/li&gt;
+&lt;li&gt;PasswordAuthentication no&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Portはファイアーウォールの設定もあわせて変える&lt;/p&gt;
+
+&lt;p&gt;ssh再起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;firewalld設定&#34;&gt;firewalld設定&lt;/h4&gt;
+
+&lt;p&gt;デーモン確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart firewalld.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ firewall-cmd --list-services
+$ sudo cat /usr/lib/firewalld/services/ssh.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SSHのポート番号変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /usr/lib/firewalld/services/ssh.xml
+$ sudo vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;サービス再起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
+$ firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshログの確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;journalctl -u sshd.service
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>linux command</title>
+      <link>https://freks.jp/tips/linux-command/</link>
+      <pubDate>Fri, 20 Jan 2017 13:06:40 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/linux-command/</guid>
+      <description>
+
+&lt;h4 id=&#34;delete-0-byte-file&#34;&gt;delete 0 byte file&lt;/h4&gt;
+
+&lt;p&gt;$ find . -maxdepth 1 -size 0 -print | xargs rm&lt;/p&gt;
+
+&lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
+
+&lt;p&gt;$ cd -&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>useful services</title>
@@ -107,6 +242,15 @@ event.ymlとつなぐmethodを用意&lt;/p&gt;
 
 &lt;p&gt;ウィンドウが見えない場所へ移動してしまった時&lt;br /&gt;
 Alt + F7&lt;/p&gt;
+
+&lt;h4 id=&#34;androidと画面共有&#34;&gt;Androidと画面共有&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;use desktop sharing&lt;/li&gt;
+&lt;li&gt;implement $ gsettings set org.gnome.Vino require-encryption false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kimamanilife.com/archives/459&#34;&gt;Ubuntu系Linuxに標準で入っているデスクトップ共有を試してみる | 気ままにライフ&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -636,128 +780,6 @@ Enum.map(1..15, &amp;amp;FizzBuzz.puts/1)
 end
 
 Hanoi.hanoi 5, &amp;quot;A&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>jquery</title>
-      <link>https://freks.jp/tips/jquery/</link>
-      <pubDate>Wed, 07 Dec 2016 14:05:06 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/jquery/</guid>
-      <description>&lt;p&gt;kata&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$(function() {
-  //
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ajax kata&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var data = {type: type};
-$.ajax({
-  type: &#39;POST&#39;,
-  cache: false,
-  data: data,
-  url: &#39;sample&#39;,
-  dataType: &#39;json&#39;,
-  success: function(res){
-    // console.log(res);
-  },
-  error: function(res){
-    alert(&#39;エラーが発生しました&#39;);
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>subversion</title>
-      <link>https://freks.jp/tips/subversion/</link>
-      <pubDate>Sat, 26 Nov 2016 12:40:49 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/subversion/</guid>
-      <description>&lt;p&gt;svn checkout http://(リポジトリ）&lt;br /&gt;
-チェックアウトしてファイルをダウンロード&lt;/p&gt;
-
-&lt;p&gt;svn update .&lt;br /&gt;
-リポジトリから最新をダウンロード&lt;/p&gt;
-
-&lt;p&gt;svn add (file)&lt;br /&gt;
-(file)をsubversionの管理下へいれます&lt;/p&gt;
-
-&lt;p&gt;svn delete (file)&lt;br /&gt;
-(file)を削除します&lt;/p&gt;
-
-&lt;p&gt;svn commit -m &amp;lsquo;コメント&amp;rsquo;&lt;br /&gt;
-コメントをつけてコミットします（リポジトリに送り込む）&lt;/p&gt;
-
-&lt;p&gt;svn info&lt;br /&gt;
-リポジトリの情報を表示&lt;/p&gt;
-
-&lt;p&gt;svn log -l 5&lt;br /&gt;
-ログを最新５件表示&lt;/p&gt;
-
-&lt;p&gt;svn diff&lt;br /&gt;
-コミットしてないものの差分を表示&lt;/p&gt;
-
-&lt;p&gt;svn diff -r r30:head&lt;br /&gt;
-リビジョンr33からheadまでの差分を表示（リビジョンはsvn infoで見れる）&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>cakephp</title>
-      <link>https://freks.jp/tips/cakephp/</link>
-      <pubDate>Fri, 25 Nov 2016 16:54:03 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/cakephp/</guid>
-      <description>&lt;p&gt;モデルのデータベースアクセスをSQLで確認する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$data = $this-&amp;gt;SampleModel-&amp;gt;find(&#39;all);
-$sqlLog = $this-&amp;gt;SampleModel-&amp;gt;getDataSource()-&amp;gt;getLog(false, false);
-debug($sqlLog);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;json返す型&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function getJson()
-{
-    $this-&amp;gt;autoRender = false;
-    if(!$this-&amp;gt;request-&amp;gt;is(&#39;ajax&#39;)) {
-      throw new BadRequestException();
-    }
-
-    $result = &#39;NG&#39;;
-    $data = $this-&amp;gt;request-&amp;gt;data;
-    if (strlen(strlen($data[&#39;id&#39;]) !== 0) {
-        // do something
-        $result = &#39;OK&#39;;
-    }
-    echo json_encode(compact(&#39;result&#39;));
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;csvダウンロード型&lt;br /&gt;
-これだと中身が多いとメモリを消費する&lt;br /&gt;
-中身が多い場合は小分けにファイル保存して、ファイルダウンロードする&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;public function download($uid)
-{
-    $this-&amp;gt;autoRender = false;
-    $this-&amp;gt;response-&amp;gt;type(&#39;csv&#39;);
-
-    $fileName = &#39;1.csv&#39;;
-    $this-&amp;gt;response-&amp;gt;download($fileName);
-
-    $str = &amp;quot;sample, sample2&amp;quot;;
-    $str .= &amp;quot;1, 2&amp;quot;;
-
-    $str = mb_convert_encoding($str, &#39;SJIS-win&#39;, &#39;utf8&#39;);
-    $this-&amp;gt;response-&amp;gt;body($str);
-}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

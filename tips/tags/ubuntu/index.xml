@@ -20,6 +20,15 @@
 
 &lt;p&gt;ウィンドウが見えない場所へ移動してしまった時&lt;br /&gt;
 Alt + F7&lt;/p&gt;
+
+&lt;h4 id=&#34;androidと画面共有&#34;&gt;Androidと画面共有&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;use desktop sharing&lt;/li&gt;
+&lt;li&gt;implement $ gsettings set org.gnome.Vino require-encryption false&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://kimamanilife.com/archives/459&#34;&gt;Ubuntu系Linuxに標準で入っているデスクトップ共有を試してみる | 気ままにライフ&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

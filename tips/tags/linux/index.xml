@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/linux/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>linux command</title>
+      <link>https://freks.jp/tips/linux-command/</link>
+      <pubDate>Fri, 20 Jan 2017 13:06:40 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/linux-command/</guid>
+      <description>
+
+&lt;h4 id=&#34;delete-0-byte-file&#34;&gt;delete 0 byte file&lt;/h4&gt;
+
+&lt;p&gt;$ find . -maxdepth 1 -size 0 -print | xargs rm&lt;/p&gt;
+
+&lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
+
+&lt;p&gt;$ cd -&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

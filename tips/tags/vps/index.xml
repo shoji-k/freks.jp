@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/vps/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>sakura vps</title>
+      <link>https://freks.jp/tips/sakuravps/</link>
+      <pubDate>Sat, 04 Feb 2017 14:58:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/sakuravps/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://vps.sakura.ad.jp/&#34;&gt;VPS（仮想専用サーバー）｜さくらインターネット &lt;/a&gt;
+を契約する&lt;/p&gt;
+
+&lt;p&gt;管理画面へログイン、OSをインストールする&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Centos 7 64bit&lt;/li&gt;
+&lt;li&gt;root パスワードを入力&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;初期設定リファレンス &lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206208181&#34;&gt;【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;ユーザー追加&#34;&gt;ユーザー追加&lt;/h4&gt;
+
+&lt;p&gt;管理画面のコンソールでの作業&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ useradd user
+$ passwd user
+(enter password twice)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;ユーザーにsudo追加&#34;&gt;ユーザーにsudo追加&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ usermod -G wheel user
+$ visudo
+%wheel ALL=(ALL) ALL を有効に
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;sshログイン&#34;&gt;sshログイン&lt;/h4&gt;
+
+&lt;p&gt;ssh用の秘密鍵を生成しておく&lt;br /&gt;
+公開鍵をサーバーへコピー&lt;/p&gt;
+
+&lt;p&gt;rootユーサーでsshログイン&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir .ssh
+$ chmod 700 .ssh
+$ cat id_rsa.pub &amp;gt; .ssh/authorized_keys
+$ chmod 600 .ssh/authorized_keys
+$ rm -f id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshサーバーの設定変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Port 22&lt;/li&gt;
+&lt;li&gt;PermitRootLogin no&lt;/li&gt;
+&lt;li&gt;PasswordAuthentication no&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Portはファイアーウォールの設定もあわせて変える&lt;/p&gt;
+
+&lt;p&gt;ssh再起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;firewalld設定&#34;&gt;firewalld設定&lt;/h4&gt;
+
+&lt;p&gt;デーモン確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart firewalld.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;設定確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ firewall-cmd --list-services
+$ sudo cat /usr/lib/firewalld/services/ssh.xml
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SSHのポート番号変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /usr/lib/firewalld/services/ssh.xml
+$ sudo vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;サービス再起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
+$ firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshログの確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;journalctl -u sshd.service
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -115,6 +115,9 @@ docker-compose logs&lt;/p&gt;
 &lt;p&gt;implement command&lt;br /&gt;
 docker-compose run (container name) /bin/bash&lt;/p&gt;
 
+&lt;p&gt;ex. implement composer install command once&lt;br /&gt;
+docker-compose run &amp;ndash;rm (container name) composer install&lt;/p&gt;
+
 &lt;p&gt;start containers&lt;br /&gt;
 docker-compose start&lt;/p&gt;
 
@@ -176,6 +179,12 @@ $ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump &amp;ndash;all-database
 
 &lt;p&gt;dump one database (wordpress)&lt;br /&gt;
 $ docker exec some-mysql sh -c &amp;lsquo;exec mysqldump wordpress -uroot -p&amp;rdquo;$MYSQL_ROOT_PASSWORD&amp;rdquo;&amp;rsquo; &amp;gt; dump.dbbackup&lt;/p&gt;
+
+&lt;p&gt;dump tables&lt;br /&gt;
+$ docker exec container_name sh -c &amp;lsquo;exec mysqldump -uroot -ppassword -t sample_database table_name&amp;rsquo; &amp;gt; table.dbbackup&lt;/p&gt;
+
+&lt;p&gt;restore sql&lt;br /&gt;
+$ docker exec -i container_name mysql -uroot -ppassword &amp;lt; dump.sql&lt;/p&gt;
 
 &lt;h1 id=&#34;mysql-image&#34;&gt;mysql image&lt;/h1&gt;
 
