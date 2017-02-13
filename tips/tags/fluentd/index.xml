@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/fluentd/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/fluentd/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>fluentd</title>
+      <link>https://freks.jp/tips/fluentd/</link>
+      <pubDate>Mon, 13 Feb 2017 15:33:20 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/fluentd/</guid>
+      <description>
+
+&lt;h3 id=&#34;prerequirement&#34;&gt;prerequirement&lt;/h3&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://docs.fluentd.org/v0.12/articles/before-install&#34;&gt;Before Installing Fluentd | Fluentd&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コマンドが扱えるファイルの数を確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ulimit -n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1024だと足りないので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo /etc/security/limits.conf
+
+root soft nofile 65536
+root hard nofile 65536
+* soft nofile 65536
+* hard nofile 65536
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追記、再起動（VPSだとログアウト、ログインで変更された）&lt;/p&gt;
+
+&lt;p&gt;kernel parameterを変えるのは他に影響が出そうだったのでスキップ&lt;/p&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;install&lt;/h3&gt;
+
+&lt;h4 id=&#34;ubuntu-14-04-trusty&#34;&gt;ubuntu 14.04 trusty&lt;/h4&gt;
+
+&lt;p&gt;register td-agent repository, install td-agent and boot td-agent deamon&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;test&#34;&gt;test&lt;/h3&gt;
+
+&lt;p&gt;throw one request to td-agent&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST -d &#39;json={&amp;quot;json&amp;quot;:&amp;quot;message&amp;quot;}&#39; http://localhost:8888/debug.test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;confirm log&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /var/log/td-agent/td-agent.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;service&#34;&gt;service&lt;/h3&gt;
+
+&lt;p&gt;start, stop, etc..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo /etc/init.d/td-agent start
+$ sudo /etc/init.d/td-agent stop
+$ sudo /etc/init.d/td-agent restart
+$ sudo /etc/init.d/td-agent status
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;check-processes&#34;&gt;check processes&lt;/h3&gt;
+
+&lt;p&gt;プロセスは２つ起動しているのが正しい&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ps aufx | grep td-agent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;directive&#34;&gt;directive&lt;/h3&gt;
+
+&lt;p&gt;設定ファイル&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;system&#34;&gt;&amp;lt;system&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;Fluentdのコアの動作を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;source&#34;&gt;&amp;lt;source&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;ログの入力元を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;match&#34;&gt;&amp;lt;match&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;ログの出力先を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;外部ファイルの設定を読み込む&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

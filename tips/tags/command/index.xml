@@ -23,6 +23,10 @@
 &lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
 
 &lt;p&gt;$ cd -&lt;/p&gt;
+
+&lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
+
+&lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
 </description>
     </item>
     

@@ -29,6 +29,19 @@ Alt + F7&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://kimamanilife.com/archives/459&#34;&gt;Ubuntu系Linuxに標準で入っているデスクトップ共有を試してみる | 気ままにライフ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;デーモン起動&#34;&gt;デーモン起動&lt;/h4&gt;
+
+&lt;p&gt;設定を確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf --list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ON or OFF&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf apache2 on
+$ sysv-rc-conf apache2 off
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

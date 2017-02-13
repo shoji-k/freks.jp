@@ -77,6 +77,14 @@ event.ymlとつなぐmethodを用意&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;コントローラーを設置&lt;/p&gt;
+
+&lt;h4 id=&#34;clear-cache&#34;&gt;clear cache&lt;/h4&gt;
+
+&lt;p&gt;キャッシュファイル削除&lt;br /&gt;
+$ php app/console cache:clear&lt;/p&gt;
+
+&lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
+$ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
 </description>
     </item>
     
@@ -91,6 +99,18 @@ event.ymlとつなぐmethodを用意&lt;/p&gt;
 &lt;h4 id=&#34;ワンライナーでphp-iniの場所を調べる&#34;&gt;ワンライナーでphp.iniの場所を調べる&lt;/h4&gt;
 
 &lt;p&gt;$ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini&lt;/p&gt;
+
+&lt;h4 id=&#34;datetime&#34;&gt;DateTime&lt;/h4&gt;
+
+&lt;p&gt;昨日、明日、来月を表示&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$yesterday = (new DateTime())-&amp;gt;sub(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
+echo $yesterday-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
+$tomorrow = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
+echo $tomorrow-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
+$nextMonth = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1M&#39;))-&amp;gt;setTime(0,0,0);
+echo $nextMonth-&amp;gt;format(&#39;Y-m-d H:i:s&#39;);
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

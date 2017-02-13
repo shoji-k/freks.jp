@@ -77,6 +77,14 @@ event.ymlとつなぐmethodを用意&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;コントローラーを設置&lt;/p&gt;
+
+&lt;h4 id=&#34;clear-cache&#34;&gt;clear cache&lt;/h4&gt;
+
+&lt;p&gt;キャッシュファイル削除&lt;br /&gt;
+$ php app/console cache:clear&lt;/p&gt;
+
+&lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
+$ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
 </description>
     </item>
     

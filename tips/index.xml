@@ -6,8 +6,258 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 04 Feb 2017 18:40:36 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Feb 2017 15:33:20 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>fluentd</title>
+      <link>https://freks.jp/tips/fluentd/</link>
+      <pubDate>Mon, 13 Feb 2017 15:33:20 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/fluentd/</guid>
+      <description>
+
+&lt;h3 id=&#34;prerequirement&#34;&gt;prerequirement&lt;/h3&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://docs.fluentd.org/v0.12/articles/before-install&#34;&gt;Before Installing Fluentd | Fluentd&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;コマンドが扱えるファイルの数を確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ulimit -n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;1024だと足りないので&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo /etc/security/limits.conf
+
+root soft nofile 65536
+root hard nofile 65536
+* soft nofile 65536
+* hard nofile 65536
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;を追記、再起動（VPSだとログアウト、ログインで変更された）&lt;/p&gt;
+
+&lt;p&gt;kernel parameterを変えるのは他に影響が出そうだったのでスキップ&lt;/p&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;install&lt;/h3&gt;
+
+&lt;h4 id=&#34;ubuntu-14-04-trusty&#34;&gt;ubuntu 14.04 trusty&lt;/h4&gt;
+
+&lt;p&gt;register td-agent repository, install td-agent and boot td-agent deamon&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh | sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;test&#34;&gt;test&lt;/h3&gt;
+
+&lt;p&gt;throw one request to td-agent&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -X POST -d &#39;json={&amp;quot;json&amp;quot;:&amp;quot;message&amp;quot;}&#39; http://localhost:8888/debug.test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;confirm log&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat /var/log/td-agent/td-agent.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;service&#34;&gt;service&lt;/h3&gt;
+
+&lt;p&gt;start, stop, etc..&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo /etc/init.d/td-agent start
+$ sudo /etc/init.d/td-agent stop
+$ sudo /etc/init.d/td-agent restart
+$ sudo /etc/init.d/td-agent status
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;check-processes&#34;&gt;check processes&lt;/h3&gt;
+
+&lt;p&gt;プロセスは２つ起動しているのが正しい&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ps aufx | grep td-agent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;directive&#34;&gt;directive&lt;/h3&gt;
+
+&lt;p&gt;設定ファイル&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;system&#34;&gt;&amp;lt;system&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;Fluentdのコアの動作を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;source&#34;&gt;&amp;lt;source&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;ログの入力元を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;match&#34;&gt;&amp;lt;match&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;ログの出力先を設定&lt;/p&gt;
+
+&lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
+
+&lt;p&gt;外部ファイルの設定を読み込む&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>centos7</title>
+      <link>https://freks.jp/tips/centos7/</link>
+      <pubDate>Sun, 05 Feb 2017 13:00:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/centos7/</guid>
+      <description>
+
+&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;firewalld&#34;&gt;firewalld&lt;/h4&gt;
+
+&lt;p&gt;reload firewalld&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;open http port of firewall&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public --permanent
+$ sudo firewall-cmd --add-service=https --zone=public --permanent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;open and close port&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent
+$ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;yum&#34;&gt;yum&lt;/h4&gt;
+
+&lt;p&gt;yum install時に使われるrepositoryは&lt;code&gt;/etc/yum.repos.d/&lt;/code&gt;内にあって、enable=1のもの&lt;br /&gt;
+&lt;code&gt;enable=0&lt;/code&gt;のものを指定するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install --enablerepo=epel certbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;yumでインストールしたパッケージ一覧&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum list installed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;アップデート&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install certbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;削除&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum remove certbot
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>nginx</title>
+      <link>https://freks.jp/tips/nginx/</link>
+      <pubDate>Sun, 05 Feb 2017 10:43:20 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/nginx/</guid>
+      <description>
+
+&lt;h4 id=&#34;config-test&#34;&gt;config test&lt;/h4&gt;
+
+&lt;p&gt;centos 7&lt;br /&gt;
+$ sudo nginx -t&lt;/p&gt;
+
+&lt;h4 id=&#34;initial&#34;&gt;initial&lt;/h4&gt;
+
+&lt;p&gt;$ vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add server_tokens: off to html {}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;プロキシ設定&#34;&gt;プロキシ設定&lt;/h4&gt;
+
+&lt;p&gt;$ vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;upstream backend {
+    server 127.0.0.1:8080;
+}
+
+server {
+    listen       80;
+    server_name  localhost;
+
+    root /home/user/ws/docker/jitan/src/html;
+    index index.php index.html index.htm;
+
+    #error_page  404              /404.html;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    location / {
+        try_files $uri @app;
+    }
+
+    location ~* \.php$ {
+        proxy_pass http://backend;
+    }
+
+    location @app {
+        proxy_pass http://backend;
+    }
+
+    location ~ /\.ht {
+        deny  all;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;キャッシュプロキシ&#34;&gt;キャッシュプロキシ&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;http {
+    proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cachezone:60m max_size=1G inactive=7d;
+
+    location ~* \.(html|css|jpg|gif|ico|js)$ {
+        expires 1d;
+        proxy_cache cachezone;
+        proxy_cache_key $host$uri$is_args$args;
+        proxy_cache_valid 200 301 302 1d;
+        proxy_pass http://backend;
+    }
+}
+&#39;&#39;&#39;
+
+キャッシュを削除する
+
+cssを含むリンクのみ
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;grep -lr &amp;ldquo;css&amp;rdquo; /var/cache/nginx/ | xargs rm -f&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+特定のリンク
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;grep -lr &amp;ldquo;&lt;a href=&#34;http://sample.com/&amp;quot;&#34;&gt;http://sample.com/&amp;quot;&lt;/a&gt; /var/cache/nginx/ | xargs rm -f
+```&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>git</title>
@@ -254,6 +504,21 @@ $ sudo firewall-cmd --add-service=https --zone=public
 
 &lt;p&gt;git was already installed&lt;br /&gt;
 so do config&lt;/p&gt;
+
+&lt;h4 id=&#34;nginx&#34;&gt;nginx&lt;/h4&gt;
+
+&lt;p&gt;repository登録&lt;br /&gt;
+$ vim /etc/yum.repos.d/nginx.repo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;install&lt;br /&gt;
+$ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
 </description>
     </item>
     
@@ -272,6 +537,10 @@ so do config&lt;/p&gt;
 &lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
 
 &lt;p&gt;$ cd -&lt;/p&gt;
+
+&lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
+
+&lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
 </description>
     </item>
     
@@ -358,6 +627,14 @@ event.ymlとつなぐmethodを用意&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;コントローラーを設置&lt;/p&gt;
+
+&lt;h4 id=&#34;clear-cache&#34;&gt;clear cache&lt;/h4&gt;
+
+&lt;p&gt;キャッシュファイル削除&lt;br /&gt;
+$ php app/console cache:clear&lt;/p&gt;
+
+&lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
+$ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
 </description>
     </item>
     
@@ -382,6 +659,19 @@ Alt + F7&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://kimamanilife.com/archives/459&#34;&gt;Ubuntu系Linuxに標準で入っているデスクトップ共有を試してみる | 気ままにライフ&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;デーモン起動&#34;&gt;デーモン起動&lt;/h4&gt;
+
+&lt;p&gt;設定を確認&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf --list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ON or OFF&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf apache2 on
+$ sysv-rc-conf apache2 off
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -491,6 +781,18 @@ CustomLog &amp;quot;logs/sample-access_log&amp;quot; combined env=print
 &lt;h4 id=&#34;ワンライナーでphp-iniの場所を調べる&#34;&gt;ワンライナーでphp.iniの場所を調べる&lt;/h4&gt;
 
 &lt;p&gt;$ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini&lt;/p&gt;
+
+&lt;h4 id=&#34;datetime&#34;&gt;DateTime&lt;/h4&gt;
+
+&lt;p&gt;昨日、明日、来月を表示&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$yesterday = (new DateTime())-&amp;gt;sub(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
+echo $yesterday-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
+$tomorrow = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
+echo $tomorrow-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
+$nextMonth = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1M&#39;))-&amp;gt;setTime(0,0,0);
+echo $nextMonth-&amp;gt;format(&#39;Y-m-d H:i:s&#39;);
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -525,295 +827,6 @@ CustomLog &amp;quot;logs/sample-access_log&amp;quot; combined env=print
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://yelpjapan.libsyn.com/&#34;&gt;Yelp@city 〜街の新発見を届けるPodcast〜&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>silex</title>
-      <link>https://freks.jp/tips/silex/</link>
-      <pubDate>Wed, 14 Dec 2016 13:54:42 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/silex/</guid>
-      <description>
-
-&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://silex.sensiolabs.org/doc/master/usage.html&#34;&gt;Usage - Documentation - Silex - The PHP micro-framework based on the Symfony Components&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;$ composer require silex/silex:~2.0&lt;/p&gt;
-
-&lt;p&gt;サンプルコードを用意&lt;br /&gt;
-$ mkdir src&lt;br /&gt;
-$ cd src&lt;br /&gt;
-$ vim index.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-
-require_once __DIR__.&#39;/../vendor/autoload.php&#39;;
-
-$app = new Silex\Application();
-
-$app-&amp;gt;get(&#39;/hello/{name}&#39;, function ($name) use ($app) {
-    return &#39;Hello &#39;.$app-&amp;gt;escape($name);
-});
-
-$app-&amp;gt;run();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;起動して確認する&lt;br /&gt;
-$ cd ..&lt;br /&gt;
-$ php -S localhost:8080 -t src&lt;br /&gt;
-access &lt;a href=&#34;http://localhost:8080/hello/taro&#34;&gt;http://localhost:8080/hello/taro&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>symfony</title>
-      <link>https://freks.jp/tips/symfony/</link>
-      <pubDate>Wed, 14 Dec 2016 11:25:54 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/symfony/</guid>
-      <description>
-
-&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://symfony.com/doc/2.8/setup.html&#34;&gt;Installing &amp;amp; Setting up the Symfony Framework (2.8)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Symfonyのデモ付き一式ディストリビューションインストール&lt;br /&gt;
-$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;環境チェック&lt;br /&gt;
-$ php app/check.php
-or&lt;br /&gt;
-access &lt;a href=&#34;http://localhost:8000/config.php&#34;&gt;http://localhost:8000/config.php&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;使えるservicesを確認&lt;br /&gt;
-php app/console debug:container&lt;/p&gt;
-
-&lt;p&gt;起動&lt;br /&gt;
-$ php app/console server:run&lt;/p&gt;
-
-&lt;p&gt;コントローラーをつくってhtmlを返す&lt;br /&gt;
-ルーティングはアノテーションで設定できる&lt;br /&gt;
-phpのファイルはsrc以下に保存&lt;br /&gt;
-$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
-
-class LuckyController
-{
-    /**
-     * @Route(&amp;quot;/hey/yo&amp;quot;)
-     */
-    public function hoo()
-    {
-        return new Response(
-            &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;
-        );
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Twigテンプレートを返す&lt;br /&gt;
-phpでない設定ファイルやテンプレートはapp以下に保存&lt;br /&gt;
-$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class LuckyController extends Controller
-{
-    /**
-     * @Route(&amp;quot;/lucky/number&amp;quot;)
-     */
-    public function numberAction()
-    {
-        $number = mt_rand(0, 100);
-
-        return $this-&amp;gt;render(&#39;lucky/number.html.twig&#39;, array(
-            &#39;number&#39; =&amp;gt; $number,
-        ));
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ vim app/Resources/views/lucky/number.html.twig&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Your lucky number is {{ number }}&amp;lt;/h1&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>lottery</title>
-      <link>https://freks.jp/tips/lottery/</link>
-      <pubDate>Mon, 12 Dec 2016 15:38:46 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/lottery/</guid>
-      <description>
-
-&lt;p&gt;宝くじの確率の低さを実感してみる&lt;/p&gt;
-
-&lt;h4 id=&#34;第706回-年末ジャンボ宝くじ-平成28年12月31日当選発表分&#34;&gt;第706回 年末ジャンボ宝くじ 平成28年12月31日当選発表分&lt;/h4&gt;
-
-&lt;p&gt;販売予定枚数 5億枚&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;等級&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;当選金&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;本数&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;割合&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;700,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;25&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.000005%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1等前後賞&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;150,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;50&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.00001%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1等組違い&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;500,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;4975&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.000995%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;2等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;15,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;500&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.0001%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;3等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;5,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.001%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;4等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;500,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.1%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;5等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;3,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;5,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;6等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;300&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;50,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;第706回-年末ジャンボミニ-平成28年12月31日当選発表分&#34;&gt;第706回 年末ジャンボミニ 平成28年12月31日当選発表分&lt;/h4&gt;
-
-&lt;p&gt;販売予定枚数 1.5億枚&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;等級&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;当選金&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;本数&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;割合&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;100,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;105&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.00007%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;2等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;3,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.002%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;3等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;3,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1,500,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;4等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;300&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;15,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h4 id=&#34;第706回-年末ジャンボプチ-平成28年12月31日当選発表分&#34;&gt;第706回 年末ジャンボプチ 平成28年12月31日当選発表分&lt;/h4&gt;
-
-&lt;p&gt;販売予定枚数 1億枚&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;等級&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;当選金&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;本数&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;割合&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;1等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;1,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.001%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;2等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;200,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;0.2%&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;3等&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;300&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10,000,000&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;10%&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;link &lt;a href=&#34;http://www.takarakuji-official.jp/nj2016/&#34;&gt;年末ジャンボ宝くじ（第704〜706回 全国自治宝くじ） | 宝くじ公式サイト&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

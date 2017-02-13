@@ -121,6 +121,21 @@ $ sudo firewall-cmd --add-service=https --zone=public
 
 &lt;p&gt;git was already installed&lt;br /&gt;
 so do config&lt;/p&gt;
+
+&lt;h4 id=&#34;nginx&#34;&gt;nginx&lt;/h4&gt;
+
+&lt;p&gt;repository登録&lt;br /&gt;
+$ vim /etc/yum.repos.d/nginx.repo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;install&lt;br /&gt;
+$ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
 </description>
     </item>
     

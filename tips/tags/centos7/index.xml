@@ -9,6 +9,63 @@
     <atom:link href="https://freks.jp/tips/tags/centos7/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>centos7</title>
+      <link>https://freks.jp/tips/centos7/</link>
+      <pubDate>Sun, 05 Feb 2017 13:00:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/centos7/</guid>
+      <description>
+
+&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;firewalld&#34;&gt;firewalld&lt;/h4&gt;
+
+&lt;p&gt;reload firewalld&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;open http port of firewall&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public --permanent
+$ sudo firewall-cmd --add-service=https --zone=public --permanent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;open and close port&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent
+$ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;yum&#34;&gt;yum&lt;/h4&gt;
+
+&lt;p&gt;yum install時に使われるrepositoryは&lt;code&gt;/etc/yum.repos.d/&lt;/code&gt;内にあって、enable=1のもの&lt;br /&gt;
+&lt;code&gt;enable=0&lt;/code&gt;のものを指定するには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install --enablerepo=epel certbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;yumでインストールしたパッケージ一覧&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum list installed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;アップデート&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum install certbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;削除&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo yum remove certbot
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>sakura vps</title>
       <link>https://freks.jp/tips/sakuravps/</link>
       <pubDate>Sat, 04 Feb 2017 14:58:30 +0900</pubDate>
@@ -121,6 +178,21 @@ $ sudo firewall-cmd --add-service=https --zone=public
 
 &lt;p&gt;git was already installed&lt;br /&gt;
 so do config&lt;/p&gt;
+
+&lt;h4 id=&#34;nginx&#34;&gt;nginx&lt;/h4&gt;
+
+&lt;p&gt;repository登録&lt;br /&gt;
+$ vim /etc/yum.repos.d/nginx.repo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/centos/7/$basearch/
+gpgcheck=0
+enabled=1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;install&lt;br /&gt;
+$ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
 </description>
     </item>
     
