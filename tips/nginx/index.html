@@ -192,23 +192,20 @@ server {
         proxy_pass http://backend;
     }
 }
-'''
-
-キャッシュを削除する
-
-cssを含むリンクのみ
-
 </code></pre>
 
-<p>grep -lr &ldquo;css&rdquo; /var/cache/nginx/ | xargs rm -f</p>
+<p>キャッシュを削除する</p>
 
-<pre><code>
-特定のリンク
+<p>cssを含むリンクのみ</p>
 
+<pre><code>grep -lr &quot;css&quot; /var/cache/nginx/ | xargs rm -f
 </code></pre>
 
-<p>grep -lr &ldquo;<a href="http://sample.com/&quot;">http://sample.com/&quot;</a> /var/cache/nginx/ | xargs rm -f
-```</div>
+<p>特定のリンク</p>
+
+<pre><code>grep -lr &quot;http://sample.com/&quot; /var/cache/nginx/ | xargs rm -f
+</code></pre>
+</div>
   </div>
 
   <footer class="article-footer">
