@@ -85,6 +85,18 @@ $ php app/console cache:clear&lt;/p&gt;
 
 &lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
 $ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
+
+&lt;h4 id=&#34;doctrine&#34;&gt;doctrine&lt;/h4&gt;
+
+&lt;p&gt;check and update&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./vendor/bin/doctrine orm:schema-tool:update --dump-sql
+./vendor/bin/doctrine orm:schema-tool:update --force
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;log&#34;&gt;log&lt;/h4&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://ec-cube.github.io/guideline_log&#34;&gt;ログ出力設定 | EC-CUBE 開発ドキュメント&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

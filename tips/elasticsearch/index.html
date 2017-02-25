@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/centos7/">
+<link rel="canonical" href="https://freks.jp/tips/elasticsearch/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>centos7 - freks tips</title>
+    <title> - freks tips</title>
     
-<meta name="description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta name="description" content="title = &amp;ldquo;elasticsearch&amp;rdquo; draft = true date = &amp;ldquo;2017-02-13T22:42:55&#43;09:00&amp;rdquo; categories = [ &amp;ldquo;engineer&amp;rdquo; ] tags = [ &amp;ldquo;elasticsearch&amp;rdquo; ]&#43;&#43;&#43;use docker see library/elasticsearch - Docker HubVirtual memory設定を変えるsysctl -w vm.max_map_count=262144  elasticsearch立ち上げる$ docker pull elasticsearch $ docker run --name elast -d -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&amp;quot;-Xms512m -Xmx512m&amp;quot; elasticsearch  メモリがない環境だったのでES_JAVA_OPTSをつけた搭載しているメモリの半分が上限の目安動作確認curl -XGET http://localhost:9200/  jsonが返ってくる状態確認curl -XGET http://localhost:9200/_cluster/health?pretty  elasticsearch &#43; kibana docker compose version: &#39;2&#39; services: elast: image: elasticsearch ports: - &amp;quot;9200:9200&amp;quot; - &amp;quot;9300:9300&amp;quot; environment: - ES_JAVA_OPTS=-Xms512m -Xmx512m kibana: image: kibana ports: - &amp;quot;5601:5601&amp;quot; links: - elast:elasticsearch  index確認">
 
-<meta property="og:title" content="centos7 - freks tips">
+<meta property="og:title" content=" - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/centos7/">
+<meta property="og:url" content="https://freks.jp/tips/elasticsearch/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta property="og:description" content="title = &amp;ldquo;elasticsearch&amp;rdquo; draft = true date = &amp;ldquo;2017-02-13T22:42:55&#43;09:00&amp;rdquo; categories = [ &amp;ldquo;engineer&amp;rdquo; ] tags = [ &amp;ldquo;elasticsearch&amp;rdquo; ]&#43;&#43;&#43;use docker see library/elasticsearch - Docker HubVirtual memory設定を変えるsysctl -w vm.max_map_count=262144  elasticsearch立ち上げる$ docker pull elasticsearch $ docker run --name elast -d -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&amp;quot;-Xms512m -Xmx512m&amp;quot; elasticsearch  メモリがない環境だったのでES_JAVA_OPTSをつけた搭載しているメモリの半分が上限の目安動作確認curl -XGET http://localhost:9200/  jsonが返ってくる状態確認curl -XGET http://localhost:9200/_cluster/health?pretty  elasticsearch &#43; kibana docker compose version: &#39;2&#39; services: elast: image: elasticsearch ports: - &amp;quot;9200:9200&amp;quot; - &amp;quot;9300:9300&amp;quot; environment: - ES_JAVA_OPTS=-Xms512m -Xmx512m kibana: image: kibana ports: - &amp;quot;5601:5601&amp;quot; links: - elast:elasticsearch  index確認">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/centos7/">
-<meta name="twitter:title" content="centos7 - freks tips">
-<meta name="twitter:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta name="twitter:url" content="https://freks.jp/tips/elasticsearch/">
+<meta name="twitter:title" content=" - freks tips">
+<meta name="twitter:description" content="title = &amp;ldquo;elasticsearch&amp;rdquo; draft = true date = &amp;ldquo;2017-02-13T22:42:55&#43;09:00&amp;rdquo; categories = [ &amp;ldquo;engineer&amp;rdquo; ] tags = [ &amp;ldquo;elasticsearch&amp;rdquo; ]&#43;&#43;&#43;use docker see library/elasticsearch - Docker HubVirtual memory設定を変えるsysctl -w vm.max_map_count=262144  elasticsearch立ち上げる$ docker pull elasticsearch $ docker run --name elast -d -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&amp;quot;-Xms512m -Xmx512m&amp;quot; elasticsearch  メモリがない環境だったのでES_JAVA_OPTSをつけた搭載しているメモリの半分が上限の目安動作確認curl -XGET http://localhost:9200/  jsonが返ってくる状態確認curl -XGET http://localhost:9200/_cluster/health?pretty  elasticsearch &#43; kibana docker compose version: &#39;2&#39; services: elast: image: elasticsearch ports: - &amp;quot;9200:9200&amp;quot; - &amp;quot;9300:9300&amp;quot; environment: - ES_JAVA_OPTS=-Xms512m -Xmx512m kibana: image: kibana ports: - &amp;quot;5601:5601&amp;quot; links: - elast:elasticsearch  index確認">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "centos7 - freks tips",
+    "headline": " - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2017-02-05T13:00:30JST",
-    "dateModified": "2017-02-05T13:00:30JST",
+    "datePublished": "0001-01-01T00:00:00JST",
+    "dateModified": "0001-01-01T00:00:00JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "centos update $ sudo yum update  firewalld reload firewalld\n$ sudo firewall-cmd --reload  open http port of firewall\n$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port\n$ sudo firewall-cmd --add-port=30080\/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080\/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは\/etc\/yum.repos.d\/内にあって、enable=1のもの\nenable=0のものを指定するには\nsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧\nsudo yum list installed  アップデート\nsudo yum install certbot  削除"
+    "description": "title = \x26ldquo;elasticsearch\x26rdquo; draft = true date = \x26ldquo;2017-02-13T22:42:55\x2b09:00\x26rdquo; categories = [ \x26ldquo;engineer\x26rdquo; ] tags = [ \x26ldquo;elasticsearch\x26rdquo; ]\n\x2b\x2b\x2b\nuse docker see library\/elasticsearch - Docker Hub\nVirtual memory設定を変える\nsysctl -w vm.max_map_count=262144  elasticsearch立ち上げる\n$ docker pull elasticsearch $ docker run --name elast -d -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=\x26quot;-Xms512m -Xmx512m\x26quot; elasticsearch  メモリがない環境だったのでES_JAVA_OPTSをつけた\n搭載しているメモリの半分が上限の目安\n動作確認\ncurl -XGET http:\/\/localhost:9200\/  jsonが返ってくる\n状態確認\ncurl -XGET http:\/\/localhost:9200\/_cluster\/health?pretty  elasticsearch \x2b kibana docker compose version: \x272\x27 services: elast: image: elasticsearch ports: - \x26quot;9200:9200\x26quot; - \x26quot;9300:9300\x26quot; environment: - ES_JAVA_OPTS=-Xms512m -Xmx512m kibana: image: kibana ports: - \x26quot;5601:5601\x26quot; links: - elast:elasticsearch  index確認"
   }
 </script>
 
@@ -107,65 +107,85 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">centos7</li>
+        <li class="active"></li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">centos7</h1>
+    <h1 class="title"></h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T13:00:30JST">Feb 5, 2017</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="0001-01-01T00:00:00JST">Jan 1, 0001</time></li>
       
       
     </ul>
 
-    <div class="article-body"><h4 id="centos-update">centos update</h4>
+    <div class="article-body">title = &ldquo;elasticsearch&rdquo;
+draft = true
+date = &ldquo;2017-02-13T22:42:55+09:00&rdquo;
+categories = [ &ldquo;engineer&rdquo; ]
+tags = [ &ldquo;elasticsearch&rdquo; ]</p>
 
-<pre><code>$ sudo yum update
+<p>+++</p>
+
+<h1 id="use-docker">use docker</h1>
+
+<p>see <a href="https://hub.docker.com/_/elasticsearch/">library/elasticsearch - Docker Hub</a></p>
+
+<p>Virtual memory設定を変える</p>
+
+<pre><code>sysctl -w vm.max_map_count=262144
 </code></pre>
 
-<h4 id="firewalld">firewalld</h4>
+<p>elasticsearch立ち上げる</p>
 
-<p>reload firewalld</p>
-
-<pre><code>$ sudo firewall-cmd --reload
+<pre><code>$ docker pull elasticsearch
+$ docker run --name elast -d -p 9200:9200 -p 9300:9300 -e ES_JAVA_OPTS=&quot;-Xms512m -Xmx512m&quot; elasticsearch
 </code></pre>
 
-<p>open http port of firewall</p>
+<p>メモリがない環境だったので<code>ES_JAVA_OPTS</code>をつけた<br />
+搭載しているメモリの半分が上限の目安</p>
 
-<pre><code>$ sudo firewall-cmd --add-service=http --zone=public --permanent
-$ sudo firewall-cmd --add-service=https --zone=public --permanent
+<p>動作確認</p>
+
+<pre><code>curl -XGET http://localhost:9200/
 </code></pre>
 
-<p>open and close port</p>
+<p>jsonが返ってくる</p>
 
-<pre><code>$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent
-$ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
+<p>状態確認</p>
+
+<pre><code>curl -XGET http://localhost:9200/_cluster/health?pretty
 </code></pre>
 
-<h4 id="yum">yum</h4>
+<h1 id="elasticsearch-kibana-docker-compose">elasticsearch + kibana docker compose</h1>
 
-<p>yum install時に使われるrepositoryは<code>/etc/yum.repos.d/</code>内にあって、enable=1のもの<br />
-<code>enable=0</code>のものを指定するには</p>
-
-<pre><code>sudo yum install --enablerepo=epel certbot
+<pre><code>version: '2'
+services:
+  elast:
+    image: elasticsearch
+    ports:
+      - &quot;9200:9200&quot;
+      - &quot;9300:9300&quot;
+    environment:
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+  kibana:
+    image: kibana
+    ports:
+      - &quot;5601:5601&quot;
+    links:
+      - elast:elasticsearch
 </code></pre>
 
-<p>yumでインストールしたパッケージ一覧</p>
+<p>index確認</p>
 
-<pre><code>sudo yum list installed
+<pre><code>curl -XGET http://localhost:9200/_cat/indices?v
 </code></pre>
 
-<p>アップデート</p>
+<p>index登録</p>
 
-<pre><code>sudo yum install certbot
-</code></pre>
-
-<p>削除</p>
-
-<pre><code>sudo yum remove certbot
+<pre><code>curl -XPUT http://localhost:9200/customer?pretty
 </code></pre>
 </div>
   </div>
@@ -175,11 +195,11 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&title=centos7" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&t=centos7" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&text=centos7&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?centos7 https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2felasticsearch%2f&title=" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2felasticsearch%2f&t=" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2felasticsearch%2f&text=&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2felasticsearch%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/? https%3a%2f%2ffreks.jp%2ftips%2felasticsearch%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -188,40 +208,14 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">centos7</li>
+          <li class="active"></li>
         </ol>
       </nav>
 
       
       
       
-      <section class="article-footer">
-        <header>
-          <a href="https://freks.jp/tips/categories/">CATEGORIES</a>
-        </header>
-        <div>
-          <ul class="p-terms inline">
-            
-            <li><a href="https://freks.jp/tips/categories/engineer/">engineer</a></li>
-            
-          </ul>
-        </div>
-      </section>
       
-      
-      
-      <section class="article-footer">
-        <header>
-          <a href="https://freks.jp/tips/tags/">TAGS</a>
-        </header>
-        <div>
-          <ul class="p-terms inline">
-            
-            <li><a href="https://freks.jp/tips/tags/centos7/">centos7</a></li>
-            
-          </ul>
-        </div>
-      </section>
       
       
     </div>

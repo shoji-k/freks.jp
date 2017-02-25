@@ -42,6 +42,10 @@ Alt + F7&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sysv-rc-conf apache2 on
 $ sysv-rc-conf apache2 off
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;repository削除&#34;&gt;repository削除&lt;/h4&gt;
+
+&lt;p&gt;$ sudo add-apt-repository &amp;ndash;remove ppa:sample/xxx&lt;/p&gt;
 </description>
     </item>
     

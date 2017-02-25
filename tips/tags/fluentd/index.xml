@@ -81,7 +81,7 @@ $ sudo /etc/init.d/td-agent status
 
 &lt;p&gt;設定ファイル&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf 
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;system&#34;&gt;&amp;lt;system&amp;gt;&lt;/h4&gt;
@@ -99,6 +99,44 @@ $ sudo /etc/init.d/td-agent status
 &lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
 
 &lt;p&gt;外部ファイルの設定を読み込む&lt;/p&gt;
+
+&lt;h3 id=&#34;rootize&#34;&gt;rootize&lt;/h3&gt;
+
+&lt;p&gt;エラーログなど権限不足で読めないので、td-agentをrootで起動する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/init.d/td-agent
+
+TD_AGENT_USER=root
+TD_AGENT_GROUP=root
+
+$ service td-agent restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-1&#34;&gt;example 1&lt;/h3&gt;
+
+&lt;p&gt;nginx access logをtd-agent.logに出力する&lt;/p&gt;
+
+&lt;p&gt;$ vim /etc/td-agent/td-agent.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;match debug.**&amp;gt;
+  @type stdout
+&amp;lt;/match&amp;gt;
+
+&amp;lt;source&amp;gt;
+  @type tail
+  path /var/log/nginx/sample-access.log
+  tag debug.sample-access
+  pos_file /var/log/td-agent/sample-access.log.pos
+  format /^(?&amp;lt;remote&amp;gt;[^ ]*) (?&amp;lt;host&amp;gt;[^ ]*) (?&amp;lt;user&amp;gt;[^ ]*) \[(?&amp;lt;time&amp;gt;[^\]]*)\] &amp;quot;(?&amp;lt;method&amp;gt;\S+)(?: +(?&amp;lt;path&amp;gt;[^ ]*) +\S*)?&amp;quot; (?&amp;lt;code&amp;gt;[^ ]*) (?&amp;lt;size&amp;gt;[^ ]*)(?: &amp;quot;(?&amp;lt;referer&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;agent&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;forwarder&amp;gt;[^\&amp;quot;]*)&amp;quot;)?/
+  time_format %d/%b/%Y:%H:%M:%S %z
+&amp;lt;/source&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ tail /var/log/td-agent/td-agent.log&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2017-02-15 21:26:44 +0900 debug.sample-access: {&amp;quot;remote&amp;quot;:&amp;quot;xxx.xxx.xxx.xxx&amp;quot;,&amp;quot;host&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;metho
+6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&amp;quot;,&amp;quot;forwarder&amp;quot;:&amp;quot;-&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

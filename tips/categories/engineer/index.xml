@@ -9,6 +9,128 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>docker machine</title>
+      <link>https://freks.jp/tips/docker-machine/</link>
+      <pubDate>Wed, 22 Feb 2017 12:01:25 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/docker-machine/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;see &lt;a href=&#34;https://docs.docker.com/machine/install-machine/&#34;&gt;Install Docker Machine - Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;commands&#34;&gt;commands&lt;/h1&gt;
+
+&lt;p&gt;managerのホスト名のvirtual machineを用意&lt;br /&gt;
+$ docker-machine create &amp;ndash;driver virtualbox manager&lt;/p&gt;
+
+&lt;p&gt;virtual machine一覧&lt;br /&gt;
+active * はシェルがつながっているもの&lt;/p&gt;
+
+&lt;p&gt;$ docker-machine ls&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
+manager   *        virtualbox   Running   tcp://192.168.99.100:2376           v1.13.1   
+worker    -        virtualbox   Running   tcp://192.168.99.101:2376           v1.13.1  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;IPを表示&lt;br /&gt;
+$ docker-machine ip manager&lt;/p&gt;
+
+&lt;p&gt;環境変数を表示&lt;br /&gt;
+$ docker-machine env manager&lt;/p&gt;
+
+&lt;p&gt;手元のシェルとvirutal machineのシェルをつなぐ&lt;br /&gt;
+$ eval $(docker-machine env manager)&lt;/p&gt;
+
+&lt;p&gt;managerへsshログイン&lt;br /&gt;
+$ docker-machine ssh manager&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;                        ##         .
+                  ## ## ##        ==
+               ## ## ## ## ##    ===
+           /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;\___/ ===
+      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
+           \______ o           __/
+             \    \         __/
+              \____\_______/
+ _                 _   ____     _            _
+| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
+| &#39;_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ &#39;__|
+| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   &amp;lt;  __/ |
+|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
+Boot2Docker version 1.13.1, build HEAD : b7f6033 - Wed Feb  8 20:31:48 UTC 2017
+Docker version 1.13.1, build 092cba3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;initialize swarm&lt;br /&gt;
+docker@manager:~$ docker swarm init &amp;ndash;advertise-addr 192.168.99.100&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Swarm initialized: current node (vr7gm59os0kbgeou8oickuv3y) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-69gbc5d50la1ta5mtk67lrno5phgoqq4ebaztnf4h91dj6era3-71p3dn14eu6zhumv0p254r3xy \
+    192.168.99.100:2377
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;workerにsshログイン、swarn init後のコマンドを実行&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker@worker:~$  docker swarm join \
+&amp;gt;     --token SWMTKN-1-69gbc5d50la1ta5mtk67lrno5phgoqq4ebaztnf4h91dj6era3-71p3dn14eu6zhumv0p254r3xy \
+&amp;gt;     192.168.99.100:2377
+This node joined a swarm as a worker.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;nodeを表示&lt;/p&gt;
+
+&lt;p&gt;docker@manager:~$ docker node ls&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
+vr7gm59os0kbgeou8oickuv3y *  manager   Ready   Active        Leader
+y2y9i98fd78f5qzvi3o5kuj18    worker    Ready   Active  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;prepare docker-stack.yml and deploy&lt;/p&gt;
+
+&lt;p&gt;docker@manager:~$ docker stack deploy &amp;ndash;compose-file docker-stack.yml vote&lt;/p&gt;
+
+&lt;p&gt;確認する&lt;br /&gt;
+docker@manager:~$ docker stack services vote&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>optipng</title>
+      <link>https://freks.jp/tips/optipng/</link>
+      <pubDate>Sat, 18 Feb 2017 14:33:16 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/optipng/</guid>
+      <description>
+
+&lt;p&gt;optimize png file&lt;/p&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
+
+&lt;h3 id=&#34;centos7&#34;&gt;centos7&lt;/h3&gt;
+
+&lt;p&gt;$ sudo yum install optipng&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-use&#34;&gt;how to use&lt;/h2&gt;
+
+&lt;p&gt;$ optipng -o7 sample.png&lt;/p&gt;
+
+&lt;p&gt;with backup&lt;/p&gt;
+
+&lt;p&gt;$ optipng -o7 -keep sample.png&lt;/p&gt;
+
+&lt;p&gt;then create sample.png.bak too&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>fluentd</title>
       <link>https://freks.jp/tips/fluentd/</link>
       <pubDate>Mon, 13 Feb 2017 15:33:20 +0900</pubDate>
@@ -81,7 +203,7 @@ $ sudo /etc/init.d/td-agent status
 
 &lt;p&gt;設定ファイル&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf 
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;system&#34;&gt;&amp;lt;system&amp;gt;&lt;/h4&gt;
@@ -99,6 +221,44 @@ $ sudo /etc/init.d/td-agent status
 &lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
 
 &lt;p&gt;外部ファイルの設定を読み込む&lt;/p&gt;
+
+&lt;h3 id=&#34;rootize&#34;&gt;rootize&lt;/h3&gt;
+
+&lt;p&gt;エラーログなど権限不足で読めないので、td-agentをrootで起動する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/init.d/td-agent
+
+TD_AGENT_USER=root
+TD_AGENT_GROUP=root
+
+$ service td-agent restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;example-1&#34;&gt;example 1&lt;/h3&gt;
+
+&lt;p&gt;nginx access logをtd-agent.logに出力する&lt;/p&gt;
+
+&lt;p&gt;$ vim /etc/td-agent/td-agent.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;match debug.**&amp;gt;
+  @type stdout
+&amp;lt;/match&amp;gt;
+
+&amp;lt;source&amp;gt;
+  @type tail
+  path /var/log/nginx/sample-access.log
+  tag debug.sample-access
+  pos_file /var/log/td-agent/sample-access.log.pos
+  format /^(?&amp;lt;remote&amp;gt;[^ ]*) (?&amp;lt;host&amp;gt;[^ ]*) (?&amp;lt;user&amp;gt;[^ ]*) \[(?&amp;lt;time&amp;gt;[^\]]*)\] &amp;quot;(?&amp;lt;method&amp;gt;\S+)(?: +(?&amp;lt;path&amp;gt;[^ ]*) +\S*)?&amp;quot; (?&amp;lt;code&amp;gt;[^ ]*) (?&amp;lt;size&amp;gt;[^ ]*)(?: &amp;quot;(?&amp;lt;referer&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;agent&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;forwarder&amp;gt;[^\&amp;quot;]*)&amp;quot;)?/
+  time_format %d/%b/%Y:%H:%M:%S %z
+&amp;lt;/source&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ tail /var/log/td-agent/td-agent.log&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;2017-02-15 21:26:44 +0900 debug.sample-access: {&amp;quot;remote&amp;quot;:&amp;quot;xxx.xxx.xxx.xxx&amp;quot;,&amp;quot;host&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;metho
+6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&amp;quot;,&amp;quot;forwarder&amp;quot;:&amp;quot;-&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -250,6 +410,24 @@ server {
 &lt;p&gt;特定のリンク&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;grep -lr &amp;quot;http://sample.com/&amp;quot; /var/cache/nginx/ | xargs rm -f
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;basic認証&#34;&gt;basic認証&lt;/h4&gt;
+
+&lt;p&gt;htpasswdでパスワードファイルを作る&lt;/p&gt;
+
+&lt;h5 id=&#34;centos7&#34;&gt;centos7&lt;/h5&gt;
+
+&lt;p&gt;htpasswdをインストール&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum install httpd-tools
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo htpasswd -c /etc/nginx/.htpasswd username&lt;br /&gt;
+$ sudo vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;auth_basic &amp;quot;好きなrealmを&amp;quot;;
+auth_basic_ user_file /etc/nginx/.htpasswd;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
@@ -616,6 +794,18 @@ $ php app/console cache:clear&lt;/p&gt;
 
 &lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
 $ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
+
+&lt;h4 id=&#34;doctrine&#34;&gt;doctrine&lt;/h4&gt;
+
+&lt;p&gt;check and update&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;./vendor/bin/doctrine orm:schema-tool:update --dump-sql
+./vendor/bin/doctrine orm:schema-tool:update --force
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;log&#34;&gt;log&lt;/h4&gt;
+
+&lt;p&gt;see &lt;a href=&#34;http://ec-cube.github.io/guideline_log&#34;&gt;ログ出力設定 | EC-CUBE 開発ドキュメント&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -653,6 +843,10 @@ Alt + F7&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;$ sysv-rc-conf apache2 on
 $ sysv-rc-conf apache2 off
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;repository削除&#34;&gt;repository削除&lt;/h4&gt;
+
+&lt;p&gt;$ sudo add-apt-repository &amp;ndash;remove ppa:sample/xxx&lt;/p&gt;
 </description>
     </item>
     
@@ -727,6 +921,21 @@ drop user sample@localhost;&lt;/p&gt;
 &lt;h1 id=&#34;connect&#34;&gt;connect&lt;/h1&gt;
 
 &lt;p&gt;mysql -u user -h hostname -P portnum -p (database name)&lt;/p&gt;
+
+&lt;h1 id=&#34;avoid-truncate-foreign-key-error&#34;&gt;avoid truncate foreign key error&lt;/h1&gt;
+
+&lt;p&gt;外部キー制約でテーブルにレコードがなくてもエラーが発生する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;truncate plg_owner;
+ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`sample`.`d_owner_job`, CONSTRAINT `FK_FAD08FB17E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `sample`.`d_owner` (`owner_id`))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;一時的に外部キー参照チェックをOFFしてtruncateする&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set foreign_key_checks = 0;
+truncate some_table;
+set foreign_key_checks = 1;
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -773,125 +982,6 @@ $tomorrow = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1D&#39;))-&amp;g
 echo $tomorrow-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
 $nextMonth = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1M&#39;))-&amp;gt;setTime(0,0,0);
 echo $nextMonth-&amp;gt;format(&#39;Y-m-d H:i:s&#39;);
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>silex</title>
-      <link>https://freks.jp/tips/silex/</link>
-      <pubDate>Wed, 14 Dec 2016 13:54:42 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/silex/</guid>
-      <description>
-
-&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://silex.sensiolabs.org/doc/master/usage.html&#34;&gt;Usage - Documentation - Silex - The PHP micro-framework based on the Symfony Components&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;$ composer require silex/silex:~2.0&lt;/p&gt;
-
-&lt;p&gt;サンプルコードを用意&lt;br /&gt;
-$ mkdir src&lt;br /&gt;
-$ cd src&lt;br /&gt;
-$ vim index.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;?php
-
-require_once __DIR__.&#39;/../vendor/autoload.php&#39;;
-
-$app = new Silex\Application();
-
-$app-&amp;gt;get(&#39;/hello/{name}&#39;, function ($name) use ($app) {
-    return &#39;Hello &#39;.$app-&amp;gt;escape($name);
-});
-
-$app-&amp;gt;run();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;起動して確認する&lt;br /&gt;
-$ cd ..&lt;br /&gt;
-$ php -S localhost:8080 -t src&lt;br /&gt;
-access &lt;a href=&#34;http://localhost:8080/hello/taro&#34;&gt;http://localhost:8080/hello/taro&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>symfony</title>
-      <link>https://freks.jp/tips/symfony/</link>
-      <pubDate>Wed, 14 Dec 2016 11:25:54 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/symfony/</guid>
-      <description>
-
-&lt;h3 id=&#34;starter&#34;&gt;starter&lt;/h3&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://symfony.com/doc/2.8/setup.html&#34;&gt;Installing &amp;amp; Setting up the Symfony Framework (2.8)&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Symfonyのデモ付き一式ディストリビューションインストール&lt;br /&gt;
-$ composer create-project symfony/framework-standard-edition my_project_name &amp;ldquo;2.8.*&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;環境チェック&lt;br /&gt;
-$ php app/check.php
-or&lt;br /&gt;
-access &lt;a href=&#34;http://localhost:8000/config.php&#34;&gt;http://localhost:8000/config.php&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;使えるservicesを確認&lt;br /&gt;
-php app/console debug:container&lt;/p&gt;
-
-&lt;p&gt;起動&lt;br /&gt;
-$ php app/console server:run&lt;/p&gt;
-
-&lt;p&gt;コントローラーをつくってhtmlを返す&lt;br /&gt;
-ルーティングはアノテーションで設定できる&lt;br /&gt;
-phpのファイルはsrc以下に保存&lt;br /&gt;
-$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Response;
-
-class LuckyController
-{
-    /**
-     * @Route(&amp;quot;/hey/yo&amp;quot;)
-     */
-    public function hoo()
-    {
-        return new Response(
-            &#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;hey&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;
-        );
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Twigテンプレートを返す&lt;br /&gt;
-phpでない設定ファイルやテンプレートはapp以下に保存&lt;br /&gt;
-$ vim src/AppBundle/Controller/LuckyController.php&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;namespace AppBundle\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class LuckyController extends Controller
-{
-    /**
-     * @Route(&amp;quot;/lucky/number&amp;quot;)
-     */
-    public function numberAction()
-    {
-        $number = mt_rand(0, 100);
-
-        return $this-&amp;gt;render(&#39;lucky/number.html.twig&#39;, array(
-            &#39;number&#39; =&amp;gt; $number,
-        ));
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ vim app/Resources/views/lucky/number.html.twig&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;h1&amp;gt;Your lucky number is {{ number }}&amp;lt;/h1&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

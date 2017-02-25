@@ -186,7 +186,7 @@ $ sudo /etc/init.d/td-agent status
 
 <p>設定ファイル</p>
 
-<pre><code>$ sudo vim /etc/td-agent/td-agent.conf 
+<pre><code>$ sudo vim /etc/td-agent/td-agent.conf
 </code></pre>
 
 <h4 id="system">&lt;system&gt;</h4>
@@ -203,7 +203,46 @@ $ sudo /etc/init.d/td-agent status
 
 <h4 id="include">&lt;include&gt;</h4>
 
-<p>外部ファイルの設定を読み込む</div>
+<p>外部ファイルの設定を読み込む</p>
+
+<h3 id="rootize">rootize</h3>
+
+<p>エラーログなど権限不足で読めないので、td-agentをrootで起動する</p>
+
+<pre><code>$ sudo vim /etc/init.d/td-agent
+
+TD_AGENT_USER=root
+TD_AGENT_GROUP=root
+
+$ service td-agent restart
+</code></pre>
+
+<h3 id="example-1">example 1</h3>
+
+<p>nginx access logをtd-agent.logに出力する</p>
+
+<p>$ vim /etc/td-agent/td-agent.conf</p>
+
+<pre><code>&lt;match debug.**&gt;
+  @type stdout
+&lt;/match&gt;
+
+&lt;source&gt;
+  @type tail
+  path /var/log/nginx/sample-access.log
+  tag debug.sample-access
+  pos_file /var/log/td-agent/sample-access.log.pos
+  format /^(?&lt;remote&gt;[^ ]*) (?&lt;host&gt;[^ ]*) (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] &quot;(?&lt;method&gt;\S+)(?: +(?&lt;path&gt;[^ ]*) +\S*)?&quot; (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*)(?: &quot;(?&lt;referer&gt;[^\&quot;]*)&quot; &quot;(?&lt;agent&gt;[^\&quot;]*)&quot; &quot;(?&lt;forwarder&gt;[^\&quot;]*)&quot;)?/
+  time_format %d/%b/%Y:%H:%M:%S %z
+&lt;/source&gt;
+</code></pre>
+
+<p>$ tail /var/log/td-agent/td-agent.log</p>
+
+<pre><code>2017-02-15 21:26:44 +0900 debug.sample-access: {&quot;remote&quot;:&quot;xxx.xxx.xxx.xxx&quot;,&quot;host&quot;:&quot;-&quot;,&quot;user&quot;:&quot;-&quot;,&quot;metho
+6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&quot;,&quot;forwarder&quot;:&quot;-&quot;}
+</code></pre>
+</div>
   </div>
 
   <footer class="article-footer">
@@ -275,6 +314,34 @@ $ sudo /etc/init.d/td-agent status
     <header>latests</header>
     <div>
       <div class="row">
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/docker-machine/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/docker-machine/">docker machine</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-22T12:01:25JST">Feb 22, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/optipng/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/optipng/">optipng</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-18T14:33:16JST">Feb 18, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fluentd/" class="thumb"></a>
@@ -388,34 +455,6 @@ $ sudo /etc/init.d/td-agent status
 </div>
         <div class="col-sm-12"></div>
         
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/useful-services/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/useful-services/">useful services</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-16T16:34:42JST">Jan 16, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/eccube3/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/eccube3/">eccube3</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-16T16:34:30JST">Jan 16, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
       </div>
     </div>
   </section>
@@ -434,7 +473,7 @@ $ sudo /etc/init.d/td-agent status
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li><li><a href="https://freks.jp/tips/tags/command">command</a></li><li><a href="https://freks.jp/tips/tags/composer">composer</a></li><li><a href="https://freks.jp/tips/tags/earnings">earnings</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li><li><a href="https://freks.jp/tips/tags/command">command</a></li><li><a href="https://freks.jp/tips/tags/composer">composer</a></li><li><a href="https://freks.jp/tips/tags/earnings">earnings</a></li>
       </ul>
     </div>
   </section>

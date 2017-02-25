@@ -9,9 +9,9 @@
 <meta name="generator" content="Hugo 0.17" />
 
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="https://freks.jp/tips/tags/optipng/index.xml">
 
-
-<link rel="canonical" href="https://freks.jp/tips/centos7/">
+<link rel="canonical" href="https://freks.jp/tips/tags/optipng/">
 
 
     
@@ -20,64 +20,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>centos7 - freks tips</title>
+    <title>Optipng - freks tips</title>
     
-<meta name="description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
-
-<meta property="og:title" content="centos7 - freks tips">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/centos7/">
-<meta property="og:image" content="https://freks.jp/tips/images/default.png">
-<meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:image:width" content="498" />
-<meta property="og:image:height" content="484" />
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/centos7/">
-<meta name="twitter:title" content="centos7 - freks tips">
-<meta name="twitter:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
-<meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
-
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "NewsArticle",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id":"https:\/\/freks.jp\/tips\/"
-    },
-    "headline": "centos7 - freks tips",
-    "image": {
-      "@type": "ImageObject",
-      "url": "https:\/\/freks.jp\/tips\/images\/default.png",
-      "height": 800,
-      "width": 800
-    },
-    "datePublished": "2017-02-05T13:00:30JST",
-    "dateModified": "2017-02-05T13:00:30JST",
-    "author": {
-      "@type": "Person",
-      "name": "freks tips"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "freks tips",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https:\/\/freks.jp\/tips\/images/logo.png",
-        "width": 600,
-        "height": 60
-      }
-    },
-    "description": "centos update $ sudo yum update  firewalld reload firewalld\n$ sudo firewall-cmd --reload  open http port of firewall\n$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port\n$ sudo firewall-cmd --add-port=30080\/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080\/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは\/etc\/yum.repos.d\/内にあって、enable=1のもの\nenable=0のものを指定するには\nsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧\nsudo yum list installed  アップデート\nsudo yum install certbot  削除"
-  }
-</script>
-
-
     <style>
       html { font-size: 18px;}@media (max-width: 768px) { html { font-size: 15px; }}body { font-family: 'Noto Sans','Hiragino Kaku Gothic Pro',メイリオ,Meiryo,sans-serif; font-size: inherit; font-weight: 300; line-height: 1rem; background-color: #eceff1;}p { margin: 0;}a { color: #4caf50;}a:hover { text-decoration: none; color: #388e3c;}ul,ol { margin: 0; padding: 0;}h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 700;}h1 { font-size: 1.8rem; line-height: 2rem; margin: 1.5rem 0; }h2 { font-size: 1.4rem; line-height: 2rem; margin: 1.5rem 0; }h3 { font-size: 1.2rem; line-height: 1.5rem; margin: 1.5rem 0; }h4, h5, h6 { font-size: 1rem; line-height: 1.5rem; margin: 1.5rem 0; }main { display: block;}.content-inner { padding: 1rem 2rem;}.content-inner.thin { padding: .5rem 1rem;}@media (max-width: 768px) { .content-inner { padding: 1rem; }}/* Override */.container { position: relative;}/* Parts:layouts */.l-header { background-color: #fff; margin-bottom: 1rem; padding: 1rem 0; text-align: center;}.l-footer { font-size: .8rem; padding: 1.5rem 0;}/* Parts:menu */.p-menu { position: absolute; right: 15px; top: 0;}/* Parts:terms */.p-terms { list-style: none;}.p-terms .terms-title { margin: 0;}.p-terms a { display: inline-block; padding: .25rem 0;}.p-terms.inline li { display: inline-block; font-size: .8rem;}.p-terms.inline li::after { content: ',';}.p-terms.inline li:last-child::after { content: '';}/* Parts:paging */.p-paging { margin-bottom: 1.5rem; text-align: center;}.p-paging a { display: inline-block; padding: 1rem 1.5rem; margin: 0 .5rem; background-color: #cfd8dc; color: #263238;}/* Parts:section */section { margin-bottom: 1.5rem;}section>header { font-size: .8rem; font-weight: 700; margin-bottom: .5rem; text-transform: uppercase;}section>header a { color: #333; text-decoration: underline;}section.article-footer { margin-bottom: 1rem;}section.article-footer>header { margin-bottom: 0;}/* Parts:share */.p-share { min-width: 100%; margin-bottom: 1.5rem;}.p-share .share-inner { display: table; table-layout: fixed; width: 100%; border-spacing: .25rem;}.p-share a { display: table-cell; text-align: center; font-weight: 700; font-size: .7rem; padding: .5rem 0; color: #fff; border-radius: 5px;}.p-share a.ht { background-color: #00a4de; border-bottom: 2px solid #0083b1; }.p-share a.fb { background-color: #3b5998; border-bottom: 2px solid #2f4779; }.p-share a.tw { background-color: #1da1f2; border-bottom: 2px solid #1780c1; }.p-share a.gp { background-color: #dd4b39; border-bottom: 2px solid #b03c2d; }.p-share a.ln { background-color: #00c300; border-bottom: 2px solid #009c00; }.p-share a.ht::before { content: 'Hatena'; }.p-share a.fb::before { content: 'Facebook'; }.p-share a.tw::before { content: 'Twitter'; }.p-share a.gp::before { content: 'Google+'; }.p-share a.ln::before { content: 'LINE'; }/* Parts:logo */.h-logo { font-family: 'Montserrat', sans-serif;}.p-logo { display: inline-block; text-transform: uppercase;}.p-logo a { display: inline-block; font-size: 1.4rem; line-height: 2rem; color: #000;}/* Parts:crumb */.p-crumb ol { list-style: none; margin-bottom: 1rem;}.p-crumb li { display: inline; margin-right: .25rem; font-size: .8rem; color: #607d8b;}.p-crumb li::after { content: '/'; margin-left: .25rem;}.p-crumb li:last-child::after { content: '';}/* Parts:facts */.p-facts { list-style: none; font-size: .8rem; margin-bottom: 1rem;}.p-facts li { display: inline-block; margin-right: .5rem; color: #90a4ae;}.p-facts li i { margin-right: .5rem; color: #cfd8dc;}/* Parts:article */article { background-color: #fff;}article .title { margin: 0; margin-bottom: .5rem; font-weight: 700;}article .title a { color: #000;}article .thumb { display: block; background-image: url(https://freks.jp/tips/images/default.jpg); background-position: center; background-size: cover;}article .summary { margin-bottom: .5rem; max-height: 5rem; overflow: hidden;}article.single .thumb { height: 18rem; margin-bottom: 1rem;}@media (max-width: 768px) { article.single .thumb { height: 12rem; }}article.li { margin-bottom: 1rem;}article.li .thumb { height: 7.5rem; margin-bottom: .5rem;}article.li.sm { background-color: transparent; margin-bottom: .5rem;}article.li.sm>header { padding: .5rem 0;}article.li.sm .title { font-size: .8rem; line-height: 1rem; margin-bottom: .25rem;}article.li.sm .p-facts { font-size: .6rem; margin-bottom: 0;}article.li.sm .thumb { float: left; margin-right: .5rem; height: 3rem; width: 3rem;}.article-body h2 { padding: 1rem 0; border-bottom: 2px solid #eceff1;}.article-body h2:first-child { margin-top: 0; }.article-body h3 { color: #428bca;}.article-body h4 { border-left: solid .25rem #428bca; padding: 0 .5rem;}.article-body p { margin: 1.5rem 0; line-height: 1.5rem;}.article-body a { text-decoration: underline;}.article-body ul,.article-body ol { padding-left: 1.5rem;}.article-body code { display: inline-block; font-family: Menlo, consolas, monospace; font-size: .8rem; padding: 0 .5rem; line-height: 1.5rem;}.article-body pre { margin: 1.5rem 0; padding: 0; font-size: .8rem; border: none; border-radius: 0;}.article-body pre code { display: block; line-height: 1rem; padding: 1rem;}.article-body blockquote { margin: 1.5rem 0; padding: .5rem 0; font-size: .8rem; border-top: 1px solid #eceff1; border-bottom: 1px solid #eceff1; color: #607d8b;}.article-body blockquote p { margin: .5rem 0; line-height: 1rem;}.article-body strong { box-shadow: 0 -.5rem 0 0 #90caf9 inset;}.article-body em { font-style: normal; font-weight: 700; color: #03a9f4;}.article-body figure { margin: 1.5rem 0; }.article-body figure img { max-width: 100%; }.article-body figure.left,.article-body figure.right { width: 15rem; height: 12rem; margin-top: 0;}.article-body figure.left { float: left; margin-right: 1rem; }.article-body figure.right { float: right; margin-left: 1rem; }@media (max-width: 768px) { .article-body figure.left, .article-body figure.right { float: none; margin: 0; width: auto; height: auto; }}.article-body figcaption { padding: .5rem 0; font-size: .8rem; text-align: center;}.article-body figcaption a { color: #263238;}
       
@@ -103,133 +47,36 @@
         
 <div class="row">
   <div class="col-md-8">
-    <nav class="p-crumb">
-      <ol>
-        <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-        
-        <li class="active">centos7</li>
-      </ol>
-    </nav>
-    <article class="single">
 
-  <div class="content-inner">
-    <h1 class="title">centos7</h1>
+    
+    <header class="p-page-title">
+      <h1 class="title">Optipng</h1>
+    </header>
+    
+
+    <div class="row">
+      
+      <div class="col-sm-6 col-xs-12"><article class="li">
+
+  <div class="content-inner thin">
+    <h2 class="title"><a href="https://freks.jp/tips/optipng/">optipng</a></h2>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T13:00:30JST">Feb 5, 2017</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-18T14:33:16JST">Feb 18, 2017</time></li>
       
       
     </ul>
 
-    <div class="article-body"><h4 id="centos-update">centos update</h4>
 
-<pre><code>$ sudo yum update
-</code></pre>
-
-<h4 id="firewalld">firewalld</h4>
-
-<p>reload firewalld</p>
-
-<pre><code>$ sudo firewall-cmd --reload
-</code></pre>
-
-<p>open http port of firewall</p>
-
-<pre><code>$ sudo firewall-cmd --add-service=http --zone=public --permanent
-$ sudo firewall-cmd --add-service=https --zone=public --permanent
-</code></pre>
-
-<p>open and close port</p>
-
-<pre><code>$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent
-$ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
-</code></pre>
-
-<h4 id="yum">yum</h4>
-
-<p>yum install時に使われるrepositoryは<code>/etc/yum.repos.d/</code>内にあって、enable=1のもの<br />
-<code>enable=0</code>のものを指定するには</p>
-
-<pre><code>sudo yum install --enablerepo=epel certbot
-</code></pre>
-
-<p>yumでインストールしたパッケージ一覧</p>
-
-<pre><code>sudo yum list installed
-</code></pre>
-
-<p>アップデート</p>
-
-<pre><code>sudo yum install certbot
-</code></pre>
-
-<p>削除</p>
-
-<pre><code>sudo yum remove certbot
-</code></pre>
+  </div>
+</article>
 </div>
-  </div>
-
-  <footer class="article-footer">
-    <div class="content-inner">
-
-      <aside class="p-share">
-  <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&title=centos7" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&t=centos7" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f&text=centos7&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?centos7 https%3a%2f%2ffreks.jp%2ftips%2fcentos7%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
-  </div>
-</aside>
-
-
-      <nav class="p-crumb">
-        <ol>
-          <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
-          
-          <li class="active">centos7</li>
-        </ol>
-      </nav>
-
-      
-      
-      
-      <section class="article-footer">
-        <header>
-          <a href="https://freks.jp/tips/categories/">CATEGORIES</a>
-        </header>
-        <div>
-          <ul class="p-terms inline">
-            
-            <li><a href="https://freks.jp/tips/categories/engineer/">engineer</a></li>
-            
-          </ul>
-        </div>
-      </section>
-      
-      
-      
-      <section class="article-footer">
-        <header>
-          <a href="https://freks.jp/tips/tags/">TAGS</a>
-        </header>
-        <div>
-          <ul class="p-terms inline">
-            
-            <li><a href="https://freks.jp/tips/tags/centos7/">centos7</a></li>
-            
-          </ul>
-        </div>
-      </section>
       
       
     </div>
-  </footer>
-
-</article>
 
     
+
   </div>
   <div class="col-md-4">
     

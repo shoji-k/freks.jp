@@ -242,6 +242,28 @@ $ docker save -o (file) (image name)</p>
 <p>load saved docker image file<br />
 $ docker load -i (file)</p>
 
+<p>verify network<br />
+inspect command can show the network of the container<br />
+$ docker network ls</p>
+
+<p>let the container join the specified network<br />
+$ docker run -d &ndash;net=my-bridge-network &ndash;name db training/postgres</p>
+
+<p>change the network<br />
+$ docker network connect my-bridge-network web</p>
+
+<p>show container volumes
+$ docker volume ls</p>
+
+<p>show container dangling volumes<br />
+this is remained when to delete containers with volume container</p>
+
+<p>$ docker volume ls</p>
+
+<p>back up and restore data<br />
+$ docker run &ndash;rm &ndash;volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata<br />
+$ docker run &ndash;rm &ndash;volumes-from dbstore2 -v $(pwd):/backup ubuntu bash -c &ldquo;cd /dbdata &amp;&amp; tar xvf /backup/backup.tar &ndash;strip 1&rdquo;</p>
+
 <h1 id="docker-run-parameters">docker run parameters</h1>
 
 <p>-d -&gt; deamon<br />
@@ -399,6 +421,21 @@ $ docker login &ndash;username=shojik &ndash;email=sample@sample.com</p>
 move the directory include composer.json<br />
 $ docker run &ndash;rm -v $(pwd):/app composer/composer install</p>
 
+<h2 id="security-check">security check</h2>
+
+<p>see <a href="https://github.com/docker/docker-bench-security">docker/docker-bench-security: The Docker Bench for Security is a script that checks for dozens of common best-practices around deploying Docker containers in production.</a></p>
+
+<p>コマンド実行すると、判定してくれる</p>
+
+<pre><code>$ docker run -it --net host --pid host --cap-add audit_control \
+    -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
+    -v /var/lib:/var/lib \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /usr/lib/systemd:/usr/lib/systemd \
+    -v /etc:/etc --label docker_bench_security \
+    docker/docker-bench-security
+</code></pre>
+
 <h2 id="refferences">refferences</h2>
 
 <ul>
@@ -478,6 +515,34 @@ $ docker run &ndash;rm -v $(pwd):/app composer/composer install</p>
     <header>latests</header>
     <div>
       <div class="row">
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/docker-machine/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/docker-machine/">docker machine</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-22T12:01:25JST">Feb 22, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/optipng/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/optipng/">optipng</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-18T14:33:16JST">Feb 18, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fluentd/" class="thumb"></a>
@@ -591,34 +656,6 @@ $ docker run &ndash;rm -v $(pwd):/app composer/composer install</p>
 </div>
         <div class="col-sm-12"></div>
         
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/useful-services/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/useful-services/">useful services</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-16T16:34:42JST">Jan 16, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/eccube3/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/eccube3/">eccube3</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-01-16T16:34:30JST">Jan 16, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
       </div>
     </div>
   </section>
@@ -637,7 +674,7 @@ $ docker run &ndash;rm -v $(pwd):/app composer/composer install</p>
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li><li><a href="https://freks.jp/tips/tags/command">command</a></li><li><a href="https://freks.jp/tips/tags/composer">composer</a></li><li><a href="https://freks.jp/tips/tags/earnings">earnings</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li><li><a href="https://freks.jp/tips/tags/command">command</a></li><li><a href="https://freks.jp/tips/tags/composer">composer</a></li><li><a href="https://freks.jp/tips/tags/earnings">earnings</a></li>
       </ul>
     </div>
   </section>
