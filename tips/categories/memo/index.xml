@@ -9,6 +9,49 @@
     <atom:link href="https://freks.jp/tips/categories/memo/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>minecraft</title>
+      <link>https://freks.jp/tips/minecraft/</link>
+      <pubDate>Mon, 06 Mar 2017 23:31:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/minecraft/</guid>
+      <description>
+
+&lt;h1 id=&#34;build-minecraft-server&#34;&gt;build minecraft server&lt;/h1&gt;
+
+&lt;h2 id=&#34;try-on-ubuntu-14-04&#34;&gt;try on Ubuntu 14.04&lt;/h2&gt;
+
+&lt;h3 id=&#34;install-java&#34;&gt;install java&lt;/h3&gt;
+
+&lt;p&gt;$ sudo add-apt-repository ppa:webupd8team/java&lt;br /&gt;
+$ sudo apt-get update&lt;br /&gt;
+$ sudo apt-get install oracle-java8-installer&lt;/p&gt;
+
+&lt;p&gt;confirm&lt;br /&gt;
+$ java -version&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java version &amp;quot;1.8.0_121&amp;quot;
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;install-mincraft&#34;&gt;install mincraft&lt;/h3&gt;
+
+&lt;p&gt;download mincraft.jar from &lt;a href=&#34;https://minecraft.net/ja-jp/download/server&#34;&gt;https://minecraft.net/ja-jp/download/server&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;$ java -Xmx1024M -Xms1024M -jar minecraft_server.1.11.2.jar nogui&lt;/p&gt;
+
+&lt;p&gt;boot once and eula confirmation error&lt;br /&gt;
+change false to true on eula.txt&lt;br /&gt;
+then reboot&lt;/p&gt;
+
+&lt;h3 id=&#34;connect-from-local&#34;&gt;connect from local&lt;/h3&gt;
+
+&lt;p&gt;boot mincraft of same version&lt;br /&gt;
+and connect with multiuser&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>useful services</title>
       <link>https://freks.jp/tips/useful-services/</link>
       <pubDate>Mon, 16 Jan 2017 16:34:42 +0900</pubDate>

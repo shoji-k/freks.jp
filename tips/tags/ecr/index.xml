@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/ecr/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/ecr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>amazon ecr</title>
+      <link>https://freks.jp/tips/amazon-ecr/</link>
+      <pubDate>Wed, 08 Mar 2017 15:00:14 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/amazon-ecr/</guid>
+      <description>
+
+&lt;h1 id=&#34;for-the-first-time&#34;&gt;for the first time&lt;/h1&gt;
+
+&lt;p&gt;see &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/firstRun&#34;&gt;Amazon EC2 Container Service First Run&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-aws-client&#34;&gt;install aws client&lt;/h1&gt;
+
+&lt;p&gt;curl &amp;ldquo;&lt;a href=&#34;https://bootstrap.pypa.io/get-pip.py&amp;quot;&#34;&gt;https://bootstrap.pypa.io/get-pip.py&amp;quot;&lt;/a&gt; -o &amp;ldquo;get-pip.py&amp;rdquo;&lt;br /&gt;
+sudo python get-pip.py&lt;br /&gt;
+rm get-pip.py&lt;br /&gt;
+sudo pip install awscli&lt;/p&gt;
+
+&lt;h2 id=&#34;configure-aws-client&#34;&gt;configure aws client&lt;/h2&gt;
+
+&lt;h3 id=&#34;prepare-aws-key&#34;&gt;prepare aws key&lt;/h3&gt;
+
+&lt;p&gt;create IAM role and prepare access key and secret key&lt;/p&gt;
+
+&lt;h3 id=&#34;set-keys-to-awsclient&#34;&gt;set keys to awsclient&lt;/h3&gt;
+
+&lt;p&gt;$ aws configure&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AWS Access Key ID [None]: xxxxxxxxxxxxxxxxxxxx
+AWS Secret Access Key [None]: ........................................
+Default region name [None]: us-east-1
+Default output format [None]:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;create-ecr&#34;&gt;create ecr&lt;/h1&gt;
+
+&lt;p&gt;region: us-east-1&lt;/p&gt;
+
+&lt;p&gt;access &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&#34;&gt;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&lt;/a&gt;&lt;br /&gt;
+and create a repository&lt;/p&gt;
+
+&lt;h1 id=&#34;push-a-docker-image&#34;&gt;push a docker image&lt;/h1&gt;
+
+&lt;h2 id=&#34;connect-local-to-aws&#34;&gt;connect local to aws&lt;/h2&gt;
+
+&lt;p&gt;retrieve a docker login command&lt;br /&gt;
+$ aws ecr get-login &amp;ndash;region us-east-1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker login -u AWS -p xxxxxx -e none https://xxxxxxx.dkr.ecr.us-east-1.amazonaws.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;run the docker login above&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-docker-image&#34;&gt;prepare docker image&lt;/h2&gt;
+
+&lt;h1 id=&#34;docker-build-t-sample&#34;&gt;docker build -t sample .&lt;/h1&gt;
+
+&lt;h2 id=&#34;tag-a-docker-image&#34;&gt;tag a docker image&lt;/h2&gt;
+
+&lt;p&gt;make tag name same as ecr name&lt;br /&gt;
+e.g. xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository&lt;/p&gt;
+
+&lt;p&gt;docker tag sample xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+
+&lt;h2 id=&#34;upload-images&#34;&gt;upload images&lt;/h2&gt;
+
+&lt;p&gt;docker push xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

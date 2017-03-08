@@ -6,8 +6,122 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 22 Feb 2017 12:01:25 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 08 Mar 2017 15:00:14 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>amazon ecr</title>
+      <link>https://freks.jp/tips/amazon-ecr/</link>
+      <pubDate>Wed, 08 Mar 2017 15:00:14 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/amazon-ecr/</guid>
+      <description>
+
+&lt;h1 id=&#34;for-the-first-time&#34;&gt;for the first time&lt;/h1&gt;
+
+&lt;p&gt;see &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/firstRun&#34;&gt;Amazon EC2 Container Service First Run&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-aws-client&#34;&gt;install aws client&lt;/h1&gt;
+
+&lt;p&gt;curl &amp;ldquo;&lt;a href=&#34;https://bootstrap.pypa.io/get-pip.py&amp;quot;&#34;&gt;https://bootstrap.pypa.io/get-pip.py&amp;quot;&lt;/a&gt; -o &amp;ldquo;get-pip.py&amp;rdquo;&lt;br /&gt;
+sudo python get-pip.py&lt;br /&gt;
+rm get-pip.py&lt;br /&gt;
+sudo pip install awscli&lt;/p&gt;
+
+&lt;h2 id=&#34;configure-aws-client&#34;&gt;configure aws client&lt;/h2&gt;
+
+&lt;h3 id=&#34;prepare-aws-key&#34;&gt;prepare aws key&lt;/h3&gt;
+
+&lt;p&gt;create IAM role and prepare access key and secret key&lt;/p&gt;
+
+&lt;h3 id=&#34;set-keys-to-awsclient&#34;&gt;set keys to awsclient&lt;/h3&gt;
+
+&lt;p&gt;$ aws configure&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AWS Access Key ID [None]: xxxxxxxxxxxxxxxxxxxx
+AWS Secret Access Key [None]: ........................................
+Default region name [None]: us-east-1
+Default output format [None]:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;create-ecr&#34;&gt;create ecr&lt;/h1&gt;
+
+&lt;p&gt;region: us-east-1&lt;/p&gt;
+
+&lt;p&gt;access &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&#34;&gt;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&lt;/a&gt;&lt;br /&gt;
+and create a repository&lt;/p&gt;
+
+&lt;h1 id=&#34;push-a-docker-image&#34;&gt;push a docker image&lt;/h1&gt;
+
+&lt;h2 id=&#34;connect-local-to-aws&#34;&gt;connect local to aws&lt;/h2&gt;
+
+&lt;p&gt;retrieve a docker login command&lt;br /&gt;
+$ aws ecr get-login &amp;ndash;region us-east-1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker login -u AWS -p xxxxxx -e none https://xxxxxxx.dkr.ecr.us-east-1.amazonaws.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;run the docker login above&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-docker-image&#34;&gt;prepare docker image&lt;/h2&gt;
+
+&lt;h1 id=&#34;docker-build-t-sample&#34;&gt;docker build -t sample .&lt;/h1&gt;
+
+&lt;h2 id=&#34;tag-a-docker-image&#34;&gt;tag a docker image&lt;/h2&gt;
+
+&lt;p&gt;make tag name same as ecr name&lt;br /&gt;
+e.g. xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository&lt;/p&gt;
+
+&lt;p&gt;docker tag sample xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+
+&lt;h2 id=&#34;upload-images&#34;&gt;upload images&lt;/h2&gt;
+
+&lt;p&gt;docker push xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>minecraft</title>
+      <link>https://freks.jp/tips/minecraft/</link>
+      <pubDate>Mon, 06 Mar 2017 23:31:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/minecraft/</guid>
+      <description>
+
+&lt;h1 id=&#34;build-minecraft-server&#34;&gt;build minecraft server&lt;/h1&gt;
+
+&lt;h2 id=&#34;try-on-ubuntu-14-04&#34;&gt;try on Ubuntu 14.04&lt;/h2&gt;
+
+&lt;h3 id=&#34;install-java&#34;&gt;install java&lt;/h3&gt;
+
+&lt;p&gt;$ sudo add-apt-repository ppa:webupd8team/java&lt;br /&gt;
+$ sudo apt-get update&lt;br /&gt;
+$ sudo apt-get install oracle-java8-installer&lt;/p&gt;
+
+&lt;p&gt;confirm&lt;br /&gt;
+$ java -version&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;java version &amp;quot;1.8.0_121&amp;quot;
+Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
+Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;install-mincraft&#34;&gt;install mincraft&lt;/h3&gt;
+
+&lt;p&gt;download mincraft.jar from &lt;a href=&#34;https://minecraft.net/ja-jp/download/server&#34;&gt;https://minecraft.net/ja-jp/download/server&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;$ java -Xmx1024M -Xms1024M -jar minecraft_server.1.11.2.jar nogui&lt;/p&gt;
+
+&lt;p&gt;boot once and eula confirmation error&lt;br /&gt;
+change false to true on eula.txt&lt;br /&gt;
+then reboot&lt;/p&gt;
+
+&lt;h3 id=&#34;connect-from-local&#34;&gt;connect from local&lt;/h3&gt;
+
+&lt;p&gt;boot mincraft of same version&lt;br /&gt;
+and connect with multiuser&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>docker machine</title>
@@ -317,6 +431,16 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 
 &lt;pre&gt;&lt;code&gt;sudo yum remove certbot
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;rpm&#34;&gt;rpm&lt;/h4&gt;
+
+&lt;h5 id=&#34;install&#34;&gt;install&lt;/h5&gt;
+
+&lt;p&gt;$ rpm -ivh sample.rpm&lt;/p&gt;
+
+&lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
+
+&lt;p&gt;$ rpm -ql sample&lt;/p&gt;
 </description>
     </item>
     
@@ -862,116 +986,6 @@ $ sysv-rc-conf apache2 off
 &lt;h4 id=&#34;repository削除&#34;&gt;repository削除&lt;/h4&gt;
 
 &lt;p&gt;$ sudo add-apt-repository &amp;ndash;remove ppa:sample/xxx&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>mysql</title>
-      <link>https://freks.jp/tips/mysql/</link>
-      <pubDate>Mon, 16 Jan 2017 16:19:13 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/mysql/</guid>
-      <description>
-
-&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
-
-&lt;p&gt;sudo apt-get install mysql-server&lt;br /&gt;
-sudo apt-get install php5-mysql&lt;/p&gt;
-
-&lt;p&gt;$ sudo vi/etc/mysql/my.cnfにあるので、viか何かで開いて、下記設定を追加。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[client]
-default-character-set=utf8
-[mysqld]
-skip-character-set-client-handshake
-character-set-server = utf8
-collation-server = utf8_general_ci
-init-connect = SET NAMES utf8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ sudo /etc/init.d/mysql restart&lt;br /&gt;
-$ sudo mysql -u root -p&lt;br /&gt;
-$ mysql&amp;gt; status&lt;br /&gt;
-文字コードがuft8になっているか確認&lt;/p&gt;
-
-&lt;h1 id=&#34;login&#34;&gt;login&lt;/h1&gt;
-
-&lt;p&gt;mysql -u root -p&lt;/p&gt;
-
-&lt;h1 id=&#34;backup&#34;&gt;backup&lt;/h1&gt;
-
-&lt;p&gt;mysqldump -u root -p (database name) &amp;gt; dump&lt;/p&gt;
-
-&lt;h1 id=&#34;restore&#34;&gt;restore&lt;/h1&gt;
-
-&lt;p&gt;mysql -u root (database name) &amp;lt; dump&lt;/p&gt;
-
-&lt;h1 id=&#34;create-user&#34;&gt;create user&lt;/h1&gt;
-
-&lt;p&gt;GRANT ALL PRIVILEGES ON &lt;em&gt;.&lt;/em&gt; TO (user name)@localhost IDENTIFIED BY &amp;lsquo;password&amp;rsquo;;&lt;br /&gt;
-FLUSH PRIVILEGES;&lt;/p&gt;
-
-&lt;h1 id=&#34;delete-user&#34;&gt;delete user&lt;/h1&gt;
-
-&lt;p&gt;DELETE FROM mysql.user WHERE user=&amp;lsquo;ユーザ名&amp;rsquo; AND host=&amp;lsquo;localhost&amp;rsquo;;&lt;br /&gt;
-or&lt;br /&gt;
-drop user sample@localhost;&lt;/p&gt;
-
-&lt;h1 id=&#34;show-users&#34;&gt;show users&lt;/h1&gt;
-
-&lt;p&gt;select user, host, password from mysql.user;&lt;/p&gt;
-
-&lt;h1 id=&#34;create-database&#34;&gt;create database&lt;/h1&gt;
-
-&lt;p&gt;CREATE DATABASE (database name) CHARACTER SET utf8;&lt;/p&gt;
-
-&lt;h1 id=&#34;delete-database&#34;&gt;delete database&lt;/h1&gt;
-
-&lt;p&gt;drop database sample;&lt;/p&gt;
-
-&lt;h1 id=&#34;show-databases&#34;&gt;show databases&lt;/h1&gt;
-
-&lt;p&gt;show databases;&lt;/p&gt;
-
-&lt;h1 id=&#34;connect&#34;&gt;connect&lt;/h1&gt;
-
-&lt;p&gt;mysql -u user -h hostname -P portnum -p (database name)&lt;/p&gt;
-
-&lt;h1 id=&#34;avoid-truncate-foreign-key-error&#34;&gt;avoid truncate foreign key error&lt;/h1&gt;
-
-&lt;p&gt;外部キー制約でテーブルにレコードがなくてもエラーが発生する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;truncate plg_owner;
-ERROR 1701 (42000): Cannot truncate a table referenced in a foreign key constraint (`sample`.`d_owner_job`, CONSTRAINT `FK_FAD08FB17E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `sample`.`d_owner` (`owner_id`))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;一時的に外部キー参照チェックをOFFしてtruncateする&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;set foreign_key_checks = 0;
-truncate some_table;
-set foreign_key_checks = 1;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>apache</title>
-      <link>https://freks.jp/tips/apache/</link>
-      <pubDate>Mon, 26 Dec 2016 19:23:04 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/apache/</guid>
-      <description>
-
-&lt;h4 id=&#34;confの文法チェック&#34;&gt;confの文法チェック&lt;/h4&gt;
-
-&lt;p&gt;$ apachectl configtest&lt;/p&gt;
-
-&lt;h4 id=&#34;サブディレクトリへのアクセスログを分ける&#34;&gt;サブディレクトリへのアクセスログを分ける&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;SetEnvIf Request_URI &amp;quot;/sample/&amp;quot; sample
-CustomLog &amp;quot;logs/access_log&amp;quot; combined env=!sample
-CustomLog &amp;quot;logs/sample-access_log&amp;quot; combined env=print
-&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

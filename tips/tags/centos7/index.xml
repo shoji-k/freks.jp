@@ -62,6 +62,16 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 
 &lt;pre&gt;&lt;code&gt;sudo yum remove certbot
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;rpm&#34;&gt;rpm&lt;/h4&gt;
+
+&lt;h5 id=&#34;install&#34;&gt;install&lt;/h5&gt;
+
+&lt;p&gt;$ rpm -ivh sample.rpm&lt;/p&gt;
+
+&lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
+
+&lt;p&gt;$ rpm -ql sample&lt;/p&gt;
 </description>
     </item>
     

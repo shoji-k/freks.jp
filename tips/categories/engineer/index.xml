@@ -9,6 +9,77 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>amazon ecr</title>
+      <link>https://freks.jp/tips/amazon-ecr/</link>
+      <pubDate>Wed, 08 Mar 2017 15:00:14 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/amazon-ecr/</guid>
+      <description>
+
+&lt;h1 id=&#34;for-the-first-time&#34;&gt;for the first time&lt;/h1&gt;
+
+&lt;p&gt;see &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/firstRun&#34;&gt;Amazon EC2 Container Service First Run&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-aws-client&#34;&gt;install aws client&lt;/h1&gt;
+
+&lt;p&gt;curl &amp;ldquo;&lt;a href=&#34;https://bootstrap.pypa.io/get-pip.py&amp;quot;&#34;&gt;https://bootstrap.pypa.io/get-pip.py&amp;quot;&lt;/a&gt; -o &amp;ldquo;get-pip.py&amp;rdquo;&lt;br /&gt;
+sudo python get-pip.py&lt;br /&gt;
+rm get-pip.py&lt;br /&gt;
+sudo pip install awscli&lt;/p&gt;
+
+&lt;h2 id=&#34;configure-aws-client&#34;&gt;configure aws client&lt;/h2&gt;
+
+&lt;h3 id=&#34;prepare-aws-key&#34;&gt;prepare aws key&lt;/h3&gt;
+
+&lt;p&gt;create IAM role and prepare access key and secret key&lt;/p&gt;
+
+&lt;h3 id=&#34;set-keys-to-awsclient&#34;&gt;set keys to awsclient&lt;/h3&gt;
+
+&lt;p&gt;$ aws configure&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;AWS Access Key ID [None]: xxxxxxxxxxxxxxxxxxxx
+AWS Secret Access Key [None]: ........................................
+Default region name [None]: us-east-1
+Default output format [None]:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;create-ecr&#34;&gt;create ecr&lt;/h1&gt;
+
+&lt;p&gt;region: us-east-1&lt;/p&gt;
+
+&lt;p&gt;access &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&#34;&gt;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&lt;/a&gt;&lt;br /&gt;
+and create a repository&lt;/p&gt;
+
+&lt;h1 id=&#34;push-a-docker-image&#34;&gt;push a docker image&lt;/h1&gt;
+
+&lt;h2 id=&#34;connect-local-to-aws&#34;&gt;connect local to aws&lt;/h2&gt;
+
+&lt;p&gt;retrieve a docker login command&lt;br /&gt;
+$ aws ecr get-login &amp;ndash;region us-east-1&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker login -u AWS -p xxxxxx -e none https://xxxxxxx.dkr.ecr.us-east-1.amazonaws.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;run the docker login above&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-docker-image&#34;&gt;prepare docker image&lt;/h2&gt;
+
+&lt;h1 id=&#34;docker-build-t-sample&#34;&gt;docker build -t sample .&lt;/h1&gt;
+
+&lt;h2 id=&#34;tag-a-docker-image&#34;&gt;tag a docker image&lt;/h2&gt;
+
+&lt;p&gt;make tag name same as ecr name&lt;br /&gt;
+e.g. xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository&lt;/p&gt;
+
+&lt;p&gt;docker tag sample xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+
+&lt;h2 id=&#34;upload-images&#34;&gt;upload images&lt;/h2&gt;
+
+&lt;p&gt;docker push xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>docker machine</title>
       <link>https://freks.jp/tips/docker-machine/</link>
       <pubDate>Wed, 22 Feb 2017 12:01:25 +0900</pubDate>
@@ -316,6 +387,16 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 
 &lt;pre&gt;&lt;code&gt;sudo yum remove certbot
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;rpm&#34;&gt;rpm&lt;/h4&gt;
+
+&lt;h5 id=&#34;install&#34;&gt;install&lt;/h5&gt;
+
+&lt;p&gt;$ rpm -ivh sample.rpm&lt;/p&gt;
+
+&lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
+
+&lt;p&gt;$ rpm -ql sample&lt;/p&gt;
 </description>
     </item>
     
@@ -956,32 +1037,6 @@ set foreign_key_checks = 1;
 &lt;pre&gt;&lt;code&gt;SetEnvIf Request_URI &amp;quot;/sample/&amp;quot; sample
 CustomLog &amp;quot;logs/access_log&amp;quot; combined env=!sample
 CustomLog &amp;quot;logs/sample-access_log&amp;quot; combined env=print
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>php</title>
-      <link>https://freks.jp/tips/php/</link>
-      <pubDate>Mon, 19 Dec 2016 15:16:16 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/php/</guid>
-      <description>
-
-&lt;h4 id=&#34;ワンライナーでphp-iniの場所を調べる&#34;&gt;ワンライナーでphp.iniの場所を調べる&lt;/h4&gt;
-
-&lt;p&gt;$ php -r &amp;ldquo;phpinfo();&amp;rdquo; | grep php.ini&lt;/p&gt;
-
-&lt;h4 id=&#34;datetime&#34;&gt;DateTime&lt;/h4&gt;
-
-&lt;p&gt;昨日、明日、来月を表示&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$yesterday = (new DateTime())-&amp;gt;sub(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
-echo $yesterday-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
-$tomorrow = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1D&#39;))-&amp;gt;setTime(0,0,0);
-echo $tomorrow-&amp;gt;format(&#39;Y-m-d H:i:s&#39;), PHP_EOL;
-$nextMonth = (new DateTime())-&amp;gt;add(new DateInterval(&#39;P1M&#39;))-&amp;gt;setTime(0,0,0);
-echo $nextMonth-&amp;gt;format(&#39;Y-m-d H:i:s&#39;);
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
