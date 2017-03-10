@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>git - freks tips</title>
     
-<meta name="description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
+<meta name="description" content="tips 手元のブランチを削除する$ git branch -d (sample)リモートリポジトリのブランチを削除する$ git push origin :(sample)リモートリポジトリで削除されたブランチが手元で残っているとき削除する$ git remote prune originstart to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.">
 
 <meta property="og:title" content="git - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/git/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
+<meta property="og:description" content="tips 手元のブランチを削除する$ git branch -d (sample)リモートリポジトリのブランチを削除する$ git push origin :(sample)リモートリポジトリで削除されたブランチが手元で残っているとき削除する$ git remote prune originstart to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/git/">
 <meta name="twitter:title" content="git - freks tips">
-<meta name="twitter:description" content="start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex.">
+<meta name="twitter:description" content="tips 手元のブランチを削除する$ git branch -d (sample)リモートリポジトリのブランチを削除する$ git push origin :(sample)リモートリポジトリで削除されたブランチが手元で残っているとき削除する$ git remote prune originstart to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "start to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push.default=simple git config --global commit.verbose=true  connect bitbucket using name changed ssh key (not id_rsa) prepare ssh key (ex."
+    "description": "tips 手元のブランチを削除する\n$ git branch -d (sample)\nリモートリポジトリのブランチを削除する\n$ git push origin :(sample)\nリモートリポジトリで削除されたブランチが手元で残っているとき削除する\n$ git remote prune origin\nstart to use git git config --global user.name (name) git config --global user.email (email address) git config --global color.ui auto git config --global alias.ch checkout git config --global alias.co commit git config --global alias.st status git config --global alias.br=branch git config --global core.quotepath off git config --global core.editor vim git config --global push."
   }
 </script>
 
@@ -121,7 +121,18 @@
       
     </ul>
 
-    <div class="article-body"><h4 id="start-to-use-git">start to use git</h4>
+    <div class="article-body"><h1 id="tips">tips</h1>
+
+<p>手元のブランチを削除する<br />
+$ git branch -d (sample)</p>
+
+<p>リモートリポジトリのブランチを削除する<br />
+$ git push origin :(sample)</p>
+
+<p>リモートリポジトリで削除されたブランチが手元で残っているとき削除する<br />
+$ git remote prune origin</p>
+
+<h1 id="start-to-use-git">start to use git</h1>
 
 <pre><code>git config --global user.name (name)
 git config --global user.email (email address)
@@ -136,7 +147,7 @@ git config --global push.default=simple
 git config --global commit.verbose=true
 </code></pre>
 
-<h4 id="connect-bitbucket-using-name-changed-ssh-key-not-id-rsa">connect bitbucket using name changed ssh key (not id_rsa)</h4>
+<h1 id="connect-bitbucket-using-name-changed-ssh-key-not-id-rsa">connect bitbucket using name changed ssh key (not id_rsa)</h1>
 
 <p>prepare ssh key (ex. deploykey_rsa)<br />
 register ssh public key to bitbucket account or repository</p>
@@ -162,7 +173,52 @@ register ssh public key to bitbucket account or repository</p>
 <pre><code>[url &quot;bitbucket:&quot;]
     InsteadOf = git@bitbucket.org:
 </code></pre>
-</div>
+
+<h1 id="use-gpg">use gpg</h1>
+
+<h2 id="on-ubuntu">on ubuntu</h2>
+
+<p>gpg is installed by default<br />
+gpg2 is not installed by default<br />
+gpg2 is gpg v2</p>
+
+<p>refer to: <a href="http://qiita.com/prince_0203/items/ef0e12f2f6d150ff0485">GitHubでGPGにより署名されたcommitにバッジが表示されるようになったので設定してみる - Qiita</a></p>
+
+<h2 id="create-gpg-key">create gpg key</h2>
+
+<p>$ gpg &ndash;gen-key</p>
+
+<p>follow the instruction<br />
+wait for a long time</p>
+
+<p>$ gpg &ndash;list-keys</p>
+
+<pre><code>pub   4096R/xxxxxxxx 2016-04-10
+uid           sample foobar &lt;sample@sample.com&gt;
+sub   4096R/yyyyyyyy 2016-04-10
+</code></pre>
+
+<p>xxxxxxxx is the id</p>
+
+<p>show public key<br />
+$ gpg &ndash;armor &ndash;export コピーした鍵のID</p>
+
+<p>copy and paste in the github setting</p>
+
+<p>$ git config &ndash;global gpg.program gpg<br />
+$ git config &ndash;global user.signingkey コピーした鍵のID<br />
+$ git config &ndash;global commit.gpgsign true</p>
+
+<h2 id="copy-gpg-key">copy gpg key</h2>
+
+<p>copy .gnupg directory<br />
+-&gt; this didn&rsquo;t work because git version was old</p>
+
+<h1 id="change-gpg-passphrase">change gpg passphrase</h1>
+
+<p>$ gpg &ndash;edit-key (key id)<br />
+&gt; passwd<br />
+&gt; (input old passphrase and new passphrase)</div>
   </div>
 
   <footer class="article-footer">

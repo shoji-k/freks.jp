@@ -521,7 +521,18 @@ auth_basic_ user_file /etc/nginx/.htpasswd;
       <guid>https://freks.jp/tips/git/</guid>
       <description>
 
-&lt;h4 id=&#34;start-to-use-git&#34;&gt;start to use git&lt;/h4&gt;
+&lt;h1 id=&#34;tips&#34;&gt;tips&lt;/h1&gt;
+
+&lt;p&gt;手元のブランチを削除する&lt;br /&gt;
+$ git branch -d (sample)&lt;/p&gt;
+
+&lt;p&gt;リモートリポジトリのブランチを削除する&lt;br /&gt;
+$ git push origin :(sample)&lt;/p&gt;
+
+&lt;p&gt;リモートリポジトリで削除されたブランチが手元で残っているとき削除する&lt;br /&gt;
+$ git remote prune origin&lt;/p&gt;
+
+&lt;h1 id=&#34;start-to-use-git&#34;&gt;start to use git&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;git config --global user.name (name)
 git config --global user.email (email address)
@@ -536,7 +547,7 @@ git config --global push.default=simple
 git config --global commit.verbose=true
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h4&gt;
+&lt;h1 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h1&gt;
 
 &lt;p&gt;prepare ssh key (ex. deploykey_rsa)&lt;br /&gt;
 register ssh public key to bitbucket account or repository&lt;/p&gt;
@@ -562,6 +573,52 @@ register ssh public key to bitbucket account or repository&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;[url &amp;quot;bitbucket:&amp;quot;]
     InsteadOf = git@bitbucket.org:
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;use-gpg&#34;&gt;use gpg&lt;/h1&gt;
+
+&lt;h2 id=&#34;on-ubuntu&#34;&gt;on ubuntu&lt;/h2&gt;
+
+&lt;p&gt;gpg is installed by default&lt;br /&gt;
+gpg2 is not installed by default&lt;br /&gt;
+gpg2 is gpg v2&lt;/p&gt;
+
+&lt;p&gt;refer to: &lt;a href=&#34;http://qiita.com/prince_0203/items/ef0e12f2f6d150ff0485&#34;&gt;GitHubでGPGにより署名されたcommitにバッジが表示されるようになったので設定してみる - Qiita&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;create-gpg-key&#34;&gt;create gpg key&lt;/h2&gt;
+
+&lt;p&gt;$ gpg &amp;ndash;gen-key&lt;/p&gt;
+
+&lt;p&gt;follow the instruction&lt;br /&gt;
+wait for a long time&lt;/p&gt;
+
+&lt;p&gt;$ gpg &amp;ndash;list-keys&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pub   4096R/xxxxxxxx 2016-04-10
+uid           sample foobar &amp;lt;sample@sample.com&amp;gt;
+sub   4096R/yyyyyyyy 2016-04-10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;xxxxxxxx is the id&lt;/p&gt;
+
+&lt;p&gt;show public key&lt;br /&gt;
+$ gpg &amp;ndash;armor &amp;ndash;export コピーした鍵のID&lt;/p&gt;
+
+&lt;p&gt;copy and paste in the github setting&lt;/p&gt;
+
+&lt;p&gt;$ git config &amp;ndash;global gpg.program gpg&lt;br /&gt;
+$ git config &amp;ndash;global user.signingkey コピーした鍵のID&lt;br /&gt;
+$ git config &amp;ndash;global commit.gpgsign true&lt;/p&gt;
+
+&lt;h2 id=&#34;copy-gpg-key&#34;&gt;copy gpg key&lt;/h2&gt;
+
+&lt;p&gt;copy .gnupg directory&lt;br /&gt;
+-&amp;gt; this didn&amp;rsquo;t work because git version was old&lt;/p&gt;
+
+&lt;h1 id=&#34;change-gpg-passphrase&#34;&gt;change gpg passphrase&lt;/h1&gt;
+
+&lt;p&gt;$ gpg &amp;ndash;edit-key (key id)&lt;br /&gt;
+&amp;gt; passwd&lt;br /&gt;
+&amp;gt; (input old passphrase and new passphrase)&lt;/p&gt;
 </description>
     </item>
     
