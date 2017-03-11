@@ -6,8 +6,131 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 08 Mar 2017 15:00:14 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 11 Mar 2017 15:50:24 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>sendgrid api</title>
+      <link>https://freks.jp/tips/sendgrid-api/</link>
+      <pubDate>Sat, 11 Mar 2017 15:50:24 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/sendgrid-api/</guid>
+      <description>
+
+&lt;p&gt;API KEYを用意&lt;br /&gt;
+必要な権限を与える&lt;/p&gt;
+
+&lt;p&gt;refference: &lt;a href=&#34;https://sendgrid.com/docs/API_Reference/api_v3.html&#34;&gt;https://sendgrid.com/docs/API_Reference/api_v3.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;campaine用のリストにメンバーを追加する&#34;&gt;campaine用のリストにメンバーを追加する&lt;/h1&gt;
+
+&lt;p&gt;APIはcampaineの権限を与えたものを用意&lt;/p&gt;
+
+&lt;h2 id=&#34;リストを用意しておく&#34;&gt;リストを用意しておく&lt;/h2&gt;
+
+&lt;p&gt;手動 or API&lt;/p&gt;
+
+&lt;h2 id=&#34;リストを取得する&#34;&gt;リストを取得する&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --request GET \
+  --url https://api.sendgrid.com/v3/contactdb/lists \
+  --header &#39;Authorization: Bearer (key)&#39; \
+  --header &#39;Content-Type: application/json&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;list_idが取得できる&lt;/p&gt;
+
+&lt;h2 id=&#34;メンバーを登録する&#34;&gt;メンバーを登録する&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --request POST \
+  --url &#39;https://api.sendgrid.com/v3/contactdb/recipients&#39; \
+  --header &#39;Authorization: Bearer (key)&#39; \
+  --header &#39;Content-Type: application/json&#39; \
+  --data &#39;[{
+   &amp;quot;email&amp;quot;: &amp;quot;sample@example.com&amp;quot;,
+   &amp;quot;first_name&amp;quot;: &amp;quot;first&amp;quot;,
+   &amp;quot;last_name&amp;quot;: &amp;quot;last&amp;quot;
+  }]&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Responseでrecipient_idが取得できる&lt;br /&gt;
+最初からリストに登録はできない様子&lt;br /&gt;
+ALL CONTACTSに登録される&lt;/p&gt;
+
+&lt;h2 id=&#34;登録したメンバーをリストに登録する&#34;&gt;登録したメンバーをリストに登録する&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --request POST \
+  --url https://api.sendgrid.com/v3/contactdb/lists/(list id)/recipients/(recipients id) \
+  --header &#39;Authorization: Bearer (key)&#39; \
+  --data null
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;メンバー全員を取得する&#34;&gt;メンバー全員を取得する&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --request GET \
+  --url &#39;https://api.sendgrid.com/v3/contactdb/(list id)/1092377/recipients?page_size=1000&amp;amp;page=1&#39; \
+  --header &#39;Authorization: Bearer (key)&#39; \
+  --header &#39;Content-Type: application/json&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;メンバーを削除する&#34;&gt;メンバーを削除する&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;$ curl --request DELETE \
+  --url https://api.sendgrid.com/v3/contactdb/recipients/(recipient id) \
+  --header &#39;authorization: Bearer (key)&#39; \
+  --data null
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>amazon ecs</title>
+      <link>https://freks.jp/tips/amazon-ecs/</link>
+      <pubDate>Fri, 10 Mar 2017 14:29:18 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/amazon-ecs/</guid>
+      <description>
+
+&lt;p&gt;see &lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/Welcome.html&#34;&gt;Amazon EC2 Container Service とは&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;クラスター&#34;&gt;クラスター&lt;/h1&gt;
+
+&lt;p&gt;一番大枠&lt;br /&gt;
+中に立ち上げるEC2インスタンスの数を決められる&lt;/p&gt;
+
+&lt;h1 id=&#34;コンテナインスタンス&#34;&gt;コンテナインスタンス&lt;/h1&gt;
+
+&lt;p&gt;EC2インスタンス&lt;br /&gt;
+dockerとecs agent入りの&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-optimized_AMI.html?shortFooter=true&#34;&gt;AMI&lt;/a&gt;を使う&lt;/p&gt;
+
+&lt;p&gt;EC2を自分で用意してクラスターに参加させることもできる&lt;/p&gt;
+
+&lt;h1 id=&#34;タスク定義&#34;&gt;タスク定義&lt;/h1&gt;
+
+&lt;p&gt;Docker imageの指定&lt;br /&gt;
+CPU、メモリの指定&lt;/p&gt;
+
+&lt;p&gt;複数のコンテナを指定できる&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote&gt;
+同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します
+&lt;/blockquote&gt;
+&lt;small&gt;&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.html&#34;&gt;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.html&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;サービス&#34;&gt;サービス&lt;/h1&gt;
+
+&lt;p&gt;&lt;blockquote&gt;
+タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。
+&lt;/blockquote&gt;
+&lt;small&gt;
+&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true&#34;&gt;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;タスクが停止したらタスクを強制終了、再度開始する&lt;/li&gt;
+&lt;li&gt;ロードバランサーの指定&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>amazon ecr</title>
@@ -242,6 +365,81 @@ docker@manager:~$ docker stack services vote&lt;/p&gt;
 &lt;p&gt;$ optipng -o7 -keep sample.png&lt;/p&gt;
 
 &lt;p&gt;then create sample.png.bak too&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>letsencrypt</title>
+      <link>https://freks.jp/tips/letsencrypt/</link>
+      <pubDate>Tue, 14 Feb 2017 11:19:01 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/letsencrypt/</guid>
+      <description>
+
+&lt;h1 id=&#34;centos7-nginx&#34;&gt;centos7 + nginx&lt;/h1&gt;
+
+&lt;h2 id=&#34;prerequirement&#34;&gt;prerequirement&lt;/h2&gt;
+
+&lt;p&gt;boot nginx&lt;/p&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo yum install certbot
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;prepare-nginx-configure&#34;&gt;prepare nginx configure&lt;/h2&gt;
+
+&lt;p&gt;open for well-known&lt;br /&gt;
+It is accecced by certbot&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;server{
+  location ^~ /.well-known/ {
+    access_log           off;
+    log_not_found        off;
+    root                 /usr/share/nginx/html;
+    autoindex            off;
+    index                index.html;
+    try_files            $uri $uri/ =404;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;get-certification&#34;&gt;get certification&lt;/h2&gt;
+
+&lt;p&gt;some certifications are prepared to /etc/letsencrypt/live/sample.com/&lt;br /&gt;
+$ sudo certbot certonly &amp;ndash;webroot -w /usr/share/nginx/html -d sample.com&lt;/p&gt;
+
+&lt;p&gt;prepare dhparam.pem&lt;br /&gt;
+$ sudo openssl dhparam -out /etc/ssl/dhparam.pem 2048&lt;/p&gt;
+
+&lt;h2 id=&#34;nginx-configuration&#34;&gt;nginx configuration&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;server {
+  listen ssl 443;
+  server_name sample.com;
+
+  ssl_certificate /etc/letsencrypt/live/sample.com/fullchain.pem;
+  ssl_certificate_key /etc/letsencrypt/live/sample.com/privkey.pem;
+
+  ssl_session_cache   shared:SSL:3m;
+  ssl_buffer_size     8k;
+  ssl_session_timeout 10m;
+
+  ssl_dhparam /etc/ssl/dhparam.pem;
+
+  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-
+AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-R
+SA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA2
+56:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;;
+  ssl_prefer_server_ciphers on;
+
+  # HTTPS のみでサービスを提供する場合にだけ設定
+  add_header Strict-Transport-Security max-age=15768000;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;$ sudo systemctl reload nginx.service&lt;/p&gt;
 </description>
     </item>
     
@@ -896,153 +1094,6 @@ $ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
 &lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
 
 &lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>useful services</title>
-      <link>https://freks.jp/tips/useful-services/</link>
-      <pubDate>Mon, 16 Jan 2017 16:34:42 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/useful-services/</guid>
-      <description>&lt;p&gt;design prototype and collaboration tool&lt;br /&gt;
-&lt;a href=&#34;https://www.figma.com/&#34;&gt;Figma: the collaborative interface design tool.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;WEBサイトを簡単に用意する&lt;br /&gt;
-&lt;a href=&#34;https://peraichi.com/&#34;&gt;驚くほどカンタン！無料ホームページ作成 | ペライチ&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>eccube3</title>
-      <link>https://freks.jp/tips/eccube3/</link>
-      <pubDate>Mon, 16 Jan 2017 16:34:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/eccube3/</guid>
-      <description>
-
-&lt;h4 id=&#34;debug-mode&#34;&gt;debug mode&lt;/h4&gt;
-
-&lt;p&gt;デバッグモード用のURLが用意されている&lt;br /&gt;
-index_dev.phpを入れるとデバッグモード&lt;br /&gt;
-&lt;a href=&#34;http://localhost/index_dev.php/sample/aaa&#34;&gt;http://localhost/index_dev.php/sample/aaa&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;plugin&#34;&gt;plugin&lt;/h4&gt;
-
-&lt;p&gt;Customizeプラグインを作る場合&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Customize/
-├── config.yml
-├── Controller
-│   ├── ConfigController.php
-│   └── CustomizeController.php
-├── event.yml
-├── Form
-│   └── Type
-│       └── CustomizeConfigType.php
-├── CustomizeEvent.php
-├── LICENSE
-├── PluginManager.php
-├── Resource
-│   └── template
-│       ├── admin
-│       │   └── config.twig
-│       └── index.twig
-└── ServiceProvider
-    └── CustomizeServiceProvider.php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;config.yml&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;プラグインの定義、ServiceProviderやEventの登録&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;ServiceProviderディレクトリ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;メインロジック、ルーティングの設定やFormのセットなど&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;event.yml&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;フックポイントとEvent methodをつなげる&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;CustomizeEvent.php&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;config.ymlにevent.ymlとつながるクラス名をセット&lt;br /&gt;
-event.ymlとつなぐmethodを用意&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Controllerディレクトリ&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;コントローラーを設置&lt;/p&gt;
-
-&lt;h4 id=&#34;clear-cache&#34;&gt;clear cache&lt;/h4&gt;
-
-&lt;p&gt;キャッシュファイル削除&lt;br /&gt;
-$ php app/console cache:clear&lt;/p&gt;
-
-&lt;p&gt;セッション情報も含めて削除&lt;br /&gt;
-$ php app/console cache:clear &amp;ndash;all&lt;/p&gt;
-
-&lt;h4 id=&#34;doctrine&#34;&gt;doctrine&lt;/h4&gt;
-
-&lt;p&gt;check and update&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;./vendor/bin/doctrine orm:schema-tool:update --dump-sql
-./vendor/bin/doctrine orm:schema-tool:update --force
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;log&#34;&gt;log&lt;/h4&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://ec-cube.github.io/guideline_log&#34;&gt;ログ出力設定 | EC-CUBE 開発ドキュメント&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ubuntu</title>
-      <link>https://freks.jp/tips/ubuntu/</link>
-      <pubDate>Mon, 16 Jan 2017 16:34:24 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/ubuntu/</guid>
-      <description>
-
-&lt;h4 id=&#34;windowを移動する&#34;&gt;Windowを移動する&lt;/h4&gt;
-
-&lt;p&gt;ウィンドウが見えない場所へ移動してしまった時&lt;br /&gt;
-Alt + F7&lt;/p&gt;
-
-&lt;h4 id=&#34;androidと画面共有&#34;&gt;Androidと画面共有&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;use desktop sharing&lt;/li&gt;
-&lt;li&gt;implement $ gsettings set org.gnome.Vino require-encryption false&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://kimamanilife.com/archives/459&#34;&gt;Ubuntu系Linuxに標準で入っているデスクトップ共有を試してみる | 気ままにライフ&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;デーモン起動&#34;&gt;デーモン起動&lt;/h4&gt;
-
-&lt;p&gt;設定を確認&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf --list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ON or OFF&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sysv-rc-conf apache2 on
-$ sysv-rc-conf apache2 off
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;repository削除&#34;&gt;repository削除&lt;/h4&gt;
-
-&lt;p&gt;$ sudo add-apt-repository &amp;ndash;remove ppa:sample/xxx&lt;/p&gt;
 </description>
     </item>
     

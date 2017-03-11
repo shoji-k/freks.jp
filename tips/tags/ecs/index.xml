@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/ecs/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/ecs/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>amazon ecs</title>
+      <link>https://freks.jp/tips/amazon-ecs/</link>
+      <pubDate>Fri, 10 Mar 2017 14:29:18 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/amazon-ecs/</guid>
+      <description>
+
+&lt;p&gt;see &lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/Welcome.html&#34;&gt;Amazon EC2 Container Service とは&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;クラスター&#34;&gt;クラスター&lt;/h1&gt;
+
+&lt;p&gt;一番大枠&lt;br /&gt;
+中に立ち上げるEC2インスタンスの数を決められる&lt;/p&gt;
+
+&lt;h1 id=&#34;コンテナインスタンス&#34;&gt;コンテナインスタンス&lt;/h1&gt;
+
+&lt;p&gt;EC2インスタンス&lt;br /&gt;
+dockerとecs agent入りの&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs-optimized_AMI.html?shortFooter=true&#34;&gt;AMI&lt;/a&gt;を使う&lt;/p&gt;
+
+&lt;p&gt;EC2を自分で用意してクラスターに参加させることもできる&lt;/p&gt;
+
+&lt;h1 id=&#34;タスク定義&#34;&gt;タスク定義&lt;/h1&gt;
+
+&lt;p&gt;Docker imageの指定&lt;br /&gt;
+CPU、メモリの指定&lt;/p&gt;
+
+&lt;p&gt;複数のコンテナを指定できる&lt;/p&gt;
+
+&lt;p&gt;&lt;blockquote&gt;
+同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します
+&lt;/blockquote&gt;
+&lt;small&gt;&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.html&#34;&gt;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.html&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;サービス&#34;&gt;サービス&lt;/h1&gt;
+
+&lt;p&gt;&lt;blockquote&gt;
+タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。
+&lt;/blockquote&gt;
+&lt;small&gt;
+&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true&#34;&gt;http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true&lt;/a&gt;&lt;/small&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;タスクが停止したらタスクを強制終了、再度開始する&lt;/li&gt;
+&lt;li&gt;ロードバランサーの指定&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
