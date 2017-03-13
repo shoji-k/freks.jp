@@ -6,8 +6,49 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 11 Mar 2017 15:50:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 12 Mar 2017 14:10:31 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>sendgrid php</title>
+      <link>https://freks.jp/tips/sendgrid-php/</link>
+      <pubDate>Sun, 12 Mar 2017 14:10:31 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/sendgrid-php/</guid>
+      <description>
+
+&lt;p&gt;refference: &lt;a href=&#34;https://github.com/sendgrid/sendgrid-php&#34;&gt;https://github.com/sendgrid/sendgrid-php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;$ composer install sendgrid/sendgrid&lt;/p&gt;
+
+&lt;h1 id=&#34;set-api-key&#34;&gt;set api key&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export SENDGRID_API_KEY=&#39;YOUR_API_KEY&#39;&amp;quot; &amp;gt; sendgrid.env
+echo &amp;quot;sendgrid.env&amp;quot; &amp;gt;&amp;gt; .gitignore
+source ./sendgrid.env
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;sample-code&#34;&gt;sample code&lt;/h1&gt;
+
+&lt;p&gt;see: &lt;a href=&#34;https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&#34;&gt;https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+require &#39;vendor/autoload.php&#39;;
+
+$apiKey = getenv(&#39;SENDGRID_API_KEY&#39;);
+$sg = new \SendGrid($apiKey);
+
+$response = $sg-&amp;gt;client-&amp;gt;contactdb()-&amp;gt;lists()-&amp;gt;get();
+echo &#39;status code: &#39;, $response-&amp;gt;statusCode(), PHP_EOL;
+echo &#39;======body======&#39;,PHP_EOL;
+var_dump($response-&amp;gt;body());
+echo &#39;======headers======&#39;,PHP_EOL;
+var_dump($response-&amp;gt;headers());
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>sendgrid api</title>
@@ -74,6 +115,21 @@ ALL CONTACTSに登録される&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;メンバーを削除する&#34;&gt;メンバーを削除する&lt;/h1&gt;
+
+&lt;p&gt;登録を削除する方法&lt;br /&gt;
+削除せずメールを送らないようにするには、Unsubscriped groupに追加のほうがよさそう&lt;/p&gt;
+
+&lt;h2 id=&#34;メンバー情報を取得&#34;&gt;メンバー情報を取得&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;curl --request GET \
+  --url https://api.sendgrid.com/v3/contactdb/recipients/search?email=sample@sample.com \
+  --header &#39;authorization: Bearer (key)&#39; \
+  --data &#39;{}&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;recipient_idが取得できる&lt;/p&gt;
+
+&lt;h2 id=&#34;削除&#34;&gt;削除&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;$ curl --request DELETE \
   --url https://api.sendgrid.com/v3/contactdb/recipients/(recipient id) \
@@ -1072,28 +1128,6 @@ enabled=1
 
 &lt;p&gt;install&lt;br /&gt;
 $ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>linux command</title>
-      <link>https://freks.jp/tips/linux-command/</link>
-      <pubDate>Fri, 20 Jan 2017 13:06:40 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/linux-command/</guid>
-      <description>
-
-&lt;h4 id=&#34;delete-0-byte-file&#34;&gt;delete 0 byte file&lt;/h4&gt;
-
-&lt;p&gt;$ find . -maxdepth 1 -size 0 -print | xargs rm&lt;/p&gt;
-
-&lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
-
-&lt;p&gt;$ cd -&lt;/p&gt;
-
-&lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
-
-&lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
 </description>
     </item>
     

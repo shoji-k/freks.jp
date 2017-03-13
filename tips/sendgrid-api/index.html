@@ -179,6 +179,21 @@ ALL CONTACTSに登録される</p>
 
 <h1 id="メンバーを削除する">メンバーを削除する</h1>
 
+<p>登録を削除する方法<br />
+削除せずメールを送らないようにするには、Unsubscriped groupに追加のほうがよさそう</p>
+
+<h2 id="メンバー情報を取得">メンバー情報を取得</h2>
+
+<pre><code>curl --request GET \
+  --url https://api.sendgrid.com/v3/contactdb/recipients/search?email=sample@sample.com \
+  --header 'authorization: Bearer (key)' \
+  --data '{}'
+</code></pre>
+
+<p>recipient_idが取得できる</p>
+
+<h2 id="削除">削除</h2>
+
 <pre><code>$ curl --request DELETE \
   --url https://api.sendgrid.com/v3/contactdb/recipients/(recipient id) \
   --header 'authorization: Bearer (key)' \
@@ -260,6 +275,20 @@ ALL CONTACTSに登録される</p>
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-12T14:10:31JST">Mar 12, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/sendgrid-api/">sendgrid api</a></div>
@@ -271,7 +300,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
@@ -285,7 +314,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecr/" class="thumb"></a>
@@ -299,7 +328,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/minecraft/" class="thumb"></a>
@@ -313,7 +342,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/docker-machine/" class="thumb"></a>
@@ -327,7 +356,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/optipng/" class="thumb"></a>
@@ -341,7 +370,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/letsencrypt/" class="thumb"></a>
@@ -355,7 +384,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fluentd/" class="thumb"></a>
@@ -369,7 +398,7 @@ ALL CONTACTSに登録される</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/centos7/" class="thumb"></a>
@@ -378,20 +407,6 @@ ALL CONTACTSに登録される</p>
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T13:00:30JST">Feb 5, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/nginx/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/nginx/">nginx</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T10:43:20JST">Feb 5, 2017</time></li>
       
     </ul>
   </header>
@@ -417,7 +432,7 @@ ALL CONTACTSに登録される</p>
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/api">api</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li><li><a href="https://freks.jp/tips/tags/command">command</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/api">api</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li>
       </ul>
     </div>
   </section>

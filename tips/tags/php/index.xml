@@ -9,6 +9,47 @@
     <atom:link href="https://freks.jp/tips/tags/php/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>sendgrid php</title>
+      <link>https://freks.jp/tips/sendgrid-php/</link>
+      <pubDate>Sun, 12 Mar 2017 14:10:31 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/sendgrid-php/</guid>
+      <description>
+
+&lt;p&gt;refference: &lt;a href=&#34;https://github.com/sendgrid/sendgrid-php&#34;&gt;https://github.com/sendgrid/sendgrid-php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;$ composer install sendgrid/sendgrid&lt;/p&gt;
+
+&lt;h1 id=&#34;set-api-key&#34;&gt;set api key&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;export SENDGRID_API_KEY=&#39;YOUR_API_KEY&#39;&amp;quot; &amp;gt; sendgrid.env
+echo &amp;quot;sendgrid.env&amp;quot; &amp;gt;&amp;gt; .gitignore
+source ./sendgrid.env
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;sample-code&#34;&gt;sample code&lt;/h1&gt;
+
+&lt;p&gt;see: &lt;a href=&#34;https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&#34;&gt;https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+require &#39;vendor/autoload.php&#39;;
+
+$apiKey = getenv(&#39;SENDGRID_API_KEY&#39;);
+$sg = new \SendGrid($apiKey);
+
+$response = $sg-&amp;gt;client-&amp;gt;contactdb()-&amp;gt;lists()-&amp;gt;get();
+echo &#39;status code: &#39;, $response-&amp;gt;statusCode(), PHP_EOL;
+echo &#39;======body======&#39;,PHP_EOL;
+var_dump($response-&amp;gt;body());
+echo &#39;======headers======&#39;,PHP_EOL;
+var_dump($response-&amp;gt;headers());
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>eccube3</title>
       <link>https://freks.jp/tips/eccube3/</link>
       <pubDate>Mon, 16 Jan 2017 16:34:30 +0900</pubDate>

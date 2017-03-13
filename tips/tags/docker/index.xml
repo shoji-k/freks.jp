@@ -209,9 +209,6 @@ docker-compose logs&lt;/p&gt;
 &lt;p&gt;implement command&lt;br /&gt;
 docker-compose run (container name) /bin/bash&lt;/p&gt;
 
-&lt;p&gt;ex. implement composer install command once&lt;br /&gt;
-docker-compose run &amp;ndash;rm (container name) composer install&lt;/p&gt;
-
 &lt;p&gt;start containers&lt;br /&gt;
 docker-compose start&lt;/p&gt;
 
@@ -601,12 +598,11 @@ $ docker login &amp;ndash;username=shojik &amp;ndash;email=sample@sample.com&lt;
 
 &lt;h2 id=&#34;implement-composer-install&#34;&gt;implement composer install&lt;/h2&gt;
 
-&lt;p&gt;use&lt;br /&gt;
-&lt;a href=&#34;https://hub.docker.com/r/composer/composer/&#34;&gt;composer/composer - Docker Hub&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;use &lt;a href=&#34;https://hub.docker.com/_/composer/&#34;&gt;composer - Docker Hub&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;docker pull composer/composer&lt;br /&gt;
+&lt;p&gt;docker pull composer&lt;br /&gt;
 move the directory include composer.json&lt;br /&gt;
-$ docker run &amp;ndash;rm -v $(pwd):/app composer/composer install&lt;/p&gt;
+$ docker run &amp;ndash;rm -v $(pwd):/app composer install&lt;/p&gt;
 
 &lt;h1 id=&#34;backup-mysql-data-container&#34;&gt;backup mysql data container&lt;/h1&gt;
 

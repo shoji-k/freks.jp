@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="https://freks.jp/tips/images/logo.png">
 
 
-<link rel="canonical" href="https://freks.jp/tips/sakuravps/">
+<link rel="canonical" href="https://freks.jp/tips/sendgrid-php/">
 
 
     
@@ -20,25 +20,25 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
-    <title>sakura vps - freks tips</title>
+    <title>sendgrid php - freks tips</title>
     
-<meta name="description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta name="description" content=" refference: https://github.com/sendgrid/sendgrid-phpinstall $ composer install sendgrid/sendgridset api key echo &amp;quot;export SENDGRID_API_KEY=&#39;YOUR_API_KEY&#39;&amp;quot; &amp;gt; sendgrid.env echo &amp;quot;sendgrid.env&amp;quot; &amp;gt;&amp;gt; .gitignore source ./sendgrid.env  sample code see: https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&amp;lt;?php require &#39;vendor/autoload.php&#39;; $apiKey = getenv(&#39;SENDGRID_API_KEY&#39;); $sg = new \SendGrid($apiKey); $response = $sg-&amp;gt;client-&amp;gt;contactdb()-&amp;gt;lists()-&amp;gt;get(); echo &#39;status code: &#39;, $response-&amp;gt;statusCode(), PHP_EOL; echo &#39;======body======&#39;,PHP_EOL; var_dump($response-&amp;gt;body()); echo &#39;======headers======&#39;,PHP_EOL; var_dump($response-&amp;gt;headers());  ">
 
-<meta property="og:title" content="sakura vps - freks tips">
+<meta property="og:title" content="sendgrid php - freks tips">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://freks.jp/tips/sakuravps/">
+<meta property="og:url" content="https://freks.jp/tips/sendgrid-php/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta property="og:description" content=" refference: https://github.com/sendgrid/sendgrid-phpinstall $ composer install sendgrid/sendgridset api key echo &amp;quot;export SENDGRID_API_KEY=&#39;YOUR_API_KEY&#39;&amp;quot; &amp;gt; sendgrid.env echo &amp;quot;sendgrid.env&amp;quot; &amp;gt;&amp;gt; .gitignore source ./sendgrid.env  sample code see: https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&amp;lt;?php require &#39;vendor/autoload.php&#39;; $apiKey = getenv(&#39;SENDGRID_API_KEY&#39;); $sg = new \SendGrid($apiKey); $response = $sg-&amp;gt;client-&amp;gt;contactdb()-&amp;gt;lists()-&amp;gt;get(); echo &#39;status code: &#39;, $response-&amp;gt;statusCode(), PHP_EOL; echo &#39;======body======&#39;,PHP_EOL; var_dump($response-&amp;gt;body()); echo &#39;======headers======&#39;,PHP_EOL; var_dump($response-&amp;gt;headers());  ">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="freks tips">
-<meta name="twitter:url" content="https://freks.jp/tips/sakuravps/">
-<meta name="twitter:title" content="sakura vps - freks tips">
-<meta name="twitter:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta name="twitter:url" content="https://freks.jp/tips/sendgrid-php/">
+<meta name="twitter:title" content="sendgrid php - freks tips">
+<meta name="twitter:description" content=" refference: https://github.com/sendgrid/sendgrid-phpinstall $ composer install sendgrid/sendgridset api key echo &amp;quot;export SENDGRID_API_KEY=&#39;YOUR_API_KEY&#39;&amp;quot; &amp;gt; sendgrid.env echo &amp;quot;sendgrid.env&amp;quot; &amp;gt;&amp;gt; .gitignore source ./sendgrid.env  sample code see: https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php&amp;lt;?php require &#39;vendor/autoload.php&#39;; $apiKey = getenv(&#39;SENDGRID_API_KEY&#39;); $sg = new \SendGrid($apiKey); $response = $sg-&amp;gt;client-&amp;gt;contactdb()-&amp;gt;lists()-&amp;gt;get(); echo &#39;status code: &#39;, $response-&amp;gt;statusCode(), PHP_EOL; echo &#39;======body======&#39;,PHP_EOL; var_dump($response-&amp;gt;body()); echo &#39;======headers======&#39;,PHP_EOL; var_dump($response-&amp;gt;headers());  ">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -50,15 +50,15 @@
       "@type": "WebPage",
       "@id":"https:\/\/freks.jp\/tips\/"
     },
-    "headline": "sakura vps - freks tips",
+    "headline": "sendgrid php - freks tips",
     "image": {
       "@type": "ImageObject",
       "url": "https:\/\/freks.jp\/tips\/images\/default.png",
       "height": 800,
       "width": 800
     },
-    "datePublished": "2017-02-04T14:58:30JST",
-    "dateModified": "2017-02-04T14:58:30JST",
+    "datePublished": "2017-03-12T14:10:31JST",
+    "dateModified": "2017-03-12T14:10:31JST",
     "author": {
       "@type": "Person",
       "name": "freks tips"
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "VPS（仮想専用サーバー）｜さくらインターネット  を契約する\n管理画面へログイン、OSをインストールする\n Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報\nユーザー追加 管理画面のコンソールでの作業\n$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく\n公開鍵をサーバーへコピー\nrootユーサーでsshログイン\n$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub \x26gt; .ssh\/authorized_keys $ chmod 600 .ssh\/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更\n$ sudo vi \/etc\/ssh\/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える"
+    "description": " refference: https:\/\/github.com\/sendgrid\/sendgrid-php\ninstall $ composer install sendgrid\/sendgrid\nset api key echo \x26quot;export SENDGRID_API_KEY=\x27YOUR_API_KEY\x27\x26quot; \x26gt; sendgrid.env echo \x26quot;sendgrid.env\x26quot; \x26gt;\x26gt; .gitignore source .\/sendgrid.env  sample code see: https:\/\/github.com\/sendgrid\/sendgrid-php\/blob\/master\/examples\/contactdb\/contactdb.php\n\x26lt;?php require \x27vendor\/autoload.php\x27; $apiKey = getenv(\x27SENDGRID_API_KEY\x27); $sg = new \\SendGrid($apiKey); $response = $sg-\x26gt;client-\x26gt;contactdb()-\x26gt;lists()-\x26gt;get(); echo \x27status code: \x27, $response-\x26gt;statusCode(), PHP_EOL; echo \x27======body======\x27,PHP_EOL; var_dump($response-\x26gt;body()); echo \x27======headers======\x27,PHP_EOL; var_dump($response-\x26gt;headers());  "
   }
 </script>
 
@@ -107,140 +107,51 @@
       <ol>
         <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         
-        <li class="active">sakura vps</li>
+        <li class="active">sendgrid php</li>
       </ol>
     </nav>
     <article class="single">
 
   <div class="content-inner">
-    <h1 class="title">sakura vps</h1>
+    <h1 class="title">sendgrid php</h1>
 
     <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-04T14:58:30JST">Feb 4, 2017</time></li>
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-12T14:10:31JST">Mar 12, 2017</time></li>
       
       
     </ul>
 
-    <div class="article-body"><a href="http://vps.sakura.ad.jp/">VPS（仮想専用サーバー）｜さくらインターネット </a>
-を契約する</p>
+    <div class="article-body">refference: <a href="https://github.com/sendgrid/sendgrid-php">https://github.com/sendgrid/sendgrid-php</a></p>
 
-<p>管理画面へログイン、OSをインストールする</p>
+<h1 id="install">install</h1>
 
-<ul>
-<li>Centos 7 64bit</li>
-<li>root パスワードを入力</li>
-</ul>
+<p>$ composer install sendgrid/sendgrid</p>
 
-<p>初期設定リファレンス <a href="https://help.sakura.ad.jp/hc/ja/articles/206208181">【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報</a></p>
+<h1 id="set-api-key">set api key</h1>
 
-<h4 id="ユーザー追加">ユーザー追加</h4>
-
-<p>管理画面のコンソールでの作業</p>
-
-<pre><code>$ useradd user
-$ passwd user
-(enter password twice)
+<pre><code>echo &quot;export SENDGRID_API_KEY='YOUR_API_KEY'&quot; &gt; sendgrid.env
+echo &quot;sendgrid.env&quot; &gt;&gt; .gitignore
+source ./sendgrid.env
 </code></pre>
 
-<h4 id="ユーザーにsudo追加">ユーザーにsudo追加</h4>
+<h1 id="sample-code">sample code</h1>
 
-<pre><code>$ usermod -G wheel user
-$ visudo
-%wheel ALL=(ALL) ALL を有効に
+<p>see: <a href="https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php">https://github.com/sendgrid/sendgrid-php/blob/master/examples/contactdb/contactdb.php</a></p>
+
+<pre><code>&lt;?php
+require 'vendor/autoload.php';
+
+$apiKey = getenv('SENDGRID_API_KEY');
+$sg = new \SendGrid($apiKey);
+
+$response = $sg-&gt;client-&gt;contactdb()-&gt;lists()-&gt;get();
+echo 'status code: ', $response-&gt;statusCode(), PHP_EOL;
+echo '======body======',PHP_EOL;
+var_dump($response-&gt;body());
+echo '======headers======',PHP_EOL;
+var_dump($response-&gt;headers());
 </code></pre>
-
-<h4 id="sshログイン">sshログイン</h4>
-
-<p>ssh用の秘密鍵を生成しておく<br />
-公開鍵をサーバーへコピー</p>
-
-<p>rootユーサーでsshログイン</p>
-
-<pre><code>$ mkdir .ssh
-$ chmod 700 .ssh
-$ cat id_rsa.pub &gt; .ssh/authorized_keys
-$ chmod 600 .ssh/authorized_keys
-$ rm -f id_rsa.pub
-</code></pre>
-
-<p>sshサーバーの設定変更</p>
-
-<pre><code>$ sudo vi /etc/ssh/sshd_config
-</code></pre>
-
-<ul>
-<li>Port 22</li>
-<li>PermitRootLogin no</li>
-<li>PasswordAuthentication no</li>
-</ul>
-
-<p>Portはファイアーウォールの設定もあわせて変える</p>
-
-<p>ssh再起動</p>
-
-<pre><code>$ sudo systemctl restart sshd.service
-</code></pre>
-
-<h4 id="firewalld設定">firewalld設定</h4>
-
-<p>デーモン確認</p>
-
-<pre><code>$ sudo systemctl restart firewalld.service
-</code></pre>
-
-<p>設定確認</p>
-
-<pre><code>$ firewall-cmd --list-services
-$ sudo cat /usr/lib/firewalld/services/ssh.xml
-</code></pre>
-
-<p>SSHのポート番号変更</p>
-
-<pre><code>$ sudo vi /usr/lib/firewalld/services/ssh.xml
-$ sudo vi /etc/ssh/sshd_config
-</code></pre>
-
-<p>サービス再起動</p>
-
-<pre><code>$ sudo systemctl restart sshd.service
-$ firewall-cmd --reload
-</code></pre>
-
-<p>sshログの確認</p>
-
-<pre><code>journalctl -u sshd.service
-</code></pre>
-
-<h4 id="centos-update">centos update</h4>
-
-<pre><code>$ sudo yum update
-</code></pre>
-
-<h4 id="open-http-port-of-firewall">open http port of firewall</h4>
-
-<pre><code>$ sudo firewall-cmd --add-service=http --zone=public
-$ sudo firewall-cmd --add-service=https --zone=public
-</code></pre>
-
-<h4 id="git">git</h4>
-
-<p>git was already installed<br />
-so do config</p>
-
-<h4 id="nginx">nginx</h4>
-
-<p>repository登録<br />
-$ vim /etc/yum.repos.d/nginx.repo</p>
-
-<pre><code>[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centos/7/$basearch/
-gpgcheck=0
-enabled=1
-</code></pre>
-
-<p>install<br />
-$ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
+</div>
   </div>
 
   <footer class="article-footer">
@@ -248,11 +159,11 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
 
       <aside class="p-share">
   <div class="share-inner">
-    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fsakuravps%2f&title=sakura%20vps" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
-    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fsakuravps%2f&t=sakura%20vps" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
-    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fsakuravps%2f&text=sakura%20vps&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
-    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fsakuravps%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
-    <a href="http://line.me/R/msg/text/?sakura%20vps https%3a%2f%2ffreks.jp%2ftips%2fsakuravps%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
+    <a href="http://b.hatena.ne.jp/add?mode=confirm&url=https%3a%2f%2ffreks.jp%2ftips%2fsendgrid-php%2f&title=sendgrid%20php" title="はてなブックマーク" class="ht" target="_blank" rel="nofollow"></a>
+    <a href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreks.jp%2ftips%2fsendgrid-php%2f&t=sendgrid%20php" title="Facebookでシェア" class="fb" target="_blank" rel="nofollow"></a>
+    <a href="http://twitter.com/intent/tweet?url=https%3a%2f%2ffreks.jp%2ftips%2fsendgrid-php%2f&text=sendgrid%20php&tw_p=tweetbutton" title="Twitterでシェア" class="tw" target="_blank" rel="nofollow"></a>
+    <a href="https://plus.google.com/share?url=https%3a%2f%2ffreks.jp%2ftips%2fsendgrid-php%2f" title="Google Plusでシェア" class="gp" target="_blank" rel="nofollow"></a>
+    <a href="http://line.me/R/msg/text/?sendgrid%20php https%3a%2f%2ffreks.jp%2ftips%2fsendgrid-php%2f" title="LINEでシェア" class="ln" target="_blank" rel="nofollow"></a>
   </div>
 </aside>
 
@@ -261,7 +172,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
         <ol>
           <li><a href="https://freks.jp/tips/"><i class="fa fa-home" aria-hidden="true"></i></a></li>
           
-          <li class="active">sakura vps</li>
+          <li class="active">sendgrid php</li>
         </ol>
       </nav>
 
@@ -290,11 +201,9 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
         <div>
           <ul class="p-terms inline">
             
-            <li><a href="https://freks.jp/tips/tags/sakura/">sakura</a></li>
+            <li><a href="https://freks.jp/tips/tags/sendgrid/">sendgrid</a></li>
             
-            <li><a href="https://freks.jp/tips/tags/vps/">vps</a></li>
-            
-            <li><a href="https://freks.jp/tips/tags/centos7/">centos7</a></li>
+            <li><a href="https://freks.jp/tips/tags/php/">php</a></li>
             
           </ul>
         </div>
