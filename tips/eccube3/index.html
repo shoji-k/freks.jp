@@ -201,7 +201,13 @@ $ php app/console cache:clear &ndash;all</p>
 
 <h4 id="log">log</h4>
 
-<p>see <a href="http://ec-cube.github.io/guideline_log">ログ出力設定 | EC-CUBE 開発ドキュメント</a></div>
+<p>see <a href="http://ec-cube.github.io/guideline_log">ログ出力設定 | EC-CUBE 開発ドキュメント</a></p>
+
+<h4 id="formにエラーを表示する">Formにエラーを表示する</h4>
+
+<pre><code>$form-&gt;get('form_item')-&gt;addError(new FormError('error message'));
+</code></pre>
+</div>
   </div>
 
   <footer class="article-footer">

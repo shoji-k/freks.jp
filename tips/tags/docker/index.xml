@@ -436,13 +436,15 @@ $ docker run -d &amp;ndash;net=my-bridge-network &amp;ndash;name db training/pos
 &lt;p&gt;change the network&lt;br /&gt;
 $ docker network connect my-bridge-network web&lt;/p&gt;
 
-&lt;p&gt;show container volumes
+&lt;p&gt;show container volumes&lt;br /&gt;
 $ docker volume ls&lt;/p&gt;
 
 &lt;p&gt;show container dangling volumes&lt;br /&gt;
-this is remained when to delete containers with volume container&lt;/p&gt;
+this is remained when to delete containers with volume container&lt;br /&gt;
+$ docker volume ls -qf dangling=true&lt;/p&gt;
 
-&lt;p&gt;$ docker volume ls&lt;/p&gt;
+&lt;p&gt;clean up dangling volumes&lt;br /&gt;
+$ docker volume rm $(docker volume ls -qf dangling=true)&lt;/p&gt;
 
 &lt;p&gt;back up and restore data&lt;br /&gt;
 $ docker run &amp;ndash;rm &amp;ndash;volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata&lt;br /&gt;
