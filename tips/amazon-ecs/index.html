@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>amazon ecs - freks tips</title>
     
-<meta name="description" content=" see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  ">
+<meta name="description" content="see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  composeを使う ecs-cli をインストールして使うsee [https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html]ecs-cliの設定$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)  ２つインスタンスを作る$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2.">
 
 <meta property="og:title" content="amazon ecs - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/amazon-ecs/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content=" see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  ">
+<meta property="og:description" content="see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  composeを使う ecs-cli をインストールして使うsee [https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html]ecs-cliの設定$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)  ２つインスタンスを作る$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2.">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/amazon-ecs/">
 <meta name="twitter:title" content="amazon ecs - freks tips">
-<meta name="twitter:description" content=" see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  ">
+<meta name="twitter:description" content="see Amazon EC2 Container Service とはクラスター 一番大枠中に立ち上げるEC2インスタンスの数を決められるコンテナインスタンス EC2インスタンスdockerとecs agent入りのAMIを使うEC2を自分で用意してクラスターに参加させることもできるタスク定義 Docker imageの指定CPU、メモリの指定複数のコンテナを指定できる 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/application_architecture.htmlサービス  タスク定義の指定した数 (&amp;ldquo;必要数&amp;rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ecs_services.html?shortFooter=true タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  composeを使う ecs-cli をインストールして使うsee [https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html]ecs-cliの設定$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)  ２つインスタンスを作る$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2.">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": " see Amazon EC2 Container Service とは\nクラスター 一番大枠\n中に立ち上げるEC2インスタンスの数を決められる\nコンテナインスタンス EC2インスタンス\ndockerとecs agent入りのAMIを使う\nEC2を自分で用意してクラスターに参加させることもできる\nタスク定義 Docker imageの指定\nCPU、メモリの指定\n複数のコンテナを指定できる\n 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http:\/\/docs.aws.amazon.com\/ja_jp\/AmazonECS\/latest\/developerguide\/application_architecture.html\nサービス  タスク定義の指定した数 (\x26ldquo;必要数\x26rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http:\/\/docs.aws.amazon.com\/ja_jp\/AmazonECS\/latest\/developerguide\/ecs_services.html?shortFooter=true\n タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  "
+    "description": "see Amazon EC2 Container Service とは\nクラスター 一番大枠\n中に立ち上げるEC2インスタンスの数を決められる\nコンテナインスタンス EC2インスタンス\ndockerとecs agent入りのAMIを使う\nEC2を自分で用意してクラスターに参加させることもできる\nタスク定義 Docker imageの指定\nCPU、メモリの指定\n複数のコンテナを指定できる\n 同じインスタンスでどのプロセスを一緒に実行する必要があるか、各コンポーネントをどのようにスケーリングするかを検討します  http:\/\/docs.aws.amazon.com\/ja_jp\/AmazonECS\/latest\/developerguide\/application_architecture.html\nサービス  タスク定義の指定した数 (\x26ldquo;必要数\x26rdquo;) のインスタンスを ECS クラスターで同時に実行して維持できます。   http:\/\/docs.aws.amazon.com\/ja_jp\/AmazonECS\/latest\/developerguide\/ecs_services.html?shortFooter=true\n タスクが停止したらタスクを強制終了、再度開始する ロードバランサーの指定  composeを使う ecs-cli をインストールして使う\nsee [https:\/\/docs.aws.amazon.com\/ja_jp\/AmazonECS\/latest\/developerguide\/ECS_CLI_tutorial.html]\necs-cliの設定\n$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)  ２つインスタンスを作る\n$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2."
   }
 </script>
 
@@ -159,7 +159,26 @@ CPU、メモリの指定</p>
 <li>タスクが停止したらタスクを強制終了、再度開始する</li>
 <li>ロードバランサーの指定</li>
 </ul>
-</div>
+
+<h1 id="composeを使う">composeを使う</h1>
+
+<p>ecs-cli をインストールして使う</p>
+
+<p>see [<a href="https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html">https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html</a>]</p>
+
+<p>ecs-cliの設定</p>
+
+<pre><code>$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo
+INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)
+</code></pre>
+
+<p>２つインスタンスを作る</p>
+
+<pre><code>$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2.medium
+</code></pre>
+
+<p>keypairは指定したリージョン内のEC2のキーペアを指定する<br />
+権限がいくつか必要、IAM:USER:ROLEとECS</div>
   </div>
 
   <footer class="article-footer">
@@ -213,6 +232,8 @@ CPU、メモリの指定</p>
             
             <li><a href="https://freks.jp/tips/tags/ecs/">ecs</a></li>
             
+            <li><a href="https://freks.jp/tips/tags/docker/">docker</a></li>
+            
           </ul>
         </div>
       </section>
@@ -235,6 +256,76 @@ CPU、メモリの指定</p>
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/tls-ssl/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/tls-ssl/">tls/ssl</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-26T12:20:54JST">Apr 26, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/fuelphp/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/fuelphp/">fuelphp</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-11T15:21:18JST">Apr 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/rsync/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/rsync/">rsync</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-08T13:39:07JST">Apr 8, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/virusscan/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/virusscan/">virusscan</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-04T12:41:55JST">Apr 4, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/clothes/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/clothes/">clothes</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-03T17:19:22JST">Apr 3, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
@@ -246,7 +337,7 @@ CPU、メモリの指定</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
@@ -260,7 +351,7 @@ CPU、メモリの指定</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
@@ -274,7 +365,7 @@ CPU、メモリの指定</p>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecr/" class="thumb"></a>
@@ -288,7 +379,7 @@ CPU、メモリの指定</p>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/minecraft/" class="thumb"></a>
@@ -297,76 +388,6 @@ CPU、メモリの指定</p>
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-06T23:31:30JST">Mar 6, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/docker-machine/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/docker-machine/">docker machine</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-22T12:01:25JST">Feb 22, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/optipng/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/optipng/">optipng</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-18T14:33:16JST">Feb 18, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/letsencrypt/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/letsencrypt/">letsencrypt</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-14T11:19:01JST">Feb 14, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/fluentd/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/fluentd/">fluentd</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-13T15:33:20JST">Feb 13, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/centos7/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/centos7/">centos7</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T13:00:30JST">Feb 5, 2017</time></li>
       
     </ul>
   </header>
@@ -392,7 +413,7 @@ CPU、メモリの指定</p>
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/api">api</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li>
       </ul>
     </div>
   </section>

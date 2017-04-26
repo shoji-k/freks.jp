@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/fuelphp/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/fuelphp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>fuelphp</title>
+      <link>https://freks.jp/tips/fuelphp/</link>
+      <pubDate>Tue, 11 Apr 2017 15:21:18 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/fuelphp/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://fuelphp.com/docs/installation/instructions.html&#34;&gt;Instruction - Installation - FuelPHP Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;/usr/local/bin/oil にインストールされる&lt;/p&gt;
+
+&lt;p&gt;oilコマンドはfuelphpプロジェクト以外の場所でたたくとエラーを吐く&lt;br /&gt;
+e.g. This is not a valid Fuel installation so Oil is a bit lost.&lt;/p&gt;
+
+&lt;p&gt;$ oil create &lt;project_name&gt;&lt;br /&gt;
+でプロジェクトが作れる&lt;br /&gt;
+実際は git clone して composer install をしている&lt;/p&gt;
+
+&lt;p&gt;cd &lt;project_name&gt;&lt;br /&gt;
+oil server&lt;br /&gt;
+で起動できる&lt;/p&gt;
+
+&lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
+
+&lt;h3 id=&#34;環境切り替え&#34;&gt;環境切り替え&lt;/h3&gt;
+
+&lt;p&gt;FUEL_ENVの環境変数によって読みこむconfigファイルが切り替わる&lt;br /&gt;
+bootstrap.phpにコード有り&lt;/p&gt;
+
+&lt;p&gt;$ FUEL_ENV=production oil server&lt;/p&gt;
+
+&lt;p&gt;もしくはapacheの設定に渡す&lt;/p&gt;
+
+&lt;h3 id=&#34;profilingをdevelopmentで有効にする&#34;&gt;profilingをdevelopmentで有効にする&lt;/h3&gt;
+
+&lt;p&gt;app/config/config.phpに profiling のパラメータがあるがこれは全体に影響する&lt;br /&gt;
+app/config/development/config.phpを作るとパラメーターが上書きされる&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/development/config.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+    &#39;profiling&#39;  =&amp;gt; true,
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;データベースのプロファイルも表示するなら&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/development/db.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+  &#39;default&#39; =&amp;gt; array(
+      &#39;connection&#39;  =&amp;gt; array(
+      &#39;dsn&#39;        =&amp;gt; &#39;mysql:host=localhost;dbname=fuelphp&#39;,
+      &#39;username&#39;   =&amp;gt; &#39;root&#39;,
+      &#39;password&#39;   =&amp;gt; &#39;root&#39;,
+      ),
++    &#39;profiling&#39;  =&amp;gt; true,
+  ),
+);
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;オリジナルのパラメータを追加する&#34;&gt;オリジナルのパラメータを追加する&lt;/h3&gt;
+
+&lt;p&gt;app/configディレクトリに新しくファイルを作って読み込む&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/original.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return [
+    &#39;one&#39; =&amp;gt; &#39;sample&#39;
+];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;読み込むには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Config::load(&#39;original&#39;, true);
+$one = Config::get(&#39;original.one&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

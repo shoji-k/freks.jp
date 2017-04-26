@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>linux command - freks tips</title>
     
-<meta name="description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8">
+<meta name="description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8改行コードを変更 インストール$ sudo apt install nkf改行コードをlfに変更$ nkf -Lu &amp;ndash;overwrite sample.txtgit diffの結果にだけ対応git管理下のトップディレクトリで実行$ git diff &amp;ndash;name-only | xargs nkf -Lu &amp;ndash;overwritetarファイルに圧縮 $ tar cvf sample.tar sample">
 
 <meta property="og:title" content="linux command - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/linux-command/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8">
+<meta property="og:description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8改行コードを変更 インストール$ sudo apt install nkf改行コードをlfに変更$ nkf -Lu &amp;ndash;overwrite sample.txtgit diffの結果にだけ対応git管理下のトップディレクトリで実行$ git diff &amp;ndash;name-only | xargs nkf -Lu &amp;ndash;overwritetarファイルに圧縮 $ tar cvf sample.tar sample">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/linux-command/">
 <meta name="twitter:title" content="linux command - freks tips">
-<meta name="twitter:description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8">
+<meta name="twitter:description" content="delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rmさっきいたディレクトリに戻る $ cd -文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8改行コードを変更 インストール$ sudo apt install nkf改行コードをlfに変更$ nkf -Lu &amp;ndash;overwrite sample.txtgit diffの結果にだけ対応git管理下のトップディレクトリで実行$ git diff &amp;ndash;name-only | xargs nkf -Lu &amp;ndash;overwritetarファイルに圧縮 $ tar cvf sample.tar sample">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rm\nさっきいたディレクトリに戻る $ cd -\n文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8"
+    "description": "delete 0 byte file $ find . -maxdepth 1 -size 0 -print | xargs rm\nさっきいたディレクトリに戻る $ cd -\n文字化けしたファイル名を修正する find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8\n改行コードを変更 インストール\n$ sudo apt install nkf\n改行コードをlfに変更\n$ nkf -Lu \x26ndash;overwrite sample.txt\ngit diffの結果にだけ対応\ngit管理下のトップディレクトリで実行\n$ git diff \x26ndash;name-only | xargs nkf -Lu \x26ndash;overwrite\ntarファイルに圧縮 $ tar cvf sample.tar sample"
   }
 </script>
 
@@ -131,7 +131,23 @@
 
 <h4 id="文字化けしたファイル名を修正する">文字化けしたファイル名を修正する</h4>
 
-<p>find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8</div>
+<p>find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8</p>
+
+<h4 id="改行コードを変更">改行コードを変更</h4>
+
+<p>インストール<br />
+$ sudo apt install nkf</p>
+
+<p>改行コードをlfに変更<br />
+$ nkf -Lu &ndash;overwrite sample.txt</p>
+
+<p>git diffの結果にだけ対応<br />
+git管理下のトップディレクトリで実行<br />
+$ git diff &ndash;name-only | xargs nkf -Lu &ndash;overwrite</p>
+
+<h4 id="tarファイルに圧縮">tarファイルに圧縮</h4>
+
+<p>$ tar cvf sample.tar sample</div>
   </div>
 
   <footer class="article-footer">
@@ -207,6 +223,76 @@
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/tls-ssl/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/tls-ssl/">tls/ssl</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-26T12:20:54JST">Apr 26, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/fuelphp/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/fuelphp/">fuelphp</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-11T15:21:18JST">Apr 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/rsync/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/rsync/">rsync</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-08T13:39:07JST">Apr 8, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/virusscan/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/virusscan/">virusscan</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-04T12:41:55JST">Apr 4, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/clothes/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/clothes/">clothes</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-03T17:19:22JST">Apr 3, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
@@ -218,7 +304,7 @@
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
@@ -232,7 +318,7 @@
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
@@ -246,7 +332,7 @@
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/amazon-ecr/" class="thumb"></a>
@@ -260,7 +346,7 @@
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/minecraft/" class="thumb"></a>
@@ -269,76 +355,6 @@
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-06T23:31:30JST">Mar 6, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/docker-machine/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/docker-machine/">docker machine</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-22T12:01:25JST">Feb 22, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/optipng/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/optipng/">optipng</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-18T14:33:16JST">Feb 18, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/letsencrypt/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/letsencrypt/">letsencrypt</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-14T11:19:01JST">Feb 14, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/fluentd/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/fluentd/">fluentd</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-13T15:33:20JST">Feb 13, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/centos7/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/centos7/">centos7</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-02-05T13:00:30JST">Feb 5, 2017</time></li>
       
     </ul>
   </header>
@@ -364,7 +380,7 @@
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li><li><a href="https://freks.jp/tips/tags/api">api</a></li><li><a href="https://freks.jp/tips/tags/cakephp">cakephp</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li>
       </ul>
     </div>
   </section>

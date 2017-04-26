@@ -27,6 +27,22 @@
 &lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
 
 &lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
+
+&lt;h4 id=&#34;改行コードを変更&#34;&gt;改行コードを変更&lt;/h4&gt;
+
+&lt;p&gt;インストール&lt;br /&gt;
+$ sudo apt install nkf&lt;/p&gt;
+
+&lt;p&gt;改行コードをlfに変更&lt;br /&gt;
+$ nkf -Lu &amp;ndash;overwrite sample.txt&lt;/p&gt;
+
+&lt;p&gt;git diffの結果にだけ対応&lt;br /&gt;
+git管理下のトップディレクトリで実行&lt;br /&gt;
+$ git diff &amp;ndash;name-only | xargs nkf -Lu &amp;ndash;overwrite&lt;/p&gt;
+
+&lt;h4 id=&#34;tarファイルに圧縮&#34;&gt;tarファイルに圧縮&lt;/h4&gt;
+
+&lt;p&gt;$ tar cvf sample.tar sample&lt;/p&gt;
 </description>
     </item>
     

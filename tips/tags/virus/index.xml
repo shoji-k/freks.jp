@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/virus/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/virus/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>virusscan</title>
+      <link>https://freks.jp/tips/virusscan/</link>
+      <pubDate>Tue, 04 Apr 2017 12:41:55 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/virusscan/</guid>
+      <description>
+
+&lt;h1 id=&#34;clamav&#34;&gt;clamav&lt;/h1&gt;
+
+&lt;h2 id=&#34;install-on-ubuntu&#34;&gt;install on ubuntu&lt;/h2&gt;
+
+&lt;p&gt;$ sudo apt-get install clamav&lt;/p&gt;
+
+&lt;h2 id=&#34;refresh-database&#34;&gt;refresh database&lt;/h2&gt;
+
+&lt;p&gt;$ sudo freshscan&lt;/p&gt;
+
+&lt;h2 id=&#34;search-virus&#34;&gt;search virus&lt;/h2&gt;
+
+&lt;p&gt;カレントディレクトリ内の汚染されたファイルを表示する&lt;br /&gt;
+$ clamscan &amp;ndash;infected -r ./&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

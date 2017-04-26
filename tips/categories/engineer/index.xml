@@ -9,6 +9,182 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>tls/ssl</title>
+      <link>https://freks.jp/tips/tls-ssl/</link>
+      <pubDate>Wed, 26 Apr 2017 12:20:54 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/tls-ssl/</guid>
+      <description>
+
+&lt;h1 id=&#34;tls証明書の選定&#34;&gt;TLS証明書の選定&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.excite.co.jp/News/it_g/20170326/Slashdot_17_03_26_064241.html&#34;&gt;2017.3 Googleとシマンテックがもめている&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;シマンテック関連会社&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ジオトラスト&lt;/li&gt;
+&lt;li&gt;ラピッドSSL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;残るは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;グローバルサイン&lt;/li&gt;
+&lt;li&gt;サイバートラスト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://serverkurabe.com/ssl-matome/&#34;&gt;証明書比較サイト serverkurabe&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;国内代理店で買うのが費用面とサポートでよさそう&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ssl.ph/&#34;&gt;ドメインキーパー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://datahotel.jp/service/sslcoupon/&#34;&gt;データホテル&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;証明書乗り換えで、新規契約分の期限が伸ばせてよさそう&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ssl.ph/merit/contents08.html&#34;&gt;ドメインキーパー 証明書乗り換え&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dev.classmethod.jp/cloud/aws/aws-beginner-elb-ssl/&#34;&gt;クラスメソッド ELBにSSL証明書割り当て&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;AWSでは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プライベートキー&lt;/li&gt;
+&lt;li&gt;パブリックキー証明書&lt;/li&gt;
+&lt;li&gt;証明書チェーン&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を入力して登録できる&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>fuelphp</title>
+      <link>https://freks.jp/tips/fuelphp/</link>
+      <pubDate>Tue, 11 Apr 2017 15:21:18 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/fuelphp/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://fuelphp.com/docs/installation/instructions.html&#34;&gt;Instruction - Installation - FuelPHP Documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;/usr/local/bin/oil にインストールされる&lt;/p&gt;
+
+&lt;p&gt;oilコマンドはfuelphpプロジェクト以外の場所でたたくとエラーを吐く&lt;br /&gt;
+e.g. This is not a valid Fuel installation so Oil is a bit lost.&lt;/p&gt;
+
+&lt;p&gt;$ oil create &lt;project_name&gt;&lt;br /&gt;
+でプロジェクトが作れる&lt;br /&gt;
+実際は git clone して composer install をしている&lt;/p&gt;
+
+&lt;p&gt;cd &lt;project_name&gt;&lt;br /&gt;
+oil server&lt;br /&gt;
+で起動できる&lt;/p&gt;
+
+&lt;h2 id=&#34;config&#34;&gt;config&lt;/h2&gt;
+
+&lt;h3 id=&#34;環境切り替え&#34;&gt;環境切り替え&lt;/h3&gt;
+
+&lt;p&gt;FUEL_ENVの環境変数によって読みこむconfigファイルが切り替わる&lt;br /&gt;
+bootstrap.phpにコード有り&lt;/p&gt;
+
+&lt;p&gt;$ FUEL_ENV=production oil server&lt;/p&gt;
+
+&lt;p&gt;もしくはapacheの設定に渡す&lt;/p&gt;
+
+&lt;h3 id=&#34;profilingをdevelopmentで有効にする&#34;&gt;profilingをdevelopmentで有効にする&lt;/h3&gt;
+
+&lt;p&gt;app/config/config.phpに profiling のパラメータがあるがこれは全体に影響する&lt;br /&gt;
+app/config/development/config.phpを作るとパラメーターが上書きされる&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/development/config.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+    &#39;profiling&#39;  =&amp;gt; true,
+);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;データベースのプロファイルも表示するなら&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/development/db.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return array(
+  &#39;default&#39; =&amp;gt; array(
+      &#39;connection&#39;  =&amp;gt; array(
+      &#39;dsn&#39;        =&amp;gt; &#39;mysql:host=localhost;dbname=fuelphp&#39;,
+      &#39;username&#39;   =&amp;gt; &#39;root&#39;,
+      &#39;password&#39;   =&amp;gt; &#39;root&#39;,
+      ),
++    &#39;profiling&#39;  =&amp;gt; true,
+  ),
+);
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;オリジナルのパラメータを追加する&#34;&gt;オリジナルのパラメータを追加する&lt;/h3&gt;
+
+&lt;p&gt;app/configディレクトリに新しくファイルを作って読み込む&lt;/p&gt;
+
+&lt;p&gt;$ vim app/config/original.php&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;return [
+    &#39;one&#39; =&amp;gt; &#39;sample&#39;
+];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;読み込むには&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Config::load(&#39;original&#39;, true);
+$one = Config::get(&#39;original.one&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>rsync</title>
+      <link>https://freks.jp/tips/rsync/</link>
+      <pubDate>Sat, 08 Apr 2017 13:39:07 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/rsync/</guid>
+      <description>
+
+&lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
+
+&lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>virusscan</title>
+      <link>https://freks.jp/tips/virusscan/</link>
+      <pubDate>Tue, 04 Apr 2017 12:41:55 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/virusscan/</guid>
+      <description>
+
+&lt;h1 id=&#34;clamav&#34;&gt;clamav&lt;/h1&gt;
+
+&lt;h2 id=&#34;install-on-ubuntu&#34;&gt;install on ubuntu&lt;/h2&gt;
+
+&lt;p&gt;$ sudo apt-get install clamav&lt;/p&gt;
+
+&lt;h2 id=&#34;refresh-database&#34;&gt;refresh database&lt;/h2&gt;
+
+&lt;p&gt;$ sudo freshscan&lt;/p&gt;
+
+&lt;h2 id=&#34;search-virus&#34;&gt;search virus&lt;/h2&gt;
+
+&lt;p&gt;カレントディレクトリ内の汚染されたファイルを表示する&lt;br /&gt;
+$ clamscan &amp;ndash;infected -r ./&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>sendgrid php</title>
       <link>https://freks.jp/tips/sendgrid-php/</link>
       <pubDate>Sun, 12 Mar 2017 14:10:31 +0900</pubDate>
@@ -184,6 +360,26 @@ CPU、メモリの指定&lt;/p&gt;
 &lt;li&gt;タスクが停止したらタスクを強制終了、再度開始する&lt;/li&gt;
 &lt;li&gt;ロードバランサーの指定&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h1 id=&#34;composeを使う&#34;&gt;composeを使う&lt;/h1&gt;
+
+&lt;p&gt;ecs-cli をインストールして使う&lt;/p&gt;
+
+&lt;p&gt;see [&lt;a href=&#34;https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html&#34;&gt;https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/ECS_CLI_tutorial.html&lt;/a&gt;]&lt;/p&gt;
+
+&lt;p&gt;ecs-cliの設定&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ecs-cli configure --region us-west-2 --access-key $AWS_ACCESS_KEY_ID --secret-key $AWS_SECRET_ACCESS_KEY --cluster ecs-cli-demo
+INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;２つインスタンスを作る&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ecs-cli up --keypair id_rsa --capability-iam --size 2 --instance-type t2.medium
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;keypairは指定したリージョン内のEC2のキーペアを指定する&lt;br /&gt;
+権限がいくつか必要、IAM:USER:ROLEとECS&lt;/p&gt;
 </description>
     </item>
     
@@ -810,11 +1006,11 @@ git config --global color.ui auto
 git config --global alias.ch checkout
 git config --global alias.co commit
 git config --global alias.st status
-git config --global alias.br=branch
+git config --global alias.br branch
 git config --global core.quotepath off
 git config --global core.editor vim
-git config --global push.default=simple
-git config --global commit.verbose=true
+git config --global push.default simple
+git config --global commit.verbose true
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h1&gt;
@@ -889,239 +1085,10 @@ $ git config &amp;ndash;global commit.gpgsign true&lt;/p&gt;
 &lt;p&gt;$ gpg &amp;ndash;edit-key (key id)&lt;br /&gt;
 &amp;gt; passwd&lt;br /&gt;
 &amp;gt; (input old passphrase and new passphrase)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ansible</title>
-      <link>https://freks.jp/tips/ansible/</link>
-      <pubDate>Sat, 04 Feb 2017 16:32:47 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/ansible/</guid>
-      <description>
 
-&lt;p&gt;sshでサーバーにつながるように準備しておく&lt;/p&gt;
+&lt;h1 id=&#34;revert-one-file-to-old-commit&#34;&gt;revert one file to old commit&lt;/h1&gt;
 
-&lt;h4 id=&#34;start&#34;&gt;start&lt;/h4&gt;
-
-&lt;p&gt;create inventory file&lt;/p&gt;
-
-&lt;p&gt;$ vim /etc/ansible/hosts (globalにansibleが認識)&lt;br /&gt;
-or&lt;br /&gt;
-$ vim hosts (local)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[servers]
-sample
-server
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;2 servers are written&lt;br /&gt;
-[xxxx] is a group name&lt;br /&gt;
-server name is used in ssh/config&lt;/p&gt;
-
-&lt;p&gt;$ ansible all -m ping&lt;br /&gt;
-or&lt;br /&gt;
-$ ansible servers -m ping&lt;br /&gt;
-$ ansible sample -m ping&lt;/p&gt;
-
-&lt;p&gt;sample is one server name&lt;br /&gt;
-servers is a group name&lt;br /&gt;
-ping is one module of ansible&lt;/p&gt;
-
-&lt;p&gt;localの場合 -i で inventory file を指定&lt;br /&gt;
-$ ansible all -i hosts -m ping&lt;/p&gt;
-
-&lt;h4 id=&#34;to-vagrant&#34;&gt;to vagrant&lt;/h4&gt;
-
-&lt;p&gt;set vagrant ssh to .ssh/config&lt;br /&gt;
-$ vagrant ssh-config ansible &amp;gt;&amp;gt; ~/.ssh/config&lt;/p&gt;
-
-&lt;p&gt;try ssh to vagrant&lt;br /&gt;
-$ ssh ansible&lt;/p&gt;
-
-&lt;h4 id=&#34;playbook&#34;&gt;playbook&lt;/h4&gt;
-
-&lt;p&gt;check syntax&lt;br /&gt;
-$ ansible-playbook sample.yml &amp;ndash;syntax-check&lt;/p&gt;
-
-&lt;p&gt;implement&lt;br /&gt;
-$ ansible-playbook -i hosts -t wp -K sample.yml&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;-i set hosts&lt;/li&gt;
-&lt;li&gt;-t set tag&lt;/li&gt;
-&lt;li&gt;-K ask sudo password&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ssh</title>
-      <link>https://freks.jp/tips/ssh/</link>
-      <pubDate>Sat, 04 Feb 2017 15:00:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/ssh/</guid>
-      <description>
-
-&lt;p&gt;```&lt;/p&gt;
-
-&lt;h4 id=&#34;ssh鍵生成&#34;&gt;ssh鍵生成&lt;/h4&gt;
-
-&lt;p&gt;$ ssh-keygen -t rsa -b 4096 -C &amp;ldquo;your_email@example.com&amp;rdquo;&lt;br /&gt;
-(ファイル名を指定)&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>sakura vps</title>
-      <link>https://freks.jp/tips/sakuravps/</link>
-      <pubDate>Sat, 04 Feb 2017 14:58:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/sakuravps/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;http://vps.sakura.ad.jp/&#34;&gt;VPS（仮想専用サーバー）｜さくらインターネット &lt;/a&gt;
-を契約する&lt;/p&gt;
-
-&lt;p&gt;管理画面へログイン、OSをインストールする&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Centos 7 64bit&lt;/li&gt;
-&lt;li&gt;root パスワードを入力&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;初期設定リファレンス &lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206208181&#34;&gt;【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;ユーザー追加&#34;&gt;ユーザー追加&lt;/h4&gt;
-
-&lt;p&gt;管理画面のコンソールでの作業&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ useradd user
-$ passwd user
-(enter password twice)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;ユーザーにsudo追加&#34;&gt;ユーザーにsudo追加&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ usermod -G wheel user
-$ visudo
-%wheel ALL=(ALL) ALL を有効に
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;sshログイン&#34;&gt;sshログイン&lt;/h4&gt;
-
-&lt;p&gt;ssh用の秘密鍵を生成しておく&lt;br /&gt;
-公開鍵をサーバーへコピー&lt;/p&gt;
-
-&lt;p&gt;rootユーサーでsshログイン&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ mkdir .ssh
-$ chmod 700 .ssh
-$ cat id_rsa.pub &amp;gt; .ssh/authorized_keys
-$ chmod 600 .ssh/authorized_keys
-$ rm -f id_rsa.pub
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;sshサーバーの設定変更&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo vi /etc/ssh/sshd_config
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Port 22&lt;/li&gt;
-&lt;li&gt;PermitRootLogin no&lt;/li&gt;
-&lt;li&gt;PasswordAuthentication no&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Portはファイアーウォールの設定もあわせて変える&lt;/p&gt;
-
-&lt;p&gt;ssh再起動&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;firewalld設定&#34;&gt;firewalld設定&lt;/h4&gt;
-
-&lt;p&gt;デーモン確認&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart firewalld.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;設定確認&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ firewall-cmd --list-services
-$ sudo cat /usr/lib/firewalld/services/ssh.xml
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;SSHのポート番号変更&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo vi /usr/lib/firewalld/services/ssh.xml
-$ sudo vi /etc/ssh/sshd_config
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;サービス再起動&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
-$ firewall-cmd --reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;sshログの確認&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;journalctl -u sshd.service
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo yum update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public
-$ sudo firewall-cmd --add-service=https --zone=public
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;git&#34;&gt;git&lt;/h4&gt;
-
-&lt;p&gt;git was already installed&lt;br /&gt;
-so do config&lt;/p&gt;
-
-&lt;h4 id=&#34;nginx&#34;&gt;nginx&lt;/h4&gt;
-
-&lt;p&gt;repository登録&lt;br /&gt;
-$ vim /etc/yum.repos.d/nginx.repo&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[nginx]
-name=nginx repo
-baseurl=http://nginx.org/packages/centos/7/$basearch/
-gpgcheck=0
-enabled=1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;install&lt;br /&gt;
-$ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>linux command</title>
-      <link>https://freks.jp/tips/linux-command/</link>
-      <pubDate>Fri, 20 Jan 2017 13:06:40 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/linux-command/</guid>
-      <description>
-
-&lt;h4 id=&#34;delete-0-byte-file&#34;&gt;delete 0 byte file&lt;/h4&gt;
-
-&lt;p&gt;$ find . -maxdepth 1 -size 0 -print | xargs rm&lt;/p&gt;
-
-&lt;h4 id=&#34;さっきいたディレクトリに戻る&#34;&gt;さっきいたディレクトリに戻る&lt;/h4&gt;
-
-&lt;p&gt;$ cd -&lt;/p&gt;
-
-&lt;h4 id=&#34;文字化けしたファイル名を修正する&#34;&gt;文字化けしたファイル名を修正する&lt;/h4&gt;
-
-&lt;p&gt;find . -maxdepth 1 -type f | xargs convmv -f sjis -t utf8&lt;/p&gt;
+&lt;p&gt;$ git checkout [commit hash] [file path]&lt;/p&gt;
 </description>
     </item>
     

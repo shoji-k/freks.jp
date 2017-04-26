@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/tls/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/tls/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>tls/ssl</title>
+      <link>https://freks.jp/tips/tls-ssl/</link>
+      <pubDate>Wed, 26 Apr 2017 12:20:54 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/tls-ssl/</guid>
+      <description>
+
+&lt;h1 id=&#34;tls証明書の選定&#34;&gt;TLS証明書の選定&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.excite.co.jp/News/it_g/20170326/Slashdot_17_03_26_064241.html&#34;&gt;2017.3 Googleとシマンテックがもめている&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;シマンテック関連会社&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ジオトラスト&lt;/li&gt;
+&lt;li&gt;ラピッドSSL&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;残るは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;グローバルサイン&lt;/li&gt;
+&lt;li&gt;サイバートラスト&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://serverkurabe.com/ssl-matome/&#34;&gt;証明書比較サイト serverkurabe&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;国内代理店で買うのが費用面とサポートでよさそう&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ssl.ph/&#34;&gt;ドメインキーパー&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://datahotel.jp/service/sslcoupon/&#34;&gt;データホテル&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;証明書乗り換えで、新規契約分の期限が伸ばせてよさそう&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ssl.ph/merit/contents08.html&#34;&gt;ドメインキーパー 証明書乗り換え&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dev.classmethod.jp/cloud/aws/aws-beginner-elb-ssl/&#34;&gt;クラスメソッド ELBにSSL証明書割り当て&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;AWSでは&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;プライベートキー&lt;/li&gt;
+&lt;li&gt;パブリックキー証明書&lt;/li&gt;
+&lt;li&gt;証明書チェーン&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;を入力して登録できる&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
