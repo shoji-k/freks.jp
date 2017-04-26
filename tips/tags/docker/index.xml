@@ -698,6 +698,14 @@ $ docker run &amp;ndash;rm &amp;ndash;volumes-from dataonly -v $(pwd):/backup da
     docker/docker-bench-security
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2 id=&#34;logging&#34;&gt;logging&lt;/h2&gt;
+
+&lt;p&gt;show application logs to use &lt;code&gt;docker logs&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ln -sf /dev/stdout /var/log/nginx/access.log
+ln -sf /dev/stderr /var/log/nginx/error.log
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2 id=&#34;refferences&#34;&gt;refferences&lt;/h2&gt;
 
 &lt;ul&gt;

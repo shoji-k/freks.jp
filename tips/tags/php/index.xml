@@ -93,6 +93,54 @@ $one = Config::get(&#39;original.one&#39;);
     </item>
     
     <item>
+      <title>php cs fixer</title>
+      <link>https://freks.jp/tips/php-cs-fixer/</link>
+      <pubDate>Fri, 07 Apr 2017 16:54:27 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/php-cs-fixer/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/FriendsOfPHP/PHP-CS-Fixer&#34;&gt;PHP-CS-Fixer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-by-composer&#34;&gt;install by composer&lt;/h1&gt;
+
+&lt;p&gt;$ composer global require friendsofphp/php-cs-fixer&lt;/p&gt;
+
+&lt;h1 id=&#34;how-to-use&#34;&gt;how to use&lt;/h1&gt;
+
+&lt;p&gt;標準設定ファイル&lt;br /&gt;
+個別の設定は .php_cs&lt;/p&gt;
+
+&lt;p&gt;$ vim .php_cs.dist&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+namespace PhpCsFixer;
+
+return Config::create()
+  -&amp;gt;setRiskyAllowed(true)
+  -&amp;gt;setRules([
+    &#39;@PSR1&#39; =&amp;gt; true,
+    &#39;@PSR2&#39; =&amp;gt; true,
+    &#39;@Symfony&#39; =&amp;gt; true,
+    &#39;@Symfony:risky&#39; =&amp;gt; true,
+    &#39;array_syntax&#39; =&amp;gt; [
+      &#39;syntax&#39; =&amp;gt; &#39;short&#39;,
+    ],
+  ])
+;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確認 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix &amp;ndash;dry-run &amp;ndash;diff&lt;/p&gt;
+
+&lt;p&gt;修正 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>sendgrid php</title>
       <link>https://freks.jp/tips/sendgrid-php/</link>
       <pubDate>Sun, 12 Mar 2017 14:10:31 +0900</pubDate>

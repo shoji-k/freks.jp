@@ -9,6 +9,38 @@
     <atom:link href="https://freks.jp/tips/categories/engineer/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>syslog</title>
+      <link>https://freks.jp/tips/syslog/</link>
+      <pubDate>Wed, 26 Apr 2017 18:44:47 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/syslog/</guid>
+      <description>
+
+&lt;h1 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h1&gt;
+
+&lt;h2 id=&#34;rsyslog&#34;&gt;rsyslog&lt;/h2&gt;
+
+&lt;p&gt;rsyslogが使われている&lt;br /&gt;
+facilityとpriorityを指定するとログを吐く場所を変えられる&lt;/p&gt;
+
+&lt;p&gt;facility: mail&lt;br /&gt;
+priority: alert&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ logger -p mail.alert xxxxx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;config&#34;&gt;config&lt;/h3&gt;
+
+&lt;p&gt;$ vi /etc/rsyslog.d/50-default.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mail.info     /var/log/mail.info
+mail.warn     /var/log/mail.warn
+mail.err      /var/log/mail.err
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>tls/ssl</title>
       <link>https://freks.jp/tips/tls-ssl/</link>
       <pubDate>Wed, 26 Apr 2017 12:20:54 +0900</pubDate>
@@ -156,6 +188,54 @@ $one = Config::get(&#39;original.one&#39;);
 &lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
 
 &lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>php cs fixer</title>
+      <link>https://freks.jp/tips/php-cs-fixer/</link>
+      <pubDate>Fri, 07 Apr 2017 16:54:27 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/php-cs-fixer/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/FriendsOfPHP/PHP-CS-Fixer&#34;&gt;PHP-CS-Fixer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-by-composer&#34;&gt;install by composer&lt;/h1&gt;
+
+&lt;p&gt;$ composer global require friendsofphp/php-cs-fixer&lt;/p&gt;
+
+&lt;h1 id=&#34;how-to-use&#34;&gt;how to use&lt;/h1&gt;
+
+&lt;p&gt;標準設定ファイル&lt;br /&gt;
+個別の設定は .php_cs&lt;/p&gt;
+
+&lt;p&gt;$ vim .php_cs.dist&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+namespace PhpCsFixer;
+
+return Config::create()
+  -&amp;gt;setRiskyAllowed(true)
+  -&amp;gt;setRules([
+    &#39;@PSR1&#39; =&amp;gt; true,
+    &#39;@PSR2&#39; =&amp;gt; true,
+    &#39;@Symfony&#39; =&amp;gt; true,
+    &#39;@Symfony:risky&#39; =&amp;gt; true,
+    &#39;array_syntax&#39; =&amp;gt; [
+      &#39;syntax&#39; =&amp;gt; &#39;short&#39;,
+    ],
+  ])
+;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確認 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix &amp;ndash;dry-run &amp;ndash;diff&lt;/p&gt;
+
+&lt;p&gt;修正 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix&lt;/p&gt;
 </description>
     </item>
     
@@ -847,248 +927,6 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 &lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
 
 &lt;p&gt;$ rpm -ql sample&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>nginx</title>
-      <link>https://freks.jp/tips/nginx/</link>
-      <pubDate>Sun, 05 Feb 2017 10:43:20 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/nginx/</guid>
-      <description>
-
-&lt;h4 id=&#34;config-test&#34;&gt;config test&lt;/h4&gt;
-
-&lt;p&gt;centos 7&lt;br /&gt;
-$ sudo nginx -t&lt;/p&gt;
-
-&lt;h4 id=&#34;initial&#34;&gt;initial&lt;/h4&gt;
-
-&lt;p&gt;$ vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;add server_tokens: off to html {}&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;プロキシ設定&#34;&gt;プロキシ設定&lt;/h4&gt;
-
-&lt;p&gt;$ vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;upstream backend {
-    server 127.0.0.1:8080;
-}
-
-server {
-    listen       80;
-    server_name  localhost;
-
-    root /home/user/ws/docker/jitan/src/html;
-    index index.php index.html index.htm;
-
-    #error_page  404              /404.html;
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-    proxy_set_header X-Forwarded-Host $host;
-    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto $scheme;
-
-    location / {
-        try_files $uri @app;
-    }
-
-    location ~* \.php$ {
-        proxy_pass http://backend;
-    }
-
-    location @app {
-        proxy_pass http://backend;
-    }
-
-    location ~ /\.ht {
-        deny  all;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;キャッシュプロキシ&#34;&gt;キャッシュプロキシ&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;http {
-    proxy_cache_path /var/cache/nginx/cache levels=1:2 keys_zone=cachezone:60m max_size=1G inactive=7d;
-
-    location ~* \.(html|css|jpg|gif|ico|js)$ {
-        expires 1d;
-        proxy_cache cachezone;
-        proxy_cache_key $host$uri$is_args$args;
-        proxy_cache_valid 200 301 302 1d;
-        proxy_pass http://backend;
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;キャッシュを削除する&lt;/p&gt;
-
-&lt;p&gt;cssを含むリンクのみ&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;grep -lr &amp;quot;css&amp;quot; /var/cache/nginx/ | xargs rm -f
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;特定のリンク&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;grep -lr &amp;quot;http://sample.com/&amp;quot; /var/cache/nginx/ | xargs rm -f
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;basic認証&#34;&gt;basic認証&lt;/h4&gt;
-
-&lt;p&gt;htpasswdでパスワードファイルを作る&lt;/p&gt;
-
-&lt;h5 id=&#34;centos7&#34;&gt;centos7&lt;/h5&gt;
-
-&lt;p&gt;htpasswdをインストール&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo yum install httpd-tools
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ sudo htpasswd -c /etc/nginx/.htpasswd username&lt;br /&gt;
-$ sudo vim /etc/nginx/conf.d/default.conf&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;auth_basic &amp;quot;好きなrealmを&amp;quot;;
-auth_basic_ user_file /etc/nginx/.htpasswd;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;リバースプロキシ&#34;&gt;リバースプロキシ&lt;/h4&gt;
-
-&lt;p&gt;ip_hashでクライアントIPアドレスを元にセッションが維持される&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;upstream backend {
-  ip_hash;
-  server 127.0.0.1:80;
-  server 127.0.0.1:81 ;
-}
-
-# sample
-location ~* \.php$ {
-  proxy_pass http://backend;
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://freks.jp/tips/git/</link>
-      <pubDate>Sat, 04 Feb 2017 18:40:36 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/git/</guid>
-      <description>
-
-&lt;h1 id=&#34;tips&#34;&gt;tips&lt;/h1&gt;
-
-&lt;p&gt;手元のブランチを削除する&lt;br /&gt;
-$ git branch -d (sample)&lt;/p&gt;
-
-&lt;p&gt;リモートリポジトリのブランチを削除する&lt;br /&gt;
-$ git push origin :(sample)&lt;/p&gt;
-
-&lt;p&gt;リモートリポジトリで削除されたブランチが手元で残っているとき削除する&lt;br /&gt;
-$ git remote prune origin&lt;/p&gt;
-
-&lt;h1 id=&#34;start-to-use-git&#34;&gt;start to use git&lt;/h1&gt;
-
-&lt;pre&gt;&lt;code&gt;git config --global user.name (name)
-git config --global user.email (email address)
-git config --global color.ui auto
-git config --global alias.ch checkout
-git config --global alias.co commit
-git config --global alias.st status
-git config --global alias.br branch
-git config --global core.quotepath off
-git config --global core.editor vim
-git config --global push.default simple
-git config --global commit.verbose true
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;connect-bitbucket-using-name-changed-ssh-key-not-id-rsa&#34;&gt;connect bitbucket using name changed ssh key (not id_rsa)&lt;/h1&gt;
-
-&lt;p&gt;prepare ssh key (ex. deploykey_rsa)&lt;br /&gt;
-register ssh public key to bitbucket account or repository&lt;/p&gt;
-
-&lt;p&gt;on server&lt;/p&gt;
-
-&lt;p&gt;$ vi .ssh/config&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Host bitbucket
-  HostName bitbucket.org
-  User git
-  IdentityFile ~/.ssh/deploykey_rsa
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;confirm&lt;/p&gt;
-
-&lt;p&gt;$ ssh bitbucket&lt;/p&gt;
-
-&lt;p&gt;link .ssh/config to git&lt;/p&gt;
-
-&lt;p&gt;$ vim .gitconfig&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[url &amp;quot;bitbucket:&amp;quot;]
-    InsteadOf = git@bitbucket.org:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;use-gpg&#34;&gt;use gpg&lt;/h1&gt;
-
-&lt;h2 id=&#34;on-ubuntu&#34;&gt;on ubuntu&lt;/h2&gt;
-
-&lt;p&gt;gpg is installed by default&lt;br /&gt;
-gpg2 is not installed by default&lt;br /&gt;
-gpg2 is gpg v2&lt;/p&gt;
-
-&lt;p&gt;refer to: &lt;a href=&#34;http://qiita.com/prince_0203/items/ef0e12f2f6d150ff0485&#34;&gt;GitHubでGPGにより署名されたcommitにバッジが表示されるようになったので設定してみる - Qiita&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;create-gpg-key&#34;&gt;create gpg key&lt;/h2&gt;
-
-&lt;p&gt;$ gpg &amp;ndash;gen-key&lt;/p&gt;
-
-&lt;p&gt;follow the instruction&lt;br /&gt;
-wait for a long time&lt;/p&gt;
-
-&lt;p&gt;$ gpg &amp;ndash;list-keys&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pub   4096R/xxxxxxxx 2016-04-10
-uid           sample foobar &amp;lt;sample@sample.com&amp;gt;
-sub   4096R/yyyyyyyy 2016-04-10
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;xxxxxxxx is the id&lt;/p&gt;
-
-&lt;p&gt;show public key&lt;br /&gt;
-$ gpg &amp;ndash;armor &amp;ndash;export コピーした鍵のID&lt;/p&gt;
-
-&lt;p&gt;copy and paste in the github setting&lt;/p&gt;
-
-&lt;p&gt;$ git config &amp;ndash;global gpg.program gpg&lt;br /&gt;
-$ git config &amp;ndash;global user.signingkey コピーした鍵のID&lt;br /&gt;
-$ git config &amp;ndash;global commit.gpgsign true&lt;/p&gt;
-
-&lt;h2 id=&#34;copy-gpg-key&#34;&gt;copy gpg key&lt;/h2&gt;
-
-&lt;p&gt;copy .gnupg directory&lt;br /&gt;
--&amp;gt; this didn&amp;rsquo;t work because git version was old&lt;/p&gt;
-
-&lt;h1 id=&#34;change-gpg-passphrase&#34;&gt;change gpg passphrase&lt;/h1&gt;
-
-&lt;p&gt;$ gpg &amp;ndash;edit-key (key id)&lt;br /&gt;
-&amp;gt; passwd&lt;br /&gt;
-&amp;gt; (input old passphrase and new passphrase)&lt;/p&gt;
-
-&lt;h1 id=&#34;revert-one-file-to-old-commit&#34;&gt;revert one file to old commit&lt;/h1&gt;
-
-&lt;p&gt;$ git checkout [commit hash] [file path]&lt;/p&gt;
 </description>
     </item>
     

@@ -6,8 +6,40 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 26 Apr 2017 12:20:54 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 26 Apr 2017 18:44:47 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>syslog</title>
+      <link>https://freks.jp/tips/syslog/</link>
+      <pubDate>Wed, 26 Apr 2017 18:44:47 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/syslog/</guid>
+      <description>
+
+&lt;h1 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h1&gt;
+
+&lt;h2 id=&#34;rsyslog&#34;&gt;rsyslog&lt;/h2&gt;
+
+&lt;p&gt;rsyslogが使われている&lt;br /&gt;
+facilityとpriorityを指定するとログを吐く場所を変えられる&lt;/p&gt;
+
+&lt;p&gt;facility: mail&lt;br /&gt;
+priority: alert&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ logger -p mail.alert xxxxx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;config&#34;&gt;config&lt;/h3&gt;
+
+&lt;p&gt;$ vi /etc/rsyslog.d/50-default.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mail.info     /var/log/mail.info
+mail.warn     /var/log/mail.warn
+mail.err      /var/log/mail.err
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>tls/ssl</title>
@@ -157,6 +189,54 @@ $one = Config::get(&#39;original.one&#39;);
 &lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
 
 &lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>php cs fixer</title>
+      <link>https://freks.jp/tips/php-cs-fixer/</link>
+      <pubDate>Fri, 07 Apr 2017 16:54:27 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/php-cs-fixer/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/FriendsOfPHP/PHP-CS-Fixer&#34;&gt;PHP-CS-Fixer&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;install-by-composer&#34;&gt;install by composer&lt;/h1&gt;
+
+&lt;p&gt;$ composer global require friendsofphp/php-cs-fixer&lt;/p&gt;
+
+&lt;h1 id=&#34;how-to-use&#34;&gt;how to use&lt;/h1&gt;
+
+&lt;p&gt;標準設定ファイル&lt;br /&gt;
+個別の設定は .php_cs&lt;/p&gt;
+
+&lt;p&gt;$ vim .php_cs.dist&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+namespace PhpCsFixer;
+
+return Config::create()
+  -&amp;gt;setRiskyAllowed(true)
+  -&amp;gt;setRules([
+    &#39;@PSR1&#39; =&amp;gt; true,
+    &#39;@PSR2&#39; =&amp;gt; true,
+    &#39;@Symfony&#39; =&amp;gt; true,
+    &#39;@Symfony:risky&#39; =&amp;gt; true,
+    &#39;array_syntax&#39; =&amp;gt; [
+      &#39;syntax&#39; =&amp;gt; &#39;short&#39;,
+    ],
+  ])
+;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;確認 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix &amp;ndash;dry-run &amp;ndash;diff&lt;/p&gt;
+
+&lt;p&gt;修正 .php_cs.dist を使う&lt;/p&gt;
+
+&lt;p&gt;$ php-cs-fixer fix&lt;/p&gt;
 </description>
     </item>
     
@@ -706,205 +786,6 @@ SA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;$ sudo systemctl reload nginx.service&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>fluentd</title>
-      <link>https://freks.jp/tips/fluentd/</link>
-      <pubDate>Mon, 13 Feb 2017 15:33:20 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/fluentd/</guid>
-      <description>
-
-&lt;h3 id=&#34;prerequirement&#34;&gt;prerequirement&lt;/h3&gt;
-
-&lt;p&gt;see &lt;a href=&#34;http://docs.fluentd.org/v0.12/articles/before-install&#34;&gt;Before Installing Fluentd | Fluentd&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;コマンドが扱えるファイルの数を確認&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ulimit -n
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;1024だと足りないので&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo /etc/security/limits.conf
-
-root soft nofile 65536
-root hard nofile 65536
-* soft nofile 65536
-* hard nofile 65536
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;を追記、再起動（VPSだとログアウト、ログインで変更された）&lt;/p&gt;
-
-&lt;p&gt;kernel parameterを変えるのは他に影響が出そうだったのでスキップ&lt;/p&gt;
-
-&lt;h3 id=&#34;install&#34;&gt;install&lt;/h3&gt;
-
-&lt;h4 id=&#34;ubuntu-14-04-trusty&#34;&gt;ubuntu 14.04 trusty&lt;/h4&gt;
-
-&lt;p&gt;register td-agent repository, install td-agent and boot td-agent deamon&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ curl -L https://toolbelt.treasuredata.com/sh/install-ubuntu-trusty-td-agent2.sh | sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;test&#34;&gt;test&lt;/h3&gt;
-
-&lt;p&gt;throw one request to td-agent&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -X POST -d &#39;json={&amp;quot;json&amp;quot;:&amp;quot;message&amp;quot;}&#39; http://localhost:8888/debug.test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;confirm log&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cat /var/log/td-agent/td-agent.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;service&#34;&gt;service&lt;/h3&gt;
-
-&lt;p&gt;start, stop, etc..&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo /etc/init.d/td-agent start
-$ sudo /etc/init.d/td-agent stop
-$ sudo /etc/init.d/td-agent restart
-$ sudo /etc/init.d/td-agent status
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;check-processes&#34;&gt;check processes&lt;/h3&gt;
-
-&lt;p&gt;プロセスは２つ起動しているのが正しい&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ps aufx | grep td-agent
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;directive&#34;&gt;directive&lt;/h3&gt;
-
-&lt;p&gt;設定ファイル&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/td-agent/td-agent.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;system&#34;&gt;&amp;lt;system&amp;gt;&lt;/h4&gt;
-
-&lt;p&gt;Fluentdのコアの動作を設定&lt;/p&gt;
-
-&lt;h4 id=&#34;source&#34;&gt;&amp;lt;source&amp;gt;&lt;/h4&gt;
-
-&lt;p&gt;ログの入力元を設定&lt;/p&gt;
-
-&lt;h4 id=&#34;match&#34;&gt;&amp;lt;match&amp;gt;&lt;/h4&gt;
-
-&lt;p&gt;ログの出力先を設定&lt;/p&gt;
-
-&lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
-
-&lt;p&gt;外部ファイルの設定を読み込む&lt;/p&gt;
-
-&lt;h3 id=&#34;rootize&#34;&gt;rootize&lt;/h3&gt;
-
-&lt;p&gt;エラーログなど権限不足で読めないので、td-agentをrootで起動する&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo vim /etc/init.d/td-agent
-
-TD_AGENT_USER=root
-TD_AGENT_GROUP=root
-
-$ service td-agent restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;example-1&#34;&gt;example 1&lt;/h3&gt;
-
-&lt;p&gt;nginx access logをtd-agent.logに出力する&lt;/p&gt;
-
-&lt;p&gt;$ vim /etc/td-agent/td-agent.conf&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;match debug.**&amp;gt;
-  @type stdout
-&amp;lt;/match&amp;gt;
-
-&amp;lt;source&amp;gt;
-  @type tail
-  path /var/log/nginx/sample-access.log
-  tag debug.sample-access
-  pos_file /var/log/td-agent/sample-access.log.pos
-  format /^(?&amp;lt;remote&amp;gt;[^ ]*) (?&amp;lt;host&amp;gt;[^ ]*) (?&amp;lt;user&amp;gt;[^ ]*) \[(?&amp;lt;time&amp;gt;[^\]]*)\] &amp;quot;(?&amp;lt;method&amp;gt;\S+)(?: +(?&amp;lt;path&amp;gt;[^ ]*) +\S*)?&amp;quot; (?&amp;lt;code&amp;gt;[^ ]*) (?&amp;lt;size&amp;gt;[^ ]*)(?: &amp;quot;(?&amp;lt;referer&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;agent&amp;gt;[^\&amp;quot;]*)&amp;quot; &amp;quot;(?&amp;lt;forwarder&amp;gt;[^\&amp;quot;]*)&amp;quot;)?/
-  time_format %d/%b/%Y:%H:%M:%S %z
-&amp;lt;/source&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ tail /var/log/td-agent/td-agent.log&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;2017-02-15 21:26:44 +0900 debug.sample-access: {&amp;quot;remote&amp;quot;:&amp;quot;xxx.xxx.xxx.xxx&amp;quot;,&amp;quot;host&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;metho
-6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&amp;quot;,&amp;quot;forwarder&amp;quot;:&amp;quot;-&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>centos7</title>
-      <link>https://freks.jp/tips/centos7/</link>
-      <pubDate>Sun, 05 Feb 2017 13:00:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/centos7/</guid>
-      <description>
-
-&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo yum update
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;firewalld&#34;&gt;firewalld&lt;/h4&gt;
-
-&lt;p&gt;reload firewalld&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --reload
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;open http port of firewall&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public --permanent
-$ sudo firewall-cmd --add-service=https --zone=public --permanent
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;open and close port&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent
-$ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;yum&#34;&gt;yum&lt;/h4&gt;
-
-&lt;p&gt;yum install時に使われるrepositoryは&lt;code&gt;/etc/yum.repos.d/&lt;/code&gt;内にあって、enable=1のもの&lt;br /&gt;
-&lt;code&gt;enable=0&lt;/code&gt;のものを指定するには&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo yum install --enablerepo=epel certbot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;yumでインストールしたパッケージ一覧&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo yum list installed
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;アップデート&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo yum install certbot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;削除&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo yum remove certbot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;rpm&#34;&gt;rpm&lt;/h4&gt;
-
-&lt;h5 id=&#34;install&#34;&gt;install&lt;/h5&gt;
-
-&lt;p&gt;$ rpm -ivh sample.rpm&lt;/p&gt;
-
-&lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
-
-&lt;p&gt;$ rpm -ql sample&lt;/p&gt;
 </description>
     </item>
     
