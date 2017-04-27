@@ -242,7 +242,30 @@ $ service td-agent restart
 <pre><code>2017-02-15 21:26:44 +0900 debug.sample-access: {&quot;remote&quot;:&quot;xxx.xxx.xxx.xxx&quot;,&quot;host&quot;:&quot;-&quot;,&quot;user&quot;:&quot;-&quot;,&quot;metho
 6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&quot;,&quot;forwarder&quot;:&quot;-&quot;}
 </code></pre>
-</div>
+
+<h1 id="use-docker">use docker</h1>
+
+<p>prepare conf<br />
+localhost:24224(TCP)で受けて標準出力する</p>
+
+<pre><code>&lt;source&gt;
+@type forward
+&lt;/source&gt;
+
+&lt;match *&gt;
+@type stdout
+&lt;/match&gt;
+</code></pre>
+
+<p>fluentdコンテナ起動<br />
+$ docker run -it -p 24224:24224 -v /path/to/conf/test.conf:/fluentd/etc/test.conf -e FLUENTD_CONF=test.conf fluent/fluentd:latest</p>
+
+<p>コンソール上で起動(Ctrl + Cでストップ)</p>
+
+<p>他のdockerコンテナをfluentdログドライバーで起動<br />
+$ docker run &ndash;log-driver=fluentd your/application</p>
+
+<p>ログがfluentdコンテナを起動したコンソールで表示される</div>
   </div>
 
   <footer class="article-footer">

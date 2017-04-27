@@ -860,6 +860,30 @@ $ service td-agent restart
 &lt;pre&gt;&lt;code&gt;2017-02-15 21:26:44 +0900 debug.sample-access: {&amp;quot;remote&amp;quot;:&amp;quot;xxx.xxx.xxx.xxx&amp;quot;,&amp;quot;host&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;user&amp;quot;:&amp;quot;-&amp;quot;,&amp;quot;metho
 6_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36&amp;quot;,&amp;quot;forwarder&amp;quot;:&amp;quot;-&amp;quot;}
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;use-docker&#34;&gt;use docker&lt;/h1&gt;
+
+&lt;p&gt;prepare conf&lt;br /&gt;
+localhost:24224(TCP)で受けて標準出力する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;source&amp;gt;
+@type forward
+&amp;lt;/source&amp;gt;
+
+&amp;lt;match *&amp;gt;
+@type stdout
+&amp;lt;/match&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;fluentdコンテナ起動&lt;br /&gt;
+$ docker run -it -p 24224:24224 -v /path/to/conf/test.conf:/fluentd/etc/test.conf -e FLUENTD_CONF=test.conf fluent/fluentd:latest&lt;/p&gt;
+
+&lt;p&gt;コンソール上で起動(Ctrl + Cでストップ)&lt;/p&gt;
+
+&lt;p&gt;他のdockerコンテナをfluentdログドライバーで起動&lt;br /&gt;
+$ docker run &amp;ndash;log-driver=fluentd your/application&lt;/p&gt;
+
+&lt;p&gt;ログがfluentdコンテナを起動したコンソールで表示される&lt;/p&gt;
 </description>
     </item>
     
