@@ -19,6 +19,13 @@
 &lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
 
 &lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+
+&lt;p&gt;-r recursive&lt;br /&gt;
+-l copy symlinks&lt;br /&gt;
+-t preserve modification time&lt;br /&gt;
+-u skip file that are newer&lt;br /&gt;
+-v verbose&lt;br /&gt;
+-z compress&lt;/p&gt;
 </description>
     </item>
     

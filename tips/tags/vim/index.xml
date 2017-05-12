@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/vim/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>neovim</title>
+      <link>https://freks.jp/tips/neovim/</link>
+      <pubDate>Mon, 08 May 2017 09:49:39 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/neovim/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim&#34;&gt;Installing Neovim&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ubuntu-16-04-xenial&#34;&gt;ubuntu 16.04 xenial&lt;/h2&gt;
+
+&lt;p&gt;stable repository installs nvim 1.7.x on 2017-05-08&lt;br /&gt;
+use unstable repo to install 2.1.x&lt;/p&gt;
+
+&lt;h1 id=&#34;check&#34;&gt;check&lt;/h1&gt;
+
+&lt;p&gt;:CheckHealth show the status of neovim&lt;/p&gt;
+
+&lt;h2 id=&#34;clipboard&#34;&gt;clipboard&lt;/h2&gt;
+
+&lt;h3 id=&#34;local&#34;&gt;local&lt;/h3&gt;
+
+&lt;p&gt;need to install xclip or xsel&lt;br /&gt;
+$ sudo apt install xsel&lt;/p&gt;
+
+&lt;h3 id=&#34;over-ssh&#34;&gt;over ssh&lt;/h3&gt;
+
+&lt;p&gt;?&lt;/p&gt;
+
+&lt;h2 id=&#34;python2&#34;&gt;python2&lt;/h2&gt;
+
+&lt;p&gt;this was needed sudo&lt;br /&gt;
+$ sudo pip2 install &amp;ndash;upgrade neovim&lt;/p&gt;
+
+&lt;h2 id=&#34;python3&#34;&gt;python3&lt;/h2&gt;
+
+&lt;p&gt;$ pip3 install &amp;ndash;upgrade neovim&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

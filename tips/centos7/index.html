@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>centos7 - freks tips</title>
     
-<meta name="description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta name="description" content="centos update $ sudo yum update  firewalld confirm firewall settingfirewall-cmd --list-services --zone=public --permanent  change ssh portcp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ vi /etc/firewalld/services/ssh.xml firewall-cmd --reload  reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.">
 
 <meta property="og:title" content="centos7 - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/centos7/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta property="og:description" content="centos update $ sudo yum update  firewalld confirm firewall settingfirewall-cmd --list-services --zone=public --permanent  change ssh portcp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ vi /etc/firewalld/services/ssh.xml firewall-cmd --reload  reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/centos7/">
 <meta name="twitter:title" content="centos7 - freks tips">
-<meta name="twitter:description" content="centos update $ sudo yum update  firewalld reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.repos.d/内にあって、enable=1のものenable=0のものを指定するにはsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧sudo yum list installed  アップデートsudo yum install certbot  削除">
+<meta name="twitter:description" content="centos update $ sudo yum update  firewalld confirm firewall settingfirewall-cmd --list-services --zone=public --permanent  change ssh portcp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/ vi /etc/firewalld/services/ssh.xml firewall-cmd --reload  reload firewalld$ sudo firewall-cmd --reload  open http port of firewall$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port$ sudo firewall-cmd --add-port=30080/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは/etc/yum.">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "centos update $ sudo yum update  firewalld reload firewalld\n$ sudo firewall-cmd --reload  open http port of firewall\n$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port\n$ sudo firewall-cmd --add-port=30080\/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080\/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは\/etc\/yum.repos.d\/内にあって、enable=1のもの\nenable=0のものを指定するには\nsudo yum install --enablerepo=epel certbot  yumでインストールしたパッケージ一覧\nsudo yum list installed  アップデート\nsudo yum install certbot  削除"
+    "description": "centos update $ sudo yum update  firewalld confirm firewall setting\nfirewall-cmd --list-services --zone=public --permanent  change ssh port\ncp \/usr\/lib\/firewalld\/services\/ssh.xml \/etc\/firewalld\/services\/ vi \/etc\/firewalld\/services\/ssh.xml firewall-cmd --reload  reload firewalld\n$ sudo firewall-cmd --reload  open http port of firewall\n$ sudo firewall-cmd --add-service=http --zone=public --permanent $ sudo firewall-cmd --add-service=https --zone=public --permanent  open and close port\n$ sudo firewall-cmd --add-port=30080\/tcp --zone=public --permanent $ sudo firewall-cmd --remove-port=30080\/tcp --zone=public --permanent  yum yum install時に使われるrepositoryは\/etc\/yum."
   }
 </script>
 
@@ -121,12 +121,24 @@
       
     </ul>
 
-    <div class="article-body"><h4 id="centos-update">centos update</h4>
+    <div class="article-body"><h1 id="centos-update">centos update</h1>
 
 <pre><code>$ sudo yum update
 </code></pre>
 
-<h4 id="firewalld">firewalld</h4>
+<h1 id="firewalld">firewalld</h1>
+
+<p>confirm firewall setting</p>
+
+<pre><code>firewall-cmd --list-services --zone=public  --permanent  
+</code></pre>
+
+<p>change ssh port</p>
+
+<pre><code>cp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/
+vi /etc/firewalld/services/ssh.xml
+firewall-cmd --reload
+</code></pre>
 
 <p>reload firewalld</p>
 
@@ -145,7 +157,7 @@ $ sudo firewall-cmd --add-service=https --zone=public --permanent
 $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 </code></pre>
 
-<h4 id="yum">yum</h4>
+<h1 id="yum">yum</h1>
 
 <p>yum install時に使われるrepositoryは<code>/etc/yum.repos.d/</code>内にあって、enable=1のもの<br />
 <code>enable=0</code>のものを指定するには</p>
@@ -168,13 +180,13 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 <pre><code>sudo yum remove certbot
 </code></pre>
 
-<h4 id="rpm">rpm</h4>
+<h1 id="rpm">rpm</h1>
 
-<h5 id="install">install</h5>
+<h2 id="install">install</h2>
 
 <p>$ rpm -ivh sample.rpm</p>
 
-<h4 id="show-places">show places</h4>
+<h1 id="show-places">show places</h1>
 
 <p>$ rpm -ql sample</div>
   </div>
@@ -250,6 +262,76 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/windows10/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/windows10/">windows10</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T16:33:15JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/awscli/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/awscli/">awscli</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T15:18:08JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/neovim/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/neovim/">neovim</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-08T09:49:39JST">May 8, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/mongo/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/mongo/">mongo</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-30T22:39:20JST">Apr 30, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/it-events/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/it-events/">IT events</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T17:16:30JST">Apr 28, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/syslog/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/syslog/">syslog</a></div>
@@ -261,7 +343,7 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/tls-ssl/" class="thumb"></a>
@@ -275,7 +357,7 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fuelphp/" class="thumb"></a>
@@ -289,7 +371,7 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/rsync/" class="thumb"></a>
@@ -303,7 +385,7 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/php-cs-fixer/" class="thumb"></a>
@@ -312,76 +394,6 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-07T16:54:27JST">Apr 7, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/virusscan/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/virusscan/">virusscan</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-04T12:41:55JST">Apr 4, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/clothes/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/clothes/">clothes</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-03T17:19:22JST">Apr 3, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-12T14:10:31JST">Mar 12, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-api/">sendgrid api</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-11T15:50:24JST">Mar 11, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/amazon-ecs/">amazon ecs</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-10T14:29:18JST">Mar 10, 2017</time></li>
       
     </ul>
   </header>
@@ -407,7 +419,7 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/ubuntu">ubuntu</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li>
       </ul>
     </div>
   </section>

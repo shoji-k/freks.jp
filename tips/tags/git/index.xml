@@ -16,6 +16,12 @@
       <guid>https://freks.jp/tips/git/</guid>
       <description>
 
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;$ sudo add-apt-repository ppa:git-core/ppa&lt;br /&gt;
+$ sudo apt update&lt;br /&gt;
+$ sudo apt install git&lt;/p&gt;
+
 &lt;h1 id=&#34;tips&#34;&gt;tips&lt;/h1&gt;
 
 &lt;p&gt;手元のブランチを削除する&lt;br /&gt;

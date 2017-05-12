@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/event/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/event/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>IT events</title>
+      <link>https://freks.jp/tips/it-events/</link>
+      <pubDate>Fri, 28 Apr 2017 17:16:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/it-events/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.doorkeeper.jp/events/&#34;&gt;doorkeeper 近日開催イベント&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://connpass.com/upcoming_events/&#34;&gt;connpass 直前イベント&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Twitter&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_hokkaido&#34;&gt;IT勉強会@北海道&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_tohoku&#34;&gt;IT勉強会@東北&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kanto&#34;&gt;IT勉強会@関東&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_chubu&#34;&gt;IT勉強会@中部&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kinki&#34;&gt;IT勉強会@近畿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_chugoku&#34;&gt;IT勉強会@中国&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_shikoku&#34;&gt;IT勉強会@四国&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kyushu&#34;&gt;IT勉強会@九州&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

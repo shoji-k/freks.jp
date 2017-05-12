@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>sakura vps - freks tips</title>
     
-<meta name="description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta name="description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ubuntu 16.04 sakura用意の標準OSだとufwの設定が動かなかったので断念..カスタマイズのOSを選択最初からsudoが使え、ufwも使えるfirewall ufwは全て許可になってるので全部閉じる$ sudo ufw default deny必要なものを許可する$ sudo ufw allow ssh対応したアプリを表示$ sudo ufw app list設定を確認numberedで番号も表示$ sudo ufw status numbered設定を削除$ sudo ufw delete (number)ssh ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピー$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更">
 
 <meta property="og:title" content="sakura vps - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/sakuravps/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta property="og:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ubuntu 16.04 sakura用意の標準OSだとufwの設定が動かなかったので断念..カスタマイズのOSを選択最初からsudoが使え、ufwも使えるfirewall ufwは全て許可になってるので全部閉じる$ sudo ufw default deny必要なものを許可する$ sudo ufw allow ssh対応したアプリを表示$ sudo ufw app list設定を確認numberedで番号も表示$ sudo ufw status numbered設定を削除$ sudo ufw delete (number)ssh ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピー$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/sakuravps/">
 <meta name="twitter:title" content="sakura vps - freks tips">
-<meta name="twitter:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する管理画面へログイン、OSをインストールする Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ユーザー追加 管理画面のコンソールでの作業$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピーrootユーサーでsshログイン$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更$ sudo vi /etc/ssh/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える">
+<meta name="twitter:description" content="VPS（仮想専用サーバー）｜さくらインターネット  を契約する初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報ubuntu 16.04 sakura用意の標準OSだとufwの設定が動かなかったので断念..カスタマイズのOSを選択最初からsudoが使え、ufwも使えるfirewall ufwは全て許可になってるので全部閉じる$ sudo ufw default deny必要なものを許可する$ sudo ufw allow ssh対応したアプリを表示$ sudo ufw app list設定を確認numberedで番号も表示$ sudo ufw status numbered設定を削除$ sudo ufw delete (number)ssh ssh用の秘密鍵を生成しておく公開鍵をサーバーへコピー$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub &amp;gt; .ssh/authorized_keys $ chmod 600 .ssh/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "VPS（仮想専用サーバー）｜さくらインターネット  を契約する\n管理画面へログイン、OSをインストールする\n Centos 7 64bit root パスワードを入力  初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報\nユーザー追加 管理画面のコンソールでの作業\n$ useradd user $ passwd user (enter password twice)  ユーザーにsudo追加 $ usermod -G wheel user $ visudo %wheel ALL=(ALL) ALL を有効に  sshログイン ssh用の秘密鍵を生成しておく\n公開鍵をサーバーへコピー\nrootユーサーでsshログイン\n$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub \x26gt; .ssh\/authorized_keys $ chmod 600 .ssh\/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更\n$ sudo vi \/etc\/ssh\/sshd_config   Port 22 PermitRootLogin no PasswordAuthentication no  Portはファイアーウォールの設定もあわせて変える"
+    "description": "VPS（仮想専用サーバー）｜さくらインターネット  を契約する\n初期設定リファレンス 【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報\nubuntu 16.04 sakura用意の標準OSだとufwの設定が動かなかったので断念..\nカスタマイズのOSを選択\n最初からsudoが使え、ufwも使える\nfirewall ufwは全て許可になってるので全部閉じる\n$ sudo ufw default deny\n必要なものを許可する\n$ sudo ufw allow ssh\n対応したアプリを表示\n$ sudo ufw app list\n設定を確認\nnumberedで番号も表示\n$ sudo ufw status numbered\n設定を削除\n$ sudo ufw delete (number)\nssh ssh用の秘密鍵を生成しておく\n公開鍵をサーバーへコピー\n$ mkdir .ssh $ chmod 700 .ssh $ cat id_rsa.pub \x26gt; .ssh\/authorized_keys $ chmod 600 .ssh\/authorized_keys $ rm -f id_rsa.pub  sshサーバーの設定変更"
   }
 </script>
 
@@ -121,19 +121,110 @@
       
     </ul>
 
-    <div class="article-body"><a href="http://vps.sakura.ad.jp/">VPS（仮想専用サーバー）｜さくらインターネット </a>
-を契約する</p>
+    <div class="article-body"><a href="http://vps.sakura.ad.jp/">VPS（仮想専用サーバー）｜さくらインターネット </a> を契約する</p>
+
+<p>初期設定リファレンス <a href="https://help.sakura.ad.jp/hc/ja/articles/206208181">【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報</a></p>
+
+<h1 id="ubuntu-16-04">ubuntu 16.04</h1>
+
+<p>sakura用意の標準OSだとufwの設定が動かなかったので断念..<br />
+カスタマイズのOSを選択</p>
+
+<p>最初からsudoが使え、ufwも使える</p>
+
+<h2 id="firewall">firewall</h2>
+
+<p>ufwは全て許可になってるので全部閉じる<br />
+$ sudo ufw default deny</p>
+
+<p>必要なものを許可する<br />
+$ sudo ufw allow ssh</p>
+
+<p>対応したアプリを表示<br />
+$ sudo ufw app list</p>
+
+<p>設定を確認<br />
+numberedで番号も表示<br />
+$ sudo ufw status numbered</p>
+
+<p>設定を削除<br />
+$ sudo ufw delete (number)</p>
+
+<h2 id="ssh">ssh</h2>
+
+<p>ssh用の秘密鍵を生成しておく<br />
+公開鍵をサーバーへコピー</p>
+
+<pre><code>$ mkdir .ssh
+$ chmod 700 .ssh
+$ cat id_rsa.pub &gt; .ssh/authorized_keys
+$ chmod 600 .ssh/authorized_keys
+$ rm -f id_rsa.pub
+</code></pre>
+
+<p>sshサーバーの設定変更</p>
+
+<pre><code>$ sudo vi /etc/ssh/sshd_config
+</code></pre>
+
+<ul>
+<li>Port 22</li>
+<li>PermitRootLogin no</li>
+<li>PasswordAuthentication no</li>
+<li>usePAM no</li>
+</ul>
+
+<p>Portはファイアーウォールの設定もあわせて変える</p>
+
+<p>ssh再起動</p>
+
+<pre><code>$ sudo systemctl restart ssh.service
+</code></pre>
+
+<h2 id="ntp">ntp</h2>
+
+<p>ntpdはsystemdがやっている</p>
+
+<p>$ vi /etc/systemd/timesyncd.conf</p>
+
+<pre><code>NTP=ntp.nict.jp
+</code></pre>
+
+<p>再起動後有効になる</p>
+
+<p>確認<br />
+$ sudo systemctl -l status systemd-timesyncd.service</p>
+
+<h2 id="locate">locate</h2>
+
+<p>$ sudo apt install language-pack-ja</p>
+
+<p>locale変更<br />
+$ sudo localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE=&ldquo;en_Us:en&rdquo;</p>
+
+<p>ファイル名は日本語表示、メッセージは英語</p>
+
+<p>locale確認<br />
+$ localectl</p>
+
+<h2 id="vim">vim</h2>
+
+<p>sudo apt-get install software-properties-common
+sudo apt-get install python-dev python-pip python3-dev python3-pip</p>
+
+<p>sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim</p>
+
+<h1 id="centos-7">centos 7</h1>
 
 <p>管理画面へログイン、OSをインストールする</p>
 
 <ul>
-<li>Centos 7 64bit</li>
 <li>root パスワードを入力</li>
 </ul>
 
-<p>初期設定リファレンス <a href="https://help.sakura.ad.jp/hc/ja/articles/206208181">【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報</a></p>
-
-<h4 id="ユーザー追加">ユーザー追加</h4>
+<h2 id="ユーザー追加">ユーザー追加</h2>
 
 <p>管理画面のコンソールでの作業</p>
 
@@ -142,14 +233,14 @@ $ passwd user
 (enter password twice)
 </code></pre>
 
-<h4 id="ユーザーにsudo追加">ユーザーにsudo追加</h4>
+<h2 id="ユーザーにsudo追加">ユーザーにsudo追加</h2>
 
 <pre><code>$ usermod -G wheel user
 $ visudo
 %wheel ALL=(ALL) ALL を有効に
 </code></pre>
 
-<h4 id="sshログイン">sshログイン</h4>
+<h2 id="sshログイン">sshログイン</h2>
 
 <p>ssh用の秘密鍵を生成しておく<br />
 公開鍵をサーバーへコピー</p>
@@ -181,7 +272,7 @@ $ rm -f id_rsa.pub
 <pre><code>$ sudo systemctl restart sshd.service
 </code></pre>
 
-<h4 id="firewalld設定">firewalld設定</h4>
+<h2 id="firewalld設定">firewalld設定</h2>
 
 <p>デーモン確認</p>
 
@@ -211,23 +302,23 @@ $ firewall-cmd --reload
 <pre><code>journalctl -u sshd.service
 </code></pre>
 
-<h4 id="centos-update">centos update</h4>
+<h2 id="centos-update">centos update</h2>
 
 <pre><code>$ sudo yum update
 </code></pre>
 
-<h4 id="open-http-port-of-firewall">open http port of firewall</h4>
+<h2 id="open-http-port-of-firewall">open http port of firewall</h2>
 
 <pre><code>$ sudo firewall-cmd --add-service=http --zone=public
 $ sudo firewall-cmd --add-service=https --zone=public
 </code></pre>
 
-<h4 id="git">git</h4>
+<h2 id="git">git</h2>
 
 <p>git was already installed<br />
 so do config</p>
 
-<h4 id="nginx">nginx</h4>
+<h2 id="nginx">nginx</h2>
 
 <p>repository登録<br />
 $ vim /etc/yum.repos.d/nginx.repo</p>
@@ -240,7 +331,28 @@ enabled=1
 </code></pre>
 
 <p>install<br />
-$ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
+$ sudo yum -y &ndash;enablerepo=nginx install nginx</p>
+
+<h1 id="ネットワークが遅い">ネットワークが遅い</h1>
+
+<p>refference:</p>
+
+<ul>
+<li><a href="https://help.sakura.ad.jp/hc/ja/articles/206073662">さくらのVPSで回線速度が遅くアクセスに時間がかかります。 – さくらのサポート情報</a></li>
+</ul>
+
+<p>$ sudo ethtool -k ens3 | grep tcp</p>
+
+<pre><code>tcp-segmentation-offload: off
+        tx-tcp-segmentation: off
+        tx-tcp-ecn-segmentation: off
+        tx-tcp6-segmentation: off
+</code></pre>
+
+<p>再起動して確認する</p>
+
+<p>試用期間はネットワークが制限される<br />
+- <a href="http://vps.sakura.ad.jp/flow/">お申し込みのながれ｜VPS（仮想専用サーバー）はさくらインターネット</a></div>
   </div>
 
   <footer class="article-footer">
@@ -296,6 +408,8 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
             
             <li><a href="https://freks.jp/tips/tags/centos7/">centos7</a></li>
             
+            <li><a href="https://freks.jp/tips/tags/ubuntu/">ubuntu</a></li>
+            
           </ul>
         </div>
       </section>
@@ -318,6 +432,76 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/windows10/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/windows10/">windows10</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T16:33:15JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/awscli/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/awscli/">awscli</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T15:18:08JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/neovim/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/neovim/">neovim</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-08T09:49:39JST">May 8, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/mongo/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/mongo/">mongo</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-30T22:39:20JST">Apr 30, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/it-events/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/it-events/">IT events</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T17:16:30JST">Apr 28, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/syslog/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/syslog/">syslog</a></div>
@@ -329,7 +513,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/tls-ssl/" class="thumb"></a>
@@ -343,7 +527,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fuelphp/" class="thumb"></a>
@@ -357,7 +541,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/rsync/" class="thumb"></a>
@@ -371,7 +555,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/php-cs-fixer/" class="thumb"></a>
@@ -380,76 +564,6 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-07T16:54:27JST">Apr 7, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/virusscan/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/virusscan/">virusscan</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-04T12:41:55JST">Apr 4, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/clothes/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/clothes/">clothes</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-03T17:19:22JST">Apr 3, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-12T14:10:31JST">Mar 12, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-api/">sendgrid api</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-11T15:50:24JST">Mar 11, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/amazon-ecs/">amazon ecs</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-10T14:29:18JST">Mar 10, 2017</time></li>
       
     </ul>
   </header>
@@ -475,7 +589,7 @@ $ sudo yum -y &ndash;enablerepo=nginx install nginx</div>
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/ubuntu">ubuntu</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li>
       </ul>
     </div>
   </section>

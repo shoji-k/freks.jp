@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
     <title>rsync - freks tips</title>
     
-<meta name="description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./">
+<meta name="description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./-r recursive-l copy symlinks-t preserve modification time-u skip file that are newer-v verbose-z compress">
 
 <meta property="og:title" content="rsync - freks tips">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://freks.jp/tips/rsync/">
 <meta property="og:image" content="https://freks.jp/tips/images/default.png">
 <meta property="og:site_name" content="freks tips">
-<meta property="og:description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./">
+<meta property="og:description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./-r recursive-l copy symlinks-t preserve modification time-u skip file that are newer-v verbose-z compress">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image:width" content="498" />
 <meta property="og:image:height" content="484" />
@@ -38,7 +38,7 @@
 <meta name="twitter:site" content="freks tips">
 <meta name="twitter:url" content="https://freks.jp/tips/rsync/">
 <meta name="twitter:title" content="rsync - freks tips">
-<meta name="twitter:description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./">
+<meta name="twitter:description" content="backup remote files $ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./-r recursive-l copy symlinks-t preserve modification time-u skip file that are newer-v verbose-z compress">
 <meta name="twitter:image" content="https://freks.jp/tips/images/default.png">
 
 
@@ -73,7 +73,7 @@
         "height": 60
       }
     },
-    "description": "backup remote files $ rsync \x26ndash;exclude=\x26ldquo;\/src\/app\/cache\x26rdquo; \x26ndash;exclude=\x26ldquo;.git\x26rdquo; \x26ndash;exclude=\x26ldquo;.gitignore\x26rdquo; -rltuvz sample:\/var\/www\/html .\/"
+    "description": "backup remote files $ rsync \x26ndash;exclude=\x26ldquo;\/src\/app\/cache\x26rdquo; \x26ndash;exclude=\x26ldquo;.git\x26rdquo; \x26ndash;exclude=\x26ldquo;.gitignore\x26rdquo; -rltuvz sample:\/var\/www\/html .\/\n-r recursive\n-l copy symlinks\n-t preserve modification time\n-u skip file that are newer\n-v verbose\n-z compress"
   }
 </script>
 
@@ -123,7 +123,14 @@
 
     <div class="article-body"><h1 id="backup-remote-files">backup remote files</h1>
 
-<p>$ rsync &ndash;exclude=&ldquo;/src/app/cache&rdquo; &ndash;exclude=&ldquo;.git&rdquo; &ndash;exclude=&ldquo;.gitignore&rdquo; -rltuvz sample:/var/www/html ./</div>
+<p>$ rsync &ndash;exclude=&ldquo;/src/app/cache&rdquo; &ndash;exclude=&ldquo;.git&rdquo; &ndash;exclude=&ldquo;.gitignore&rdquo; -rltuvz sample:/var/www/html ./</p>
+
+<p>-r recursive<br />
+-l copy symlinks<br />
+-t preserve modification time<br />
+-u skip file that are newer<br />
+-v verbose<br />
+-z compress</div>
   </div>
 
   <footer class="article-footer">
@@ -199,6 +206,76 @@
       <div class="row">
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/windows10/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/windows10/">windows10</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T16:33:15JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/awscli/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/awscli/">awscli</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-11T15:18:08JST">May 11, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/neovim/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/neovim/">neovim</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-05-08T09:49:39JST">May 8, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/mongo/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/mongo/">mongo</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-30T22:39:20JST">Apr 30, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        <div class="col-sm-12"></div>
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
+  <a href="https://freks.jp/tips/it-events/" class="thumb"></a>
+  <header>
+    <div class="title"><a href="https://freks.jp/tips/it-events/">IT events</a></div>
+
+    <ul class="p-facts">
+      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-28T17:16:30JST">Apr 28, 2017</time></li>
+      
+    </ul>
+  </header>
+</article>
+</div>
+        
+        
+        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/syslog/" class="thumb"></a>
   <header>
     <div class="title"><a href="https://freks.jp/tips/syslog/">syslog</a></div>
@@ -210,7 +287,7 @@
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/tls-ssl/" class="thumb"></a>
@@ -224,7 +301,7 @@
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/fuelphp/" class="thumb"></a>
@@ -238,7 +315,7 @@
   </header>
 </article>
 </div>
-        
+        <div class="col-sm-12"></div>
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/rsync/" class="thumb"></a>
@@ -252,7 +329,7 @@
   </header>
 </article>
 </div>
-        <div class="col-sm-12"></div>
+        
         
         <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
   <a href="https://freks.jp/tips/php-cs-fixer/" class="thumb"></a>
@@ -261,76 +338,6 @@
 
     <ul class="p-facts">
       <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-07T16:54:27JST">Apr 7, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/virusscan/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/virusscan/">virusscan</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-04T12:41:55JST">Apr 4, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/clothes/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/clothes/">clothes</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-04-03T17:19:22JST">Apr 3, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-php/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-php/">sendgrid php</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-12T14:10:31JST">Mar 12, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        <div class="col-sm-12"></div>
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/sendgrid-api/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/sendgrid-api/">sendgrid api</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-11T15:50:24JST">Mar 11, 2017</time></li>
-      
-    </ul>
-  </header>
-</article>
-</div>
-        
-        
-        <div class="col-md-12 col-sm-6 col-xs-12"><article class="li sm">
-  <a href="https://freks.jp/tips/amazon-ecs/" class="thumb"></a>
-  <header>
-    <div class="title"><a href="https://freks.jp/tips/amazon-ecs/">amazon ecs</a></div>
-
-    <ul class="p-facts">
-      <li><i class="fa fa-calendar" aria-hidden="true"></i><time datetime="2017-03-10T14:29:18JST">Mar 10, 2017</time></li>
       
     </ul>
   </header>
@@ -356,7 +363,7 @@
     <header>tag</header>
     <div>
       <ul class="p-terms">
-        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li><li><a href="https://freks.jp/tips/tags/apache">apache</a></li>
+        <li><a href="https://freks.jp/tips/tags/php">php</a></li><li><a href="https://freks.jp/tips/tags/aws">aws</a></li><li><a href="https://freks.jp/tips/tags/docker">docker</a></li><li><a href="https://freks.jp/tips/tags/centos7">centos7</a></li><li><a href="https://freks.jp/tips/tags/ecr">ecr</a></li><li><a href="https://freks.jp/tips/tags/sendgrid">sendgrid</a></li><li><a href="https://freks.jp/tips/tags/ssl">ssl</a></li><li><a href="https://freks.jp/tips/tags/ubuntu">ubuntu</a></li><li><a href="https://freks.jp/tips/tags/"></a></li><li><a href="https://freks.jp/tips/tags/ansible">ansible</a></li>
       </ul>
     </div>
   </section>

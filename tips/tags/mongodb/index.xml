@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/mongodb/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>mongo</title>
+      <link>https://freks.jp/tips/mongo/</link>
+      <pubDate>Sun, 30 Apr 2017 22:39:20 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/mongo/</guid>
+      <description>
+
+&lt;p&gt;mongodbはschemeless&lt;/p&gt;
+
+&lt;h1 id=&#34;naming&#34;&gt;naming&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;RDB&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;mongo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;table&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;collection&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;row&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;document&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;column&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;field&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;command&#34;&gt;command&lt;/h1&gt;
+
+&lt;p&gt;$ mongo&lt;br /&gt;
+$ mongo (database name) -u (user name) -p&lt;/p&gt;
+
+&lt;h1 id=&#34;command-in-mongo&#34;&gt;command in mongo&lt;/h1&gt;
+
+&lt;h2 id=&#34;show-databases&#34;&gt;show databases&lt;/h2&gt;
+
+&lt;p&gt;show dbs;&lt;/p&gt;
+
+&lt;h2 id=&#34;show-collections&#34;&gt;show collections&lt;/h2&gt;
+
+&lt;p&gt;use (database name);&lt;br /&gt;
+db.getCollectionNames();&lt;/p&gt;
+
+&lt;p&gt;field見るにはfindで&lt;/p&gt;
+
+&lt;h2 id=&#34;create-an-user&#34;&gt;create an user&lt;/h2&gt;
+
+&lt;p&gt;db.createUser({user: &amp;ldquo;user&amp;rdquo;, pwd: &amp;ldquo;password&amp;rdquo;, roles:[{ &amp;ldquo;role&amp;rdquo;: &amp;ldquo;userAdminAnyDatabase&amp;rdquo;, &amp;ldquo;db&amp;rdquo;: &amp;ldquo;admin&amp;rdquo;}]});&lt;/p&gt;
+
+&lt;h2 id=&#34;show-users&#34;&gt;show users&lt;/h2&gt;
+
+&lt;p&gt;use admin;&lt;br /&gt;
+db.system.users.find();&lt;/p&gt;
+
+&lt;h2 id=&#34;insert-data&#34;&gt;insert data&lt;/h2&gt;
+
+&lt;p&gt;schemelessのためcollectionをcreateとかしなくていい&lt;/p&gt;
+
+&lt;p&gt;collection aaa に insert&lt;br /&gt;
+db.aaa.insert({name: &amp;lsquo;hey&amp;rsquo;, gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h2 id=&#34;find-data&#34;&gt;find data&lt;/h2&gt;
+
+&lt;p&gt;db.aaa.find();&lt;br /&gt;
+db.aaa.find({gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h2 id=&#34;remove-data&#34;&gt;remove data&lt;/h2&gt;
+
+&lt;p&gt;db.aaa.find({gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h1 id=&#34;docker&#34;&gt;docker&lt;/h1&gt;
+
+&lt;p&gt;image: &lt;a href=&#34;https://hub.docker.com/_/mongo/&#34;&gt;mongo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;docker-compose&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: &#39;2&#39;
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+    - &amp;quot;27017:27017&amp;quot;
+    volumes:
+    - ./mongo/data:/data/db
+    - ./mongo/init/:/docker-entrypoint-initdb.d/
+    environment:
+    - MONGO_INITDB_DATABASE=fluentd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MONGO_INITDB_DATABASE is the database where initial script creates users.&lt;br /&gt;
+(see /docker-entry.point in the container)&lt;/p&gt;
+
+&lt;p&gt;data is preserved in ./mongo/data&lt;/p&gt;
+
+&lt;p&gt;initialize script is in ./mongo/init&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var newUsers = [
+  {
+		user: &#39;logger&#39;,
+		pwd: &#39;password&#39;,
+		roles: [
+			{
+				role: &#39;readWrite&#39;,
+				db: &#39;fluentd&#39;
+			}
+		]
+	}
+];
+
+var currentUsers = db.getUsers();
+if (currentUsers.length === newUsers.length) {
+	quit();
+}
+db.dropAllUsers();
+
+for (var i = 0, length = newUsers.length; i &amp;lt; length; ++i) {
+	db.createUser(newUsers[i]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;refference: &lt;a href=&#34;http://qiita.com/janus_wel/items/daf19943837e2562cc9f&#34;&gt;fluentd + MongoDB でログサーバー構築 - Qiita&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

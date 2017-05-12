@@ -16,12 +16,24 @@
       <guid>https://freks.jp/tips/centos7/</guid>
       <description>
 
-&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
+&lt;h1 id=&#34;centos-update&#34;&gt;centos update&lt;/h1&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo yum update
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;firewalld&#34;&gt;firewalld&lt;/h4&gt;
+&lt;h1 id=&#34;firewalld&#34;&gt;firewalld&lt;/h1&gt;
+
+&lt;p&gt;confirm firewall setting&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;firewall-cmd --list-services --zone=public  --permanent  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;change ssh port&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cp /usr/lib/firewalld/services/ssh.xml /etc/firewalld/services/
+vi /etc/firewalld/services/ssh.xml
+firewall-cmd --reload
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;reload firewalld&lt;/p&gt;
 
@@ -40,7 +52,7 @@ $ sudo firewall-cmd --add-service=https --zone=public --permanent
 $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;yum&#34;&gt;yum&lt;/h4&gt;
+&lt;h1 id=&#34;yum&#34;&gt;yum&lt;/h1&gt;
 
 &lt;p&gt;yum install時に使われるrepositoryは&lt;code&gt;/etc/yum.repos.d/&lt;/code&gt;内にあって、enable=1のもの&lt;br /&gt;
 &lt;code&gt;enable=0&lt;/code&gt;のものを指定するには&lt;/p&gt;
@@ -63,13 +75,13 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
 &lt;pre&gt;&lt;code&gt;sudo yum remove certbot
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;rpm&#34;&gt;rpm&lt;/h4&gt;
+&lt;h1 id=&#34;rpm&#34;&gt;rpm&lt;/h1&gt;
 
-&lt;h5 id=&#34;install&#34;&gt;install&lt;/h5&gt;
+&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
 
 &lt;p&gt;$ rpm -ivh sample.rpm&lt;/p&gt;
 
-&lt;h4 id=&#34;show-places&#34;&gt;show places&lt;/h4&gt;
+&lt;h1 id=&#34;show-places&#34;&gt;show places&lt;/h1&gt;
 
 &lt;p&gt;$ rpm -ql sample&lt;/p&gt;
 </description>
@@ -83,19 +95,110 @@ $ sudo firewall-cmd --remove-port=30080/tcp --zone=public --permanent
       <guid>https://freks.jp/tips/sakuravps/</guid>
       <description>
 
-&lt;p&gt;&lt;a href=&#34;http://vps.sakura.ad.jp/&#34;&gt;VPS（仮想専用サーバー）｜さくらインターネット &lt;/a&gt;
-を契約する&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://vps.sakura.ad.jp/&#34;&gt;VPS（仮想専用サーバー）｜さくらインターネット &lt;/a&gt; を契約する&lt;/p&gt;
+
+&lt;p&gt;初期設定リファレンス &lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206208181&#34;&gt;【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;ubuntu-16-04&#34;&gt;ubuntu 16.04&lt;/h1&gt;
+
+&lt;p&gt;sakura用意の標準OSだとufwの設定が動かなかったので断念..&lt;br /&gt;
+カスタマイズのOSを選択&lt;/p&gt;
+
+&lt;p&gt;最初からsudoが使え、ufwも使える&lt;/p&gt;
+
+&lt;h2 id=&#34;firewall&#34;&gt;firewall&lt;/h2&gt;
+
+&lt;p&gt;ufwは全て許可になってるので全部閉じる&lt;br /&gt;
+$ sudo ufw default deny&lt;/p&gt;
+
+&lt;p&gt;必要なものを許可する&lt;br /&gt;
+$ sudo ufw allow ssh&lt;/p&gt;
+
+&lt;p&gt;対応したアプリを表示&lt;br /&gt;
+$ sudo ufw app list&lt;/p&gt;
+
+&lt;p&gt;設定を確認&lt;br /&gt;
+numberedで番号も表示&lt;br /&gt;
+$ sudo ufw status numbered&lt;/p&gt;
+
+&lt;p&gt;設定を削除&lt;br /&gt;
+$ sudo ufw delete (number)&lt;/p&gt;
+
+&lt;h2 id=&#34;ssh&#34;&gt;ssh&lt;/h2&gt;
+
+&lt;p&gt;ssh用の秘密鍵を生成しておく&lt;br /&gt;
+公開鍵をサーバーへコピー&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ mkdir .ssh
+$ chmod 700 .ssh
+$ cat id_rsa.pub &amp;gt; .ssh/authorized_keys
+$ chmod 600 .ssh/authorized_keys
+$ rm -f id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;sshサーバーの設定変更&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo vi /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Port 22&lt;/li&gt;
+&lt;li&gt;PermitRootLogin no&lt;/li&gt;
+&lt;li&gt;PasswordAuthentication no&lt;/li&gt;
+&lt;li&gt;usePAM no&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Portはファイアーウォールの設定もあわせて変える&lt;/p&gt;
+
+&lt;p&gt;ssh再起動&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo systemctl restart ssh.service
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ntp&#34;&gt;ntp&lt;/h2&gt;
+
+&lt;p&gt;ntpdはsystemdがやっている&lt;/p&gt;
+
+&lt;p&gt;$ vi /etc/systemd/timesyncd.conf&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;NTP=ntp.nict.jp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再起動後有効になる&lt;/p&gt;
+
+&lt;p&gt;確認&lt;br /&gt;
+$ sudo systemctl -l status systemd-timesyncd.service&lt;/p&gt;
+
+&lt;h2 id=&#34;locate&#34;&gt;locate&lt;/h2&gt;
+
+&lt;p&gt;$ sudo apt install language-pack-ja&lt;/p&gt;
+
+&lt;p&gt;locale変更&lt;br /&gt;
+$ sudo localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE=&amp;ldquo;en_Us:en&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;ファイル名は日本語表示、メッセージは英語&lt;/p&gt;
+
+&lt;p&gt;locale確認&lt;br /&gt;
+$ localectl&lt;/p&gt;
+
+&lt;h2 id=&#34;vim&#34;&gt;vim&lt;/h2&gt;
+
+&lt;p&gt;sudo apt-get install software-properties-common
+sudo apt-get install python-dev python-pip python3-dev python3-pip&lt;/p&gt;
+
+&lt;p&gt;sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt update
+sudo apt install neovim&lt;/p&gt;
+
+&lt;h1 id=&#34;centos-7&#34;&gt;centos 7&lt;/h1&gt;
 
 &lt;p&gt;管理画面へログイン、OSをインストールする&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Centos 7 64bit&lt;/li&gt;
 &lt;li&gt;root パスワードを入力&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;初期設定リファレンス &lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206208181&#34;&gt;【さくらのVPS】サーバの初期設定ガイド – さくらのサポート情報&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;ユーザー追加&#34;&gt;ユーザー追加&lt;/h4&gt;
+&lt;h2 id=&#34;ユーザー追加&#34;&gt;ユーザー追加&lt;/h2&gt;
 
 &lt;p&gt;管理画面のコンソールでの作業&lt;/p&gt;
 
@@ -104,14 +207,14 @@ $ passwd user
 (enter password twice)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;ユーザーにsudo追加&#34;&gt;ユーザーにsudo追加&lt;/h4&gt;
+&lt;h2 id=&#34;ユーザーにsudo追加&#34;&gt;ユーザーにsudo追加&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;$ usermod -G wheel user
 $ visudo
 %wheel ALL=(ALL) ALL を有効に
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;sshログイン&#34;&gt;sshログイン&lt;/h4&gt;
+&lt;h2 id=&#34;sshログイン&#34;&gt;sshログイン&lt;/h2&gt;
 
 &lt;p&gt;ssh用の秘密鍵を生成しておく&lt;br /&gt;
 公開鍵をサーバーへコピー&lt;/p&gt;
@@ -143,7 +246,7 @@ $ rm -f id_rsa.pub
 &lt;pre&gt;&lt;code&gt;$ sudo systemctl restart sshd.service
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;firewalld設定&#34;&gt;firewalld設定&lt;/h4&gt;
+&lt;h2 id=&#34;firewalld設定&#34;&gt;firewalld設定&lt;/h2&gt;
 
 &lt;p&gt;デーモン確認&lt;/p&gt;
 
@@ -173,23 +276,23 @@ $ firewall-cmd --reload
 &lt;pre&gt;&lt;code&gt;journalctl -u sshd.service
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;centos-update&#34;&gt;centos update&lt;/h4&gt;
+&lt;h2 id=&#34;centos-update&#34;&gt;centos update&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo yum update
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h4&gt;
+&lt;h2 id=&#34;open-http-port-of-firewall&#34;&gt;open http port of firewall&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;$ sudo firewall-cmd --add-service=http --zone=public
 $ sudo firewall-cmd --add-service=https --zone=public
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;git&#34;&gt;git&lt;/h4&gt;
+&lt;h2 id=&#34;git&#34;&gt;git&lt;/h2&gt;
 
 &lt;p&gt;git was already installed&lt;br /&gt;
 so do config&lt;/p&gt;
 
-&lt;h4 id=&#34;nginx&#34;&gt;nginx&lt;/h4&gt;
+&lt;h2 id=&#34;nginx&#34;&gt;nginx&lt;/h2&gt;
 
 &lt;p&gt;repository登録&lt;br /&gt;
 $ vim /etc/yum.repos.d/nginx.repo&lt;/p&gt;
@@ -203,6 +306,27 @@ enabled=1
 
 &lt;p&gt;install&lt;br /&gt;
 $ sudo yum -y &amp;ndash;enablerepo=nginx install nginx&lt;/p&gt;
+
+&lt;h1 id=&#34;ネットワークが遅い&#34;&gt;ネットワークが遅い&lt;/h1&gt;
+
+&lt;p&gt;refference:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.sakura.ad.jp/hc/ja/articles/206073662&#34;&gt;さくらのVPSで回線速度が遅くアクセスに時間がかかります。 – さくらのサポート情報&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;$ sudo ethtool -k ens3 | grep tcp&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tcp-segmentation-offload: off
+        tx-tcp-segmentation: off
+        tx-tcp-ecn-segmentation: off
+        tx-tcp6-segmentation: off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再起動して確認する&lt;/p&gt;
+
+&lt;p&gt;試用期間はネットワークが制限される&lt;br /&gt;
+- &lt;a href=&#34;http://vps.sakura.ad.jp/flow/&#34;&gt;お申し込みのながれ｜VPS（仮想専用サーバー）はさくらインターネット&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

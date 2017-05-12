@@ -90,11 +90,19 @@ $ sudo /etc/init.d/td-agent status
 
 &lt;h4 id=&#34;source&#34;&gt;&amp;lt;source&amp;gt;&lt;/h4&gt;
 
-&lt;p&gt;ログの入力元を設定&lt;/p&gt;
+&lt;p&gt;ログの入力元を設定&lt;br /&gt;
+デフォルトだと&lt;/p&gt;
+
+&lt;p&gt;@type forward -&amp;gt; TPC:24424で待ち受ける
+@type http  HTTP:9880で待ち受ける&lt;/p&gt;
+
+&lt;p&gt;に対応&lt;/p&gt;
 
 &lt;h4 id=&#34;match&#34;&gt;&amp;lt;match&amp;gt;&lt;/h4&gt;
 
-&lt;p&gt;ログの出力先を設定&lt;/p&gt;
+&lt;p&gt;ログの出力先を設定&lt;br /&gt;
+sourceのtagで出力を分けられる&lt;br /&gt;
+かぶるパターンは先勝ちで、後は動作しない&lt;/p&gt;
 
 &lt;h4 id=&#34;include&#34;&gt;&amp;lt;include&amp;gt;&lt;/h4&gt;
 
@@ -161,6 +169,11 @@ $ docker run -it -p 24224:24224 -v /path/to/conf/test.conf:/fluentd/etc/test.con
 $ docker run &amp;ndash;log-driver=fluentd your/application&lt;/p&gt;
 
 &lt;p&gt;ログがfluentdコンテナを起動したコンソールで表示される&lt;/p&gt;
+
+&lt;h1 id=&#34;with-mongo&#34;&gt;with mongo&lt;/h1&gt;
+
+&lt;p&gt;use fluent-plugin-mongo&lt;br /&gt;
+see &lt;a href=&#34;https://hub.docker.com/r/fluent/fluentd/&#34;&gt;https://hub.docker.com/r/fluent/fluentd/&lt;/a&gt; Customize Dockerfile to install plugins (optional)&lt;/p&gt;
 </description>
     </item>
     

@@ -9,6 +9,42 @@
     <atom:link href="https://freks.jp/tips/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>awscli</title>
+      <link>https://freks.jp/tips/awscli/</link>
+      <pubDate>Thu, 11 May 2017 15:18:08 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/awscli/</guid>
+      <description>
+
+&lt;h2 id=&#34;初期設定&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;p&gt;AWS IAM Managerでアカウントを用意、Access keyを作成する&lt;br /&gt;
+作ったアカウントに権限を与える&lt;br /&gt;
+groupでAdministratorAccessを与えると全部できそう&lt;/p&gt;
+
+&lt;p&gt;$ aws configure&lt;/p&gt;
+
+&lt;h2 id=&#34;elbに登録されたssl証明書一覧を表示する&#34;&gt;ELBに登録されたSSL証明書一覧を表示する&lt;/h2&gt;
+
+&lt;p&gt;$ aws iam list-server-certificates&lt;/p&gt;
+
+&lt;h2 id=&#34;elbに登録されたssl証明書を削除する&#34;&gt;ELBに登録されたSSL証明書を削除する&lt;/h2&gt;
+
+&lt;p&gt;$ aws iam delete-server-certificate &amp;ndash;server-certificate-name (証明書の名前）&lt;/p&gt;
+
+&lt;h2 id=&#34;ssl証明書アップロード&#34;&gt;SSL証明書アップロード&lt;/h2&gt;
+
+&lt;p&gt;管理画面GUIからだとエラーになる&lt;/p&gt;
+
+&lt;p&gt;$ aws iam upload-server-certificate &amp;ndash;server-certificate-name your-certificate-name &amp;ndash;certificate-body file://Certificate.pem &amp;ndash;certificate-chain file://CertificateChain.pem &amp;ndash;private-key file://PrivateKey.pem&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_server-certs.html&#34;&gt;サーバー証明書の使用 - AWS Identity and Access Management&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;EC2 &amp;gt; ELBの設定で、アップロードしたSSL証明書を選べば反映させる&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>rsync</title>
       <link>https://freks.jp/tips/rsync/</link>
       <pubDate>Sat, 08 Apr 2017 13:39:07 +0900</pubDate>
@@ -19,6 +55,13 @@
 &lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
 
 &lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+
+&lt;p&gt;-r recursive&lt;br /&gt;
+-l copy symlinks&lt;br /&gt;
+-t preserve modification time&lt;br /&gt;
+-u skip file that are newer&lt;br /&gt;
+-v verbose&lt;br /&gt;
+-z compress&lt;/p&gt;
 </description>
     </item>
     

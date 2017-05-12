@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>freks tips</title>
+    <link>https://freks.jp/tips/tags/windows/index.xml</link>
+    <description>Recent content on freks tips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <atom:link href="https://freks.jp/tips/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>windows10</title>
+      <link>https://freks.jp/tips/windows10/</link>
+      <pubDate>Thu, 11 May 2017 16:33:15 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/windows10/</guid>
+      <description>
+
+&lt;h1 id=&#34;first&#34;&gt;first&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows Update&lt;/li&gt;
+&lt;li&gt;Dell Update (Dellの場合)&lt;/li&gt;
+&lt;li&gt;不要なアプリを削除&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;capslockにctrlを割り当てる&#34;&gt;CapsLockにCtrlを割り当てる&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://technet.microsoft.com/en-us/sysinternals/bb897578.aspx&#34;&gt;Ctrl2cap&lt;/a&gt;を使う&lt;/p&gt;
+
+&lt;p&gt;ダウンロードしてexeを実行する&lt;br /&gt;
+管理者権限が必要なので、コマンドプロンプトを右クリック、管理者権限で実行する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ctrl2cap.exe /install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;install-applications&#34;&gt;install applications&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google Chrome
+
+&lt;ul&gt;
+&lt;li&gt;synchronize in setting menu&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vivaldi
+
+&lt;ul&gt;
+&lt;li&gt;pin: toggl&lt;/li&gt;
+&lt;li&gt;pin: feedly&lt;/li&gt;
+&lt;li&gt;pin: trello&lt;/li&gt;
+&lt;li&gt;pin: paper&lt;/li&gt;
+&lt;li&gt;pin: google music&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Gyazo&lt;/li&gt;
+&lt;li&gt;kindle&lt;/li&gt;
+&lt;li&gt;Shift
+
+&lt;ul&gt;
+&lt;li&gt;two inbox&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Franz
+
+&lt;ul&gt;
+&lt;li&gt;other inboxes&lt;/li&gt;
+&lt;li&gt;TweetDeck&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Chatwork&lt;/li&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;li&gt;Messenger&lt;/li&gt;
+&lt;li&gt;BoW
+
+&lt;ul&gt;
+&lt;li&gt;ssh config&lt;/li&gt;
+&lt;li&gt;mosh&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;VS Code&lt;/li&gt;
+&lt;li&gt;Sublime Text&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;windows-store&#34;&gt;windows store&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;line&lt;/li&gt;
+&lt;li&gt;facebook&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;control-panel&#34;&gt;Control Panel&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;設定 &amp;gt;バージョン情報
+
+&lt;ul&gt;
+&lt;li&gt;PC名変更&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ディスプレイのカスタマイズ
+
+&lt;ul&gt;
+&lt;li&gt;テキスト、アプリ、その他の項目のサイズを変更する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;アップデートとセキュリティ &amp;gt; 開発者モード
+
+&lt;ul&gt;
+&lt;li&gt;開発者モードを有効にする(for BoW)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

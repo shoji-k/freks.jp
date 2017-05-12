@@ -6,8 +6,348 @@
     <description>Recent content on freks tips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 26 Apr 2017 18:44:47 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 11 May 2017 16:33:15 +0900</lastBuildDate>
     <atom:link href="https://freks.jp/tips/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>windows10</title>
+      <link>https://freks.jp/tips/windows10/</link>
+      <pubDate>Thu, 11 May 2017 16:33:15 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/windows10/</guid>
+      <description>
+
+&lt;h1 id=&#34;first&#34;&gt;first&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows Update&lt;/li&gt;
+&lt;li&gt;Dell Update (Dellの場合)&lt;/li&gt;
+&lt;li&gt;不要なアプリを削除&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;capslockにctrlを割り当てる&#34;&gt;CapsLockにCtrlを割り当てる&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://technet.microsoft.com/en-us/sysinternals/bb897578.aspx&#34;&gt;Ctrl2cap&lt;/a&gt;を使う&lt;/p&gt;
+
+&lt;p&gt;ダウンロードしてexeを実行する&lt;br /&gt;
+管理者権限が必要なので、コマンドプロンプトを右クリック、管理者権限で実行する&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt; ctrl2cap.exe /install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;install-applications&#34;&gt;install applications&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Google Chrome
+
+&lt;ul&gt;
+&lt;li&gt;synchronize in setting menu&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vivaldi
+
+&lt;ul&gt;
+&lt;li&gt;pin: toggl&lt;/li&gt;
+&lt;li&gt;pin: feedly&lt;/li&gt;
+&lt;li&gt;pin: trello&lt;/li&gt;
+&lt;li&gt;pin: paper&lt;/li&gt;
+&lt;li&gt;pin: google music&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Gyazo&lt;/li&gt;
+&lt;li&gt;kindle&lt;/li&gt;
+&lt;li&gt;Shift
+
+&lt;ul&gt;
+&lt;li&gt;two inbox&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Franz
+
+&lt;ul&gt;
+&lt;li&gt;other inboxes&lt;/li&gt;
+&lt;li&gt;TweetDeck&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Chatwork&lt;/li&gt;
+&lt;li&gt;Slack&lt;/li&gt;
+&lt;li&gt;Messenger&lt;/li&gt;
+&lt;li&gt;BoW
+
+&lt;ul&gt;
+&lt;li&gt;ssh config&lt;/li&gt;
+&lt;li&gt;mosh&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;VS Code&lt;/li&gt;
+&lt;li&gt;Sublime Text&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;windows-store&#34;&gt;windows store&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;line&lt;/li&gt;
+&lt;li&gt;facebook&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;control-panel&#34;&gt;Control Panel&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;設定 &amp;gt;バージョン情報
+
+&lt;ul&gt;
+&lt;li&gt;PC名変更&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ディスプレイのカスタマイズ
+
+&lt;ul&gt;
+&lt;li&gt;テキスト、アプリ、その他の項目のサイズを変更する&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;アップデートとセキュリティ &amp;gt; 開発者モード
+
+&lt;ul&gt;
+&lt;li&gt;開発者モードを有効にする(for BoW)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>awscli</title>
+      <link>https://freks.jp/tips/awscli/</link>
+      <pubDate>Thu, 11 May 2017 15:18:08 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/awscli/</guid>
+      <description>
+
+&lt;h2 id=&#34;初期設定&#34;&gt;初期設定&lt;/h2&gt;
+
+&lt;p&gt;AWS IAM Managerでアカウントを用意、Access keyを作成する&lt;br /&gt;
+作ったアカウントに権限を与える&lt;br /&gt;
+groupでAdministratorAccessを与えると全部できそう&lt;/p&gt;
+
+&lt;p&gt;$ aws configure&lt;/p&gt;
+
+&lt;h2 id=&#34;elbに登録されたssl証明書一覧を表示する&#34;&gt;ELBに登録されたSSL証明書一覧を表示する&lt;/h2&gt;
+
+&lt;p&gt;$ aws iam list-server-certificates&lt;/p&gt;
+
+&lt;h2 id=&#34;elbに登録されたssl証明書を削除する&#34;&gt;ELBに登録されたSSL証明書を削除する&lt;/h2&gt;
+
+&lt;p&gt;$ aws iam delete-server-certificate &amp;ndash;server-certificate-name (証明書の名前）&lt;/p&gt;
+
+&lt;h2 id=&#34;ssl証明書アップロード&#34;&gt;SSL証明書アップロード&lt;/h2&gt;
+
+&lt;p&gt;管理画面GUIからだとエラーになる&lt;/p&gt;
+
+&lt;p&gt;$ aws iam upload-server-certificate &amp;ndash;server-certificate-name your-certificate-name &amp;ndash;certificate-body file://Certificate.pem &amp;ndash;certificate-chain file://CertificateChain.pem &amp;ndash;private-key file://PrivateKey.pem&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_credentials_server-certs.html&#34;&gt;サーバー証明書の使用 - AWS Identity and Access Management&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;EC2 &amp;gt; ELBの設定で、アップロードしたSSL証明書を選べば反映させる&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>neovim</title>
+      <link>https://freks.jp/tips/neovim/</link>
+      <pubDate>Mon, 08 May 2017 09:49:39 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/neovim/</guid>
+      <description>
+
+&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim&#34;&gt;Installing Neovim&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;ubuntu-16-04-xenial&#34;&gt;ubuntu 16.04 xenial&lt;/h2&gt;
+
+&lt;p&gt;stable repository installs nvim 1.7.x on 2017-05-08&lt;br /&gt;
+use unstable repo to install 2.1.x&lt;/p&gt;
+
+&lt;h1 id=&#34;check&#34;&gt;check&lt;/h1&gt;
+
+&lt;p&gt;:CheckHealth show the status of neovim&lt;/p&gt;
+
+&lt;h2 id=&#34;clipboard&#34;&gt;clipboard&lt;/h2&gt;
+
+&lt;h3 id=&#34;local&#34;&gt;local&lt;/h3&gt;
+
+&lt;p&gt;need to install xclip or xsel&lt;br /&gt;
+$ sudo apt install xsel&lt;/p&gt;
+
+&lt;h3 id=&#34;over-ssh&#34;&gt;over ssh&lt;/h3&gt;
+
+&lt;p&gt;?&lt;/p&gt;
+
+&lt;h2 id=&#34;python2&#34;&gt;python2&lt;/h2&gt;
+
+&lt;p&gt;this was needed sudo&lt;br /&gt;
+$ sudo pip2 install &amp;ndash;upgrade neovim&lt;/p&gt;
+
+&lt;h2 id=&#34;python3&#34;&gt;python3&lt;/h2&gt;
+
+&lt;p&gt;$ pip3 install &amp;ndash;upgrade neovim&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>mongo</title>
+      <link>https://freks.jp/tips/mongo/</link>
+      <pubDate>Sun, 30 Apr 2017 22:39:20 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/mongo/</guid>
+      <description>
+
+&lt;p&gt;mongodbはschemeless&lt;/p&gt;
+
+&lt;h1 id=&#34;naming&#34;&gt;naming&lt;/h1&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;RDB&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;mongo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;table&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;collection&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;row&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;document&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;column&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;field&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;command&#34;&gt;command&lt;/h1&gt;
+
+&lt;p&gt;$ mongo&lt;br /&gt;
+$ mongo (database name) -u (user name) -p&lt;/p&gt;
+
+&lt;h1 id=&#34;command-in-mongo&#34;&gt;command in mongo&lt;/h1&gt;
+
+&lt;h2 id=&#34;show-databases&#34;&gt;show databases&lt;/h2&gt;
+
+&lt;p&gt;show dbs;&lt;/p&gt;
+
+&lt;h2 id=&#34;show-collections&#34;&gt;show collections&lt;/h2&gt;
+
+&lt;p&gt;use (database name);&lt;br /&gt;
+db.getCollectionNames();&lt;/p&gt;
+
+&lt;p&gt;field見るにはfindで&lt;/p&gt;
+
+&lt;h2 id=&#34;create-an-user&#34;&gt;create an user&lt;/h2&gt;
+
+&lt;p&gt;db.createUser({user: &amp;ldquo;user&amp;rdquo;, pwd: &amp;ldquo;password&amp;rdquo;, roles:[{ &amp;ldquo;role&amp;rdquo;: &amp;ldquo;userAdminAnyDatabase&amp;rdquo;, &amp;ldquo;db&amp;rdquo;: &amp;ldquo;admin&amp;rdquo;}]});&lt;/p&gt;
+
+&lt;h2 id=&#34;show-users&#34;&gt;show users&lt;/h2&gt;
+
+&lt;p&gt;use admin;&lt;br /&gt;
+db.system.users.find();&lt;/p&gt;
+
+&lt;h2 id=&#34;insert-data&#34;&gt;insert data&lt;/h2&gt;
+
+&lt;p&gt;schemelessのためcollectionをcreateとかしなくていい&lt;/p&gt;
+
+&lt;p&gt;collection aaa に insert&lt;br /&gt;
+db.aaa.insert({name: &amp;lsquo;hey&amp;rsquo;, gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h2 id=&#34;find-data&#34;&gt;find data&lt;/h2&gt;
+
+&lt;p&gt;db.aaa.find();&lt;br /&gt;
+db.aaa.find({gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h2 id=&#34;remove-data&#34;&gt;remove data&lt;/h2&gt;
+
+&lt;p&gt;db.aaa.find({gender: &amp;rsquo;m&amp;rsquo;});&lt;/p&gt;
+
+&lt;h1 id=&#34;docker&#34;&gt;docker&lt;/h1&gt;
+
+&lt;p&gt;image: &lt;a href=&#34;https://hub.docker.com/_/mongo/&#34;&gt;mongo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;docker-compose&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: &#39;2&#39;
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+    - &amp;quot;27017:27017&amp;quot;
+    volumes:
+    - ./mongo/data:/data/db
+    - ./mongo/init/:/docker-entrypoint-initdb.d/
+    environment:
+    - MONGO_INITDB_DATABASE=fluentd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;MONGO_INITDB_DATABASE is the database where initial script creates users.&lt;br /&gt;
+(see /docker-entry.point in the container)&lt;/p&gt;
+
+&lt;p&gt;data is preserved in ./mongo/data&lt;/p&gt;
+
+&lt;p&gt;initialize script is in ./mongo/init&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var newUsers = [
+  {
+		user: &#39;logger&#39;,
+		pwd: &#39;password&#39;,
+		roles: [
+			{
+				role: &#39;readWrite&#39;,
+				db: &#39;fluentd&#39;
+			}
+		]
+	}
+];
+
+var currentUsers = db.getUsers();
+if (currentUsers.length === newUsers.length) {
+	quit();
+}
+db.dropAllUsers();
+
+for (var i = 0, length = newUsers.length; i &amp;lt; length; ++i) {
+	db.createUser(newUsers[i]);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;refference: &lt;a href=&#34;http://qiita.com/janus_wel/items/daf19943837e2562cc9f&#34;&gt;fluentd + MongoDB でログサーバー構築 - Qiita&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>IT events</title>
+      <link>https://freks.jp/tips/it-events/</link>
+      <pubDate>Fri, 28 Apr 2017 17:16:30 +0900</pubDate>
+      
+      <guid>https://freks.jp/tips/it-events/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.doorkeeper.jp/events/&#34;&gt;doorkeeper 近日開催イベント&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://connpass.com/upcoming_events/&#34;&gt;connpass 直前イベント&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Twitter&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_hokkaido&#34;&gt;IT勉強会@北海道&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_tohoku&#34;&gt;IT勉強会@東北&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kanto&#34;&gt;IT勉強会@関東&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_chubu&#34;&gt;IT勉強会@中部&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kinki&#34;&gt;IT勉強会@近畿&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_chugoku&#34;&gt;IT勉強会@中国&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_shikoku&#34;&gt;IT勉強会@四国&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/atnd_kyushu&#34;&gt;IT勉強会@九州&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>syslog</title>
@@ -189,6 +529,13 @@ $one = Config::get(&#39;original.one&#39;);
 &lt;h1 id=&#34;backup-remote-files&#34;&gt;backup remote files&lt;/h1&gt;
 
 &lt;p&gt;$ rsync &amp;ndash;exclude=&amp;ldquo;/src/app/cache&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.git&amp;rdquo; &amp;ndash;exclude=&amp;ldquo;.gitignore&amp;rdquo; -rltuvz sample:/var/www/html ./&lt;/p&gt;
+
+&lt;p&gt;-r recursive&lt;br /&gt;
+-l copy symlinks&lt;br /&gt;
+-t preserve modification time&lt;br /&gt;
+-u skip file that are newer&lt;br /&gt;
+-v verbose&lt;br /&gt;
+-z compress&lt;/p&gt;
 </description>
     </item>
     
@@ -475,317 +822,6 @@ INFO[0000] Saved ECS CLI configuration for cluster (ecs-cli-demo)
 
 &lt;p&gt;keypairは指定したリージョン内のEC2のキーペアを指定する&lt;br /&gt;
 権限がいくつか必要、IAM:USER:ROLEとECS&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>amazon ecr</title>
-      <link>https://freks.jp/tips/amazon-ecr/</link>
-      <pubDate>Wed, 08 Mar 2017 15:00:14 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/amazon-ecr/</guid>
-      <description>
-
-&lt;h1 id=&#34;for-the-first-time&#34;&gt;for the first time&lt;/h1&gt;
-
-&lt;p&gt;see &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/firstRun&#34;&gt;Amazon EC2 Container Service First Run&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;install-aws-client&#34;&gt;install aws client&lt;/h1&gt;
-
-&lt;p&gt;curl &amp;ldquo;&lt;a href=&#34;https://bootstrap.pypa.io/get-pip.py&amp;quot;&#34;&gt;https://bootstrap.pypa.io/get-pip.py&amp;quot;&lt;/a&gt; -o &amp;ldquo;get-pip.py&amp;rdquo;&lt;br /&gt;
-sudo python get-pip.py&lt;br /&gt;
-rm get-pip.py&lt;br /&gt;
-sudo pip install awscli&lt;/p&gt;
-
-&lt;h2 id=&#34;configure-aws-client&#34;&gt;configure aws client&lt;/h2&gt;
-
-&lt;h3 id=&#34;prepare-aws-key&#34;&gt;prepare aws key&lt;/h3&gt;
-
-&lt;p&gt;create IAM role and prepare access key and secret key&lt;/p&gt;
-
-&lt;h3 id=&#34;set-keys-to-awsclient&#34;&gt;set keys to awsclient&lt;/h3&gt;
-
-&lt;p&gt;$ aws configure&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;AWS Access Key ID [None]: xxxxxxxxxxxxxxxxxxxx
-AWS Secret Access Key [None]: ........................................
-Default region name [None]: us-east-1
-Default output format [None]:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;create-ecr&#34;&gt;create ecr&lt;/h1&gt;
-
-&lt;p&gt;region: us-east-1&lt;/p&gt;
-
-&lt;p&gt;access &lt;a href=&#34;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&#34;&gt;https://console.aws.amazon.com/ecs/home?region=us-east-1#/repositories&lt;/a&gt;&lt;br /&gt;
-and create a repository&lt;/p&gt;
-
-&lt;h1 id=&#34;push-a-docker-image&#34;&gt;push a docker image&lt;/h1&gt;
-
-&lt;h2 id=&#34;connect-local-to-aws&#34;&gt;connect local to aws&lt;/h2&gt;
-
-&lt;p&gt;retrieve a docker login command&lt;br /&gt;
-$ aws ecr get-login &amp;ndash;region us-east-1&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker login -u AWS -p xxxxxx -e none https://xxxxxxx.dkr.ecr.us-east-1.amazonaws.com
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;run the docker login above&lt;/p&gt;
-
-&lt;h2 id=&#34;prepare-docker-image&#34;&gt;prepare docker image&lt;/h2&gt;
-
-&lt;h1 id=&#34;docker-build-t-sample&#34;&gt;docker build -t sample .&lt;/h1&gt;
-
-&lt;h2 id=&#34;tag-a-docker-image&#34;&gt;tag a docker image&lt;/h2&gt;
-
-&lt;p&gt;make tag name same as ecr name&lt;br /&gt;
-e.g. xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository&lt;/p&gt;
-
-&lt;p&gt;docker tag sample xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
-
-&lt;h2 id=&#34;upload-images&#34;&gt;upload images&lt;/h2&gt;
-
-&lt;p&gt;docker push xxxxxxx.dkr.ecr.us-east-1.amazonaws.com/freks-repository:image-tag-sample&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>minecraft</title>
-      <link>https://freks.jp/tips/minecraft/</link>
-      <pubDate>Mon, 06 Mar 2017 23:31:30 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/minecraft/</guid>
-      <description>
-
-&lt;h1 id=&#34;build-minecraft-server&#34;&gt;build minecraft server&lt;/h1&gt;
-
-&lt;h2 id=&#34;try-on-ubuntu-14-04&#34;&gt;try on Ubuntu 14.04&lt;/h2&gt;
-
-&lt;h3 id=&#34;install-java&#34;&gt;install java&lt;/h3&gt;
-
-&lt;p&gt;$ sudo add-apt-repository ppa:webupd8team/java&lt;br /&gt;
-$ sudo apt-get update&lt;br /&gt;
-$ sudo apt-get install oracle-java8-installer&lt;/p&gt;
-
-&lt;p&gt;confirm&lt;br /&gt;
-$ java -version&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;java version &amp;quot;1.8.0_121&amp;quot;
-Java(TM) SE Runtime Environment (build 1.8.0_121-b13)
-Java HotSpot(TM) 64-Bit Server VM (build 25.121-b13, mixed mode)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;install-mincraft&#34;&gt;install mincraft&lt;/h3&gt;
-
-&lt;p&gt;download mincraft.jar from &lt;a href=&#34;https://minecraft.net/ja-jp/download/server&#34;&gt;https://minecraft.net/ja-jp/download/server&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;$ java -Xmx1024M -Xms1024M -jar minecraft_server.1.11.2.jar nogui&lt;/p&gt;
-
-&lt;p&gt;boot once and eula confirmation error&lt;br /&gt;
-change false to true on eula.txt&lt;br /&gt;
-then reboot&lt;/p&gt;
-
-&lt;h3 id=&#34;connect-from-local&#34;&gt;connect from local&lt;/h3&gt;
-
-&lt;p&gt;boot mincraft of same version&lt;br /&gt;
-and connect with multiuser&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>docker machine</title>
-      <link>https://freks.jp/tips/docker-machine/</link>
-      <pubDate>Wed, 22 Feb 2017 12:01:25 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/docker-machine/</guid>
-      <description>
-
-&lt;h1 id=&#34;install&#34;&gt;install&lt;/h1&gt;
-
-&lt;p&gt;see &lt;a href=&#34;https://docs.docker.com/machine/install-machine/&#34;&gt;Install Docker Machine - Docker&lt;/a&gt;&lt;/p&gt;
-
-&lt;h1 id=&#34;commands&#34;&gt;commands&lt;/h1&gt;
-
-&lt;p&gt;managerのホスト名のvirtual machineを用意&lt;br /&gt;
-$ docker-machine create &amp;ndash;driver virtualbox manager&lt;/p&gt;
-
-&lt;p&gt;virtual machine一覧&lt;br /&gt;
-active * はシェルがつながっているもの&lt;/p&gt;
-
-&lt;p&gt;$ docker-machine ls&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;NAME      ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER    ERRORS
-manager   *        virtualbox   Running   tcp://192.168.99.100:2376           v1.13.1   
-worker    -        virtualbox   Running   tcp://192.168.99.101:2376           v1.13.1  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;IPを表示&lt;br /&gt;
-$ docker-machine ip manager&lt;/p&gt;
-
-&lt;p&gt;環境変数を表示&lt;br /&gt;
-$ docker-machine env manager&lt;/p&gt;
-
-&lt;p&gt;手元のシェルとvirutal machineのシェルをつなぐ&lt;br /&gt;
-$ eval $(docker-machine env manager)&lt;/p&gt;
-
-&lt;p&gt;managerへsshログイン&lt;br /&gt;
-$ docker-machine ssh manager&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;                        ##         .
-                  ## ## ##        ==
-               ## ## ## ## ##    ===
-           /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;\___/ ===
-      ~~~ {~~ ~~~~ ~~~ ~~~~ ~~~ ~ /  ===- ~~~
-           \______ o           __/
-             \    \         __/
-              \____\_______/
- _                 _   ____     _            _
-| |__   ___   ___ | |_|___ \ __| | ___   ___| | _____ _ __
-| &#39;_ \ / _ \ / _ \| __| __) / _` |/ _ \ / __| |/ / _ \ &#39;__|
-| |_) | (_) | (_) | |_ / __/ (_| | (_) | (__|   &amp;lt;  __/ |
-|_.__/ \___/ \___/ \__|_____\__,_|\___/ \___|_|\_\___|_|
-Boot2Docker version 1.13.1, build HEAD : b7f6033 - Wed Feb  8 20:31:48 UTC 2017
-Docker version 1.13.1, build 092cba3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;initialize swarm&lt;br /&gt;
-docker@manager:~$ docker swarm init &amp;ndash;advertise-addr 192.168.99.100&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Swarm initialized: current node (vr7gm59os0kbgeou8oickuv3y) is now a manager.
-
-To add a worker to this swarm, run the following command:
-
-    docker swarm join \
-    --token SWMTKN-1-69gbc5d50la1ta5mtk67lrno5phgoqq4ebaztnf4h91dj6era3-71p3dn14eu6zhumv0p254r3xy \
-    192.168.99.100:2377
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;workerにsshログイン、swarn init後のコマンドを実行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;docker@worker:~$  docker swarm join \
-&amp;gt;     --token SWMTKN-1-69gbc5d50la1ta5mtk67lrno5phgoqq4ebaztnf4h91dj6era3-71p3dn14eu6zhumv0p254r3xy \
-&amp;gt;     192.168.99.100:2377
-This node joined a swarm as a worker.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;nodeを表示&lt;/p&gt;
-
-&lt;p&gt;docker@manager:~$ docker node ls&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ID                           HOSTNAME  STATUS  AVAILABILITY  MANAGER STATUS
-vr7gm59os0kbgeou8oickuv3y *  manager   Ready   Active        Leader
-y2y9i98fd78f5qzvi3o5kuj18    worker    Ready   Active  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;prepare docker-stack.yml and deploy&lt;/p&gt;
-
-&lt;p&gt;docker@manager:~$ docker stack deploy &amp;ndash;compose-file docker-stack.yml vote&lt;/p&gt;
-
-&lt;p&gt;確認する&lt;br /&gt;
-docker@manager:~$ docker stack services vote&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>optipng</title>
-      <link>https://freks.jp/tips/optipng/</link>
-      <pubDate>Sat, 18 Feb 2017 14:33:16 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/optipng/</guid>
-      <description>
-
-&lt;p&gt;optimize png file&lt;/p&gt;
-
-&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
-
-&lt;h3 id=&#34;centos7&#34;&gt;centos7&lt;/h3&gt;
-
-&lt;p&gt;$ sudo yum install optipng&lt;/p&gt;
-
-&lt;h2 id=&#34;how-to-use&#34;&gt;how to use&lt;/h2&gt;
-
-&lt;p&gt;$ optipng -o7 sample.png&lt;/p&gt;
-
-&lt;p&gt;with backup&lt;/p&gt;
-
-&lt;p&gt;$ optipng -o7 -keep sample.png&lt;/p&gt;
-
-&lt;p&gt;then create sample.png.bak too&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>letsencrypt</title>
-      <link>https://freks.jp/tips/letsencrypt/</link>
-      <pubDate>Tue, 14 Feb 2017 11:19:01 +0900</pubDate>
-      
-      <guid>https://freks.jp/tips/letsencrypt/</guid>
-      <description>
-
-&lt;h1 id=&#34;centos7-nginx&#34;&gt;centos7 + nginx&lt;/h1&gt;
-
-&lt;h2 id=&#34;prerequirement&#34;&gt;prerequirement&lt;/h2&gt;
-
-&lt;p&gt;boot nginx&lt;/p&gt;
-
-&lt;h2 id=&#34;install&#34;&gt;install&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;$ sudo yum install certbot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;prepare-nginx-configure&#34;&gt;prepare nginx configure&lt;/h2&gt;
-
-&lt;p&gt;open for well-known&lt;br /&gt;
-It is accecced by certbot&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;server{
-  location ^~ /.well-known/ {
-    access_log           off;
-    log_not_found        off;
-    root                 /usr/share/nginx/html;
-    autoindex            off;
-    index                index.html;
-    try_files            $uri $uri/ =404;
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;get-certification&#34;&gt;get certification&lt;/h2&gt;
-
-&lt;p&gt;some certifications are prepared to /etc/letsencrypt/live/sample.com/&lt;br /&gt;
-$ sudo certbot certonly &amp;ndash;webroot -w /usr/share/nginx/html -d sample.com&lt;/p&gt;
-
-&lt;p&gt;prepare dhparam.pem&lt;br /&gt;
-$ sudo openssl dhparam -out /etc/ssl/dhparam.pem 2048&lt;/p&gt;
-
-&lt;h2 id=&#34;nginx-configuration&#34;&gt;nginx configuration&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;server {
-  listen ssl 443;
-  server_name sample.com;
-
-  ssl_certificate /etc/letsencrypt/live/sample.com/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/sample.com/privkey.pem;
-
-  ssl_session_cache   shared:SSL:3m;
-  ssl_buffer_size     8k;
-  ssl_session_timeout 10m;
-
-  ssl_dhparam /etc/ssl/dhparam.pem;
-
-  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-  ssl_ciphers &#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-
-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-R
-SA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:ECDHE-RSA-DES-CBC3-SHA:ECDHE-ECDSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA2
-56:AES128-SHA:AES256-SHA:AES:CAMELLIA:DES-CBC3-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!aECDH:!EDH-DSS-DES-CBC3-SHA:!EDH-RSA-DES-CBC3-SHA:!KRB5-DES-CBC3-SHA&#39;;
-  ssl_prefer_server_ciphers on;
-
-  # HTTPS のみでサービスを提供する場合にだけ設定
-  add_header Strict-Transport-Security max-age=15768000;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;$ sudo systemctl reload nginx.service&lt;/p&gt;
 </description>
     </item>
     
