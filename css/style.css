@@ -29,7 +29,7 @@ html {
   min-height: 100%; }
 
 body {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'sans-serif';
   min-height: 100%; }
 
 .stickey-footer {
@@ -73,7 +73,7 @@ body {
   font-weight: 700;
   font-size: 3em; }
 
-.header .intro-text .knowledge {
+.header .intro-text .occupation {
   font-size: 1.25em;
   font-weight: 300; }
 
@@ -92,6 +92,23 @@ body {
 
 @media (min-width: 992px) {
   .knowledge h2 {
+    font-size: 3em; } }
+
+.products {
+  color: white;
+  background-color: #9ddcff; }
+
+.products .container {
+  padding-top: 80px;
+  padding-bottom: 100px; }
+
+.products h2 {
+  font-weight: 700;
+  font-size: 2em;
+  padding: .8em 0; }
+
+@media (min-width: 992px) {
+  .products h2 {
     font-size: 3em; } }
 
 .about .container {
@@ -160,7 +177,6 @@ body {
   vertical-align: middle;
   vertical-align: baseline;
   opacity: 0;
-  -webkit-transition: top 0.3s ease,opacity 0.3s ease;
   transition: top 0.3s ease,opacity 0.3s ease; }
 
 .floating-label-form-group:not(:first-child) {
@@ -263,7 +279,6 @@ fieldset[disabled] .btn-success.active {
     vertical-align: middle;
     vertical-align: baseline;
     opacity: 0;
-    -webkit-transition: top 0.3s ease,opacity 0.3s ease;
     transition: top 0.3s ease,opacity 0.3s ease; }
   .floating-label-form-group:not(:first-child) {
     padding-left: 14px;
@@ -292,19 +307,15 @@ form .row:first-child .floating-label-form-group {
 
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 @keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
+    transform: rotate(0deg); }
   100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg); } }
+    transform: rotate(360deg); } }
 
 .app-list {
   margin-top: 100px;
@@ -322,5 +333,4 @@ form .row:first-child .floating-label-form-group {
 .app a:hover {
   color: #fff;
   text-decoration: none;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1); }
+  transform: scale(1.1); }
