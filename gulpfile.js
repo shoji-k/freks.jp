@@ -19,26 +19,26 @@ gulp.task("sass", function () {
 //   gulp.watch('./js/*.js', ['concat-js']);
 // });
 
-// gulp.task('minify-css', gulp.task('sass'), function() {
-//   return gulp.src(['css/style.css'])
-//     .pipe(cleanCSS({ compatibility: '*' }))
-//     .pipe(rename({ suffix: '.min' }))
-//     .pipe(gulp.dest('css'));
-// });
+gulp.task('minify-css', function() {
+  return gulp.src(['css/style.css'])
+    .pipe(cleanCSS({ compatibility: '*' }))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('css'));
+});
 
-// gulp.task('concat-js', function() {
-//   return gulp.src(['js/main.js','js/contact.js'])
-//     .pipe(concat('script.js'))
-//     .pipe(gulp.dest('js'));
-// });
-//
-// gulp.task('minify-js', ['concat-js'], function() {
-//   return gulp.src('js/script.js')
-//     .pipe(uglify())
-//     .pipe(rename({ suffix: '.min' }))
-//     .pipe(gulp.dest('js'));
-// });
-//
+gulp.task('concat-js', function() {
+  return gulp.src(['js/main.js','js/contact.js'])
+    .pipe(concat('script.js'))
+    .pipe(gulp.dest('js'));
+});
+
+gulp.task('minify-js', function() {
+  return gulp.src('js/script.js')
+    .pipe(uglify())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(gulp.dest('js'));
+});
+
 // gulp.task('copy', function() {
 //   gulp.src([
 //     'node_modules/bootstrap/dist/js/bootstrap.min.js',
