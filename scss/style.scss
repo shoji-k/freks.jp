@@ -103,6 +103,25 @@ body {
   }
 }
 
+.products {
+  color: white;
+  background-color: #9ddcff;
+}
+.products .container {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+.products h2 {
+  font-weight: 700;
+  font-size: 2em;
+  padding: .8em 0;
+}
+@media (min-width: $lgwidth) {
+  .products h2 {
+    font-size: 3em;
+  }
+}
+
 .about .container {
   padding-top: 80px;
   padding-bottom: 100px;
