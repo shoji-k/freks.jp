@@ -1,15 +1,17 @@
-## need to do
+## need to release
 
-js
-
-```
-npx gulp sass
-npx gulp minify-css
+```sh
+npx gulp
 ```
 
-css
+## develop
 
+```sh
+npx watch
 ```
-npx gulp concat-js
-npx gulp minify-js
+
+Run web server whatever.
+
+```sh
+ruby -run -e httpd . -p 8000
 ```
