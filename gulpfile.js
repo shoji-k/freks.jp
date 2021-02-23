@@ -1,4 +1,4 @@
-const { src, dest, series, parallel } = require("gulp");
+const { src, dest, series, parallel, watch } = require("gulp");
 const sass = require("gulp-sass");
 const autoprefixer = require("gulp-autoprefixer");
 const cleanCSS = require("gulp-clean-css");
@@ -28,11 +28,6 @@ function minifyJs() {
     .pipe(dest('js'));
 }
 
-// gulp.task("watch", function() {
-//   gulp.watch('./scss/*.scss', ['sass']);
-//   gulp.watch('./js/*.js', ['concat-js']);
-// });
-
 // gulp.task('compress-js', function() {
 //   return gulp.src('js/script.min.js')
 //     .pipe(gzip())
@@ -44,4 +39,9 @@ function minifyJs() {
 //     .pipe(gulp.dest('css'));
 // });
 
+exports.build = parallel(series(compileCss, minifyCss), minifyJs);
+exports.watch = function() {
+  watch('scss/*.scss', series(compileCss, minifyCss));
+  watch('js/script.js', minifyJs);
+}
 exports.default = parallel(series(compileCss, minifyCss), minifyJs);
