@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel="manifest" href="manifest.json">
+<title>push notification</title>
+</head>
+
+<body>
+
+<h1>push sample</h1>
+<div id="permission_box" style="display: none;">
+  <button onclick="requestPermission()">request permission</button>
+</div>
+<div id="delete_box" style="display: none;">
+  <button onclick="deleteToken()">delete token</button>
+</div>
+<div id="push_box" style="display: block;">
+  <button onclick="push()">push</button>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-messaging.js"></script>
+<script src="./init.js"></script>
+<script>
+// init.js includes messaging
+if (messaging) {
+//  messaging.usePublicVapidKey(appKey);
+  const permissionBoxId = 'permission_box';
+  const deleteBoxId = 'delete_box';
+
+  var serviceWorker = navigator.serviceWorker;
+  serviceWorker.register('serviceworker.js').then(function() {
+    return serviceWorker.ready;
+  }).then(function(regist) {
+    messaging.useServiceWorker(regist);
+
+    requestPermission();
+
+    messaging.onTokenRefresh(function() {
+      messaging.getToken().then(function(refreshedToken) {
+        console.log('refreshed:', refreshedToken);
+
+        setTokenSentToServer(false);
+        sendTokenToServer(refreshedToken);
+        resetUI();
+
+      }).catch(function(err) {
+          console.log('Unable to get permission to notify.', err);
+      });
+    });
+
+    messaging.onMessage(function(payload) {
+      console.log('Message received. ', payload);
+    });
+  });
+
+  function resetUI() {
+    messaging.getToken().then(function(currentToken) {
+
+      console.log('token: ', currentToken);
+
+      if (currentToken) {
+        sendTokenToServer(currentToken);
+        showDeleteTokenButton();
+      } else {
+        // Show permission request.
+        console.log('No Instance ID token available. Request permission to generate one.');
+        // Show permission UI.
+        showRequestTokenButton();
+        setTokenSentToServer(false);
+      }
+    }).catch(function(err) {
+      console.log('An error occurred while retrieving token. ', err);
+      setTokenSentToServer(false);
+    });
+  }
+
+  function sendTokenToServer(currentToken) {
+    if (!isTokenSentToServer()) {
+      console.log('Sending token to server...');
+
+      // TODO: send token to server
+
+      setTokenSentToServer(true);
+    } else {
+      console.log('Token already sent to server so won\'t send it again ' +
+        'unless it changes');
+    }
+  }
+
+  function isTokenSentToServer() {
+    return window.localStorage.getItem('sentToServer') === '1';
+  }
+
+  function setTokenSentToServer(sent) {
+    window.localStorage.setItem('sentToServer', sent ? '1' : '0');
+  }
+
+  function requestPermission() {
+    messaging.requestPermission().then(function() {
+      console.log('Notification permission granted.');
+      return messaging.getToken();
+    }).then(function(token) {
+      sendTokenToServer(token);
+      console.log(token);
+      resetUI();
+    }).catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+  }
+
+  function deleteToken() {
+    messaging.getToken().then(function(currentToken) {
+      messaging.deleteToken(currentToken).then(function() {
+        console.log('Token deleted.');
+        setTokenSentToServer(false);
+        // resetUI();
+        showRequestTokenButton();
+
+      }).catch(function(err) {
+        console.log('Unable to delete token. ', err);
+      });
+    }).catch(function(err) {
+      console.log('Error retrieving Instance ID token. ', err);
+    });
+  }
+
+  /* DOM handling */
+  function showHideDiv(divId, show) {
+    const div = document.querySelector('#' + divId);
+    if (show) {
+      div.style = 'display: visible';
+    } else {
+      div.style = 'display: none';
+    }
+  }
+
+  function showRequestTokenButton() {
+    showHideDiv(permissionBoxId, true);
+    showHideDiv(deleteBoxId, false);
+  }
+
+  function showDeleteTokenButton() {
+    showHideDiv(permissionBoxId, false);
+    showHideDiv(deleteBoxId, true);
+  }
+
+  // resetUI();
+
+  function push() {
+    navigator.serviceWorker.ready.then(function(sw) {
+      return sw.showNotification("プッシュ通知だよ", {
+        body: "通知メッセージ👐",
+        icon: "./firebase-logo.png",
+        tag: "tag"
+      });
+    });
+  }
+}
+</script>
+
+</body>
+</html>
