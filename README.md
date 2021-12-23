@@ -28,4 +28,5 @@ rsync -C -rltuvz ./css dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./tips dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./img dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./apps dev:/usr/share/nginx/freks.jp/
+rsync -C -rltuvz ./js dev:/usr/share/nginx/freks.jp/
 ```
