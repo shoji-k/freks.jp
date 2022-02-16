@@ -1,2 +1,3 @@
 User-Agent:*
 Disallow: /apps/push/
+Sitemap: https://freks.jp/sitemap.xml
