@@ -20,6 +20,7 @@ ruby -run -e httpd . -p 8000
 
 ```bash
 rsync -C -rltuvz ./index.html dev:/usr/share/nginx/freks.jp/
+rsync -C -rltuvz ./sitemap.xml dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./404.html dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./50x.html dev:/usr/share/nginx/freks.jp/
 rsync -C -rltuvz ./favicon.ico dev:/usr/share/nginx/freks.jp/
