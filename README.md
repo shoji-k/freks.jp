@@ -1,14 +1,6 @@
-## need to release
-
-```sh
-npx gulp
-```
+# freks.jp
 
 ## develop
-
-```sh
-npx watch
-```
 
 Run web server whatever.
 
