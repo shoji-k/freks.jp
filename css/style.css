@@ -1,4 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @-webkit-keyframes bg-color {
   0% {
     background-color: #64c99b;
@@ -51,9 +50,6 @@ body {
     font-size: 2em;
     padding-top: 0.1em;
     padding-bottom: 0;
-  }
-  .navbar-nav .nav-item .menu {
-    padding: 1rem;
   }
 }
 
@@ -156,10 +152,6 @@ body {
   }
 }
 
-.about {
-  text-align: center;
-}
-
 .about .container {
   padding-top: 80px;
   padding-bottom: 100px;
@@ -209,9 +201,6 @@ body {
 @media (max-width: 767px) {
   #contact {
     padding: 75px 0;
-  }
-  #contact.first {
-    padding-top: 75px;
   }
 }
 

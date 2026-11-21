@@ -10,16 +10,20 @@ ruby -run -e httpd . -p 8000
 
 ## deploy
 
-```bash
-rsync -C -rltuvz ./index.html dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./sitemap.xml dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./404.html dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./50x.html dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./favicon.ico dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./robots.txt dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./css dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./tips dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./img dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./apps dev:/usr/share/nginx/freks.jp/
-rsync -C -rltuvz ./js dev:/usr/share/nginx/freks.jp/
+### first-time setup
+
+Create the document root on the server and give it to `ubuntu`, so that rsync can write to it without sudo.
+
+```sh
+ssh ubuntu@sv 'sudo mkdir -p /usr/share/nginx/freks.jp && sudo chown ubuntu:ubuntu /usr/share/nginx/freks.jp'
 ```
+
+### run
+
+```sh
+./deploy.sh
+```
+
+`deploy.sh` copies only the files needed to serve the site to `ubuntu@sv:/usr/share/nginx/freks.jp/`. It does not use `--delete`, because some pages under `/apps/` live only on the server.
+
+Files removed from this repository are not removed from the server. Delete them on the server manually.

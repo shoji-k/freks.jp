@@ -2,15 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://freks.jp/</loc>
-    <lastmod>2022-02-16</lastmod>
+    <lastmod>2026-02-25</lastmod>
   </url>
   <url>
     <loc>https://freks.jp/tips/</loc>
     <lastmod>2022-02-16</lastmod>
   </url>
   <url>
-    <loc>https://freks.jp/app/</loc>
-    <lastmod>2022-02-16</lastmod>
+    <loc>https://freks.jp/apps/</loc>
+    <lastmod>2026-02-25</lastmod>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/showtime/</loc>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/kyoto_temp/</loc>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/map.html</loc>
+    <lastmod>2016-11-11</lastmod>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/diff/</loc>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/zodiac/</loc>
+  </url>
+  <url>
+    <loc>https://freks.jp/apps/buzz/</loc>
   </url>
   <url>
     <loc>https://freks.jp/app/dice</loc>

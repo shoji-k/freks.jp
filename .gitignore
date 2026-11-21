@@ -1,4 +1,3 @@
-deploy.sh
 /vaddy*.html
 /tips/*
 !/tips/.gitkeep
